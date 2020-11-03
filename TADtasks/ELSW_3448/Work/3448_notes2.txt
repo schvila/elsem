@@ -1,0 +1,80 @@
+e:\sb\tad_6.5.x_build\tad\tad\auxtadgroupbase\tadtestresultsimpl.cpp(348) : atlTraceGeneral - TAD Output logging: [1. Application version]:	Application version = 0.2.5
+e:\sb\tad_6.5.x_build\tad\tad\auxtadgroupbase\tadtestresultsimpl.cpp(348) : atlTraceGeneral - TAD Output logging: [2. Firmware version]:	FirmwareVersion version = 0.2.5
+e:\sb\tad_6.5.x_build\tad\tad\auxtadgroupbase\tadtestresultsimpl.cpp(348) : atlTraceGeneral - TAD Output logging: [3. Test HiVac]:	Pumped to HiVac
+e:\sb\tad_6.5.x_build\tad\tad\auxtadgroupbase\tadtestresultsimpl.cpp(348) : atlTraceGeneral - TAD Output logging: [4. Switch ON]:	Oscilator is ON original state: 0
+e:\sb\tad_6.5.x_build\tad\tad\auxtadgroupbase\tadtestresultsimpl.cpp(348) : atlTraceGeneral - TAD Output logging: [Connecting to SCUs]:	boost::bad_format_string: format-string is ill-formed
+
+
+Tst DESU range of quantities
+https://thermofisher-asg.atlassian.net/browse/ELSW-3487
+
+Popis
+1. TST
+    add there possibility of using of control comands that we use in e-spy
+    add there LoVac HiVac states (signalization) + their voltages
+    add there a buttont for reading the FW version
+
+
+ELSW-3448 MPPC ETD - TAD
+
+Check based on TAD reading of:
+MOFE_0_CtrlCheck
+if (abs(MOFE_0_CtrlCheck-MOFE_0_Bias)/MOFE_0_Bias) < 0.1:
+	print('Bias check passed')
+else:
+	print('Bias check failed')
+
+
+MOFE_0_1w_Name	MppcEtd
+MOFE_0_1w_SpecLink	MPPC_ETD_0
+AppName	NewInfraDetectors
+
+Version3_8	BaseODVersion: 1	10	0
+Version3_8	AppVersion: 0	4	7
+desu
+
+AppName	DESU
+
+
+OD NeInfra pro 3448 TAD test
+0x8052 MOFE_0_TADSwitch
+--range
+0x2321 MOFE_0_Bias0Cal
+0x2241 MPPC_ETD_0_VopCal (55) eSpy(9E+99)
+--range
+0x230E MOFE_0_BiasRange
+0x230F MOFE_0_Bias
+0x8054 MOFE_0_CtrlCheck/ADC
+MOFE_0_BiasRangeThrLoCal
+
+# MOFE calibration values read from MOFE
+0x2321 MOFE_0_Bias0Cal = 0
+0x2322 MOFE_0_BiasRangeThrLoCal = 25
+0x2323 MOFE_0_BiasRangeThrHiCal = 50
+0x2324 MOFE_0_MaxBiasOffsetCal = 30
+
+# Reading TAD object
+# MOFE_0_CtrlCheck
+
+# MOFE Set Object
+# MOFE_0_Bias
+# Max_MOFE_0_Bias (form OD definition)
+Max_MOFE_0_Bias = 2.045
+
+# Read from MPPC ETD EEPROM 
+MPPC_ETD_0_VopCal = 55
+
+np.linspace(MOFE_0_Bias0Cal,MPPC_ETD_0_VopCal,10)
+
+    # Check based on TAD reading of:
+#    MOFE_0_CtrlCheck
+#    if (abs(MOFE_0_CtrlCheck-MOFE_0_Bias)/MOFE_0_Bias) < 0.1:
+#        print('Bias check passed')
+#    else:
+#        print('Bias check failed')
+
+  MOFE_0_BiasRange = 0, 1, 2
+  
+  
+ 0x1000		BaseODVersion
+ 

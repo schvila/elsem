@@ -1,0 +1,82 @@
+HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-bbox
+    TadXtTempStagesBrick
+        TadXtTempStagesBrickMgr
+            Temperature Stages
+                µHeater Heating System
+                    Description = Testing OD values for µHeater board.
+                    DlgProgId = TADUIAUTOTESTDLG.TADUIAutoTestDlgCtrl.1
+                    HelpBaseId = REG_DWORD 0x40030400
+                    OrderPriority = REG_DWORD 0x00000010
+                    Type = SCUTadTestManager
+                    IsMonitorTest = false
+                    Labels = Description\t Results
+                    ODPrimitiveProviders
+                        µHeater_SCU
+                            Type = default
+                            SCU_ID = MEMSC
+                            AppName = MEMSC
+                    TestExecutor
+                        TestIndex_1 = HWVersion
+                        TestIndex_2 = FWVersion
+                        TestIndex_3 = PowerCheck
+                        TestIndex_4 = CableDetection
+                        TestIndex_5 = ChipDetection
+                        Type = SequentialTestExecutor
+                    Tests
+                        HWVersion
+                            Description = "Board revision"
+                            Type = ValueReadout
+                            Expression_1 = REG_MULTI_SZ "true"
+                            Message_1 = Info;"Board revision = %1$#x" << BoardRevision
+                            BoardRevision
+                                Type = ODValueGetter
+                                ODPrimitivePath = µHeater_SCU/BoardRevision
+                                ODPrimitiveType = State
+                        FWVersion
+                            Description = "Firmware version"
+                            Type = ValueReadout
+                            Expression_1 = REG_MULTI_SZ "true"
+                            Message_1 = Info;"Firmware version = %1$#x" << FirmwareVersion
+                            FirmwareVersion
+                                Type = ODValueGetter
+                                ODPrimitivePath = µHeater_SCU/AppVersion
+                                ODPrimitiveType = Version
+                        PowerCheck
+                            Description = "Power supply check"
+                            Type = ValueReadout
+                            Expression_1 = REG_MULTI_SZ "PowerOk != Ok"
+                            Message_1 = "Error;"Check power supply cables.""
+                            Message_2 = "Info;"µHeater power supply OK""
+                            Ok
+                                Type = Constant
+                                Value = 1
+                            PowerOk
+                                Type = ODValueGetter
+                                ODPrimitivePath = µHeater_SCU/PowerOk
+                                ODPrimitiveType = State
+                        CableDetection
+                            Description = "µHeater cable connection check"
+                            Expression_1 = REG_MULTI_SZ "(MEMSCable != CableConnected)"
+                            Message_1 = "Error;"Check cable connection.""
+                            Message_2 = "Info;"µHeater cable OK""
+                            Type=ValueReadout
+                            CableConnected
+                                Type = Constant
+                                Value = 1
+                            MEMSCable
+                                Type = ODValueGetter
+                                ODPrimitivePath = µHeater_SCU/MemsCable
+                                ODPrimitiveType = State
+                        ChipDetection
+                            Description = "µHeater chip connection check"
+                            Expression_1 = REG_MULTI_SZ "(MEMSChip != ChipConnected)"
+                            Message_1 = "Error;"Check if the MEMS chip is inserted or damaged.""
+                            Message_2 = "Info;"µHeater chip OK""
+                            Type=ValueReadout
+                            ChipConnected
+                                Type = Constant
+                                Value = 1
+                            MEMSChip
+                                Type = ODValueGetter
+                                ODPrimitivePath = µHeater_SCU/MemsConnected
+                                ODPrimitiveType = State

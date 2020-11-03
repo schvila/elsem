@@ -1,0 +1,16 @@
+HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-bbox
+    CommunicationTadXtEthernetBrick
+        CommunicationTadXtEthernetBrickMgr
+            Communication
+                SCU BoardTest (µHeater)
+                    Description = Check the MEMSC SCU board
+                    DlgProgId = TADUIAUTOTESTDLG.TADUIAutoTestDlgCtrl.1
+                    HelpBaseId = REG_DWORD 0x40200200
+                    OrderPriority = REG_DWORD 0x00000021
+                    SCUAppName = MEMSC
+                    SCUGAName = Generic Application
+                    SCUName = MEMSC
+                    RequiredFWVersion = REG_DWORD 0x00000001
+                    Type = GenericScuBoardTest
+                    ConnectionTimeout = REG_DWORD 0x00002710
+

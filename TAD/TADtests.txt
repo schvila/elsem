@@ -1,0 +1,93 @@
+Tests
+       PrintHelloWorld
+           Signature = (Variable description, Variable MessageToPrint)
+           Description = "Printing %1%" << description
+           Message_1 = Info;"%1%!" << MessageToPrint
+           Type=ValueReadout
+-----------------------------------------------------------------------
+External variables
+These serve as a way of passing results from one test to another. 
+Their values are assigned to one test and they are accessible from the test executor to be passed down to other tests. Example:
+
+   LastRefValue
+       Type = ExternalTestVariable
+       OwnerTestName = RefWithinLimitsChecker
+       VariableName = ADC
+Processed values:
+
+Type - "ExternalTestVariable"
+OwnerTestName - In which test this value is defined and assigned to
+VariableName - the name of the variable in this test
+-----------------------------------------------------------------------
+TestExecutor
+       Type = SequentialTestExecutor
+       TestIndex_1 = 
+           "DriveWithinLimitsChecker(ReadOlacAdcCommand, 0x15, HRDrive, 18, 3)" \
+           "RefWithinLimitsChecker(ReadOlacAdcCommand, 0x16, HRRefDrop, -1.25, 0.05, -1)" \
+           "ResistanceCalculator(LastDriveValue, LastRefValue, -1)" 
+       HRRefDrop
+           Type = ODValueGetter
+           ODPrimitivePath = xT_Optics/HRRefDrop
+           ODPrimitiveType = ADC
+       HRDrive
+           Type = ODValueGetter
+           ODPrimitivePath = xT_Optics/HRDrive
+           ODPrimitiveType = ADC
+       LastDriveValue
+           Type = ExternalTestVariable
+           OwnerTestName = DriveWithinLimitsChecker
+           VariableName = ADC
+       LastRefValue
+           Type = ExternalTestVariable
+           OwnerTestName = RefWithinLimitsChecker
+           VariableName = ADC
+   Tests
+       DriveWithinLimitsChecker
+           Type = ValueWriter
+           Description = "Drive limit check"
+           Message_1 = Info;"%1%" << ADC
+           Message_2 = Error;"%1% - Error" << ADC
+           Expression_1 = REG_MULTI_SZ "LowerLimit = ExpectedValue - Tolerance" \
+                                       "UpperLimit = ExpectedValue + Tolerance" \
+                                       "ADC > LowerLimit && ADC < UpperLimit"
+           Signature = "(ODSetter ADCCommand, Variable ReadOlacAdcCommandValue, Variable ADC, Variable ExpectedValue, Variable Tolerance)"
+       RefWithinLimitsChecker
+           Type = ValueWriter
+           Description = "Ref limit check" << DescriptionString
+           Message_1 = Info;"%1% (which means %2$.4g A)" << ADC << CalculatedCurrent
+           Message_2 = Error;"%1% (which means %2$.4g A) - Error" << ADC << CalculatedCurrent
+           Expression_1 = REG_MULTI_SZ "LowerLimit = ExpectedValue - Tolerance" \
+                                       "UpperLimit = ExpectedValue + Tolerance" \
+                                       "CalculatedCurrent = ADC / Resistance" \
+                                       "ADC > LowerLimit && ADC < UpperLimit"
+           Signature = "(ODSetter ADCCommand, Variable ReadOlacAdcCommandValue, Variable ADC, Variable ExpectedValue, Variable Tolerance, Variable Resistance)"
+               
+       ResistanceCalculator
+           Type = ValueReadout
+           Description = "%1%" << DescriptionString
+           Message_1 = Info;"%1% %2$.4g Ohm" << ResultPrefix << CalculatedResistance
+           Message_2 = Error;"%1% %2$.4g Ohm" << ResultPrefix << CalculatedResistance
+           Expression_1 = REG_MULTI_SZ "CalculatedResistance = Multiplier * ((Drive + Ref) / Ref)" \
+                                       "true"
+           Signature = "(Variable Drive, Variable Ref, Variable Multiplier, Variable DescriptionString, Variable ResultPrefix)"
+LastDriveValue and LastRefValue allow the ResistanceCalculator test to access the values of HRRefDrop and HRDrive that were use in the tests
+DriveWithinLimitsChecker and RefWithinLimitsChecker. 
+This allows the ResistanceCalculator test to work with exactly the same ADC readout values as the first two tests have, 
+without having to access the HW again. 
+If you wanted to access for example LowerLimit value of the last RefWithinLimitsChecker test, 
+you could just define an external variable refering to this one (i.e. with VariableName = LowerLimit).
+-----------------------------------------------------------------------
+Value setters
+Sometimes it is also necessary to be able to set a value in the firmware. Value setters are similar to OD value getters. The main difference is the addition of an expression to determine the value to be set to the OD. Example:
+
+   SetDAC
+       Type = ValueSetter
+       ODPrimitivePath = xT_Optics/BeamDeflectorLX
+       ODPrimitiveType = DAC
+       SetterExpression = 0.0
+Processed values:
+
+Type - "ValueSetter"
+ODPrimitivePath - OD provider name followed by the actual primitive name
+ODPrimitiveType - type of the primitive to find
+SetterExpression - muparserx expression. Possible to use variables

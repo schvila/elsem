@@ -1,0 +1,104 @@
+HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-bbox
+    TadXtDesuBrick
+        TadXtDesuBrickMgr
+            Desu
+                DESU Voltage Tests
+                    Description = DESU Voltage Tests
+                    DlgProgId = TADUIAUTOTESTDLG.TADUIAutoTestDlgCtrl.1
+                    HelpBaseId = REG_DWORD 0x40030400
+                    IsMonitorTest = false
+                    Labels = Description\\t Results
+                    OrderPriority = REG_DWORD 0x00000040
+                    Type = SCUTadTestManager
+                    ODPrimitiveProviders
+                        DESU
+                            Type = default
+                            AppName = DESU
+                            SCU_ID = DESU
+                    TestExecutor
+                        Type = SequentialTestExecutor
+                        TestIndex_1 = "AppVersion"
+                        TestIndex_2 = "FirmwareVersion"
+                        TestIndex_3 = "Hivac"
+                        TestIndex_4 = "SwitchOscilator(HvGenCommand, 0x01, ""Switch ON"", ""Oscilator is ON"", """")"
+                        TestIndex_5 = REG_MULTI_SZ "Adc4kVtest" \
+                            "Adc4kVtest" \
+                            "Adc4kVtest"
+                        HvGenCommand
+                            ODPrimitivePath = DESU/HvGenCommand
+                            ODPrimitiveType = Command
+                            SetterExpression =HvCommandValue
+                            Type = ValueSetter
+                    Tests
+                        AppVersion
+                            Description="App version"
+                            Expression_1 = true
+                            Message_1 = Info;"Application version = %1$#x" << AppVersion
+                            Type = ValueReadout
+                            AppVersion
+                                Type = ODValueGetter
+                                ODPrimitivePath =DESU/AppVersion
+                                ODPrimitiveType =Version
+                        FirmwareVersion
+                            Description="FirmwareVersion version"
+                            Expression_1 = true
+                            Message_1 = Info;"FirmwareVersion version = %1$#x" << AppVersion
+                            Type = ValueReadout
+                            FirmwareVersion
+                                Type = ODValueGetter
+                                ODPrimitivePath =DESU/FirmwareVersion
+                                ODPrimitiveType =Version
+                        Hivac
+                            Description = "Test HiVac"
+                            Expression_1 = HvInterlock == HiVacExpected
+                            Message_1 = Info;"Pumped to HiVac"
+                            Message_2 =Error;"NO HiVac"
+                            Type = ValueReadout
+                            HvInterlock
+                                Type = ODValueGetter
+                                ODPrimitivePath = DESU/HvInterlock
+                                ODPrimitiveType = State
+                            HiVacExpected
+                                Type = Constant
+                                Value = 0x1
+                        SwitchOscilator
+                            Description ="%1%" << DescriptionString
+                            Expression_1 = HvCommandValue == HvCommandValue
+                            Message_1 = Info;"%1% original state: %2%" << SuccessMessage << HvCommandResult
+                            Message_2 = Error;"%1%" << ErrorMessage
+                            Signature = "(ODSetter ADCCommand, Variable HvCommandValue, Variable DescriptionString, Variable SuccessMessage, Variable ErrorMessage)"
+                            Type = ValueWriter
+                            HvCommandResult
+                                Type = ODValueGetter
+                                ODPrimitivePath = DESU/HvGenState
+                                ODPrimitiveType = State
+                        Adc4kVtest
+                            Description = Check internal -4000V if it’s in limits +- 3
+                            Expression_1 = Adc4kValue >= UpperLimit && Adc4kValue <= LowerLimit
+                            Message_1 = Info;"Internal Voltage  = %1% in limit" << Adc4kValue
+                            Message_2 = Error;"Internal Voltage  = %1% out of +- 3 limits" << Adc4kValue
+                            MinimalDelayinms = 1000
+                            Type = ValueWriter
+                            LowerLimit
+                                Type = Constant
+                                Value = -3880
+                            UpperLimit
+                                Type = Constant
+                                Value = -4120
+                            Adc4kValue
+                                Type = ODValueGetter
+                                ODPrimitivePath = DESU/Adc4kV
+                                ODPrimitiveType = ADC 
+
+
+
+
+
+
+
+
+
+
+
+
+

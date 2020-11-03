@@ -1,0 +1,31 @@
+11:40:18 Session Information
+	Computername: CHVILA8-PC
+	Creation date: 10/29/20
+	Creation time: 11:40:18
+	Session file: CHVILA8-PC_201029-114018.TRF
+11:40:30 MppcEtd.Bias functionality flow
+	Runmode: Normal
+	Info		:	[Connecting to SCUs]:	Connected
+	Info		:	[1. App version]:	Application version = 0.4.7
+	Info		:	[2. Init bias]:	step: 5 b0: 0 rh: 50
+	Info		:	[3. Prepare test Nr 0]:	Input** bias: 0 LoCal: 25 HiCal: 50  output**NextBias:  0 NextRange: 0
+	Info		:	[4. Will test]:	NextBias:  0 NextRange: 0
+	Info		:	[5. Prepare test Nr 1]:	Input** bias: 0 LoCal: 25 HiCal: 50  output**NextBias:  0.340833 NextRange: 0
+	Info		:	[6. Will test]:	NextBias:  0.340833 NextRange: 0
+	Info		:	[7. Prepare test Nr 2]:	Input** bias: 0 LoCal: 25 HiCal: 50  output**NextBias:  0.681667 NextRange: 0
+	Info		:	[8. Will test]:	NextBias:  0.681667 NextRange: 0
+	Info		:	[9. Prepare test Nr 3]:	Input** bias: 0 LoCal: 25 HiCal: 50  output**NextBias:  1.0225 NextRange: 0
+	Info		:	[10. Will test]:	NextBias:  1.0225 NextRange: 0
+	Info		:	[11. Prepare test Nr 4]:	Input** bias: 0 LoCal: 25 HiCal: 50  output**NextBias:  1.36333 NextRange: 0
+	Info		:	[12. Will test]:	NextBias:  1.36333 NextRange: 0
+	Info		:	[13. Prepare test Nr 5]:	Input** bias: 0 LoCal: 25 HiCal: 50  output**NextBias:  1.70417 NextRange: 0
+	Info		:	[14. Will test]:	NextBias:  1.70417 NextRange: 0
+	Info		:	[15. Prepare test Nr 6]:	Input** bias: 0 LoCal: 25 HiCal: 50  output**NextBias:  2.045 NextRange: 1
+	Info		:	[16. Will test]:	NextBias:  2.045 NextRange: 1
+	Info		:	[17. Prepare test Nr 7]:	Input** bias: 0 LoCal: 25 HiCal: 50  output**NextBias:  2.38583 NextRange: 1
+	Info		:	[18. Will test]:	NextBias:  2.38583 NextRange: 1
+	Info		:	[19. Prepare test Nr 8]:	Input** bias: 0 LoCal: 25 HiCal: 50  output**NextBias:  2.72667 NextRange: 1
+	Info		:	[20. Will test]:	NextBias:  2.72667 NextRange: 1
+	Info		:	[21. Prepare test Nr 9]:	Input** bias: 0 LoCal: 25 HiCal: 50  output**NextBias:  3.0675 NextRange: 1
+	Info		:	[22. Will test]:	NextBias:  3.0675 NextRange: 1
+	Testresult: OK

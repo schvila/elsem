@@ -1,0 +1,51 @@
+HKCR
+{
+	FeiTadBrickTemplate.TadBrickTemplateBrick.1 = s 'TadBrickTemplateBrick Class'
+	{
+		CLSID = s '{TEMPLATEGUID2}'
+	}
+	FeiTadBrickTemplate.TadBrickTemplateBrick = s 'TadBrickTemplateBrick Class'
+	{
+		CurVer = s 'FeiTadBrickTemplate.TadBrickTemplateBrick.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {TEMPLATEGUID2} = s 'TadBrickTemplateBrick Class'
+		{
+			ProgID = s 'FeiTadBrickTemplate.TadBrickTemplateBrick.1'
+			toolIDionIndependentProgID = s 'FeiTadBrickTemplate.TadBrickTemplateBrick'
+			ToolboxBitmap32 = s '%MODULE%, 1'
+			InprocServer32 = s '%Module%'
+			{
+				val ThreadingModel = s 'Both'
+			}			
+			'Implemented Categories'
+			{
+				{6EBEBE51-376A-11d2-8D50-006094AE56D3}
+			}
+			
+		}
+	}
+
+	'TypeLib' 
+	{
+		'{TEMPLATEGUID1}' 
+		{
+			'1.0' = s 'ITadBrickTemplateBrick type library'
+			{
+				'0'
+				{
+					'win32' = s '%Module%'
+					{
+					}
+				}
+
+				'FLAGS' = s '0'
+				'HELPDIR' = s ''
+				{
+				}
+			}
+
+		}
+	}
+}

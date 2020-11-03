@@ -1,0 +1,15 @@
+HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>
+    TAD-bbox
+        AuxTadserverBrick
+            AuxTadserverBrickMgr
+                TadServer
+                    TadXtTempStagesBrick
+                        OrderPriority = REG_DWORD 0x00000500
+                        TestGroupName = Temperature Stages
+        TadXtTempStagesBrick
+            ClassName = FeiTadXtSCU.TadXtSCUBrick
+            Type = Brick
+            TadXtTempStagesBrickMgr
+                Type = xtSCUManager
+                Temperature Stages
+                    Type = TadGroupFactory
