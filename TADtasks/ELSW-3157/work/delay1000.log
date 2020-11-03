@@ -1,0 +1,13 @@
+05:59:10 Session Information
+	Computername: CHVILA8-PC
+	Creation date: 10/20/20
+	Creation time: 05:59:10
+	Session file: CHVILA8-PC_201020-055910.TRF
+05:59:26 Desu.DESU Voltage Tests
+	Runmode: Normal
+	Info		:	[Connecting to SCUs]:	Connected
+	Info		:	[1. App version]:	Application version = 0.2.5
+	Info		:	[2. Firmware version]:	Firmware version = 0.2.5
+	Info		:	[3. Test HiVac]:	Pumped to HiVac
+	Info		:	[4. Switch ON]:	Oscilator is ON original state: 0
+	Info		:	[5. Check internal -4000V if it	Testresult: OK

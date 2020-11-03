@@ -1,0 +1,29 @@
+HKEY_LOCAL_MACHINE\SOFTWARE\FEI\TADBrickBox\Configurations\tadgroup\TAD-bbox\AuxTadserverBrick\AuxTadserverBrickMgr\TadServer\TadBrickTemplate
+    TestGroupName = TadBrickTemplate
+    OrderPriority = REG_DWORD 0xffffffff
+
+HKEY_LOCAL_MACHINE\SOFTWARE\FEI\TADBrickBox\Configurations\tadgroup\TAD-bbox\TadBrickTemplate
+    Type = Brick
+    ClassName = FeiTadBrickTemplate.TadBrickTemplateBrick.1
+    TadBrickTemplateMgr
+        Type = TadBrickTemplateManager
+        TadBrickTemplate
+            Type = TadGroupFactory
+            TemplateTestAuto
+                Type = TemplateTestAuto
+                FileName = test_file
+                Description = Template test AUTO
+                DlgProgId = TADUIAUTOTESTDLG.TADUIAutoTestDlgCtrl.1
+                HelpBaseId = REG_DWORD 0x00000000
+            TemplateTestManual
+                Type = TemplateTestManual
+                FileName = test_file
+                Description = Template test MANUAL
+                DlgProgId = NOTESINOUTPUTTER.NotesInOutputTerCtrl.1
+                HelpBaseId = REG_DWORD 0x00000000
+            TemplateTestMonitor
+                Type = TemplateTestMonitor
+                FileName = test_file
+                Description = Template test MONITOR
+                DlgProgId = NOTESINOUTPUTTER.NotesInOutputTerCtrl.1
+                HelpBaseId = REG_DWORD 0x00000000

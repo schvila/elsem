@@ -1,0 +1,145 @@
+HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-bbox
+    TadXtTempStagesBrick
+        TadXtTempStagesBrickMgr
+            Temperature Stages
+                Peltier/HotStage Controller
+                    Description = Testing OD values for PHSC2 board
+                    DlgProgId = TADUIAUTOTESTDLG.TADUIAutoTestDlgCtrl.1
+                    HelpBaseId = REG_DWORD 0x40030400
+                    OrderPriority = REG_DWORD 0x00000010
+                    Type = SCUTadTestManager
+                    IsMonitorTest = false
+                    Labels = Description\t Results
+                    ODPrimitiveProviders
+                        PHSC2_SCU
+                            Type = default
+                            SCU_ID = PHSC2
+                            AppName = PHSC2
+                    TestExecutor
+                        TestIndex_1 = HWVersion
+                        TestIndex_2 = FWVersion
+                        TestIndex_3 = PowerCheck
+                        TestIndex_4 = CoolingInterlock
+                        TestIndex_5 = LoVacInterlock
+                        TestIndex_6 = StageTypeDetection
+                        Type = SequentialTestExecutor
+                    Tests
+                        HWVersion
+                            Description = "Board revision"
+                            Type = ValueReadout
+                            Expression_1 = REG_MULTI_SZ "true"
+                            Message_1 = Info;"Board revision = %1$#x" << BoardRevision
+                            BoardRevision
+                                Type = ODValueGetter
+                                ODPrimitivePath = PHSC2_SCU/BoardRevision
+                                ODPrimitiveType = State
+                        FWVersion
+                            Description = "Firmware version"
+                            Type = ValueReadout
+                            Expression_1 = REG_MULTI_SZ "true"
+                            Message_1 = Info;"Firmware version = %1$#x" << FirmwareVersion
+                            FirmwareVersion
+                                Type = ODValueGetter
+                                ODPrimitivePath = PHSC2_SCU/AppVersion
+                                ODPrimitiveType = Version
+                        PowerCheck
+                            Description = "PHSC power supply check"
+                            Expression_1 = REG_MULTI_SZ "Interlock = Interlocks & (POK | POK30)" \
+                                                        "Interlock != 0"
+                            Message_1 = "Error;"Check board power supply cables (POK|POK30)""
+                            Expression_2 = REG_MULTI_SZ "Interlock = Interlocks & CBLPSU" \
+                                                        "Interlock != 0"
+                            Message_2 = "Error;"Check heater supply cable (CBLPSU)""
+                            Message_3 = "Info;"PHSC power supply OK""
+                            Type=ValueReadout
+                            CBLPSU
+                                Type = Constant
+                                Value = 0x8
+                            POK
+                                Type = Constant
+                                Value = 0x200
+                            POK30
+                                Type = Constant
+                                Value = 0x400
+                            Interlocks
+                                Type = ODValueGetter
+                                ODPrimitivePath = PHSC2_SCU/InterlocksActive
+                                ODPrimitiveType = State
+                        CoolingInterlock
+                            Description = "Cooling interlocks check"
+                            Expression_1 = REG_MULTI_SZ "Interlock = Interlocks & CBLCOOL" \
+                                                        "Interlock != 0"
+                            Message_1 = "Error;"Check water cooler (CBLCOOL)""
+                            Expression_2 = REG_MULTI_SZ "Interlock = Interlocks & CHILLER" \
+                                                        "Interlock != 0"
+                            Message_2 = "Error;"Check cooling water flow (CHILLER)""
+                            Message_3 = "Info;"Cooling interlocks OK""
+                            Type=ValueReadout
+                            CBLCOOL
+                                Type = Constant
+                                Value = 0x80
+                            CHILLER
+                                Type = Constant
+                                Value = 0x100
+                            Interlocks
+                                Type = ODValueGetter
+                                ODPrimitivePath = PHSC2_SCU/InterlocksActive
+                                ODPrimitiveType = State
+                        LoVacInterlock
+                            Description = "Vacuum interlocks check"
+                            Expression_1 = REG_MULTI_SZ "Interlock = Interlocks & CBLVAC" \
+                                                        "Interlock != 0"
+                            Message_1 = "Error;"Vacuum interlock cable failure (CBLVAC)""
+                            Expression_2 = REG_MULTI_SZ "Interlock = Interlocks & NOVAC" \
+                                                        "Interlock != 0"
+                            Message_2 = "Error;"Check chamber vacuum (NOVAC)""
+                            Message_3 = "Info;"Vacuum interlocks OK""
+                            Type=ValueReadout
+                            NOVAC
+                                Type = Constant
+                                Value = 0x1
+                            CBLVAC
+                                Type = Constant
+                                Value = 0x2
+                            Interlocks
+                                Type = ODValueGetter
+                                ODPrimitivePath = PHSC2_SCU/InterlocksActive
+                                ODPrimitiveType = State
+                        StageTypeDetection
+                            Description = "Stage type detection"
+                            Expression_1 = REG_MULTI_SZ "StageCode == HS1400"
+                            Message_1 = "Info;"HS1400 connected""
+                            Expression_2 = REG_MULTI_SZ "StageCode == HVHS"
+                            Message_2 = "Info;"HVHS connected""
+                            Expression_3 = REG_MULTI_SZ "StageCode == HS1000S"
+                            Message_3 = "Info;"HS1000S connected""
+                            Expression_4 = REG_MULTI_SZ "StageCode == Peltier"
+                            Message_4 = "Info;"Peltier stage connected""
+                            Expression_5 = REG_MULTI_SZ "StageCode == WetSTEM"
+                            Message_5 = "Info;"WetSTEM connected""
+                            Expression_6 = REG_MULTI_SZ "StageCode == HS1000"
+                            Message_6 = "Info;"HS1000 connected""
+                            Message_7 = "Error;"No stage detected""
+                            Type = ValueReadout
+                            HS1400
+                                Type = Constant
+                                Value = 0xE
+                            HVHS
+                                Type = Constant
+                                Value = 0xD
+                            HS1000S
+                                Type = Constant
+                                Value = 0xC
+                            Peltier
+                                Type = Constant
+                                Value = 0xB
+                            WetSTEM
+                                Type = Constant
+                                Value = 0x9
+                            HS1000
+                                Type = Constant
+                                Value = 0x8
+                            StageCode
+                                Type = ODValueGetter
+                                ODPrimitivePath = PHSC2_SCU/StageCode
+                                ODPrimitiveType = State

@@ -1,0 +1,418 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Template|Win32">
+      <Configuration>Template</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Template|x64">
+      <Configuration>Template</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{51C9C754-F45F-4519-BF1F-DE3001F1355D}</ProjectGuid>
+    <RootNamespace>TadBrickTemplate</RootNamespace>
+    <Keyword>Brick</Keyword>
+    <SccProjectName>&lt;Project Location In Database&gt;</SccProjectName>
+    <SccAuxPath>&lt;Source Control Database&gt;</SccAuxPath>
+    <SccLocalPath>&lt;Local Binding Root of Project&gt;</SccLocalPath>
+    <SccProvider>Jazz Source Control Provider:{AC8810C5-F6E7-4145-83AA-FDFFF6F5506D}</SccProvider>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <UseOfAtl>Dynamic</UseOfAtl>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>false</CLRSupport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <UseOfAtl>Dynamic</UseOfAtl>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>false</CLRSupport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <UseOfAtl>Dynamic</UseOfAtl>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>false</CLRSupport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <UseOfAtl>Dynamic</UseOfAtl>
+    <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>false</CLRSupport>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(FBT_BINDEBUG)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(FBT_BINDEBUG64)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Debug64\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(FBT_BINRELEASE)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(FBT_BINRELEASE64)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Release\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Release64\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectName)</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectName)</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.dll</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.dll</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <PreBuildEvent>
+      <Command />
+    </PreBuildEvent>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;_UNICODE;VSVERSION=v10_0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\gen\;..\export\include\gen\;..\..\shared\include\gen\;..\..\export\include\gen\;..\..\..\shared\include\gen\;..\..\..\sdk\include\gen\;..\export\include\idl\;..\..\shared\include\idl\;..\..\export\include\idl\;..\..\..\shared\include\idl\;..\..\..\sdk\include\idl\;..\..\..\..\TAD\sdk\include\idl\;..\..\..\..\INFRA\sdk\include\idl\;..\..\..\..\FEI_LOGGING\sdk\include\idl\;..\..\..\..\TAD\sdk\include\gen\;..\..\..\..\INFRA\sdk\include\gen\;..\..\..\..\FEI_LOGGING\sdk\include\gen\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <GenerateStublessProxies>true</GenerateStublessProxies>
+      <TypeLibraryName>..\.\gen\%(Filename).tlb</TypeLibraryName>
+      <OutputDirectory>gen</OutputDirectory>
+      <HeaderFileName>..\.\gen\%(Filename).h</HeaderFileName>
+      <InterfaceIdentifierFileName>..\.\gen\%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/EHa %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>.\;..\export\include\;..\..\shared\include\;..\..\export\include\;..\..\..\shared\include\;..\..\..\sdk\include\;.\gen\;..\export\include\gen\;..\..\shared\include\gen\;..\..\export\include\gen\;..\..\..\shared\include\gen\;..\..\..\sdk\include\gen\;..\..\..\..\TAD\sdk\include\;..\..\..\..\INFRA\sdk\include\;..\..\..\..\FEI_LOGGING\sdk\include\;..\..\..\..\TAD\sdk\include\gen\;..\..\..\..\INFRA\sdk\include\gen\;..\..\..\..\FEI_LOGGING\sdk\include\gen\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_WIN32_WINNT=0x0501;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>Debug\</AssemblerListingLocation>
+      <ObjectFileName>Debug\</ObjectFileName>
+      <ProgramDataBaseFileName>Debug\</ProgramDataBaseFileName>
+      <WarningLevel>Level4</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;_UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>mc\;..\export\include\;..\..\shared\include\;..\..\export\include\;..\..\..\shared\include\;..\..\..\sdk\include\;.\gen\;..\export\include\gen\;..\..\shared\include\gen\;..\..\export\include\gen\;..\..\..\shared\include\gen\;..\..\..\sdk\include\gen\;..\..\..\..\TAD\sdk\include\;..\..\..\..\INFRA\sdk\include\;..\..\..\..\FEI_LOGGING\sdk\include\;..\..\..\..\TAD\sdk\include\gen\;..\..\..\..\INFRA\sdk\include\gen\;..\..\..\..\FEI_LOGGING\sdk\include\gen\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalOptions>/MACHINE:I386 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>auxtadgroupextension.lib;auxtadgroupbase.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ShowProgress>NotSet</ShowProgress>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>..\export\lib\Debug\;..\..\shared\lib\Debug\;..\..\export\lib\Debug\;..\..\..\shared\lib\Debug\;..\..\..\sdk\lib\Debug\;..\..\..\..\TAD\sdk\lib\Debug\;..\..\..\..\INFRA\sdk\lib\Debug\;..\..\..\..\FEI_LOGGING\sdk\lib\Debug\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>TadBrickTemplate.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(FBT_BINDEBUG)\$(TargetName).pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol />
+      <BaseAddress>@..\..\..\build\rebase.txt,$(ProjectName)</BaseAddress>
+      <ImportLibrary>.\Debug\$(ProjectName).lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+      <FixedBaseAddress>false</FixedBaseAddress>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PreBuildEvent>
+      <Command />
+    </PreBuildEvent>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;_UNICODE;VSVERSION=v10_0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\gen64\;..\export\include\gen64\;..\..\shared\include\gen64\;..\..\export\include\gen64\;..\..\..\shared\include\gen64\;..\..\..\sdk\include\gen64\;..\export\include\idl\;..\..\shared\include\idl\;..\..\export\include\idl\;..\..\..\shared\include\idl\;..\..\..\sdk\include\idl\;..\..\..\..\TAD\sdk\include\idl\;..\..\..\..\INFRA\sdk\include\idl\;..\..\..\..\FEI_LOGGING\sdk\include\idl\;..\..\..\..\TAD\sdk\include\gen64\;..\..\..\..\INFRA\sdk\include\gen64\;..\..\..\..\FEI_LOGGING\sdk\include\gen64\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateStublessProxies>true</GenerateStublessProxies>
+      <TypeLibraryName>..\.\gen64\%(Filename).tlb</TypeLibraryName>
+      <OutputDirectory>gen64</OutputDirectory>
+      <HeaderFileName>..\.\gen64\%(Filename).h</HeaderFileName>
+      <InterfaceIdentifierFileName>..\.\gen64\%(Filename)_i.c</InterfaceIdentifierFileName>
+      <TargetEnvironment>X64</TargetEnvironment>
+      <ValidateAllParameters>true</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/EHa %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>.\;..\export\include\;..\..\shared\include\;..\..\export\include\;..\..\..\shared\include\;..\..\..\sdk\include\;.\gen64\;..\export\include\gen64\;..\..\shared\include\gen64\;..\..\export\include\gen64\;..\..\..\shared\include\gen64\;..\..\..\sdk\include\gen64\;..\..\..\..\TAD\sdk\include\;..\..\..\..\INFRA\sdk\include\;..\..\..\..\FEI_LOGGING\sdk\include\;..\..\..\..\TAD\sdk\include\gen64\;..\..\..\..\INFRA\sdk\include\gen64\;..\..\..\..\FEI_LOGGING\sdk\include\gen64\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN64;_DEBUG;_WINDOWS;_WIN32_WINNT=0x0501;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>Debug64\</AssemblerListingLocation>
+      <ObjectFileName>Debug64\</ObjectFileName>
+      <ProgramDataBaseFileName>Debug64\</ProgramDataBaseFileName>
+      <WarningLevel>Level4</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;_UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>mc\;..\export\include\;..\..\shared\include\;..\..\export\include\;..\..\..\shared\include\;..\..\..\sdk\include\;.\gen64\;..\export\include\gen64\;..\..\shared\include\gen64\;..\..\export\include\gen64\;..\..\..\shared\include\gen64\;..\..\..\sdk\include\gen64\;..\..\..\..\TAD\sdk\include\;..\..\..\..\INFRA\sdk\include\;..\..\..\..\FEI_LOGGING\sdk\include\;..\..\..\..\TAD\sdk\include\gen64\;..\..\..\..\INFRA\sdk\include\gen64\;..\..\..\..\FEI_LOGGING\sdk\include\gen64\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>auxtadgroupextension.lib;auxtadgroupbase.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ShowProgress>NotSet</ShowProgress>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>..\export\lib\Debug64\;..\..\shared\lib\Debug64\;..\..\export\lib\Debug64\;..\..\..\shared\lib\Debug64\;..\..\..\sdk\lib\Debug64\;..\..\..\..\TAD\sdk\lib\Debug64\;..\..\..\..\INFRA\sdk\lib\Debug64\;..\..\..\..\FEI_LOGGING\sdk\lib\Debug64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>TadBrickTemplate.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(FBT_BINDEBUG64)\$(TargetName).pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol />
+      <BaseAddress>@..\..\..\build\rebase64.txt,$(ProjectName)</BaseAddress>
+      <ImportLibrary>.\Debug64\$(ProjectName).lib</ImportLibrary>
+      <FixedBaseAddress>false</FixedBaseAddress>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <PreBuildEvent>
+      <Command />
+    </PreBuildEvent>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;_UNICODE;VSVERSION=v10_0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\gen\;..\export\include\gen\;..\..\shared\include\gen\;..\..\export\include\gen\;..\..\..\shared\include\gen\;..\..\..\sdk\include\gen\;..\export\include\idl\;..\..\shared\include\idl\;..\..\export\include\idl\;..\..\..\shared\include\idl\;..\..\..\sdk\include\idl\;..\..\..\..\TAD\sdk\include\idl\;..\..\..\..\INFRA\sdk\include\idl\;..\..\..\..\FEI_LOGGING\sdk\include\idl\;..\..\..\..\TAD\sdk\include\gen\;..\..\..\..\INFRA\sdk\include\gen\;..\..\..\..\FEI_LOGGING\sdk\include\gen\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <GenerateStublessProxies>true</GenerateStublessProxies>
+      <TypeLibraryName>..\.\gen\%(Filename).tlb</TypeLibraryName>
+      <OutputDirectory>gen</OutputDirectory>
+      <HeaderFileName>..\.\gen\%(Filename).h</HeaderFileName>
+      <InterfaceIdentifierFileName>..\.\gen\%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/EHa %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Full</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>.\;..\export\include\;..\..\shared\include\;..\..\export\include\;..\..\..\shared\include\;..\..\..\sdk\include\;.\gen\;..\export\include\gen\;..\..\shared\include\gen\;..\..\export\include\gen\;..\..\..\shared\include\gen\;..\..\..\sdk\include\gen\;..\..\..\..\TAD\sdk\include\;..\..\..\..\INFRA\sdk\include\;..\..\..\..\FEI_LOGGING\sdk\include\;..\..\..\..\TAD\sdk\include\gen\;..\..\..\..\INFRA\sdk\include\gen\;..\..\..\..\FEI_LOGGING\sdk\include\gen\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_WIN32_WINNT=0x0501;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>Release\</AssemblerListingLocation>
+      <ObjectFileName>Release\</ObjectFileName>
+      <ProgramDataBaseFileName>Release\</ProgramDataBaseFileName>
+      <WarningLevel>Level4</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;_UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>mc\;..\export\include\;..\..\shared\include\;..\..\export\include\;..\..\..\shared\include\;..\..\..\sdk\include\;.\gen\;..\export\include\gen\;..\..\shared\include\gen\;..\..\export\include\gen\;..\..\..\shared\include\gen\;..\..\..\sdk\include\gen\;..\..\..\..\TAD\sdk\include\;..\..\..\..\INFRA\sdk\include\;..\..\..\..\FEI_LOGGING\sdk\include\;..\..\..\..\TAD\sdk\include\gen\;..\..\..\..\INFRA\sdk\include\gen\;..\..\..\..\FEI_LOGGING\sdk\include\gen\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalOptions>/MACHINE:I386 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>auxtadgroupextension.lib;auxtadgroupbase.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ShowProgress>NotSet</ShowProgress>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>..\export\lib\Release\;..\..\shared\lib\Release\;..\..\export\lib\Release\;..\..\..\shared\lib\Release\;..\..\..\sdk\lib\Release\;..\..\..\..\TAD\sdk\lib\Release\;..\..\..\..\INFRA\sdk\lib\Release\;..\..\..\..\FEI_LOGGING\sdk\lib\Release\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>TadBrickTemplate.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(FBT_BINRELEASE)\$(TargetName).pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <EntryPointSymbol />
+      <BaseAddress>@..\..\..\build\rebase.txt,$(ProjectName)</BaseAddress>
+      <ImportLibrary>.\Release\$(ProjectName).lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+      <FixedBaseAddress>false</FixedBaseAddress>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <PreBuildEvent>
+      <Command />
+    </PreBuildEvent>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;_UNICODE;VSVERSION=v10_0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\gen64\;..\export\include\gen64\;..\..\shared\include\gen64\;..\..\export\include\gen64\;..\..\..\shared\include\gen64\;..\..\..\sdk\include\gen64\;..\export\include\idl\;..\..\shared\include\idl\;..\..\export\include\idl\;..\..\..\shared\include\idl\;..\..\..\sdk\include\idl\;..\..\..\..\TAD\sdk\include\idl\;..\..\..\..\INFRA\sdk\include\idl\;..\..\..\..\FEI_LOGGING\sdk\include\idl\;..\..\..\..\TAD\sdk\include\gen64\;..\..\..\..\INFRA\sdk\include\gen64\;..\..\..\..\FEI_LOGGING\sdk\include\gen64\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateStublessProxies>true</GenerateStublessProxies>
+      <TypeLibraryName>..\.\gen64\%(Filename).tlb</TypeLibraryName>
+      <OutputDirectory>gen64</OutputDirectory>
+      <HeaderFileName>..\.\gen64\%(Filename).h</HeaderFileName>
+      <InterfaceIdentifierFileName>..\.\gen64\%(Filename)_i.c</InterfaceIdentifierFileName>
+      <TargetEnvironment>X64</TargetEnvironment>
+      <ValidateAllParameters>true</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/EHa %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Full</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>.\;..\export\include\;..\..\shared\include\;..\..\export\include\;..\..\..\shared\include\;..\..\..\sdk\include\;.\gen64\;..\export\include\gen64\;..\..\shared\include\gen64\;..\..\export\include\gen64\;..\..\..\shared\include\gen64\;..\..\..\sdk\include\gen64\;..\..\..\..\TAD\sdk\include\;..\..\..\..\INFRA\sdk\include\;..\..\..\..\FEI_LOGGING\sdk\include\;..\..\..\..\TAD\sdk\include\gen64\;..\..\..\..\INFRA\sdk\include\gen64\;..\..\..\..\FEI_LOGGING\sdk\include\gen64\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN64;NDEBUG;_WINDOWS;_WIN32_WINNT=0x0501;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(ProjectName).pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>Release64\</AssemblerListingLocation>
+      <ObjectFileName>Release64\</ObjectFileName>
+      <ProgramDataBaseFileName>Release64\</ProgramDataBaseFileName>
+      <WarningLevel>Level4</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;_UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>mc\;..\export\include\;..\..\shared\include\;..\..\export\include\;..\..\..\shared\include\;..\..\..\sdk\include\;.\gen64\;..\export\include\gen64\;..\..\shared\include\gen64\;..\..\export\include\gen64\;..\..\..\shared\include\gen64\;..\..\..\sdk\include\gen64\;..\..\..\..\TAD\sdk\include\;..\..\..\..\INFRA\sdk\include\;..\..\..\..\FEI_LOGGING\sdk\include\;..\..\..\..\TAD\sdk\include\gen64\;..\..\..\..\INFRA\sdk\include\gen64\;..\..\..\..\FEI_LOGGING\sdk\include\gen64\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>auxtadgroupextension.lib;auxtadgroupbase.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ShowProgress>NotSet</ShowProgress>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalLibraryDirectories>..\export\lib\Release64\;..\..\shared\lib\Release64\;..\..\export\lib\Release64\;..\..\..\shared\lib\Release64\;..\..\..\sdk\lib\Release64\;..\..\..\..\TAD\sdk\lib\Release64\;..\..\..\..\INFRA\sdk\lib\Release64\;..\..\..\..\FEI_LOGGING\sdk\lib\Release64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>TadBrickTemplate.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(FBT_BINRELEASE64)\$(TargetName).pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <EntryPointSymbol />
+      <BaseAddress>@..\..\..\build\rebase64.txt,$(ProjectName)</BaseAddress>
+      <ImportLibrary>.\Release64\$(ProjectName).lib</ImportLibrary>
+      <FixedBaseAddress>false</FixedBaseAddress>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="TadBrickTemplateBrick.cpp" />
+    <ClCompile Include="TadBrickTemplateInMain.cpp" />
+    <ClCompile Include="TadBrickTemplateMgr.cpp" />
+    <ClCompile Include="TadBrickTemplateModule.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TadBrickTemplate.def" />
+    <CustomBuild Include="TadBrickTemplate_msg.mc">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">mc "%(FullPath)" -h .\mc\ -r mc\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">mc "%(FullPath)" -h .\mc\ -r mc\</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\mc\%(Filename).h;mc\%(Filename).rc;mc\msg00001.bin;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\mc\%(Filename).h;mc\%(Filename).rc;mc\msg00001.bin;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">mc "%(FullPath)" -h .\mc\ -r mc\</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">mc "%(FullPath)" -h .\mc\ -r mc\</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\mc\%(Filename).h;mc\%(Filename).rc;mc\msg00001.bin;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\mc\%(Filename).h;mc\%(Filename).rc;mc\msg00001.bin;%(Outputs)</Outputs>
+    </CustomBuild>
+    <None Include="brick.bmp" />
+    <None Include="element.bmp" />
+    <None Include="element.ico" />
+    <None Include="idr_main.ico" />
+    <None Include="TadBrickTemplate.rgs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TadBrickTemplateBrick.h" />
+    <ClInclude Include="TadBrickTemplateInMain.h" />
+    <ClInclude Include="TadBrickTemplateMgr.h" />
+    <ClInclude Include="TadBrickTemplateModule.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="TadBrickTemplate.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="TadBrickTemplate.idl" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties Libraries="3" PCHSupport="yes" ProjectRefers="TAD[SDK];INFRA[SDK];FEI_LOGGING[SDK]" ProjectType="WinDLL" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

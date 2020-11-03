@@ -1,0 +1,2524 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: http://sw-wiki.w2k.feico.com/index.php/Generic_SCU_TAD_Framework
+Subject: Generic SCU TAD Framework - MSD EM R&D Wiki
+Date: Wed, 7 Oct 2020 10:05:46 -0000
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--elYPo1OCyZSXsD4dmpgynxB0uDd3JsFuwmtyYeNufB----"
+
+
+------MultipartBoundary--elYPo1OCyZSXsD4dmpgynxB0uDd3JsFuwmtyYeNufB----
+Content-Type: text/html
+Content-ID: <frame-7B4C654790BF009F159FD39A594207D7@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://sw-wiki.w2k.feico.com/index.php/Generic_SCU_TAD_Framework
+
+<!DOCTYPE html><html lang=3D"en" dir=3D"ltr" class=3D"client-js"><head><met=
+a http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8"><link =
+rel=3D"stylesheet" type=3D"text/css" href=3D"cid:css-903272e2-4244-46fa-8cc=
+9-64432b51942c@mhtml.blink" />
+
+<title>Generic SCU TAD Framework - MSD EM R&amp;D Wiki</title>
+<meta name=3D"generator" content=3D"MediaWiki 1.24.1">
+<link rel=3D"shortcut icon" href=3D"http://sw-wiki.w2k.feico.com/skins/comm=
+on/images/logos/scope-favico.png">
+<link rel=3D"search" type=3D"application/opensearchdescription+xml" href=3D=
+"http://sw-wiki.w2k.feico.com/opensearch_desc.php" title=3D"MSD EM R&amp;D =
+Wiki (en)">
+<link rel=3D"EditURI" type=3D"application/rsd+xml" href=3D"http://sw-wiki.w=
+2k.feico.com/api.php?action=3Drsd">
+<link rel=3D"alternate" hreflang=3D"x-default" href=3D"http://sw-wiki.w2k.f=
+eico.com/index.php/Generic_SCU_TAD_Framework">
+<link rel=3D"alternate" type=3D"application/atom+xml" title=3D"MSD EM R&amp=
+;D Wiki Atom feed" href=3D"http://sw-wiki.w2k.feico.com/index.php?title=3DS=
+pecial:RecentChanges&amp;feed=3Datom">
+<link rel=3D"stylesheet" href=3D"http://sw-wiki.w2k.feico.com/load.php?debu=
+g=3Dfalse&amp;lang=3Den&amp;modules=3Dmediawiki.legacy.commonPrint%2Cshared=
+%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%=
+7Cmediawiki.ui.button%7Cskins.monobook.styles&amp;only=3Dstyles&amp;skin=3D=
+monobook&amp;*">
+<!--[if IE 6]><link rel=3D"stylesheet" href=3D"/skins/MonoBook/IE60Fixes.cs=
+s?303" media=3D"screen" /><![endif]-->
+<!--[if IE 7]><link rel=3D"stylesheet" href=3D"/skins/MonoBook/IE70Fixes.cs=
+s?303" media=3D"screen" /><![endif]--><meta name=3D"ResourceLoaderDynamicSt=
+yles" content=3D"">
+<link rel=3D"stylesheet" href=3D"http://sw-wiki.w2k.feico.com/load.php?debu=
+g=3Dfalse&amp;lang=3Den&amp;modules=3Dsite&amp;only=3Dstyles&amp;skin=3Dmon=
+obook&amp;*">
+
+
+
+
+</head>
+<body class=3D"mediawiki ltr sitedir-ltr ns-0 ns-subject page-Generic_SCU_T=
+AD_Framework skin-monobook action-view">
+<div id=3D"globalWrapper">
+		<div id=3D"column-content">
+			<div id=3D"content" class=3D"mw-body" role=3D"main">
+				<a id=3D"top"></a>
+			=09
+				<h1 id=3D"firstHeading" class=3D"firstHeading" lang=3D"en"><span dir=3D=
+"auto">Generic SCU TAD Framework</span></h1>
+
+				<div id=3D"bodyContent" class=3D"mw-body-content">
+					<div id=3D"siteSub">From MSD EM R&amp;D Wiki</div>
+					<div id=3D"contentSub"></div>
+										<div id=3D"jump-to-nav" class=3D"mw-jump">Jump to: <a href=3D"htt=
+p://sw-wiki.w2k.feico.com/index.php/Generic_SCU_TAD_Framework#column-one">n=
+avigation</a>, <a href=3D"http://sw-wiki.w2k.feico.com/index.php/Generic_SC=
+U_TAD_Framework#searchInput">search</a></div>
+
+					<!-- start content -->
+					<div id=3D"mw-content-text" lang=3D"en" dir=3D"ltr" class=3D"mw-conten=
+t-ltr"><p>Creating TAD tests is a common task when developing new hardware.=
+ Since most tests can be summed up in the steps "write value" -&gt; "read v=
+alue" -&gt; "compare value", a generic framework was developed. The purpose=
+ of this framework is to allow developers to create tests for SCU based har=
+dware. These tests are completely in the registry, although the framework c=
+an be extended by new functionality if necessary.
+</p>
+<div id=3D"toc" class=3D"toc"><div id=3D"toctitle"><h2>Contents</h2></div>
+<ul>
+<li class=3D"toclevel-1 tocsection-1"><a href=3D"http://sw-wiki.w2k.feico.c=
+om/index.php/Generic_SCU_TAD_Framework#Framework_basics"><span class=3D"toc=
+number">1</span> <span class=3D"toctext">Framework basics</span></a></li>
+<li class=3D"toclevel-1 tocsection-2"><a href=3D"http://sw-wiki.w2k.feico.c=
+om/index.php/Generic_SCU_TAD_Framework#Simple_example"><span class=3D"tocnu=
+mber">2</span> <span class=3D"toctext">Simple example</span></a></li>
+<li class=3D"toclevel-1 tocsection-3"><a href=3D"http://sw-wiki.w2k.feico.c=
+om/index.php/Generic_SCU_TAD_Framework#Test_executor"><span class=3D"tocnum=
+ber">3</span> <span class=3D"toctext">Test executor</span></a></li>
+<li class=3D"toclevel-1 tocsection-4"><a href=3D"http://sw-wiki.w2k.feico.c=
+om/index.php/Generic_SCU_TAD_Framework#OD_providers"><span class=3D"tocnumb=
+er">4</span> <span class=3D"toctext">OD providers</span></a></li>
+<li class=3D"toclevel-1 tocsection-5"><a href=3D"http://sw-wiki.w2k.feico.c=
+om/index.php/Generic_SCU_TAD_Framework#Tests"><span class=3D"tocnumber">5</=
+span> <span class=3D"toctext">Tests</span></a>
+<ul>
+<li class=3D"toclevel-2 tocsection-6"><a href=3D"http://sw-wiki.w2k.feico.c=
+om/index.php/Generic_SCU_TAD_Framework#Messages"><span class=3D"tocnumber">=
+5.1</span> <span class=3D"toctext">Messages</span></a></li>
+<li class=3D"toclevel-2 tocsection-7"><a href=3D"http://sw-wiki.w2k.feico.c=
+om/index.php/Generic_SCU_TAD_Framework#Expressions"><span class=3D"tocnumbe=
+r">5.2</span> <span class=3D"toctext">Expressions</span></a>
+<ul>
+<li class=3D"toclevel-3 tocsection-8"><a href=3D"http://sw-wiki.w2k.feico.c=
+om/index.php/Generic_SCU_TAD_Framework#Messages_and_expressions"><span clas=
+s=3D"tocnumber">5.2.1</span> <span class=3D"toctext">Messages and expressio=
+ns</span></a></li>
+</ul>
+</li>
+<li class=3D"toclevel-2 tocsection-9"><a href=3D"http://sw-wiki.w2k.feico.c=
+om/index.php/Generic_SCU_TAD_Framework#Test_variables"><span class=3D"tocnu=
+mber">5.3</span> <span class=3D"toctext">Test variables</span></a>
+<ul>
+<li class=3D"toclevel-3 tocsection-10"><a href=3D"http://sw-wiki.w2k.feico.=
+com/index.php/Generic_SCU_TAD_Framework#Constants"><span class=3D"tocnumber=
+">5.3.1</span> <span class=3D"toctext">Constants</span></a></li>
+<li class=3D"toclevel-3 tocsection-11"><a href=3D"http://sw-wiki.w2k.feico.=
+com/index.php/Generic_SCU_TAD_Framework#OD_value_getters"><span class=3D"to=
+cnumber">5.3.2</span> <span class=3D"toctext">OD value getters</span></a></=
+li>
+<li class=3D"toclevel-3 tocsection-12"><a href=3D"http://sw-wiki.w2k.feico.=
+com/index.php/Generic_SCU_TAD_Framework#Expression_variables"><span class=
+=3D"tocnumber">5.3.3</span> <span class=3D"toctext">Expression variables</s=
+pan></a></li>
+<li class=3D"toclevel-3 tocsection-13"><a href=3D"http://sw-wiki.w2k.feico.=
+com/index.php/Generic_SCU_TAD_Framework#External_variables"><span class=3D"=
+tocnumber">5.3.4</span> <span class=3D"toctext">External variables</span></=
+a></li>
+</ul>
+</li>
+<li class=3D"toclevel-2 tocsection-14"><a href=3D"http://sw-wiki.w2k.feico.=
+com/index.php/Generic_SCU_TAD_Framework#Value_setters"><span class=3D"tocnu=
+mber">5.4</span> <span class=3D"toctext">Value setters</span></a></li>
+<li class=3D"toclevel-2 tocsection-15"><a href=3D"http://sw-wiki.w2k.feico.=
+com/index.php/Generic_SCU_TAD_Framework#Test_types"><span class=3D"tocnumbe=
+r">5.5</span> <span class=3D"toctext">Test types</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class=3D"mw-headline" id=3D"Framework_basics">Framework basics</s=
+pan></h1>
+<p>Every test contains three key components: Object dictionary providers, a=
+ test executor and tests.
+</p>
+<ul><li>Object dictionary providers are basically abstractions of SCU appli=
+cations. The abstraction is present in order to allow modifying the way OD =
+primitives are retrieved. This makes currently sense only for the Vacuum ap=
+plication on VSC. Everything else uses the default one.</li>
+<li>The test executor is quite self-explanatory. It executes tests in a def=
+ined order.</li>
+<li>Tests will be discussed later.</li></ul>
+<h1><span class=3D"mw-headline" id=3D"Simple_example">Simple example</span>=
+</h1>
+<p>One of the simplest possible tests looks like this:
+</p><p><a href=3D"http://sw-wiki.w2k.feico.com/index.php/File:Simple_SCU_TA=
+D_framwework_example.png" class=3D"image"><img alt=3D"Simple SCU TAD framwe=
+work example.png" src=3D"http://sw-wiki.w2k.feico.com/images/e/e0/Simple_SC=
+U_TAD_framwework_example.png" width=3D"440" height=3D"400"></a>
+t
+The necessary registry values are as follows (most of it is boilerplate req=
+uired by TAD):
+</p>
+<pre>   HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\&lt;tadc=
+onfig_name&gt;\TAD-bbox
+       AuxTadserverBrick
+           AuxTadserverBrickMgr
+               TadServer
+                   SimpleExampleBrick
+                       TestGroupName =3D SimpleExample
+                       OrderPriority =3D REG_DWORD 0x00000050
+       SimpleExampleBrick
+           ClassName =3D FeiTadXtSCU.TadXtSCUBrick
+           Type =3D Brick
+           SimpleExampleBrickMgr
+               Type =3D xtSCUManager
+               SimpleExample
+                   Type =3D TadGroupFactory
+                   SimpleExample
+                       Description =3D TestDescription.
+                       DlgProgId =3D TADUIAUTOTESTDLG.TADUIAutoTestDlgCtrl.=
+1
+                       HelpBaseId =3D REG_DWORD 0x40030400
+                       OrderPriority =3D REG_DWORD 0x00000040
+                       Type =3D SCUTadTestManager
+                       IsMonitorTest =3D false
+                       Labels =3D HelloDescription\t HelloResults
+                       ODPrimitiveProviders
+                       TestExecutor
+                           TestIndex_1 =3D PrintMessage("hello world", "Hel=
+lo world")
+                           Type =3D SequentialTestExecutor
+                       Tests
+                           PrintHelloWorld
+                               Signature =3D (Variable description, Variabl=
+e MessageToPrint)
+                               Description =3D "Printing&nbsp;%1%" &lt;&lt;=
+ description
+                               Message_1 =3D Info;"%1%!" &lt;&lt; MessageTo=
+Print
+                               Type=3DValueReadout
+</pre>
+<p>Non boilerplate section:
+</p>
+<pre>   Description =3D TestDescription.
+   Type =3D SCUTadTestManager
+   IsMonitorTest =3D false
+   Labels =3D HelloDescription\t HelloResults
+   ODPrimitiveProviders
+   TestExecutor
+       TestIndex_1 =3D PrintMessage("hello world", "Hello world")
+       Type =3D SequentialTestExecutor
+   Tests
+       PrintHelloWorld
+           Signature =3D (Variable description, Variable MessageToPrint)
+           Description =3D "Printing&nbsp;%1%" &lt;&lt; description
+           Message_1 =3D Info;"%1%!" &lt;&lt; MessageToPrint
+           Type=3DValueReadout
+</pre>
+<p>Here we can see that there are no connections to HW (empty ODPrimitivePr=
+oviders key) and single test is executed which simply prints Hello world!
+</p><p>Processed values:
+</p>
+<ul><li>Type - "SCUTadTestManager"</li>
+<li>Description  - Description text near top of the test window</li>
+<li>IsMonitorTest - is this a monitor test or auto?</li>
+<li>Labels - column descriptions. columns are added by the '\t' character. =
+There can be as many columns as you want. Their default sizes cannot be cha=
+nged due to a limitation of the TAD framework.</li></ul>
+<h1><span class=3D"mw-headline" id=3D"Test_executor">Test executor</span></=
+h1>
+<p>Currently only one type is supported - SequentialTestExecutor. It only l=
+ooks for values which begin with "TestIndex_", followed by a number. The da=
+ta of the value is the name of the test under the "Tests" key - in this cas=
+e PrintHelloWorld. The indices do not have to be contiguous and not all tes=
+ts must be present. Indices are sorted in ascending value and the associate=
+d test is executed, if present. It is possible to execute the same test sev=
+eral times in one run. It is possible to run several tests within one index=
+. The main purpose of the testindex system is to allow composing sets of te=
+sts from different protostrings
+These values would be valid in the previous example:
+</p>
+<pre>   TestExecutor
+       TestIndex_1 =3D PrintHelloWorld
+                     PrintHelloWorld
+                     PrintHelloWorld
+       TestIndex_6 =3D NonExistingTest
+       TestIndex_9 =3D PrintHelloWorld
+       Type =3D SequentialTestExecutor
+</pre>
+<p>This would execute PrintHelloWorld three times, NonExistingTest once( if=
+ a test with such a name existed) and PrintHelloWorld again
+</p><p>Processed values:
+</p>
+<ul><li>Type - Currently only SequentialTestExecutor is supported. Executes=
+ all available tests in order</li>
+<li>(Any value prefixed with "TestIndex_") - the number after the "TestInde=
+x_" specifies the priority of the test. The data contains the name of the t=
+est to be executed (only subkeys of the "Tests" key are checked)</li></ul>
+<h1><span class=3D"mw-headline" id=3D"OD_providers">OD providers</span></h1=
+>
+<p>As mentioned before, OD providers are abstractions of SCU applications.=
+=20
+An example of an OD provider
+</p>
+<pre>   ODPrimitiveProviders
+       GroundedSCU
+           Type =3D default
+           SCU_ID =3D SCU_CAN_FDEGnd
+           AppName =3D FDEConsole
+</pre>
+<p>Processed values:
+</p>
+<ul><li>Type - default or VacuumODPrimitiveProvider. The latter is only use=
+d for the Vacuum application on VSC</li>
+<li>SCU_ID - SCU name to which to connect (the name in FeiCommunicationDriv=
+er)</li>
+<li>AppName - Application name of the SCU which to use.</li></ul>
+<h1><span class=3D"mw-headline" id=3D"Tests">Tests</span></h1>
+<p>These are the main purpose of the SCU framework. The most important term=
+s in tests are&nbsp;: message, expression, variable and value setter
+</p>
+<h2><span class=3D"mw-headline" id=3D"Messages">Messages</span></h2>
+<p>Messages are relatively simple. They consist of two sections&nbsp;: seve=
+rity and contents. The severity determines which TAD severity to use if the=
+ message is printed. Contents are self-explanatory. Messages are capable of=
+ using variables (these further elaborated below) in their outputs.
+Example message:
+</p>
+<pre>   Message_1 =3D Error;"Something went wrong (error code&nbsp;%1% and =
+status&nbsp;%2% detected)." &lt;&lt; VariableName &lt;&lt; Variable2Name
+</pre>
+<p>This will report a message containing the values of VariableName and Var=
+iable2Name instead of their placeholders. Variables are optional and they c=
+an be chained in the same fashion as in the example. Internally the message=
+ is passed to boost::wformat and each variable accesses the "%" operator in=
+ the order in which they are present in the registry. This allows the frame=
+work to use boost's error checking for string processing.
+</p><p>Keep in mind that using the horizontal tab character ('\t') is a col=
+umn separator. Therefore it can be used to split the output value into sepa=
+rate columns.
+</p>
+<h2><span class=3D"mw-headline" id=3D"Expressions">Expressions</span></h2>
+<p>These define conditions which are evaluated. =20
+Example:
+</p>
+<pre>   Expression_1 =3D REG_MULTI_SZ "CommunicationWithSERIsEnabled =3D FD=
+EConsoleDisbleBoards &amp; Mask" \
+                               "(CommunicationWithSERIsEnabled&nbsp;!=3D FD=
+FSPBoardIsEnabled)"
+</pre>
+<p>Expressions are processed by the muparserx library (Documentation availa=
+ble on the official website - <a rel=3D"nofollow" class=3D"external text" h=
+ref=3D"http://beltoforion.de/article.php?a=3Dmuparserx">Link</a>). The libr=
+ary is able to work with a large amount of operations. It supports numbers,=
+ strings, even arrays. Every usual operation is supported - arithmetic, bit=
+wise, conditions. The only exception is bit shifts, but the library provide=
+s a means to implement this too, should the need arise.
+</p><p>Variables are automatically created by the framework, if no variable=
+ with the given name has been previously defined (e.g. CommunicationWithSER=
+IsEnabled in the example above)
+</p>
+<h3><span class=3D"mw-headline" id=3D"Messages_and_expressions">Messages an=
+d expressions</span></h3>
+<p>The underscores followed by numbers at the end of "Expression" and "Mess=
+age" are not a typo. These two classes are very closely tied together. The =
+number specifies the order in which the expressions are to be evaluated. As=
+ soon as an expression is satisfied, its associated message is reported (in=
+cluding severity). It is possible to have a message without an associated e=
+xpression. In this situation, the expression is substituted by a "true" exp=
+ression. This logically causes the message to be always printed if no expre=
+ssion is satisfied before. This allows specifying a single condition with t=
+wo messages if we are interested in equality. Example:
+</p>
+<pre>   Expression_1 =3D REG_MULTI_SZ "SCUCorrectState =3D FDEConsoleBoards=
+ &amp; Mask" \
+             "(SCUCorrectState&nbsp;!=3D SCUisLive)"
+   Message_1 =3D "Error;"Could not communicate with master SCU""
+   Expression_2 =3D REG_MULTI_SZ "CommunicationWithSERIsEnabled =3D FDECons=
+oleDisbleBoards &amp; Mask" \
+             "(CommunicationWithSERIsEnabled&nbsp;!=3D FDFSPBoardIsEnabled)=
+"
+   Message_2 =3D "Error;"Communication with the SER board is disable in SCU=
+ firmware.""
+   Message_3 =3D "Info;"Communication test success.""
+</pre>
+<p>In this scenario, either an error is reported by one of the first two ex=
+pressions, or success by the last one. The expressions are evaluated intuit=
+ively 1 --&gt; 2 --&gt; 3
+</p><p>If a message with a high enough severity (fatal by default, see Crit=
+icalSeverityLevel parameter) is evaluated to be true, the whole test suite =
+terminates.
+</p>
+<h2><span class=3D"mw-headline" id=3D"Test_variables">Test variables</span>=
+</h2>
+<p>Since we usually want to be able to work with values stored in the firmw=
+are, it is necessary to provide a way to read these values. The mechanism i=
+s provided by variables. Variables, in general, are objects which store a p=
+ossibly modifiable value. There are currently three types of variables: con=
+stants, ODValueGetters and expression variables. Variables are accessible b=
+y expressions and variables. In both cases access to a given variable is pr=
+ovided by just using its name, no other syntax is needed.
+</p>
+<h4><span class=3D"mw-headline" id=3D"Constants">Constants</span></h4>
+<p>These are the simplest types of variables. Even though they are classifi=
+ed as variables, their value never changes and is determined by the value s=
+tored in registry. The type is automatically deduced; there is no need to s=
+pecify it explicitly:
+</p>
+<ul><li> true/false (case insensitive) are interpreted as Booleans</li>
+<li> a value enclosed by double quotes is interpreted as a string (e.g. "va=
+riable")</li>
+<li> if the previous two fail, the framework attempts to interpret is as an=
+ integer (decimal, octal and hex formats are supported)</li>
+<li> if everything else fails, the framework attempts to interpret it as a =
+double</li>
+<li> Otherwise a failure is reported</li></ul>
+<p>Example:
+</p>
+<pre>   Mask
+       Type =3D Constant
+       Value =3D 4
+</pre>
+<p>Processed values:
+</p>
+<ul><li>Type - "Constant"</li>
+<li>Value - value whose type is deduced</li></ul>
+<h4><span class=3D"mw-headline" id=3D"OD_value_getters">OD value getters</s=
+pan></h4>
+<p>These serve to access values stored in the object dictionary. Due to the=
+ nature of these variables, their values can change after every test execut=
+ion. Currently all types except eData are supported. Their value types (uin=
+t, string and double) are the ones their respective getters use.
+</p><p>Example:
+</p>
+<pre>   FDEConsoleDisableBoards
+       Type =3D ODValueGetter
+       ODPrimitivePath =3D GroundedSCU/FDEConsoleDisableBoards
+       ODPrimitiveType =3D Configuration
+</pre>
+<p>Processed values:
+</p>
+<ul><li>Type - "ODValueGetter"</li>
+<li>ODPrimitivePath - OD provider name followed by the actual primitive nam=
+e</li>
+<li>ODPrimitiveType - type of the primitive to find</li></ul>
+<h4><span class=3D"mw-headline" id=3D"Expression_variables">Expression vari=
+ables</span></h4>
+<p>These variables represent a superset of all used variables - constants, =
+OD value getters and also variables created automatically by the muparserx =
+library. Any attempt to access a variable implicitly uses this set. Therefo=
+re, it is possible to use automatically created variables in messages.
+</p>
+<h4><span class=3D"mw-headline" id=3D"External_variables">External variable=
+s</span></h4>
+<p>These serve as a way of passing results from one test to another. Their =
+values are assigned to one test and they are accessible from the test execu=
+tor to be passed down to other tests.
+Example:
+</p>
+<pre>   LastRefValue
+       Type =3D ExternalTestVariable
+       OwnerTestName =3D RefWithinLimitsChecker
+       VariableName =3D ADC
+</pre>
+<p>Processed values:
+</p>
+<ul><li>Type - "ExternalTestVariable"</li>
+<li>OwnerTestName - In which test this value is defined and assigned to</li=
+>
+<li>VariableName - the name of the variable in this test</li></ul>
+<p>It can serve to pass the value of a single readout to several tests&nbsp=
+;: use it as a local/signature variable in one test and then pass the value=
+ to other tests as an external variable.
+</p><p>Example:
+</p>
+<pre>   TestExecutor
+       Type =3D SequentialTestExecutor
+       TestIndex_1 =3D=20
+           "DriveWithinLimitsChecker(ReadOlacAdcCommand, 0x15, HRDrive, 18,=
+ 3)" \
+           "RefWithinLimitsChecker(ReadOlacAdcCommand, 0x16, HRRefDrop, -1.=
+25, 0.05, -1)" \
+           "ResistanceCalculator(LastDriveValue, LastRefValue, -1)"=20
+       HRRefDrop
+           Type =3D ODValueGetter
+           ODPrimitivePath =3D xT_Optics/HRRefDrop
+           ODPrimitiveType =3D ADC
+       HRDrive
+           Type =3D ODValueGetter
+           ODPrimitivePath =3D xT_Optics/HRDrive
+           ODPrimitiveType =3D ADC
+       LastDriveValue
+           Type =3D ExternalTestVariable
+           OwnerTestName =3D DriveWithinLimitsChecker
+           VariableName =3D ADC
+       LastRefValue
+           Type =3D ExternalTestVariable
+           OwnerTestName =3D RefWithinLimitsChecker
+           VariableName =3D ADC
+   Tests
+       DriveWithinLimitsChecker
+           Type =3D ValueWriter
+           Description =3D "Drive limit check"
+           Message_1 =3D Info;"%1%" &lt;&lt; ADC
+           Message_2 =3D Error;"%1% - Error" &lt;&lt; ADC
+           Expression_1 =3D REG_MULTI_SZ "LowerLimit =3D ExpectedValue - To=
+lerance" \
+                                       "UpperLimit =3D ExpectedValue + Tole=
+rance" \
+                                       "ADC &gt; LowerLimit &amp;&amp; ADC =
+&lt; UpperLimit"
+           Signature =3D "(ODSetter ADCCommand, Variable ReadOlacAdcCommand=
+Value, Variable ADC, Variable ExpectedValue, Variable Tolerance)"
+       RefWithinLimitsChecker
+           Type =3D ValueWriter
+           Description =3D "Ref limit check" &lt;&lt; DescriptionString
+           Message_1 =3D Info;"%1% (which means&nbsp;%2$.4g A)" &lt;&lt; AD=
+C &lt;&lt; CalculatedCurrent
+           Message_2 =3D Error;"%1% (which means&nbsp;%2$.4g A) - Error" &l=
+t;&lt; ADC &lt;&lt; CalculatedCurrent
+           Expression_1 =3D REG_MULTI_SZ "LowerLimit =3D ExpectedValue - To=
+lerance" \
+                                       "UpperLimit =3D ExpectedValue + Tole=
+rance" \
+                                       "CalculatedCurrent =3D ADC / Resista=
+nce" \
+                                       "ADC &gt; LowerLimit &amp;&amp; ADC =
+&lt; UpperLimit"
+           Signature =3D "(ODSetter ADCCommand, Variable ReadOlacAdcCommand=
+Value, Variable ADC, Variable ExpectedValue, Variable Tolerance, Variable R=
+esistance)"
+              =20
+       ResistanceCalculator
+           Type =3D ValueReadout
+           Description =3D "%1%" &lt;&lt; DescriptionString
+           Message_1 =3D Info;"%1%&nbsp;%2$.4g Ohm" &lt;&lt; ResultPrefix &=
+lt;&lt; CalculatedResistance
+           Message_2 =3D Error;"%1%&nbsp;%2$.4g Ohm" &lt;&lt; ResultPrefix =
+&lt;&lt; CalculatedResistance
+           Expression_1 =3D REG_MULTI_SZ "CalculatedResistance =3D Multipli=
+er * ((Drive + Ref) / Ref)" \
+                                       "true"
+           Signature =3D "(Variable Drive, Variable Ref, Variable Multiplie=
+r, Variable DescriptionString, Variable ResultPrefix)"
+</pre>
+<p>LastDriveValue and LastRefValue allow the ResistanceCalculator test to a=
+ccess the values of HRRefDrop and HRDrive that were use in the tests DriveW=
+ithinLimitsChecker and RefWithinLimitsChecker. This allows the ResistanceCa=
+lculator test to work with exactly the same ADC readout values as the first=
+ two tests have, without having to access the HW again.=20
+If you wanted to access for example LowerLimit value of the last RefWithinL=
+imitsChecker test, you could just define an external variable refering to t=
+his one (i.e. with VariableName =3D LowerLimit).
+</p>
+<h2><span class=3D"mw-headline" id=3D"Value_setters">Value setters</span></=
+h2>
+<p>Sometimes it is also necessary to be able to set a value in the firmware=
+. Value setters are similar to OD value getters. The main difference is the=
+ addition of an expression to determine the value to be set to the OD.
+Example:
+</p>
+<pre>   SetDAC
+       Type =3D ValueSetter
+       ODPrimitivePath =3D xT_Optics/BeamDeflectorLX
+       ODPrimitiveType =3D DAC
+       SetterExpression =3D 0.0
+</pre>
+<p>Processed values:
+</p>
+<ul><li>Type - "ValueSetter"</li>
+<li>ODPrimitivePath - OD provider name followed by the actual primitive nam=
+e</li>
+<li>ODPrimitiveType - type of the primitive to find</li>
+<li>SetterExpression - muparserx expression. Possible to use variables</li>=
+</ul>
+<h2><span class=3D"mw-headline" id=3D"Test_types">Test types</span></h2>
+<p>There are two types of tests: ValueReadout and ValueWriter. The differen=
+ce between them is that ValueReadout cannot have value setters. ValueWriter=
+first assigns the requested values to OD, then waits until the minimal wait=
+ duration has elapsed. Afterwards it keeps checking whether there exists an=
+ expression which is satisfied. ValueReadout only updates all variables and=
+ tries to find an expression which is true.
+Non-trivial example of both:
+</p>
+<pre>   BeamDeflectorLXMidRef
+       Type =3D ValueWriter
+       Description =3D BeamDeflectorLXRef
+       EvaluationStartCondition =3D ReadOdcbAdcEndCondition =3D=3D ReadOdcb=
+AdcCommandValue
+       MessageWhileWaitingForMinimalDelay =3D NoInfo;"Measuring"
+       MinimalDelayinms =3D 500
+       Message_1 =3D Info;"BLXRefDrop is&nbsp;%1% V" &lt;&lt; ADC
+       Message_2 =3D Error;"BLXRefDrop is&nbsp;%1% V" &lt;&lt; ADC
+       MessageWhileWaitingForMinimalDelay =3D NoInfo;"Measuring"
+       Expression_1 =3D REG_MULTI_SZ "ADC &gt; ExpectedValue - Tolerance &a=
+mp;&amp; ADC &lt; ExpectedValue + Tolerance"
+       Signature =3D "(ODSetter ADCCommand, Variable ReadOdcbAdcCommandValu=
+e)
+       ADCCommand
+           Type =3D ValueSetter
+           ODPrimitivePath =3D xT_Optics/ReadOdcbAdc
+           ODPrimitiveType =3D Command
+           SetterExpression =3D 0xB
+       Tolerance
+           Type =3D Constant
+           Value =3D 0.01
+       ExpectedValue
+           Type =3D Constant
+           Value =3D 0.0
+       ADC
+           Type =3D ODValueGetter
+           ODPrimitivePath =3D xT_Optics/BLXRefDrop
+           ODPrimitiveType =3D ADC
+       ReadOdcbAdcEndCondition
+           Type =3D ODValueGetter
+           ODPrimitivePath =3D xT_Optics/OdcbAdcResult
+           ODPrimitiveType =3D State
+   BeamDeflectorLXMidSetter
+       Type =3D ValueWriter
+       Description =3D Set 0mA for Beam Deflection Upper Lower X coil
+       Message_1 =3D Info;"Done"
+       SetDAC
+           Type =3D ValueSetter
+           ODPrimitivePath =3D xT_Optics/BeamDeflectorLX
+           ODPrimitiveType =3D DAC
+           SetterExpression =3D 0.0
+   Version
+       Description =3D Version
+       Type =3D ValueReadout
+       Expression_1 =3D REG_MULTI_SZ "Version =3D=3D ExpectedValue"
+       Message_1 =3D Info;"Version =3D&nbsp;%1$#x" &lt;&lt; Version
+       Message_2 =3D Error;"Found FW version&nbsp;%1$#x, expected&nbsp;%2$#=
+x. Unexpected board version&nbsp;! Test results can be misleading" &lt;&lt;=
+ Version &lt;&lt; ExpectedValue
+       ExpectedValue
+           Type =3D Constant
+           Value =3D 0x22
+       Version
+           Type =3D ODValueGetter
+           ODPrimitivePath =3D xT_Optics/OdcbVersion
+           ODPrimitiveType =3D State
+   Separator
+       Type =3D ValueReadout
+       Description =3D "%1%" &lt;&lt; DescriptionString
+       Message_1 =3D NoInfo;""
+       Signature =3D "(Variable DescriptionString)"
+</pre>
+<p>Processed values for ValueReadout:
+</p>
+<ul><li>Type - "ValueReadout"</li>
+<li>Description - String to be used in the first column of the TAD test</li=
+>
+<li>Expression_(number) - expression for evaluation</li>
+<li>Message_(number) - message to print if Expression_(number) is true</li>
+<li>IsTestHidden - (optional, default =3D "false") value specifying whether=
+ anything needs to be printed in output window (the line number will increa=
+se though - TAD framework limitation)</li>
+<li>CriticalSeverityLevel - (optional, default =3D "fatal") specifies at wh=
+ich test result severity of given test whole TAD test suite should terminat=
+e (use with caution - e.g. only if HWID is incorrect)</li>
+<li>Signature - (optional, default =3D "()") - specifies input parameters f=
+or the function. Can be a list of readonly variables and ODSetters</li></ul=
+>
+<p>Processed values for ValueWriter:
+</p>
+<ul><li>Type - "ValueWriter"</li>
+<li>Description - See ValueReadout</li>
+<li>Expression_(number) - See ValueReadout</li>
+<li>Message_(number) - See ValueReadout</li>
+<li>IsTestHidden - See ValueReadout </li>
+<li>CriticalSeverityLevel - See ValueReadout </li>
+<li>Signature - See ValueReadout </li>
+<li>MessageWhileWaitingForMinimalDelay - message to print when waiting for =
+minimal delay before evaluation begins (default: empty string)</li>
+<li>MessageWhileWaitingForCondition - message to print when waiting for ful=
+filled condition after minimum timeout has elapsed (default: saems MessageW=
+hileWaitingForMinimalDelay)</li>
+<li>MinimalDelayinms - time in ms to wait before attempting to find a satis=
+fied expression (default: 0)</li>
+<li>MaximalDelayinms - time in ms to wait before reporting a test timed out=
+ (default: 60 000)</li>
+<li>EvaluationStartCondition - (optional, default =3D "true") expression wh=
+ich should hold true before test result evaluation should begin</li>
+<li>MessageWhileWaitingForMinimalDelay - (optional, default =3D "NoInfo;"""=
+) Message to show while waiting for minimal delay</li>
+<li>MessageWhileWaitingForCondition - (optional, default =3D "NoInfo;""") M=
+essage to show while waiting for EvaluationStartCondition to become true</l=
+i></ul>
+
+<!--=20
+NewPP limit report
+CPU time usage: 0.079 seconds
+Real time usage: 0.091 seconds
+Preprocessor visited node count: 59/1000000
+Preprocessor generated node count: 64/1000000
+Post=E2=80=90expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key mediawiki_db:pcache:idhash:8669-0!*!*!!=
+en!5!* and timestamp 20201007065846 and revision id 78360
+ -->
+</div><div class=3D"printfooter">
+Retrieved from "<a dir=3D"ltr" href=3D"http://sw-wiki.w2k.feico.com/index.p=
+hp?title=3DGeneric_SCU_TAD_Framework&amp;oldid=3D78360">http://sw-wiki.w2k.=
+feico.com/index.php?title=3DGeneric_SCU_TAD_Framework&amp;oldid=3D78360</a>=
+"</div>
+					<div id=3D"catlinks" class=3D"catlinks catlinks-allhidden"></div>					=
+<!-- end content -->
+										<div class=3D"visualClear"></div>
+				</div>
+			</div>
+		</div>
+		<div id=3D"column-one">
+			<h2>Navigation menu</h2>
+					<div id=3D"p-cactions" class=3D"portlet" role=3D"navigation">
+			<h3>Views</h3>
+
+			<div class=3D"pBody">
+				<ul>
+				<li id=3D"ca-nstab-main" class=3D"selected"><a href=3D"http://sw-wiki.w=
+2k.feico.com/index.php/Generic_SCU_TAD_Framework" title=3D"View the content=
+ page [c]" accesskey=3D"c">Page</a></li>
+				<li id=3D"ca-talk" class=3D"new"><a href=3D"http://sw-wiki.w2k.feico.co=
+m/index.php?title=3DTalk:Generic_SCU_TAD_Framework&amp;action=3Dedit&amp;re=
+dlink=3D1" title=3D"Discussion about the content page [t]" accesskey=3D"t">=
+Discussion</a></li>
+				<li id=3D"ca-viewsource"><a href=3D"http://sw-wiki.w2k.feico.com/index.=
+php?title=3DGeneric_SCU_TAD_Framework&amp;action=3Dedit" title=3D"This page=
+ is protected.
+You can view its source [e]" accesskey=3D"e">View source</a></li>
+				<li id=3D"ca-history"><a href=3D"http://sw-wiki.w2k.feico.com/index.php=
+?title=3DGeneric_SCU_TAD_Framework&amp;action=3Dhistory" rel=3D"archives" t=
+itle=3D"Past revisions of this page [h]" accesskey=3D"h">History</a></li>
+				</ul>
+							</div>
+		</div>
+				<div class=3D"portlet" id=3D"p-personal" role=3D"navigation">
+				<h3>Personal tools</h3>
+
+				<div class=3D"pBody">
+					<ul>
+													<li id=3D"pt-login"><a href=3D"http://sw-wiki.w2k.feico.com/in=
+dex.php?title=3DSpecial:UserLogin&amp;returnto=3DGeneric+SCU+TAD+Framework"=
+ title=3D"You are encouraged to log in; however, it is not mandatory [o]" a=
+ccesskey=3D"o">Log in</a></li>
+											</ul>
+				</div>
+			</div>
+			<div class=3D"portlet" id=3D"p-logo" role=3D"banner">
+				<a href=3D"http://sw-wiki.w2k.feico.com/index.php/Main_Page" style=3D"b=
+ackground-image: url(/skins/FEI/fei_screen_size1_color_resized_trans.png);"=
+ title=3D"Visit the main page"></a>
+			</div>
+				<div class=3D"generated-sidebar portlet" id=3D"p-Navigation" role=3D"na=
+vigation">
+		<h3>Navigation</h3>
+		<div class=3D"pBody">
+							<ul>
+											<li id=3D"n-How-to-login"><a href=3D"http://sw-wiki.w2k.feico.co=
+m/index.php/How_to_login_to_the_wiki">How to login</a></li>
+											<li id=3D"n-Recent-changes"><a href=3D"http://sw-wiki.w2k.feico.=
+com/index.php/Special:RecentChanges">Recent changes</a></li>
+											<li id=3D"n-New-articles"><a href=3D"http://sw-wiki.w2k.feico.co=
+m/index.php/Special:NewPages">New articles</a></li>
+											<li id=3D"n-All-articles"><a href=3D"http://sw-wiki.w2k.feico.co=
+m/index.php/Special:AllPages">All articles</a></li>
+											<li id=3D"n-Help"><a href=3D"http://sw-wiki.w2k.feico.com/index.=
+php/Help:Contents" title=3D"The place to find out">Help</a></li>
+									</ul>
+					</div>
+		</div>
+		<div class=3D"generated-sidebar portlet" id=3D"p-FEI" role=3D"navigation"=
+>
+		<h3>FEI</h3>
+		<div class=3D"pBody">
+							<ul>
+											<li id=3D"n-Biographies"><a href=3D"http://sw-wiki.w2k.feico.com=
+/index.php/Category:Biography">Biographies</a></li>
+											<li id=3D"n-Groups-and-Teams"><a href=3D"http://sw-wiki.w2k.feic=
+o.com/index.php/Category:Group_information_pages">Groups and Teams</a></li>
+									</ul>
+					</div>
+		</div>
+			<div id=3D"p-search" class=3D"portlet" role=3D"search">
+			<h3><label for=3D"searchInput">Search</label></h3>
+
+			<div id=3D"searchBody" class=3D"pBody">
+				<form action=3D"http://sw-wiki.w2k.feico.com/index.php" id=3D"searchfor=
+m">
+				=09
+					<input type=3D"search" name=3D"search" placeholder=3D"Search" title=3D=
+"Search MSD EM R&amp;D Wiki [f]" accesskey=3D"f" id=3D"searchInput">
+					<input type=3D"submit" name=3D"go" value=3D"Go" title=3D"Go to a page =
+with this exact name if exists" id=3D"searchGoButton" class=3D"searchButton=
+">&nbsp;
+						<input type=3D"submit" name=3D"fulltext" value=3D"Search" title=3D"Se=
+arch the pages for this text" id=3D"mw-searchButton" class=3D"searchButton"=
+>
+				</form>
+
+							</div>
+		</div>
+			<div class=3D"portlet" id=3D"p-tb" role=3D"navigation">
+			<h3>Tools</h3>
+
+			<div class=3D"pBody">
+				<ul>
+											<li id=3D"t-whatlinkshere"><a href=3D"http://sw-wiki.w2k.feico.c=
+om/index.php/Special:WhatLinksHere/Generic_SCU_TAD_Framework" title=3D"A li=
+st of all wiki pages that link here [j]" accesskey=3D"j">What links here</a=
+></li>
+											<li id=3D"t-recentchangeslinked"><a href=3D"http://sw-wiki.w2k.f=
+eico.com/index.php/Special:RecentChangesLinked/Generic_SCU_TAD_Framework" t=
+itle=3D"Recent changes in pages linked from this page [k]" accesskey=3D"k">=
+Related changes</a></li>
+											<li id=3D"t-specialpages"><a href=3D"http://sw-wiki.w2k.feico.co=
+m/index.php/Special:SpecialPages" title=3D"A list of all special pages [q]"=
+ accesskey=3D"q">Special pages</a></li>
+											<li id=3D"t-print"><a href=3D"http://sw-wiki.w2k.feico.com/index=
+.php?title=3DGeneric_SCU_TAD_Framework&amp;printable=3Dyes" rel=3D"alternat=
+e" title=3D"Printable version of this page [p]" accesskey=3D"p">Printable v=
+ersion</a></li>
+											<li id=3D"t-permalink"><a href=3D"http://sw-wiki.w2k.feico.com/i=
+ndex.php?title=3DGeneric_SCU_TAD_Framework&amp;oldid=3D78360" title=3D"Perm=
+anent link to this revision of the page">Permanent link</a></li>
+											<li id=3D"t-info"><a href=3D"http://sw-wiki.w2k.feico.com/index.=
+php?title=3DGeneric_SCU_TAD_Framework&amp;action=3Dinfo">Page information</=
+a></li>
+									</ul>
+							</div>
+		</div>
+			</div><!-- end of the left (by default at least) column -->
+		<div class=3D"visualClear"></div>
+					<div id=3D"footer" role=3D"contentinfo">
+						<div id=3D"f-poweredbyico">
+									<a href=3D"http://www.mediawiki.org/"><img src=3D"http://sw-wiki.w=
+2k.feico.com/resources/assets/poweredby_mediawiki_88x31.png" alt=3D"Powered=
+ by MediaWiki" width=3D"88" height=3D"31"></a>
+							</div>
+					<ul id=3D"f-list">
+									<li id=3D"lastmod"> This page was last modified on 22 November 201=
+8, at 19:21.</li>
+									<li id=3D"viewcount">This page has been accessed 75 times.</li>
+									<li id=3D"privacy"><a href=3D"http://sw-wiki.w2k.feico.com/index.p=
+hp/MSD_EM_R%26D_Wiki:Privacy_policy" title=3D"MSD EM R&amp;D Wiki:Privacy p=
+olicy">Privacy policy</a></li>
+									<li id=3D"about"><a href=3D"http://sw-wiki.w2k.feico.com/index.php=
+/MSD_EM_R%26D_Wiki:About" title=3D"MSD EM R&amp;D Wiki:About">About MSD EM =
+R&amp;D Wiki</a></li>
+									<li id=3D"disclaimer"><a href=3D"http://sw-wiki.w2k.feico.com/inde=
+x.php/MSD_EM_R%26D_Wiki:General_disclaimer" title=3D"MSD EM R&amp;D Wiki:Ge=
+neral disclaimer">Disclaimers</a></li>
+							</ul>
+		</div>
+		</div>
+	=09
+
+
+</body></html>
+------MultipartBoundary--elYPo1OCyZSXsD4dmpgynxB0uDd3JsFuwmtyYeNufB----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-903272e2-4244-46fa-8cc9-64432b51942c@mhtml.blink
+
+@charset "utf-8";
+
+a:lang(ar), a:lang(kk-arab), a:lang(mzn), a:lang(ps), a:lang(ur) { text-dec=
+oration: none; }
+------MultipartBoundary--elYPo1OCyZSXsD4dmpgynxB0uDd3JsFuwmtyYeNufB----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://sw-wiki.w2k.feico.com/load.php?debug=false&lang=en&modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.monobook.styles&only=styles&skin=monobook&*
+
+@charset "utf-8";
+
+@media print {
+  .noprint, div#jump-to-nav, .mw-jump, div.top, div#column-one, #colophon, =
+.mw-editsection, .mw-editsection-like, .toctoggle, #toc.tochidden, div#f-po=
+weredbyico, div#f-copyrightico, li#viewcount, li#about, li#disclaimer, li#m=
+obileview, li#privacy, #footer-places, .mw-hidden-catlinks, tr.mw-metadata-=
+show-hide-extended, span.mw-filepage-other-resolutions, #filetoc, .usermess=
+age, .patrollink, #mw-navigation, #siteNotice { display: none; }
+  .wikitable, .thumb, img { break-inside: avoid; }
+  h2, h3, h4, h5, h6 { break-after: avoid; }
+  p { widows: 3; orphans: 3; }
+  body { background: white; color: black; margin: 0px; padding: 0px; }
+  ul { list-style-type: square; }
+  h1, h2, h3, h4, h5, h6 { font-weight: bold; }
+  dt { font-weight: bold; }
+  p { margin: 1em 0px; line-height: 1.2em; }
+  pre, .mw-code { border: 1pt dashed black; white-space: pre; font-size: 8p=
+t; overflow: auto; padding: 1em 0px; background: white; color: black; }
+  #globalWrapper { width: 100% !important; min-width: 0px !important; }
+  .mw-body { background: white; direction: ltr; color: black; border: none =
+!important; padding: 0px !important; margin: 0px !important; }
+  #column-content { margin: 0px !important; }
+  #column-content .mw-body { padding: 1em; margin: 0px !important; }
+  #toc { border: 1px solid rgb(170, 170, 170); background-color: rgb(249, 2=
+49, 249); padding: 5px; display: table; zoom: 1; }
+  #footer { background: white; color: black; margin-top: 1em; border-top: 1=
+px solid rgb(170, 170, 170); direction: ltr; }
+  img { border: none; vertical-align: middle; }
+  span.texhtml { font-family: serif; }
+  a.stub, a.new { color: rgb(186, 0, 0); text-decoration: none; }
+  a { color: black !important; background: none !important; padding: 0px !i=
+mportant; }
+  a:link, a:visited { color: rgb(85, 34, 0); background: transparent; text-=
+decoration: underline; }
+  .mw-body a.external.text::after, .mw-body a.external.autonumber::after { =
+content: " (" attr(href) ")"; }
+  .mw-body a.external.text[href^=3D"//"]::after, .mw-body a.external.autonu=
+mber[href^=3D"//"]::after { content: " (https:" attr(href) ")"; }
+  a, a.external, a.new, a.stub { color: black !important; text-decoration: =
+none !important; }
+  a, a.external, a.new, a.stub { color: inherit !important; text-decoration=
+: inherit !important; }
+  div.floatright { float: right; clear: right; position: relative; margin: =
+0.5em 0px 0.8em 1.4em; }
+  div.floatright p { font-style: italic; }
+  div.floatleft { float: left; clear: left; position: relative; margin: 0.5=
+em 1.4em 0.8em 0px; }
+  div.floatleft p { font-style: italic; }
+  div.center { text-align: center; }
+  div.thumb { border: none; width: auto; margin-top: 0.5em; margin-bottom: =
+0.8em; background-color: transparent; }
+  div.thumbinner { border: 1px solid rgb(204, 204, 204); background-color: =
+white; font-size: 94%; text-align: center; overflow: hidden; padding: 3px !=
+important; }
+  html .thumbimage { border: 1px solid rgb(204, 204, 204); }
+  html .thumbcaption { border: none; text-align: left; line-height: 1.4em; =
+font-size: 94%; padding: 3px !important; }
+  div.magnify { display: none; }
+  div.tright { float: right; clear: right; margin: 0.5em 0px 0.8em 1.4em; }
+  div.tleft { float: left; clear: left; margin: 0.5em 1.4em 0.8em 0px; }
+  img.thumbborder { border: 1px solid rgb(221, 221, 221); }
+  li.gallerybox { vertical-align: top; display: inline-block; }
+  ul.gallery, li.gallerybox { zoom: 1; }
+  ul.gallery { margin: 2px; padding: 2px; display: block; }
+  li.gallerycaption { font-weight: bold; text-align: center; display: block=
+; overflow-wrap: break-word; }
+  li.gallerybox div.thumb { text-align: center; border: 1px solid rgb(204, =
+204, 204); margin: 2px; }
+  div.gallerytext { overflow: hidden; font-size: 94%; padding: 2px 4px; ove=
+rflow-wrap: break-word; }
+  table.diff { background: white; }
+  td.diff-otitle { background: rgb(255, 255, 255); }
+  td.diff-ntitle { background: rgb(255, 255, 255); }
+  td.diff-addedline { background: rgb(204, 255, 204); font-size: smaller; b=
+order: 2px solid black; }
+  td.diff-deletedline { background: rgb(255, 255, 170); font-size: smaller;=
+ border: 2px dotted black; }
+  td.diff-context { background: rgb(238, 238, 238); font-size: smaller; }
+  .diffchange { color: silver; font-weight: bold; text-decoration: underlin=
+e; }
+  table.wikitable, table.mw_metadata { margin: 1em 0px; border: 1px solid r=
+gb(170, 170, 170); background: white; border-collapse: collapse; }
+  table.wikitable > tr > th, table.wikitable > tr > td, table.wikitable > *=
+ > tr > th, table.wikitable > * > tr > td, .mw_metadata th, .mw_metadata td=
+ { border: 1px solid rgb(170, 170, 170); padding: 0.2em; }
+  table.wikitable > tr > th, table.wikitable > * > tr > th, .mw_metadata th=
+ { text-align: center; background: white; font-weight: bold; }
+  table.wikitable > caption, .mw_metadata caption { font-weight: bold; }
+  table.listing, table.listing td { border: 1pt solid black; border-collaps=
+e: collapse; }
+  a.sortheader { margin: 0px 0.3em; }
+  .catlinks ul { display: inline; margin: 0px; padding: 0px; list-style: no=
+ne none; }
+  .catlinks li { display: inline-block; line-height: 1.15em; padding: 0px 0=
+.4em; border-left: 1px solid rgb(170, 170, 170); margin: 0.1em 0px; zoom: 1=
+; }
+  .catlinks li:first-child { padding-left: 0.2em; border-left: none; }
+  .printfooter { padding: 1em 0px; }
+}
+
+@media screen {
+  .mw-content-ltr { direction: ltr; }
+  .mw-content-rtl { direction: rtl; }
+  .sitedir-ltr textarea, .sitedir-ltr input { direction: ltr; }
+  .sitedir-rtl textarea, .sitedir-rtl input { direction: rtl; }
+  .mw-userlink { unicode-bidi: embed; }
+  mark { background-color: yellow; color: black; }
+  wbr { display: inline-block; }
+  input[type=3D"submit"], input[type=3D"button"], input[type=3D"reset"], in=
+put[type=3D"file"] { direction: ltr; }
+  textarea[dir=3D"ltr"], input[dir=3D"ltr"] { direction: ltr; }
+  textarea[dir=3D"rtl"], input[dir=3D"rtl"] { direction: rtl; }
+  abbr[title], .explain[title] { border-bottom: 1px dotted; cursor: help; }
+  .mw-plusminus-pos { color: rgb(0, 100, 0); }
+  .mw-plusminus-neg { color: rgb(139, 0, 0); }
+  .mw-plusminus-null { color: rgb(170, 170, 170); }
+  .allpagesredirect, .redirect-in-category, .watchlistredir { font-style: i=
+talic; }
+  span.comment { font-style: italic; }
+  span.changedby { font-size: 95%; }
+  .texvc { direction: ltr; unicode-bidi: embed; }
+  img.tex { vertical-align: middle; }
+  span.texhtml { font-family: serif; }
+  #wikiPreview.ontop { margin-bottom: 1em; }
+  #editform, #toolbar, #wpTextbox1 { clear: both; }
+  div.mw-filepage-resolutioninfo { font-size: smaller; }
+  h2#filehistory { clear: both; }
+  table.filehistory th, table.filehistory td { vertical-align: top; }
+  table.filehistory th { text-align: left; }
+  table.filehistory td.mw-imagepage-filesize, table.filehistory th.mw-image=
+page-filesize { white-space: nowrap; }
+  table.filehistory td.filehistory-selected { font-weight: bold; }
+  .filehistory a img, #file img:hover { background: url("data:image/png;bas=
+e64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAGElEQVQYV2N4DwX/oYBhgAR=
+gDJjEAAkAAEC99wFuu0VFAAAAAElFTkSuQmCC") repeat white; }
+  li span.deleted, span.history-deleted { text-decoration: line-through; co=
+lor: rgb(136, 136, 136); font-style: italic; }
+  .not-patrolled { background-color: rgb(255, 255, 170); }
+  .unpatrolled { font-weight: bold; color: red; }
+  div.patrollink { font-size: 75%; text-align: right; }
+  td.mw-label { text-align: right; }
+  td.mw-input { text-align: left; }
+  td.mw-submit { text-align: left; }
+  td.mw-label { vertical-align: top; }
+  .prefsection td.mw-label { width: 20%; }
+  .prefsection table { width: 100%; }
+  .prefsection table.mw-htmlform-matrix { width: auto; }
+  .mw-icon-question { background-image: linear-gradient(transparent, transp=
+arent), url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGlu=
+Zz0iVVRGLTgiPz48c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg=
+9IjIxLjA1OSIgaGVpZ2h0PSIyMS4wNiI+PHBhdGggZmlsbD0iIzU3NTc1NyIgZD0iTTEwLjUyOS=
+AwYy01LjgxNCAwLTEwLjUyOSA0LjcxNC0xMC41MjkgMTAuNTI5czQuNzE1IDEwLjUzIDEwLjUyO=
+SAxMC41M2M1LjgxNiAwIDEwLjUyOS00LjcxNSAxMC41MjktMTAuNTNzLTQuNzEyLTEwLjUyOS0x=
+MC41MjktMTAuNTI5em0tLjAwMiAxNi43NjdjLS44NjEgMC0xLjQ5OC0uNjg4LTEuNDk4LTEuNTE=
+2IDAtLjg2Mi42MzctMS41MzQgMS40OTgtMS41MzQuODI4IDAgMS41LjY3MiAxLjUgMS41MzQgMC=
+AuODI3LS42NzIgMS41MTYtMS41IDEuNTE2em0yLjEzNy02LjUxMmMtLjcyMy41NjgtMSAuOTMxL=
+TEgMS43Mzl2LjVoLTIuMjA1di0uNjAzYzAtMS41MTcuNDQ5LTIuMTM2IDEuMTU0LTIuNjg4Ljcw=
+Ny0uNTUyIDEuMTM5LS44NDUgMS4xMzktMS42MzcgMC0uNjcyLS40MTQtMS4wNTEtMS4yNC0xLjA=
+1MS0uNzA3IDAtMS4zMjguMTg5LTEuOTgyLjYzOGwtMS4wNTEtMS44MDdjLjg2MS0uNjA0IDEuOT=
+MtMS4wMzQgMy4zNDItMS4wMzQgMS45MTIgMCAzLjUxNiAxLjA1MSAzLjUxNiAzLjA2Ni0uMDAxI=
+DEuNDMtLjc5NCAyLjE4OC0xLjY3MyAyLjg3N3oiLz48L3N2Zz4=3D"); background-repeat:=
+ no-repeat; background-size: 13px 13px; display: inline-block; height: 13px=
+; width: 13px; margin-left: 4px; }
+  .mw-icon-question:lang(ar), .mw-icon-question:lang(fa), .mw-icon-question=
+:lang(ur) { transform: scaleX(-1); }
+  td.mw-submit { white-space: nowrap; }
+  table.mw-htmlform-nolabel td.mw-label { width: 1px; }
+  tr.mw-htmlform-vertical-label td.mw-label { text-align: left !important; =
+}
+  .mw-htmlform-invalid-input td.mw-input input { border-color: red; }
+  .mw-htmlform-flatlist div.mw-htmlform-flatlist-item { display: inline; ma=
+rgin-right: 1em; white-space: nowrap; }
+  .mw-htmlform-matrix td { padding-left: 0.5em; padding-right: 0.5em; }
+  input#wpSummary { width: 80%; margin-bottom: 1em; }
+  .mw-content-ltr .thumbcaption { text-align: left; }
+  .mw-content-ltr .magnify { float: right; }
+  .mw-content-rtl .thumbcaption { text-align: right; }
+  .mw-content-rtl .magnify { float: left; }
+  #catlinks { text-align: left; }
+  .catlinks ul { display: inline; margin: 0px; padding: 0px; list-style: no=
+ne none; }
+  .catlinks li { display: inline-block; line-height: 1.25em; border-left: 1=
+px solid rgb(170, 170, 170); margin: 0.125em 0px; padding: 0px 0.5em; zoom:=
+ 1; }
+  .catlinks li:first-child { padding-left: 0.25em; border-left: none; }
+  .catlinks li a.mw-redirect { font-style: italic; }
+  .mw-hidden-cats-hidden { display: none; }
+  .catlinks-allhidden { display: none; }
+  p.mw-ipb-conveniencelinks, p.mw-protect-editreasons, p.mw-filedelete-edit=
+reasons, p.mw-delete-editreasons, p.mw-revdel-editreasons, p.mw-upload-edit=
+licenses { font-size: 90%; text-align: right; }
+  .autocomment { color: gray; }
+  #pagehistory .history-user { margin-left: 0.4em; margin-right: 0.2em; }
+  #pagehistory span.minor { font-weight: bold; }
+  #pagehistory li { border: 1px solid white; }
+  #pagehistory li.selected { background-color: rgb(249, 249, 249); border: =
+1px dashed rgb(170, 170, 170); }
+  .mw-history-revisiondelete-button, #mw-fileduplicatesearch-icon { float: =
+right; }
+  .newpage, .minoredit, .botedit { font-weight: bold; }
+  #shared-image-dup, #shared-image-conflict { font-style: italic; }
+  div.mw-warning-with-logexcerpt { padding: 3px; margin-bottom: 3px; border=
+: 2px solid rgb(47, 111, 171); clear: both; }
+  div.mw-warning-with-logexcerpt ul li { font-size: 90%; }
+  span.mw-revdelundel-link, strong.mw-revdelundel-link { font-size: 90%; }
+  span.mw-revdelundel-hidden, input.mw-revdelundel-hidden { visibility: hid=
+den; }
+  td.mw-revdel-checkbox, th.mw-revdel-checkbox { padding-right: 10px; text-=
+align: center; }
+  a.new { color: rgb(186, 0, 0); }
+  a.feedlink { background-image: linear-gradient(transparent, transparent),=
+ url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVR=
+GLTgiPz48c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEyOC=
+IgaGVpZ2h0PSIxMjgiIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij48ZGVmcz48bGluZWFyR3JhZGllb=
+nQgeDE9Ii4wODUiIHkxPSIuMDg1IiB4Mj0iLjkxNSIgeTI9Ii45MTUiIGlkPSJhIj48c3RvcCBv=
+ZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNFMzcwMkQiLz48c3RvcCBvZmZzZXQ9Ii4xMDciIHN0b3A=
+tY29sb3I9IiNFQTdEMzEiLz48c3RvcCBvZmZzZXQ9Ii4zNSIgc3RvcC1jb2xvcj0iI0Y2OTUzNy=
+IvPjxzdG9wIG9mZnNldD0iLjUiIHN0b3AtY29sb3I9IiNGQjlFM0EiLz48c3RvcCBvZmZzZXQ9I=
+i43MDIiIHN0b3AtY29sb3I9IiNFQTdDMzEiLz48c3RvcCBvZmZzZXQ9Ii44ODciIHN0b3AtY29s=
+b3I9IiNERTY0MkIiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNEOTVCMjkiLz48L2x=
+pbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI1NiIgcng9Ij=
+U1IiByeT0iNTUiIGZpbGw9IiNDQzVEMTUiLz48cmVjdCB3aWR0aD0iMjQ2IiBoZWlnaHQ9IjI0N=
+iIgcng9IjUwIiByeT0iNTAiIHg9IjUiIHk9IjUiIGZpbGw9IiNGNDlDNTIiLz48cmVjdCB3aWR0=
+aD0iMjM2IiBoZWlnaHQ9IjIzNiIgcng9IjQ3IiByeT0iNDciIHg9IjEwIiB5PSIxMCIgZmlsbD0=
+idXJsKCNhKSIvPjxjaXJjbGUgY3g9IjY4IiBjeT0iMTg5IiByPSIyNCIgZmlsbD0iI0ZGRiIvPj=
+xwYXRoIGQ9Ik0xNjAgMjEzaC0zNGE4MiA4MiAwIDAgMC04Mi04MnYtMzRhMTE2IDExNiAwIDAgM=
+SAxMTYgMTE2ek0xODQgMjEzYTE0MCAxNDAgMCAwIDAtMTQwLTE0MHYtMzVhMTc1IDE3NSAwIDAg=
+MSAxNzUgMTc1eiIgZmlsbD0iI0ZGRiIvPjwvc3ZnPg=3D=3D"); background-position: le=
+ft center; background-repeat: no-repeat; background-size: 12px 12px; paddin=
+g-left: 16px; }
+  .plainlinks a.external { background: none !important; padding: 0px !impor=
+tant; }
+  .rtl a.external.free, .rtl a.external.autonumber { direction: ltr; unicod=
+e-bidi: embed; }
+  table.wikitable { margin: 1em 0px; background-color: rgb(249, 249, 249); =
+border: 1px solid rgb(170, 170, 170); border-collapse: collapse; color: bla=
+ck; }
+  table.wikitable > tr > th, table.wikitable > tr > td, table.wikitable > *=
+ > tr > th, table.wikitable > * > tr > td { border: 1px solid rgb(170, 170,=
+ 170); padding: 0.2em; }
+  table.wikitable > tr > th, table.wikitable > * > tr > th { background-col=
+or: rgb(242, 242, 242); text-align: center; }
+  table.wikitable > caption { font-weight: bold; }
+  .error, .warning, .success { font-size: larger; }
+  .error { color: rgb(204, 0, 0); }
+  .warning { color: rgb(112, 80, 0); }
+  .success { color: rgb(0, 144, 0); }
+  .errorbox, .warningbox, .successbox { border: 1px solid; padding: 0.5em 1=
+em; margin-bottom: 1em; display: inline-block; zoom: 1; }
+  .errorbox h2, .warningbox h2, .successbox h2 { font-size: 1em; color: inh=
+erit; font-weight: bold; display: inline; margin: 0px 0.5em 0px 0px; border=
+: none; }
+  .errorbox { color: rgb(204, 0, 0); border-color: rgb(250, 197, 197); back=
+ground-color: rgb(250, 227, 227); }
+  .warningbox { color: rgb(112, 80, 0); border-color: rgb(253, 226, 155); b=
+ackground-color: rgb(253, 241, 209); }
+  .successbox { color: rgb(0, 144, 0); border-color: rgb(183, 253, 181); ba=
+ckground-color: rgb(225, 253, 223); }
+  .mw-infobox { border: 2px solid rgb(255, 127, 0); margin: 0.5em; clear: l=
+eft; overflow: hidden; }
+  .mw-infobox-left { margin: 7px; float: left; width: 35px; }
+  .mw-infobox-right { margin: 0.5em 0.5em 0.5em 49px; }
+  .previewnote { color: rgb(204, 0, 0); margin-bottom: 1em; }
+  .previewnote p { text-indent: 3em; margin: 0.8em 0px; }
+  .visualClear { clear: both; }
+  .mw-datatable { border-collapse: collapse; }
+  .mw-datatable, .mw-datatable td, .mw-datatable th { border: 1px solid rgb=
+(170, 170, 170); padding: 0px 0.15em; }
+  .mw-datatable th { background-color: rgb(221, 221, 255); }
+  .mw-datatable td { background-color: rgb(255, 255, 255); }
+  .mw-datatable tr:hover td { background-color: rgb(238, 238, 255); }
+  ul#filetoc { text-align: center; border: 1px solid rgb(170, 170, 170); ba=
+ckground-color: rgb(249, 249, 249); padding: 5px; font-size: 95%; margin-bo=
+ttom: 0.5em; margin-left: 0px; margin-right: 0px; }
+  #filetoc li { display: inline; list-style-type: none; padding-right: 2em;=
+ }
+  table.mw_metadata { font-size: 0.8em; margin-left: 0.5em; margin-bottom: =
+0.5em; width: 400px; }
+  table.mw_metadata caption { font-weight: bold; }
+  table.mw_metadata th { font-weight: normal; }
+  table.mw_metadata td { padding: 0.1em; }
+  table.mw_metadata { border: none; border-collapse: collapse; }
+  table.mw_metadata td, table.mw_metadata th { text-align: center; border: =
+1px solid rgb(170, 170, 170); padding-left: 5px; padding-right: 5px; }
+  table.mw_metadata th { background-color: rgb(249, 249, 249); }
+  table.mw_metadata td { background-color: rgb(252, 252, 252); }
+  table.mw_metadata ul.metadata-langlist { list-style-type: none; list-styl=
+e-image: none; padding-right: 5px; padding-left: 5px; margin: 0px; }
+  .mw-content-ltr ul, .mw-content-rtl .mw-content-ltr ul { margin: 0.3em 0p=
+x 0px 1.6em; padding: 0px; }
+  .mw-content-rtl ul, .mw-content-ltr .mw-content-rtl ul { margin: 0.3em 1.=
+6em 0px 0px; padding: 0px; }
+  .mw-content-ltr ol, .mw-content-rtl .mw-content-ltr ol { margin: 0.3em 0p=
+x 0px 3.2em; padding: 0px; }
+  .mw-content-rtl ol, .mw-content-ltr .mw-content-rtl ol { margin: 0.3em 3.=
+2em 0px 0px; padding: 0px; }
+  .mw-content-ltr dd, .mw-content-rtl .mw-content-ltr dd { margin-left: 1.6=
+em; margin-right: 0px; }
+  .mw-content-rtl dd, .mw-content-ltr .mw-content-rtl dd { margin-right: 1.=
+6em; margin-left: 0px; }
+  li.gallerybox { vertical-align: top; display: inline-block; }
+  ul.gallery, li.gallerybox { zoom: 1; }
+  ul.gallery { margin: 2px; padding: 2px; display: block; }
+  li.gallerycaption { font-weight: bold; text-align: center; display: block=
+; overflow-wrap: break-word; }
+  li.gallerybox div.thumb { text-align: center; border: 1px solid rgb(204, =
+204, 204); background-color: rgb(249, 249, 249); margin: 2px; }
+  li.gallerybox div.thumb img { display: block; margin: 0px auto; }
+  div.gallerytext { overflow: hidden; font-size: 94%; padding: 2px 4px; ove=
+rflow-wrap: break-word; }
+  ul.mw-gallery-nolines li.gallerybox div.thumb { background-color: transpa=
+rent; border: none; }
+  ul.mw-gallery-nolines li.gallerybox div.gallerytext { text-align: center;=
+ }
+  ul.mw-gallery-packed li.gallerybox div.thumb, ul.mw-gallery-packed-overla=
+y li.gallerybox div.thumb, ul.mw-gallery-packed-hover li.gallerybox div.thu=
+mb { background-color: transparent; border: none; }
+  ul.mw-gallery-packed li.gallerybox div.thumb img, ul.mw-gallery-packed-ov=
+erlay li.gallerybox div.thumb img, ul.mw-gallery-packed-hover li.gallerybox=
+ div.thumb img { margin: 0px auto; }
+  ul.mw-gallery-packed-hover li.gallerybox, ul.mw-gallery-packed-overlay li=
+.gallerybox { position: relative; }
+  ul.mw-gallery-packed-hover div.gallerytextwrapper { overflow: hidden; hei=
+ght: 0px; }
+  ul.mw-gallery-packed-hover li.gallerybox:hover div.gallerytextwrapper, ul=
+.mw-gallery-packed-overlay li.gallerybox div.gallerytextwrapper, ul.mw-gall=
+ery-packed-hover li.gallerybox.mw-gallery-focused div.gallerytextwrapper { =
+position: absolute; background: rgba(255, 255, 255, 0.8); padding: 5px 10px=
+; bottom: 0px; left: 0px; height: auto; font-weight: bold; margin: 2px; }
+  ul.mw-gallery-packed-hover, ul.mw-gallery-packed-overlay, ul.mw-gallery-p=
+acked { text-align: center; }
+  .mw-ajax-loader { background-image: url("data:image/gif;base64,R0lGODlhIA=
+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"); background-position: c=
+enter center; background-repeat: no-repeat; padding: 16px; position: relati=
+ve; top: -16px; }
+  .mw-small-spinner { margin-right: 0.6em; background-image: url("data:imag=
+e/gif;base64,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3D=3D"); background-position: cente=
+r center; background-repeat: no-repeat; padding: 10px !important; }
+  h1:lang(anp), h1:lang(as), h1:lang(bh), h1:lang(bho), h1:lang(bn), h1:lan=
+g(gu), h1:lang(hi), h1:lang(kn), h1:lang(ks), h1:lang(ml), h1:lang(mr), h1:=
+lang(my), h1:lang(mai), h1:lang(ne), h1:lang(new), h1:lang(or), h1:lang(pa)=
+, h1:lang(pi), h1:lang(sa), h1:lang(ta), h1:lang(te) { line-height: 1.6em !=
+important; }
+  h2:lang(anp), h3:lang(anp), h4:lang(anp), h5:lang(anp), h6:lang(anp), h2:=
+lang(as), h3:lang(as), h4:lang(as), h5:lang(as), h6:lang(as), h2:lang(bho),=
+ h3:lang(bho), h4:lang(bho), h5:lang(bho), h6:lang(bho), h2:lang(bh), h3:la=
+ng(bh), h4:lang(bh), h5:lang(bh), h6:lang(bh), h2:lang(bn), h3:lang(bn), h4=
+:lang(bn), h5:lang(bn), h6:lang(bn), h2:lang(gu), h3:lang(gu), h4:lang(gu),=
+ h5:lang(gu), h6:lang(gu), h2:lang(hi), h3:lang(hi), h4:lang(hi), h5:lang(h=
+i), h6:lang(hi), h2:lang(kn), h3:lang(kn), h4:lang(kn), h5:lang(kn), h6:lan=
+g(kn), h2:lang(ks), h3:lang(ks), h4:lang(ks), h5:lang(ks), h6:lang(ks), h2:=
+lang(ml), h3:lang(ml), h4:lang(ml), h5:lang(ml), h6:lang(ml), h2:lang(mr), =
+h3:lang(mr), h4:lang(mr), h5:lang(mr), h6:lang(mr), h2:lang(my), h3:lang(my=
+), h4:lang(my), h5:lang(my), h6:lang(my), h2:lang(mai), h3:lang(mai), h4:la=
+ng(mai), h5:lang(mai), h6:lang(mai), h2:lang(ne), h3:lang(ne), h4:lang(ne),=
+ h5:lang(ne), h6:lang(ne), h2:lang(new), h3:lang(new), h4:lang(new), h5:lan=
+g(new), h6:lang(new), h2:lang(or), h3:lang(or), h4:lang(or), h5:lang(or), h=
+6:lang(or), h2:lang(pa), h3:lang(pa), h4:lang(pa), h5:lang(pa), h6:lang(pa)=
+, h2:lang(pi), h3:lang(pi), h4:lang(pi), h5:lang(pi), h6:lang(pi), h2:lang(=
+sa), h3:lang(sa), h4:lang(sa), h5:lang(sa), h6:lang(sa), h2:lang(ta), h3:la=
+ng(ta), h4:lang(ta), h5:lang(ta), h6:lang(ta), h2:lang(te), h3:lang(te), h4=
+:lang(te), h5:lang(te), h6:lang(te) { line-height: 1.2em; }
+  ol:lang(bcc) li, ol:lang(bqi) li, ol:lang(fa) li, ol:lang(glk) li, ol:lan=
+g(kk-arab) li, ol:lang(mzn) li { list-style-type: persian; }
+  ol:lang(ckb) li { list-style-type: arabic-indic; }
+  ol:lang(hi) li, ol:lang(mr) li { list-style-type: devanagari; }
+  ol:lang(as) li, ol:lang(bn) li { list-style-type: bengali; }
+  ol:lang(or) li { list-style-type: oriya; }
+  #toc ul, .toc ul { margin: 0.3em 0px; }
+  .mw-content-ltr .toc ul, .mw-content-ltr #toc ul, .mw-content-rtl .mw-con=
+tent-ltr .toc ul, .mw-content-rtl .mw-content-ltr #toc ul { text-align: lef=
+t; }
+  .mw-content-rtl .toc ul, .mw-content-rtl #toc ul, .mw-content-ltr .mw-con=
+tent-rtl .toc ul, .mw-content-ltr .mw-content-rtl #toc ul { text-align: rig=
+ht; }
+  .mw-content-ltr .toc ul ul, .mw-content-ltr #toc ul ul, .mw-content-rtl .=
+mw-content-ltr .toc ul ul, .mw-content-rtl .mw-content-ltr #toc ul ul { mar=
+gin: 0px 0px 0px 2em; }
+  .mw-content-rtl .toc ul ul, .mw-content-rtl #toc ul ul, .mw-content-ltr .=
+mw-content-rtl .toc ul ul, .mw-content-ltr .mw-content-rtl #toc ul ul { mar=
+gin: 0px 2em 0px 0px; }
+  #toc #toctitle, .toc #toctitle, #toc .toctitle, .toc .toctitle { directio=
+n: ltr; }
+  .mw-help-field-hint { display: none; margin-left: 2px; margin-bottom: -8p=
+x; padding: 0px 0px 0px 15px; background-image: url("data:image/gif;base64,=
+R0lGODlhCwALALMAAP///01NTZOTk1lZWefn57i4uJSUlPPz82VlZdDQ0HFxcaysrNvb28TExAA=
+AAAAAACH5BAAAAAAALAAAAAALAAsAAAQrUIRJqQQ455nNNBgHJANBDAwgZsVwqIG2IEQYYwXy2l=
+q/Kg3NqqeSVCqCCAA7"); background-position: left center; background-repeat: =
+no-repeat; cursor: pointer; font-size: 0.8em; text-decoration: underline; c=
+olor: rgb(6, 69, 173); }
+  .mw-help-field-hint:hover { background-image: url("data:image/gif;base64,=
+R0lGODlhCwALALMAAAtop+7z+GCWwpW51oStz8rb6yZzrafF3bnR5Nzn8QBcoD91oABQmf///wA=
+AAAAAACH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSH=
+pyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4b=
+XB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjAgNjEuMTM0Nzc3LCAyMDEwLzAyLzEyLTE3OjMy=
+OjAwICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTk=
+vMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bW=
+xuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9I=
+mh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtbG5zOnht=
+cD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1wTU06T3JpZ2luYWxEb2N1bWVudEl=
+EPSJ4bXAuZGlkOjAyODAxMTc0MDcyMDY4MTE5NkQ0QUQzRjI0NzRCNUQwIiB4bXBNTTpEb2N1bW=
+VudElEPSJ4bXAuZGlkOjJBN0FFQTQwQjlGQzExREY5RDlBQTRBODQyMkJCMkFDIiB4bXBNTTpJb=
+nN0YW5jZUlEPSJ4bXAuaWlkOjJBN0FFQTNGQjlGQzExREY5RDlBQTRBODQyMkJCMkFDIiB4bXA6=
+Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzUgTWFjaW50b3NoIj4gPHhtcE1NOkRlcml=
+2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RkM3RjExNzQwNzIwNjgxMTk1RkVBQ0=
+ZBOEQxNTU5MkUiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MDI4MDExNzQwNzIwNjgxMTk2R=
+DRBRDNGMjQ3NEI1RDAiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1l=
+dGE+IDw/eHBhY2tldCBlbmQ9InIiPz4B//79/Pv6+fj39vX08/Lx8O/u7ezr6uno5+bl5OPi4eD=
+f3t3c29rZ2NfW1dTT0tHQz87NzMvKycjHxsXEw8LBwL++vby7urm4t7a1tLOysbCvrq2sq6qpqK=
+empaSjoqGgn56dnJuamZiXlpWUk5KRkI+OjYyLiomIh4aFhIOCgYB/fn18e3p5eHd2dXRzcnFwb=
+25tbGtqaWhnZmVkY2JhYF9eXVxbWllYV1ZVVFNSUVBPTk1MS0pJSEdGRURDQkFAPz49PDs6OTg3=
+NjU0MzIxMC8uLSwrKikoJyYlJCMiISAfHh0cGxoZGBcWFRQTEhEQDw4NDAsKCQgHBgUEAwIBAAA=
+h+QQAAAAAACwAAAAACwALAAAEK3CxSalsOOeZxRQY1yBKkihFI2aDEqiMRgBJGGMD8NpavxoHza=
+qnklQqiwgAOw=3D=3D"); }
+  .mw-help-field-data { display: block; background-color: rgb(214, 243, 255=
+); padding: 5px 8px 4px; border: 1px solid rgb(93, 201, 244); margin-left: =
+20px; }
+  #mw-clearyourcache, #mw-sitecsspreview, #mw-sitejspreview, #mw-usercsspre=
+view, #mw-userjspreview { direction: ltr; unicode-bidi: embed; }
+  .diff-currentversion-title, .diff { direction: ltr; unicode-bidi: embed; =
+}
+  .diff-contentalign-right td { direction: rtl; unicode-bidi: embed; }
+  .diff-contentalign-left td { direction: ltr; unicode-bidi: embed; }
+  .diff-multi, .diff-otitle, .diff-ntitle, .diff-lineno { unicode-bidi: emb=
+ed; direction: ltr !important; }
+  #mw-revision-info, #mw-revision-info-current, #mw-revision-nav { directio=
+n: ltr; display: inline; }
+  div.tright, div.floatright, table.floatright { clear: right; float: right=
+; }
+  div.tleft, div.floatleft, table.floatleft { float: left; clear: left; }
+  div.floatright, table.floatright, div.floatleft, table.floatleft { positi=
+on: relative; }
+  #mw-credits a { unicode-bidi: embed; }
+  .mw-jump, #jump-to-nav { overflow: hidden; height: 0px; zoom: 1; }
+  .printfooter { display: none; }
+  .xdebug-error { position: absolute; z-index: 99; }
+  .mw-editsection, .toctoggle, #jump-to-nav { user-select: none; }
+  .mw-editsection, .mw-editsection-like { font-size: small; font-weight: no=
+rmal; margin-left: 1em; vertical-align: baseline; line-height: 1em; display=
+: inline-block; }
+  .mw-content-ltr .mw-editsection, .mw-content-rtl .mw-content-ltr .mw-edit=
+section { margin-left: 1em; }
+  .mw-content-rtl .mw-editsection, .mw-content-ltr .mw-content-rtl .mw-edit=
+section { margin-right: 1em; }
+  sup, sub { line-height: 1; }
+}
+
+@media screen {
+  .mw-body a.external, .link-https { background: linear-gradient(transparen=
+t, transparent) right center no-repeat, url("data:image/svg+xml;base64,PD94=
+bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmc=
+geG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIi=
+B4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMTMiIHdpZHRoPSIxM=
+yIgdmVyc2lvbj0iMS4xIiB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMj=
+IiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iPgo8ZyB0cmFuc2Z=
+vcm09InRyYW5zbGF0ZSgtMzYuNDY3ODA4LC0yNTguMzkwMDUpIj4KPHBhdGggc3R5bGU9Im9wYW=
+NpdHk6MTtmaWxsOiMzMzY2YmI7IiBkPSJtNDEuNDcsMjU5LjQsNywwLDAsNy0yLTItMywyLDAtM=
+SwzLTIuMjUsMSwxLDAtMy43NS0zLjc1LDAsMSwxLTIuMjUsMy0xLDAsMi0zeiIvPgo8cGF0aCBz=
+dHlsZT0ib3BhY2l0eToxO2ZpbGw6IzMzNjZiYjsiIGQ9Im00My40NywyNjEuNC01LDAsMCw4LDg=
+sMCwwLTUtMSwwLDAsNC02LDAsMC02LDQsMHoiLz4KPHBhdGggc3R5bGU9Im9wYWNpdHk6MTtmaW=
+xsOiMxNWE1ZWE7IiBkPSJtNDAuNTUsMjYzLjljMC0wLjYyMTMsMC42MjEzLTAuNjIxMywwLjYyM=
+TMtMC42MjEzLDEuODY0LDAuNjIxMywzLjEwNywxLjg2NCwzLjcyOCwzLjcyOCwwLDAsMCwwLjYy=
+MTMtMC42MjEzLDAuNjIxMy0xLjI0My0xLjg2NC0xLjg2NC0yLjQ4NS0zLjcyOC0zLjcyOHoiLz4=
+KPC9nPgo8L3N2Zz4K"); padding-right: 15px; }
+  .mw-body a.external[href^=3D"mailto:"], .link-mailto { background: linear=
+-gradient(transparent, transparent) right center no-repeat, url("data:image=
+/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWx=
+vbmU9Im5vIj8+CjxzdmcgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLX=
+JkZi1zeW50YXgtbnMjIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdod=
+D0iMTMiIHdpZHRoPSIxMyIgdmVyc2lvbj0iMS4xIiB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZl=
+Y29tbW9ucy5vcmcvbnMjIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzE=
+uMS8iPgo8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMzYuNDcsLTI1Ny40KSI+CjxwYXRoIHN0eW=
+xlPSJmaWxsOiMxNWE1ZWE7IiBkPSJtMzguMzEsMjYxLjQsNC42Niw0LjM0OSw0LjY2LTQuMzQ5L=
+TAuNjIxMy0wLjYyMTMtMS4yNDMsMC42MjE2LTIuNzk2LDIuNDg1LTIuNzk2LTIuNDg1LTEuMjQz=
+LTAuNjIxNnoiLz4KPHBhdGggc3R5bGU9ImZpbGw6IzMzNjZiYjsiIGQ9Im0zNy40NywyNjAuNCw=
+wLDgsMTEsMCwwLTh6bTEsMSw5LDAsMCw2LTksMHoiLz4KPC9nPgo8L3N2Zz4K"); padding-ri=
+ght: 15px; }
+  .mw-body a.external[href^=3D"ftp://"], .link-ftp { background: linear-gra=
+dient(transparent, transparent) right center no-repeat, url("data:image/svg=
++xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU=
+9Im5vIj8+CjxzdmcgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi=
+1zeW50YXgtbnMjIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iM=
+TMiIHdpZHRoPSIxMyIgdmVyc2lvbj0iMS4xIiB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29t=
+bW9ucy5vcmcvbnMjIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8=
+iPgo8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTM2LjM1NzE1LC0zNzQuNDMzNjIpIj4KPHBhdG=
+ggc3R5bGU9Im9wYWNpdHk6MTtmaWxsOiMzNDY1YmE7IiBkPSJtMTM3LjQsMzc2LjksMCw3LjUsM=
+S0wLjk4NzIsMC02LjAxMywyLDAsMiwxLDQtMC4wMDAyLDAsMiwxLDAsMC0yLjUtMC41LTAuNTAw=
+Mi00LjUsMC4wMDAyLTItMS0yLjUsMHoiLz4KPHBhdGggc3R5bGU9Im9wYWNpdHk6MTtmaWxsOiM=
+xNmE0ZTg7IiBkPSJtMTQyLjQsMzc5LjQtMS0wLjAwMDEtMi41LDAtMC41LDAuNS0xLDQuNSwxMC=
+0wLjAwMDEsMC00LjUtMC41LTAuNXptMCwxLDQtMC4wMDAxLDAsMy03Ljc1LTAuMDAwMSwwLjc1L=
+TMsMiwweiIvPgo8cGF0aCBzdHlsZT0ib3BhY2l0eToxO2ZpbGw6IzM0NjViYTsiIGQ9Im0xMzgu=
+NCwzODUuNCwwLDEsOCwwLDAtMXoiLz4KPHBhdGggc3R5bGU9Im9wYWNpdHk6MTtmaWxsOiMzNDY=
+1YmE7IiBkPSJtMTQxLjQsMzgzLjksMCwyLDIsMCwwLTJjMC0wLjUtMi0wLjUtMiwweiIvPgo8L2=
+c+Cjwvc3ZnPgo=3D"); padding-right: 15px; }
+  .mw-body a.external[href^=3D"irc://"], .mw-body a.external[href^=3D"ircs:=
+//"], .link-irc { background: linear-gradient(transparent, transparent) rig=
+ht center no-repeat, url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4=
+wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgeG1sbnM6cmRmPSJodH=
+RwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIiB4bWxucz0iaHR0cDovL=
+3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMTMiIHdpZHRoPSIxMyIgdmVyc2lvbj0iMS4x=
+IiB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIiB4bWxuczpkYz0iaHR=
+0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iPgo8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZS=
+gtMzYuNDY3ODA4LC0yNTguMzkwMDUpIj4KPHBhdGggc3R5bGU9Im9wYWNpdHk6MTtmaWxsOiMzM=
+zY2YmI7IiBkPSJtMzguMDksMjYwLjQtMC42MjEzLDAuNjIxMywwLDUuNzU3LDAuNjIxMywwLjYy=
+MTMsMS42ODksMC0wLjYyMTMsMi43MjgsNC4zMTEtMi43MjgsNC4zNzksMCwwLjYyMTMtMC42MjE=
+zLDAtNS43NTctMC42MjEzLTAuNjIxM3ptMC4zNzg3LDEsOSwwLDAsNS00LDAtMi45MDIsMS44OT=
+csMC45MDIxLTEuODk3LTMsMHoiLz4KPC9nPgo8L3N2Zz4K"); padding-right: 15px; }
+  .mw-body a.external[href$=3D".ogg"], .mw-body a.external[href$=3D".OGG"],=
+ .mw-body a.external[href$=3D".mid"], .mw-body a.external[href$=3D".MID"], =
+.mw-body a.external[href$=3D".midi"], .mw-body a.external[href$=3D".MIDI"],=
+ .mw-body a.external[href$=3D".mp3"], .mw-body a.external[href$=3D".MP3"], =
+.mw-body a.external[href$=3D".wav"], .mw-body a.external[href$=3D".WAV"], .=
+mw-body a.external[href$=3D".wma"], .mw-body a.external[href$=3D".WMA"], .l=
+ink-audio { background: linear-gradient(transparent, transparent) right cen=
+ter no-repeat, url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlb=
+mNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgeG1sbnM6cmRmPSJodHRwOi8v=
+d3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIiB4bWxucz0iaHR0cDovL3d3dy5=
+3My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMTMiIHdpZHRoPSIxMyIgdmVyc2lvbj0iMS4xIiB4bW=
+xuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIiB4bWxuczpkYz0iaHR0cDovL=
+3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iPgo8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMzYu=
+NDY3ODA4LC0yNTguMzkwMDUpIj4KPHBhdGggc3R5bGU9Im9wYWNpdHk6MTtmaWxsOiMzMzY2YmI=
+7IiBkPSJtNDMuNDcsMjU5LjQtMywzLTMsMCwwLDQsMywwLDMsM3ptLTEsMi41LDAsNS0xLjUtMS=
+41LTIuNSwwLDAtMiwyLjUsMHoiLz4KPHBhdGggc3R5bGU9Im9wYWNpdHk6MTtmaWxsOiMxNWE1Z=
+WE7IiBkPSJtNDMuOSwyNjIuNWMwLTAuNjIxMywwLjYyMTMtMS4yNDMsMS4yNDMtMC42MjEzLDAs=
+MCwwLjYyMTMsMC42MjEzLDAuNjIxMywyLjQ4NXMtMC42MjEzLDIuNDg1LTAuNjIxMywyLjQ4NWM=
+tMC42MjEzLDAuNjIxMy0xLjI0MywwLTEuMjQzLTAuNjIxMywwLDAsMC42MjEzLTAuNjIxMywwLj=
+YyMTMtMS44NjRzLTAuNjIxMy0xLjg2NC0wLjYyMTMtMS44NjR6Ii8+CjxwYXRoIHN0eWxlPSJvc=
+GFjaXR5OjE7ZmlsbDojMTVhNWVhOyIgZD0ibTQ1Ljc2LDI2MS4yYzAtMC42MjEzLDAuNjIxMy0x=
+LjI0MywxLjI0My0wLjYyMTMsMCwwLDEuMjQzLDEuMjQzLDEuMjQzLDMuNzI4cy0xLjI0MywzLjc=
+yOC0xLjI0MywzLjcyOGMtMC42MjEzLDAuNjIxMy0xLjI0MywwLTEuMjQzLTAuNjIxMywwLDAsMS=
+4yNDMtMS4yNDMsMS4yNDMtMy4xMDdzLTEuMjQzLTMuMTA3LTEuMjQzLTMuMTA3eiIvPgo8L2c+C=
+jwvc3ZnPgo=3D"); padding-right: 15px; }
+  .mw-body a.external[href$=3D".ogm"], .mw-body a.external[href$=3D".OGM"],=
+ .mw-body a.external[href$=3D".avi"], .mw-body a.external[href$=3D".AVI"], =
+.mw-body a.external[href$=3D".mpeg"], .mw-body a.external[href$=3D".MPEG"],=
+ .mw-body a.external[href$=3D".mpg"], .mw-body a.external[href$=3D".MPG"], =
+.link-video { background: linear-gradient(transparent, transparent) right c=
+enter no-repeat, url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiB=
+lbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgeG1sbnM6cmRmPSJodHRwOi=
+8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIiB4bWxucz0iaHR0cDovL3d3d=
+y53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMTMiIHdpZHRoPSIxMyIgdmVyc2lvbj0iMS4xIiB4=
+bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIiB4bWxuczpkYz0iaHR0cDo=
+vL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iPgo8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMz=
+YuNDY3OCwtMjU4LjM5KSI+CjxwYXRoIHN0eWxlPSJvcGFjaXR5OjE7ZmlsbC1vcGFjaXR5OjE7Z=
+mlsbDojMTVhNWVhOyIgZD0ibTM4Ljk2LDI2MC40LDAsMC42MjEzLDguMDk4LDAsMC0wLjYyMTN6=
+Ii8+CjxwYXRoIHN0eWxlPSJvcGFjaXR5OjE7ZmlsbC1vcGFjaXR5OjE7ZmlsbDojMTVhNWVhOyI=
+gZD0ibTM4Ljk2LDI2OC40LDguMDk4LDAsMC0wLjYyMTMtOC4wOTgsMHoiLz4KPHBhdGggc3R5bG=
+U9Im9wYWNpdHk6MTtmaWxsLW9wYWNpdHk6MTtmaWxsOiMxNWE1ZWE7IiBkPSJtMzguOTYsMjYyL=
+jMsMCwwLjYyMTMsMS44NjksMCwwLTAuNjIxM3ptNi4yMjksMCwwLDAuNjIxMywxLjg2OSwwLDAt=
+MC42MjEzeiIvPgo8cGF0aCBzdHlsZT0ib3BhY2l0eToxO2ZpbGwtb3BhY2l0eToxO2ZpbGw6IzE=
+1YTVlYTsiIGQ9Im0zOC45NiwyNjYsMCwwLjYyMTMsMS44NjksMCwwLTAuNjIxM3ptNi4yMjksMC=
+wwLDAuNjIxMywxLjg2OSwwLDAtMC42MjEzeiIvPgo8cGF0aCBzdHlsZT0ib3BhY2l0eToxO2Zpb=
+Gwtb3BhY2l0eToxO2ZpbGw6IzE1YTVlYTsiIGQ9Im0zOC45NiwyNjQuOCw4LjA5OCwwLDAtMC42=
+MjEzLTguMDk4LDB6Ii8+CjxwYXRoIHN0eWxlPSJvcGFjaXR5OjE7ZmlsbDojMTVhNWVhOyIgZD0=
+ibTQwLjgzLDI2My45LDAsMS4yNDMsNC4zNiwwLDAtMS4yNDN6Ii8+CjxwYXRoIHN0eWxlPSJvcG=
+FjaXR5OjE7ZmlsbDojMzM2NmJiOyIgZD0ibTQwLjQ3LDI2MC40LDAsOCw1LDAsMC04em0xLDEsM=
+ywwLDAsNi0zLDB6Ii8+CjxwYXRoIHN0eWxlPSJvcGFjaXR5OjE7ZmlsbDojMzM2NmJiOyIgZD0i=
+bTM4LjQ3LDI1OS40LDEsMCwwLDEwLTEsMHoiLz4KPHBhdGggc3R5bGU9Im9wYWNpdHk6MTtmaWx=
+sOiMzMzY2YmI7IiBkPSJtNDYuNDcsMjU5LjQsMSwwLDAsMTAtMSwweiIvPgo8L2c+Cjwvc3ZnPg=
+o=3D"); padding-right: 15px; }
+  .mw-body a.external[href$=3D".pdf"], .mw-body a.external[href$=3D".PDF"],=
+ .mw-body a.external[href*=3D".pdf#"], .mw-body a.external[href*=3D".PDF#"]=
+, .mw-body a.external[href*=3D".pdf?"], .mw-body a.external[href*=3D".PDF?"=
+], .link-document { background: linear-gradient(transparent, transparent) r=
+ight center no-repeat, url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iM=
+S4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgeG1sbnM6cmRmPSJo=
+dHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIiB4bWxucz0iaHR0cDo=
+vL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMTMiIHdpZHRoPSIxMyIgdmVyc2lvbj0iMS=
+4xIiB4bWxuczpjYz0iaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvbnMjIiB4bWxuczpkYz0ia=
+HR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iPgo8cGF0aCBzdHlsZT0ib3BhY2l0eTox=
+O2ZpbGw6IzE1YTVlYTsiIGQ9Im03LjUsMiwwLDMsMi41LDAsMS0xLTIuNSwwLDAtM3oiLz4KPHB=
+hdGggc3R5bGU9Im9wYWNpdHk6MTtmaWxsOiMzMzY2YmI7IiBkPSJtMywxLDAsMTAsOCwwLDAtNy=
+0yLjUtM3ptMSwxLDQsMCwyLDIuNSwwLDUuNS02LDB6Ii8+Cjwvc3ZnPgo=3D"); padding-rig=
+ht: 15px; }
+  .mw-body a.extiw, .mw-body a.extiw:active { color: rgb(51, 102, 187); }
+  .mw-body a.external { color: rgb(51, 102, 187); }
+}
+
+@media screen {
+  a { text-decoration: none; color: rgb(6, 69, 173); background: none; }
+  a:visited { color: rgb(11, 0, 128); }
+  a:active { color: rgb(250, 167, 0); }
+  a:hover, a:focus { text-decoration: underline; }
+  a.stub { color: rgb(119, 34, 51); }
+  a.new, #p-personal a.new { color: rgb(186, 0, 0); }
+  a.new:visited, #p-personal a.new:visited { color: rgb(165, 88, 88); }
+  .mw-body a.extiw, .mw-body a.extiw:active { color: rgb(51, 102, 187); }
+  .mw-body a.extiw:visited { color: rgb(102, 51, 102); }
+  .mw-body a.extiw:active { color: rgb(187, 102, 51); }
+  .mw-body a.external { color: rgb(51, 102, 187); }
+  .mw-body a.external:visited { color: rgb(102, 51, 102); }
+  .mw-body a.external:active { color: rgb(187, 102, 51); }
+  img { border: none; vertical-align: middle; }
+  hr { height: 1px; color: rgb(170, 170, 170); background-color: rgb(170, 1=
+70, 170); border: 0px; margin: 0.2em 0px; }
+  h1, h2, h3, h4, h5, h6 { color: black; background: none; font-weight: nor=
+mal; margin: 0px; overflow: hidden; padding-top: 0.5em; padding-bottom: 0.1=
+7em; border-bottom: 1px solid rgb(170, 170, 170); }
+  h1 { font-size: 188%; }
+  h2 { font-size: 150%; }
+  h3, h4, h5, h6 { border-bottom: none; font-weight: bold; }
+  h3 { font-size: 132%; }
+  h4 { font-size: 116%; }
+  h5 { font-size: 108%; }
+  h6 { font-size: 100%; }
+  h1, h2 { margin-bottom: 0.6em; }
+  h3, h4, h5 { margin-bottom: 0.3em; }
+  p { margin: 0.4em 0px 0.5em; line-height: 1.5em; }
+  p img { margin: 0px; }
+  ul { line-height: 1.5em; list-style-type: square; margin: 0.3em 0px 0px 1=
+.6em; padding: 0px; }
+  ol { line-height: 1.5em; margin: 0.3em 0px 0px 3.2em; padding: 0px; list-=
+style-image: none; }
+  li { margin-bottom: 0.1em; }
+  dt { font-weight: bold; margin-bottom: 0.1em; }
+  dl { margin-top: 0.2em; margin-bottom: 0.5em; }
+  dd { line-height: 1.5em; margin-left: 1.6em; margin-bottom: 0.1em; }
+  q { }
+  pre, code, tt, kbd, samp, .mw-code { font-family: monospace, Courier; }
+  code { color: black; background-color: rgb(249, 249, 249); border: 1px so=
+lid rgb(221, 221, 221); border-radius: 2px; padding: 1px 4px; }
+  pre, .mw-code { color: black; background-color: rgb(249, 249, 249); borde=
+r: 1px solid rgb(221, 221, 221); padding: 1em; }
+  table { font-size: 100%; }
+  fieldset { border: 1px solid rgb(47, 111, 171); margin: 1em 0px; padding:=
+ 0px 1em 1em; line-height: 1.5em; }
+  fieldset.nested { margin: 0px 0px 0.5em; padding: 0px 0.5em 0.5em; }
+  legend { padding: 0.5em; font-size: 95%; }
+  form { border: none; margin: 0px; }
+  textarea { width: 100%; padding: 0.1em; display: block; box-sizing: borde=
+r-box; }
+  select { vertical-align: top; }
+  .center { width: 100%; text-align: center; }
+  .center * { margin-left: auto; margin-right: auto; }
+  .small { font-size: 94%; }
+  table.small { font-size: 100%; }
+  #toc, .toc, .mw-warning { border: 1px solid rgb(170, 170, 170); backgroun=
+d-color: rgb(249, 249, 249); padding: 5px; font-size: 95%; }
+  #toc, .toc { display: table; zoom: 1; padding: 7px; }
+  table#toc, table.toc { border-collapse: collapse; }
+  table#toc td, table.toc td { padding: 0px; }
+  #toc h2, .toc h2 { display: inline; border: none; padding: 0px; font-size=
+: 100%; font-weight: bold; }
+  #toc #toctitle, .toc #toctitle, #toc .toctitle, .toc .toctitle { text-ali=
+gn: center; }
+  #toc ul, .toc ul { list-style-type: none; list-style-image: none; margin-=
+left: 0px; padding: 0px; text-align: left; }
+  #toc ul ul, .toc ul ul { margin: 0px 0px 0px 2em; }
+  #toc .toctoggle, .toc .toctoggle { font-size: 94%; }
+  .toccolours { border: 1px solid rgb(170, 170, 170); background-color: rgb=
+(249, 249, 249); padding: 5px; font-size: 95%; }
+  .mw-warning { margin-left: 50px; margin-right: 50px; text-align: center; =
+}
+  div.floatright, table.floatright { margin: 0px 0px 0.5em 0.5em; border: 0=
+px; }
+  div.floatright p { font-style: italic; }
+  div.floatleft, table.floatleft { margin: 0px 0.5em 0.5em 0px; border: 0px=
+; }
+  div.floatleft p { font-style: italic; }
+  div.thumb { margin-bottom: 0.5em; width: auto; background-color: transpar=
+ent; }
+  div.thumbinner { border: 1px solid rgb(204, 204, 204); padding: 3px; back=
+ground-color: rgb(249, 249, 249); font-size: 94%; text-align: center; overf=
+low: hidden; }
+  html .thumbimage { border: 1px solid rgb(204, 204, 204); }
+  html .thumbcaption { border: none; line-height: 1.4em; padding: 3px; font=
+-size: 94%; text-align: left; }
+  div.magnify { float: right; margin-left: 3px; }
+  div.magnify a { display: block; text-indent: 15px; white-space: nowrap; o=
+verflow: hidden; width: 15px; height: 11px; background: url("data:image/png=
+;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAALCAAAAACFLIiAAAAAAnRSTlMA/1uRIrUAAAA=
+CYktHRAD/h4/MvwAAAAlwSFlzAAAK8AAACvABQqw0mAAAAAd0SU1FB9UEAhIREfdlPYsAAABPSU=
+RBVAjXY/j///+5vXDwjAHIr26ZAgXZe8H8a/+hoIcw/9nevdVL9+79DuPvzQYZFPUezu8BMZLXg=
+kExnD8HAu6hqv//n+HZVjD4DuUDAKlChD3fj6aPAAAAAElFTkSuQmCC") center center no-=
+repeat; user-select: none; }
+  img.thumbborder { border: 1px solid rgb(221, 221, 221); }
+  .mw-content-ltr .thumbcaption { text-align: left; }
+  .mw-content-ltr .magnify { float: right; margin-left: 3px; margin-right: =
+0px; }
+  .mw-content-ltr div.magnify a { background-image: url("data:image/png;bas=
+e64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAALCAAAAACFLIiAAAAAAnRSTlMA/1uRIrUAAAACYkt=
+HRAD/h4/MvwAAAAlwSFlzAAAK8AAACvABQqw0mAAAAAd0SU1FB9UEAhIREfdlPYsAAABPSURBVA=
+jXY/j///+5vXDwjAHIr26ZAgXZe8H8a/+hoIcw/9nevdVL9+79DuPvzQYZFPUezu8BMZLXgkExn=
+D8HAu6hqv//n+HZVjD4DuUDAKlChD3fj6aPAAAAAElFTkSuQmCC"); }
+  .mw-content-rtl .thumbcaption { text-align: right; }
+  .mw-content-rtl .magnify { float: left; margin-left: 0px; margin-right: 3=
+px; }
+  .mw-content-rtl div.magnify a { background-image: url("data:image/png;bas=
+e64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAALCAAAAACFLIiAAAAAAnRSTlMA/1uRIrUAAABOSUR=
+BVAhbY3i2Fw7O/f//n2Fv9hQoaKkG83v+Q8E1Uvjf9+5dWr137zMY/30UyMjsvQx7i9eCQTJItG=
+cvw705EADjQw2Dq4fyv28Fg2cAsGSEPe14NMoAAAAASUVORK5CYII=3D"); }
+  div.tright { margin: 0.5em 0px 1.3em 1.4em; }
+  div.tleft { margin: 0.5em 1.4em 1.3em 0px; }
+  .catlinks { border: 1px solid rgb(170, 170, 170); background-color: rgb(2=
+49, 249, 249); padding: 5px; margin-top: 1em; clear: both; }
+  .usermessage { background-color: rgb(255, 206, 123); border: 1px solid rg=
+b(255, 165, 0); color: black; font-weight: bold; margin: 2em 0px 1em; paddi=
+ng: 0.5em 1em; vertical-align: middle; }
+  #siteNotice { position: relative; text-align: center; margin: 0px; }
+  #localNotice { margin-bottom: 0.9em; }
+  .firstHeading { margin-bottom: 0.1em; line-height: 1.2em; padding-bottom:=
+ 0px; }
+  #siteSub { display: none; }
+  #jump-to-nav { margin-top: -1.4em; margin-bottom: 1.4em; }
+  #contentSub, #contentSub2 { font-size: 84%; line-height: 1.2em; margin: 0=
+px 0px 1.4em 1em; color: rgb(84, 84, 84); width: auto; }
+  span.subpages { display: block; }
+}
+
+.mw-ui-button { font-family: inherit; font-size: 1em; display: inline-block=
+; padding: 0.5em 1em; margin: 0px; box-sizing: border-box; appearance: none=
+; zoom: 1; background: rgb(255, 255, 255); color: rgb(85, 85, 85); border: =
+1px solid rgb(204, 204, 204); border-radius: 2px; min-width: 80px; vertical=
+-align: middle; text-align: center; font-weight: bold; cursor: pointer; tra=
+nsition: background 0.1s ease-in-out 0s, color 0.1s ease-in-out 0s, box-sha=
+dow 0.1s ease-in-out 0s; }
+
+.mw-ui-button:hover, .mw-ui-button:focus { box-shadow: rgba(0, 0, 0, 0.1) 0=
+px 1px, rgba(0, 0, 0, 0.2) 0px -3px inset; border-bottom-color: rgb(204, 20=
+4, 204); outline: none; }
+
+.mw-ui-button:active, .mw-ui-button.mw-ui-checked { background: rgb(204, 20=
+4, 204); box-shadow: none; }
+
+.mw-ui-button:disabled { color: rgb(204, 204, 204); }
+
+.mw-ui-button:disabled:hover, .mw-ui-button:disabled:active { background: r=
+gb(255, 255, 255); box-shadow: none; }
+
+.mw-ui-button:disabled { text-shadow: none; cursor: default; }
+
+.mw-ui-button.mw-ui-big { font-size: 1.3em; }
+
+.mw-ui-button.mw-ui-block { display: block; width: 100%; }
+
+.mw-ui-button.mw-ui-progressive, .mw-ui-button.mw-ui-primary { background: =
+rgb(52, 123, 255); color: rgb(255, 255, 255); border-top: 1px solid rgb(52,=
+ 123, 255); border-bottom: 1px solid rgb(52, 123, 255); border-image: initi=
+al; border-left: none; border-right: none; text-shadow: rgba(0, 0, 0, 0.1) =
+0px 1px; }
+
+.mw-ui-button.mw-ui-progressive:hover, .mw-ui-button.mw-ui-progressive:focu=
+s, .mw-ui-button.mw-ui-primary:hover, .mw-ui-button.mw-ui-primary:focus { b=
+ox-shadow: rgba(0, 0, 0, 0.1) 0px 1px, rgba(0, 0, 0, 0.2) 0px -3px inset; b=
+order-bottom-color: rgb(42, 98, 204); outline: none; }
+
+.mw-ui-button.mw-ui-progressive:active, .mw-ui-button.mw-ui-progressive.mw-=
+ui-checked, .mw-ui-button.mw-ui-primary:active, .mw-ui-button.mw-ui-primary=
+.mw-ui-checked { background: rgb(42, 98, 204); box-shadow: none; }
+
+.mw-ui-button.mw-ui-progressive:disabled, .mw-ui-button.mw-ui-primary:disab=
+led { background: rgb(204, 204, 204); border-color: rgb(204, 204, 204); }
+
+.mw-ui-button.mw-ui-progressive:disabled:hover, .mw-ui-button.mw-ui-progres=
+sive:disabled:active, .mw-ui-button.mw-ui-progressive:disabled.mw-ui-checke=
+d, .mw-ui-button.mw-ui-primary:disabled:hover, .mw-ui-button.mw-ui-primary:=
+disabled:active, .mw-ui-button.mw-ui-primary:disabled.mw-ui-checked { box-s=
+hadow: none; }
+
+.mw-ui-button.mw-ui-progressive.mw-ui-quiet, .mw-ui-button.mw-ui-primary.mw=
+-ui-quiet { color: rgb(85, 85, 85); }
+
+.mw-ui-button.mw-ui-progressive.mw-ui-quiet:hover, .mw-ui-button.mw-ui-prog=
+ressive.mw-ui-quiet:focus, .mw-ui-button.mw-ui-primary.mw-ui-quiet:hover, .=
+mw-ui-button.mw-ui-primary.mw-ui-quiet:focus { color: rgb(93, 149, 255); }
+
+.mw-ui-button.mw-ui-progressive.mw-ui-quiet:active, .mw-ui-button.mw-ui-pro=
+gressive.mw-ui-quiet.mw-ui-checked, .mw-ui-button.mw-ui-primary.mw-ui-quiet=
+:active, .mw-ui-button.mw-ui-primary.mw-ui-quiet.mw-ui-checked { color: rgb=
+(42, 98, 204); }
+
+.mw-ui-button.mw-ui-progressive.mw-ui-quiet:disabled, .mw-ui-button.mw-ui-p=
+rimary.mw-ui-quiet:disabled { color: rgb(204, 204, 204); }
+
+.mw-ui-button.mw-ui-constructive { background: rgb(0, 175, 137); color: rgb=
+(255, 255, 255); border-top: 1px solid rgb(0, 175, 137); border-bottom: 1px=
+ solid rgb(0, 175, 137); border-image: initial; border-left: none; border-r=
+ight: none; text-shadow: rgba(0, 0, 0, 0.1) 0px 1px; }
+
+.mw-ui-button.mw-ui-constructive:hover, .mw-ui-button.mw-ui-constructive:fo=
+cus { box-shadow: rgba(0, 0, 0, 0.1) 0px 1px, rgba(0, 0, 0, 0.2) 0px -3px i=
+nset; border-bottom-color: rgb(0, 140, 110); outline: none; }
+
+.mw-ui-button.mw-ui-constructive:active, .mw-ui-button.mw-ui-constructive.m=
+w-ui-checked { background: rgb(0, 140, 110); box-shadow: none; }
+
+.mw-ui-button.mw-ui-constructive:disabled { background: rgb(204, 204, 204);=
+ border-color: rgb(204, 204, 204); }
+
+.mw-ui-button.mw-ui-constructive:disabled:hover, .mw-ui-button.mw-ui-constr=
+uctive:disabled:active, .mw-ui-button.mw-ui-constructive:disabled.mw-ui-che=
+cked { box-shadow: none; }
+
+.mw-ui-button.mw-ui-constructive.mw-ui-quiet { color: rgb(85, 85, 85); }
+
+.mw-ui-button.mw-ui-constructive.mw-ui-quiet:hover, .mw-ui-button.mw-ui-con=
+structive.mw-ui-quiet:focus { color: rgb(51, 191, 161); }
+
+.mw-ui-button.mw-ui-constructive.mw-ui-quiet:active, .mw-ui-button.mw-ui-co=
+nstructive.mw-ui-quiet.mw-ui-checked { color: rgb(0, 140, 110); }
+
+.mw-ui-button.mw-ui-constructive.mw-ui-quiet:disabled { color: rgb(204, 204=
+, 204); }
+
+.mw-ui-button.mw-ui-destructive { background: rgb(209, 29, 19); color: rgb(=
+255, 255, 255); border-top: 1px solid rgb(209, 29, 19); border-bottom: 1px =
+solid rgb(209, 29, 19); border-image: initial; border-left: none; border-ri=
+ght: none; text-shadow: rgba(0, 0, 0, 0.1) 0px 1px; }
+
+.mw-ui-button.mw-ui-destructive:hover, .mw-ui-button.mw-ui-destructive:focu=
+s { box-shadow: rgba(0, 0, 0, 0.1) 0px 1px, rgba(0, 0, 0, 0.2) 0px -3px ins=
+et; border-bottom-color: rgb(167, 23, 15); outline: none; }
+
+.mw-ui-button.mw-ui-destructive:active, .mw-ui-button.mw-ui-destructive.mw-=
+ui-checked { background: rgb(167, 23, 15); box-shadow: none; }
+
+.mw-ui-button.mw-ui-destructive:disabled { background: rgb(204, 204, 204); =
+border-color: rgb(204, 204, 204); }
+
+.mw-ui-button.mw-ui-destructive:disabled:hover, .mw-ui-button.mw-ui-destruc=
+tive:disabled:active, .mw-ui-button.mw-ui-destructive:disabled.mw-ui-checke=
+d { box-shadow: none; }
+
+.mw-ui-button.mw-ui-destructive.mw-ui-quiet { color: rgb(85, 85, 85); }
+
+.mw-ui-button.mw-ui-destructive.mw-ui-quiet:hover, .mw-ui-button.mw-ui-dest=
+ructive.mw-ui-quiet:focus { color: rgb(218, 74, 66); }
+
+.mw-ui-button.mw-ui-destructive.mw-ui-quiet:active, .mw-ui-button.mw-ui-des=
+tructive.mw-ui-quiet.mw-ui-checked { color: rgb(167, 23, 15); }
+
+.mw-ui-button.mw-ui-destructive.mw-ui-quiet:disabled { color: rgb(204, 204,=
+ 204); }
+
+.mw-ui-button.mw-ui-quiet { background: transparent; border: none; text-sha=
+dow: none; color: rgb(85, 85, 85); }
+
+.mw-ui-button.mw-ui-quiet:hover, .mw-ui-button.mw-ui-quiet:focus { color: r=
+gb(119, 119, 119); }
+
+.mw-ui-button.mw-ui-quiet:active, .mw-ui-button.mw-ui-quiet.mw-ui-checked {=
+ color: rgb(68, 68, 68); }
+
+.mw-ui-button.mw-ui-quiet:disabled { color: rgb(204, 204, 204); }
+
+.mw-ui-button.mw-ui-quiet:hover, .mw-ui-button.mw-ui-quiet:focus { box-shad=
+ow: none; }
+
+.mw-ui-button.mw-ui-quiet:active, .mw-ui-button.mw-ui-quiet:disabled { back=
+ground: transparent; }
+
+a.mw-ui-button { text-decoration: none; }
+
+a.mw-ui-button:hover, a.mw-ui-button:focus { text-decoration: none; }
+
+.mw-ui-button-group > * { border-radius: 0px; float: left; }
+
+.mw-ui-button-group > :first-child { border-top-left-radius: 2px; border-bo=
+ttom-left-radius: 2px; }
+
+.mw-ui-button-group > :not(:first-child) { border-left: none; }
+
+.mw-ui-button-group > :last-child { border-top-right-radius: 2px; border-bo=
+ttom-right-radius: 2px; }
+
+@media screen {
+  div#column-content { width: 100%; float: right; margin: 0px 0px 0.6em -12=
+.2em; padding: 0px; }
+  .mw-body { margin: 2.8em 0px 0px 12.2em; padding: 1em; position: relative=
+; z-index: 2; background: white; color: black; border-top: 1px solid rgb(17=
+0, 170, 170); border-bottom: 1px solid rgb(170, 170, 170); border-left: 1px=
+ solid rgb(170, 170, 170); border-image: initial; border-right: none; line-=
+height: 1.5em; }
+  div#column-one { padding-top: 160px; }
+  #column-one h2 { position: absolute; top: -9999px; }
+  body { font: x-small sans-serif; background: url("data:image/jpeg;base64,=
+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
+ICUUUUcgLyWWoCUUcgKIUUUlFJRRSUvKxlK7BRQKlFFAUFigBSCgJS0CKBSUKgUUCgAABISog5T=
+3bjKoaiYlUkJSezFFFJMNYQ2AAAAAAAAAUFAAAACKhRRRRRRRSUUapqmqalFqtJUGrOhqk4mqUt=
+Jqampqa/RqapquqRhbcdOIbqoSWMoZnG01aiZjs3GftdoO6lFFFFFFFFJRRRRRytyX9LwVBqmpq=
+UclytrcHACgBSUqKJRRQALZYAFFABQBSUUUlFFHK2XClAAAFABCoUAAAABQAFACoFAqKAhl2c6K=
+XHu6AiZdkpKWkprGFopRFSlAEUAARQAAABFEVAAAKKKKKKAKKTU1TU1KkAoqDWDWE1NTU0NTQ1N=
+V1gqFSWZTWzU1NTU1KWpOVv6WxSiiiiiikoooooooXkDgoopKWjkF4ABRAoACgABQBAUAEKKKKS=
+iilLAoAFBBQAAAAAARQAQUAAAEyZoopfLVgkpRQUsKAAAAAAAAAAAAAFAUUUUUUUUUUUUAAAUUU=
+mpRRRQFFFFFAJRRqUUUUUUUUUUampRSgBRRRRRRRRRRRRRQKBRSUUUoAABRQAUAFAAAFFABRRRR=
+QFFFAFFFAUUAUACoUUFAABQAUAAUAoIqSlFFFLEKgUUUUAAoAioqCoKICiCgAAAAAAAAAAAAAAA=
+IogKAAAAIoAigAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+AAAAD//Z") 0px 0px no-repeat rgb(249, 249, 249); color: black; margin: 0px;=
+ padding: 0px; direction: ltr; unicode-bidi: embed; }
+  div#globalWrapper { font-size: 127%; width: 100%; margin: 0px; padding: 0=
+px; }
+  a { color: rgb(0, 43, 184); }
+  a:visited { color: rgb(90, 54, 150); }
+  a.new, #p-personal a.new { color: rgb(204, 34, 0); }
+  ul { list-style-type: square; list-style-image: url("data:image/gif;base6=
+4,R0lGODlhBQANAIAAAGOMnP///yH5BAEAAAEALAAAAAAFAA0AAAIJjI+pu+APo4SpADs=3D");=
+ }
+  pre, .mw-code { line-height: 1.1em; }
+  #firstHeading { padding-top: 0px; }
+  #siteNotice { font-size: 95%; padding: 0px 0.9em; }
+  #localNotice { margin: 0px; }
+  #siteNotice p { margin: 0px; padding: 0px; }
+  table.rimage { float: right; position: relative; margin-left: 1em; margin=
+-bottom: 1em; text-align: center; }
+  .special li { line-height: 1.4em; margin: 0px; padding: 0px; }
+  .portlet { border: none; margin: 0px 0px 0.5em; padding: 0px; float: none=
+; width: 11.6em; overflow: hidden; }
+  .portlet h3 { background: transparent; padding: 0px 1em 0px 0.5em; displa=
+y: inline; height: 1em; text-transform: lowercase; font-size: 91%; font-wei=
+ght: normal; white-space: nowrap; }
+  .pBody { font-size: 95%; background-color: white; color: black; border-co=
+llapse: collapse; border: 1px solid rgb(170, 170, 170); padding: 0px 0.8em =
+0.3em 0.5em; }
+  .pBody::after { content: ""; clear: both; display: block; }
+  .portlet ul { line-height: 1.5em; font-size: 95%; }
+  .portlet li { padding: 0px; margin: 0px; }
+  #p-logo { top: 0px; left: 0px; position: absolute; z-index: 3; height: 15=
+5px; width: 12em; overflow: visible; }
+  #p-logo h3 { display: none; }
+  #p-logo a, #p-logo a:hover { display: block; height: 155px; width: 12.2em=
+; background-repeat: no-repeat; text-decoration: none; background-position:=
+ 35% 50% !important; }
+  #p-search { position: relative; z-index: 3; }
+  input.searchButton { margin-top: 1px; font-size: 95%; }
+  #searchGoButton { padding-left: 0.5em; padding-right: 0.5em; font-weight:=
+ bold; }
+  #searchInput { width: 10.9em; margin: 0px; font-size: 95%; }
+  #p-search .pBody { padding: 0.5em 0.4em 0.4em; text-align: center; }
+  #p-search #searchform div div { margin-top: 0.4em; font-size: 95%; }
+  #p-personal { position: absolute; left: 0px; top: 0px; z-index: 3; }
+  #p-personal { width: 100%; white-space: nowrap; padding: 0px; margin: 0px=
+; border: none; background: none; overflow: visible; line-height: 1.2em; }
+  #p-personal h3 { display: none; }
+  #p-personal .portlet, #p-personal .pBody { z-index: 0; padding: 0px; marg=
+in: 0px; border: none; overflow: visible; background: none; }
+  #p-personal ul { border: none; line-height: 1.4em; color: rgb(47, 111, 17=
+1); padding: 0px 2em 0px 3em; margin: 0px; text-align: right; list-style-ty=
+pe: none; list-style-image: none; z-index: 0; background: none; cursor: def=
+ault; }
+  #p-personal li { z-index: 0; border: none; padding: 0px; display: inline;=
+ color: rgb(47, 111, 171); margin-left: 1em; line-height: 1.2em; background=
+: none; }
+  #p-personal li a { text-decoration: none; color: rgb(0, 88, 150); padding=
+-bottom: 0.2em; background: none; }
+  #p-personal li a:hover { background-color: white; padding-bottom: 0.2em; =
+text-decoration: none; }
+  #p-personal li.active a:hover { background-color: transparent; }
+  li#pt-userpage, li#pt-anonuserpage, li#pt-login { background: url("data:i=
+mage/gif;base64,R0lGODlhEAAQAKU5AFtJMlpJNFxIMU5OTm2XH3aIVJNkK5FmMJZnPbt6NIZ=
+zXId0XpVwQZRzR5p7VI1+baZ3Tdl+Kt1/LIO2JYe5K4q8M4idYZKBbJK/QLqddZfDR5rFTZ/HVq=
+fMZanNacKVWuKVQ+ejVuelVu21bPC/e5+XjKOjo7rXhr3aiM+1kNi4icffm8rio83jqNHmrtXot=
+OPEl/HDg/LKjvfaq/ngut3Z1Nvrwd/tx/vqz////////////////////////////yH5BAEAAD8A=
+LAAAAAAQABAAAAZiwJ9wSCwafxfF5VhUNBgHAVO4cKRgHwNg+sjQZrFEYFpSyUihyGD6M4lAEgR=
+bCKnPTaYRjjRYH00vLAUkFhoVfkQmNy4rJxYcGBQTiEImNi0TKB0bHgSTRX2hon1zpaanP0EAOw=
+=3D=3D") left top no-repeat; padding-left: 20px; }
+  #p-personal ul { text-transform: lowercase; }
+  li#pt-userpage, li#pt-anonuserpage { text-transform: none; }
+  #p-personal li.active { font-weight: bold; }
+  #p-cactions { position: absolute; top: 1.3em; left: 11.5em; margin: 0px; =
+white-space: nowrap; width: 76%; line-height: 1.1em; overflow: visible; bac=
+kground: none; border-collapse: collapse; padding-left: 1em; font-size: 95%=
+; }
+  #p-cactions ul { list-style-type: none; list-style-image: none; }
+  #p-cactions li { display: inline; border-top: 1px solid rgb(170, 170, 170=
+); border-right: 1px solid rgb(170, 170, 170); border-left: 1px solid rgb(1=
+70, 170, 170); border-image: initial; border-bottom: none; padding: 0px 0px=
+ 1em; margin: 0px 0.3em 0px 0px; overflow: visible; background: white; }
+  #p-cactions li.selected { border-color: rgb(250, 189, 35); font-weight: b=
+old; }
+  #p-cactions li a { background-color: rgb(251, 251, 251); color: rgb(0, 43=
+, 184); border: none; padding: 0px 0.8em 0.3em; position: relative; z-index=
+: 0; margin: 0px; text-decoration: none; }
+  #p-cactions li.selected a { z-index: 3; background-color: white; }
+  #p-cactions .new a { color: rgb(186, 0, 0); }
+  #p-cactions li a:hover { z-index: 3; text-decoration: none; background-co=
+lor: white; }
+  #p-cactions h3 { display: none; }
+  #p-cactions li.istalk { margin-right: 0px; }
+  #p-cactions li.istalk a { padding-right: 0.5em; }
+  #p-cactions #ca-addsection a { padding-left: 0.4em; padding-right: 0.4em;=
+ }
+  li#ca-talk { margin-right: 1.6em; }
+  li#ca-watch, li#ca-unwatch, li#ca-varlang-0, li#ca-print { margin-left: 1=
+.6em; }
+  #p-cactions .pBody { font-size: 1em; background-color: transparent; color=
+: inherit; border-collapse: inherit; border: 0px; padding: 0px; }
+  #p-cactions li a { text-transform: lowercase; }
+  #p-lang { position: relative; z-index: 3; }
+  .capitalize-all-nouns .portlet h3, .capitalize-all-nouns #p-personal ul, =
+.capitalize-all-nouns #p-cactions ul li a { text-transform: none; }
+  #t-ispermalink, #t-iscite { color: rgb(153, 153, 153); }
+  div#footer { background-color: white; border-top: 1px solid rgb(250, 189,=
+ 35); border-bottom: 1px solid rgb(250, 189, 35); margin: 0.6em 0px 1em; ov=
+erflow: hidden; padding: 0.4em 0px 0.3em; text-align: center; font-size: 90=
+%; }
+  div#footer li { display: inline; margin: 0px 1.3em; }
+  #f-poweredbyico, #f-copyrightico { margin: 0px 8px; position: relative; t=
+op: -2px; }
+  #f-poweredbyico { float: right; height: 1%; }
+  #f-copyrightico { float: left; height: 1%; }
+  .mw-htmlform-submit { font-weight: bold; padding-left: 0.3em; padding-rig=
+ht: 0.3em; margin-right: 2em; }
+  #preftoc { margin: 0px; padding: 0px; width: 100%; clear: both; }
+  #preftoc li { background-color: rgb(240, 240, 240); color: rgb(0, 0, 0); =
+}
+  #preftoc li { margin: 1px -2px 1px 2px; float: left; padding: 2px 0px 3px=
+; border-width: 1px 1px 0px; border-top-style: solid; border-right-style: s=
+olid; border-left-style: solid; border-top-color: rgb(255, 255, 255); borde=
+r-left-color: rgb(255, 255, 255); border-image: initial; border-right-color=
+: rgb(113, 111, 100); border-bottom-style: initial; border-bottom-color: in=
+itial; position: relative; white-space: nowrap; list-style-type: none; list=
+-style-image: none; z-index: 3; }
+  #preftoc li.selected { font-weight: bold; background-color: rgb(249, 249,=
+ 249); border-top: 1px solid rgb(170, 170, 170); border-right: 1px solid rg=
+b(170, 170, 170); border-left: 1px solid rgb(170, 170, 170); border-image: =
+initial; border-bottom: none; cursor: default; top: 1px; padding-top: 2px; =
+margin-right: -3px; }
+  #preftoc > li.selected { top: 2px; }
+  #preftoc a, #preftoc a:active { display: block; color: rgb(0, 0, 0); padd=
+ing: 0px 0.7em; position: relative; text-decoration: none; }
+  #preftoc li.selected a { cursor: default; text-decoration: none; }
+  #preferences { margin: 0px; border: 1px solid rgb(170, 170, 170); clear: =
+both; padding: 1.5em; background-color: rgb(249, 249, 249); }
+  .prefsection { border: none; padding: 0px; margin: 0px; }
+  .prefsection legend { font-weight: bold; }
+  .prefsection table, .prefsection legend { background-color: rgb(249, 249,=
+ 249); }
+  .mainLegend { display: none; }
+  td.htmlform-tip { font-size: x-small; padding: 0.2em 2em; color: rgb(102,=
+ 102, 102); }
+  .preferences-login { clear: both; margin-bottom: 1.5em; }
+  .prefcache { font-size: 90%; margin-top: 2em; }
+  #userloginprompt, #languagelinks { font-size: 85%; }
+  #login-sectiontip { font-size: 85%; line-height: 1.2; padding-top: 2em; }
+  #userloginlink a, #wpLoginattempt, #wpCreateaccount { font-weight: bold; =
+}
+  #pagehistory li.selected { position: relative; }
+  .redirectText { font-size: 150%; margin: 5px; }
+  div.patrollink { clear: both; }
+  .sharedUploadNotice { font-style: italic; }
+  span.updatedmarker { color: black; background-color: rgb(0, 255, 0); }
+  .editExternally { border: 1px solid gray; background-color: rgb(255, 255,=
+ 255); padding: 3px; margin-top: 0.5em; float: left; font-size: small; text=
+-align: center; }
+  .editExternallyHelp { font-style: italic; color: gray; }
+  .toggle { margin-left: 2em; text-indent: -2em; }
+  input#wpSave, input#wpDiff { margin-right: 0.33em; }
+  #wpSave { font-weight: bold; }
+  div.noarticletext { border: 1px solid rgb(204, 204, 204); background: rgb=
+(255, 255, 255); padding: 0.2em 1em; color: rgb(0, 0, 0); }
+  div#searchTargetContainer { left: 10px; top: 10px; width: 90%; background=
+: white; }
+  div#searchTarget { padding: 3px; margin: 5px; background: rgb(240, 240, 2=
+40); border: 1px solid blue; }
+  div#searchTarget ul li { list-style-type: none; list-style-image: none; }
+  div#searchTarget ul li::before { color: orange; content: "=C2=BB "; }
+  div#searchTargetHide { float: right; border: 1px solid black; background:=
+ rgb(220, 220, 220); padding: 2px; }
+  #powersearch p { margin-top: 0px; }
+  div.multipageimagenavbox { border: 1px solid silver; padding: 4px; margin=
+: 1em; background: rgb(240, 240, 240); }
+  div.multipageimagenavbox div.thumb { border: none; margin-left: 2em; marg=
+in-right: 2em; }
+  div.multipageimagenavbox hr { margin: 6px; }
+  table.multipageimage td { text-align: center; }
+  .templatesUsed { margin-top: 1.5em; }
+  .mw-summary-preview { margin: 0.1em 0px; }
+  div.mw-lag-warn-normal, div.mw-lag-warn-high { padding: 3px; text-align: =
+center; margin: 3px auto; }
+  div.mw-lag-warn-normal { border: 1px solid rgb(255, 204, 102); background=
+-color: rgb(255, 255, 204); }
+  div.mw-lag-warn-high { font-weight: bold; border: 2px solid rgb(255, 0, 5=
+1); background-color: rgb(255, 204, 204); }
+  .MediaTransformError { background-color: rgb(204, 204, 204); padding: 0.1=
+em; }
+  .MediaTransformError td { text-align: center; vertical-align: middle; fon=
+t-size: 90%; }
+  .no-text-transform { text-transform: none; }
+  .tipsy { font-size: 127%; }
+  .skin-monobook .mw-notification { box-shadow: rgba(0, 0, 0, 0.125) 0px 2p=
+x 5px 0px; }
+}
+------MultipartBoundary--elYPo1OCyZSXsD4dmpgynxB0uDd3JsFuwmtyYeNufB----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://sw-wiki.w2k.feico.com/load.php?debug=false&lang=en&modules=site&only=styles&skin=monobook&*
+
+@charset "utf-8";
+=0A
+------MultipartBoundary--elYPo1OCyZSXsD4dmpgynxB0uDd3JsFuwmtyYeNufB----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://sw-wiki.w2k.feico.com/images/e/e0/Simple_SCU_TAD_framwework_example.png
+
+iVBORw0KGgoAAAANSUhEUgAAAbgAAAGQCAIAAABTV+K/AAAAAXNSR0IArs4c6QAAAARnQU1BAACx
+jwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAADuDSURBVHhe7Z0LtFXVee/3xrcIB1A4JrUZdxjA
+Djwmt1ZRQU2igsVc4fDS3CQVkpvGaNpKE1FBTGKiYGKaQqKgZnQ0tElMfXFMkzjKUVuNYDWNYygH
+GoF4c2+9ieCLh48onLPv95pzzfXYe+59HnAe/x9zrzm/b35zrsee63/mWuucRXnXrl2lUmnz5s0b
+N27csmXLm2+/09nZWS6Xhw0rl0qU09JlANRNhVKFFrqsdHVRnkBecrhaWyphGYCDQnlYefKfnHra
+aaedfvrpxx13HHtee+2155577sknn/zYxz/xB+99D7voXw4oZZSDeX73eN0NdtD4+vpI/w7mQe8x
+OKeEmoehSmW8TY8ObmdX1+9eeunRR//19Vdfnjdv3vve977yb37zm/Xr18+aPaezUj5k2CHcvVuF
+KWZda3QDtkebV4XqJ0MPTpNY0wa7ri0DVklBdHzSkdl20lGVzgrcwXqtlM4UNor8TNYR2NFYprov
+PU+kRRcvaDap/9hF80qLNocaId7BQ4uM9AiztoUEddbWSky2TWiXyZA45yTDito8CXbdcRPNzcO2
+n3JIJdUEcxBycZknIFrLpjQ2DxeNoMhxEsSHUGu4pyTC+q2Kr5S1qsXrNr94hVQvsg6pSwJC8qss
+iuMo91FS7cLJmBR1q/xh0x1PPK7C5TmPOP0i/NTBEYcf1tXVtWHDhjf27JozZ075Jz/5yXHNx7/v
+ff/t0EMOpT50RS5LSjV7Dw5KnVtRJ8XfilGzskcEJ3htOK6+WIlKh2YbFusEuwqcROItKhnsMGdh
+nffmatOkq6s3Sjw+xo6maCJZfMlt/6QkERJCC6rmUoi2lrxAD1zDIpI6i84PzqQ2jPN4Q2qFJER9
+Yrg40RI2Kolw0scZAlfzjmR83pR6V0x5BfFQ+2yXYV6IVlqzINKKotG6ENtwtbLIbnaWJDi1fb6V
+1QdfY0hBbSA+7iagM7XOBZiZVFi8Os3DRa7QvA4OOWTY/n3716xZPePCaeX777//rKnnHHrY4X5d
+WnDdJsUqpI9c/VsRpdZXUruyBvF2dl73EioFWgpJWdVWmTROEThrdWqfJEuo0jFTtUKJVCcBkvN6
+6B+VTRRFEuV2JVldVqt+acBtgqLlRLoog11dbsBF27hQLppyJfIouMlgClG6dJzacl54F+PsxO86
+5FwmlJzzwp2uYriaEHZYiKvTjQ42kvqQeaiiFUltAVRpG6a4YM61cyqmVJ2xKO9OdD8bSeTXL0G6
+5lQlGzkHZ4HTFWmrJDxZqFMDnNtMX5H3SFEzy2PQvHL79u1bf7WlfOedd/6P1jmHH3q49WXKbVaS
+FVBwnLIUtquHOvrudepfp5z09TQoCMs3KujGXNkaLyFhVUFzT7rOWYG3uKjkHI1g8qcLKyQe9nEe
+TC+1TlqKk0tipwkqgpmaG2dVmxFJpyZ81MhCrblaYlgF4UspBUkGtuuFFiagAWK4hv5k9fFqB9W+
+sfoCk2K9Kjq3BLmKoBdXcr7aaHy6jwyFDgkuWEMumAm7FyyKs6DImeWGs2i//AFyIZyZUzIrm1ey
+VIBiucucu5hDhg3bt3/fd1Z+a9h//b/fVmhOLd0x3JQt/ZjTZQF5Ty9BHfdJ39pv1ST7X1eyIyWL
+6kiwtnCkrYRhYSpxysfKF2vlTFWqufnyHTDDyiVJQfwwTmpoWVJJkpRdZKNwK2nGC98+6ciNN4KL
+NCa5JLg8BuupnXuUFZyy1aCzlqO1BR9Xa67rVYNtywy6nOZZmyZXlWwCYf0GSBi18rHuZ4CgO8BX
+tLYRGp/gTZVgWr9sAiFuKcr6NYqRLq1UHy6Oct03LgUTVyLblVtFIdzaiiEZn5kcbJvMRbbUZA/j
+inqo9PhZiFSwbZkLUFM8rsZ7nCEfyaSiKp1dXUccfvimji3DOvd3HnP0kTJo6SgpOmaTgjTRjn2q
+j0Yb1RPTHSL98qGqI9lB1VQLqQ5ici3UkU7Su2YW5ZGfx5L4pNPvI4925LIQdWW9RM4bONJ1bgPq
+TdKEhVHGUEotFa62MSYFW4lguTNzBHGqHmrqFgcbXQsSJk4mY9JTpq3aLo4Sb6Q6E7nipN+aQ50J
+0n/i46+XG0iPul5t7Dp3J7uZPuPnRLJetjXYwZ7AlP5Tdipa4I48VMkbYhtlRW6RRGW7SPVfQFKd
+DfR9apeawk1mj/uoR3OKEK9F6kIKvtqZ4nAets0pSSrV8BmHsLsAEsp33313WBffPtdh6neBc3Gp
+n3vQ8axjpa9SIgcFqWdkOsumOuBA3v+wWTo53AEP6vyxcz0EdT5JXSqS3EoSZRVhSDYqqHNJSPty
+sepKPEGxziRdOMghZ7VoJFdKgIdbCOzlObTWU67VXJYoyzlpTZKHXhvp4pI16zmfRmuDTglqxMky
+7xAkyPoK3GqoQzqxXU2mnGxIspKhJa0nw80OCTaSOLFpGXYmK3RlyWmtVO9OGvqQ6SqFpEffUQK3
+Db0ulnPnlR9CGmUuixJLaqmYCghJBSdBuuaGkd50wUu/0A8tOeeSuMTDEea2ovh8zqUwq0K51NXV
+NYwfRup2yyDVkUrLjttHjBo5vGnk8FEjjxm1YP0O8u/8l4XkuX2T7XI3UsKO9gXHNN22ySwlE7xz
+/cKRxzS5RJuxsP2lbEwPU4RNq5uOWbj+JTqQyZHM9BCk8s71n24aMaZppKY1HXxKdqxuGtO0oJ0P
+X2okp5t6Ah+fCNxD4upYPXb0god3hIFuquMcW9aMHjtmVJBWb5ZwRiKkV06uDfWgyaI8SUi9ibf2
+5Uc+3Xzcms2y1fRxHZkiSpSuy9fSTJOUkny0UE8qaZ4iqFVLYFtml64NrSipJczLSXNbGPrl+IPh
+qizng8ZZ8g1qSS2Nlykf/+PDqwTx4uOFb0JF2WCxCT65vSH9aKwduqSr4Auz7ZL+zCNLw3URkNhh
+Q25Ltrg4917aKVmdhmgt4wNkb60uhwUHSDC5tVGNpkymuZi0kEPDh0s+YvBCDp/U8T9napKS5lxQ
+20oJYTmkUumiGaXVBhvMKnb2khVP7Hlj1543du954b7ytpfJ3Xzh9/a+ufsvPpDey24nIuPJp9Ly
+jW/uppVKWjv9PTRm6k7ZvjKp6lEpItPWp4SO28dMmFu5d/vru/dy2nDLL37LknbKlXte3/0P05t5
+QBdsk6PAx0Zy1voTIo1rlOx3qTTr3o7Xd71s6cqTLdJwDXxKWoqYNZRcLznYp35aunOaDflHplXy
+KhXJeWEO5zfILF6lFL1XKxL1kQMoBy+pLcLV6HEmi5rbZqeOuhkWZP2T7YPYK1UWokmqk4XkSUk+
+mqSl+rQlFeV891itfnjdAntdmWDTioRoQ2CLxyLSkYKzA79EZe2AcN05ssGCP9BmOXhLJfl2zjTM
+Swup5E+yMD/lrg/OeZFUyMc86pKSWPrhLAN5hkmV2UK5tOPZH64rtd43v8UczdPWft7KvUtygHoX
+3mErVoGrdSjWThqWclmSYerNUsdjSyqlFVdPb5Y2pVLL5//el5lMvA4UqwtxvvQuuMaEtq+CNeEY
+beJa1Yl2XkdyOlB9FeJ0OqiZ6JyWqODKDG8321k/oy5XEeQOdeUqdMjzqOcq2dCgNoe21+S+HPoE
+WQbeGz0M3MhWRUksS9aSXFJKFoQzrCRFOabscmelGlSUQMJq9eMyV0xcvGAzgbuQTqUH3jxxC6lA
+wtmUB1WyESk7wLa3KlUqeYe1kE7Sn+Rp05Cibo/UiulK7FeDFvYxudSFi6FcS5JJ7jLyiltgZ2WY
+a5ClTSaRsh8UoCN40+qRwxesf4nLHbeNGvHJ9vW0HN7E6TsdpR0PL9DycLqmlni6ev4zqmrnpVWt
+Di7cqWNX5p5dDHVVlR3SFV39q9VOa7zsX2jmpn5Ll63Xy9Md6y9rGnFbOy+P4cT+TbfThfyIY0aN
+0Gtqhm8yXLa+nZbiHzXiz9q1veIPz471n5I7AJzcKgQf8fTvdrp90ySbONpuMex4eOGIMbev5yVd
+oY8a8SlaTcftx44aOYbTZWRJRx13jB756fb2O0Y3HTtKEl24++5kZbq+ne0LjxvdpOnT7Xx/QNyC
+K0pwx53HjhrLKxM6Vo8bM+oOPsTidxfp4jHn/6K1uyry73z4Uy7s9s3a5Y72z4wZfUd7+2eOHT1W
+0rg1RV9aubT5jmOPHzvm+OPGvGfcsXdt1t1I1FP64uRh1dGxZkG9QDDq/dqkd7c1kqsrhWukPxRU
+/JLQZLM1gP0c49fBsJGsX+r55gD3ZwY3d/3yucjR0r+Yami0VmuV9OjKVM9R0gtHaiZuLnmkgruQ
+ujQUmfIGLYP+KOm6LJCjnMV5YosrTXpjPFXcMaSZLuS4cFEOiv+IR1K44FguUbWpp9lJRB4KpBml
+GZ7y8dNvuX9OacmZaTnIs27e3MoTe9/cs33d7NJ1U0ec+I+f+PWevW9uk7ZOy4jr5n3/k9sobO+b
+G28pL5nyyVynJF5nLln+7xSwZ+8L98+5bqpoXyHN079535zS0ltVHK+e98Dse2+9sLm047kflO7d
+Tpfnb+ze/sDsdXOucSKoa99K/ie/Xl43Z+KIs0ob3qCwDbeU2+YuThRo3Zz5lY3cfO+v75uzbv74
+27LnPankhDmV+7bv4tsRTy5/cM4f3U4/DGjM2LA55fMbl5fXXTJhBP0kYKod+qVzf/Dxba/t3vP4
+ivKD8yeMObv02O49r+7aeHO57dJrkwPz4Px5lZ+Tf8+rz9/f+uC8SWs2yflltQSp5KRLKj/61e5X
+Xt/9ys9X/PMlJ63p0M3RejkLbedOufwxXtk6FccPLa3c/MTn6AKh4/Ebbnri5dd2Ufq3m8s3nJvc
+zfzxpfNLj5H/+R+1lm44d9TJP/h4B4X9572zStd/mKJsp0s3XPrDS7fs2vnqrp2PLy8vO+czD2d/
+Smy+Y8x5y2565JXXXnrltWd/1PqVj3z6UR+SYEfKu10hFdQ42o3rjNbBJ4YV3dfiAlyUhSopQ+TH
+vgBpm64lkgDRNL8OhkvJ+ilIFYW/ILcg5PuSXM9cjpMobio1aoS7wR+1RMI443buqyeSCEY6Tbmk
+lCysIbcNwmzfpLEsxKVVGmW1VGWBhQRdJsh2S24pjzUKdpeRorikgg+TFqzOjpQ7epx7j4+Rf1JM
+FlJIkK0qnlE2T/uH3Ru/Xm6bM5HmX5lHLgErNv7lKZQ1T198C3V2y+Lpx4t1zYpy6anfeamafR9r
+GdPy+SdXlNd9/1lfxexY/40llVs2/AX3RK0vWEyK9o/POs1YOsXPNFVhm6d9Yx1J4X2bNt0/74HW
++78pF7jN09b+4/Rm2ZHmD35iTqltK0+HBVJSCWmZd+8csh6YJ+tpmXf/7NK6bXTeGsEGfOMB0v3H
+n0sdr4775q5rfeDrsoMkPXNJrZf8WyimlVLLFbu33zO7dP3UEaNH2vSw4Mi23neLbs7c+1r5duK8
+kzmoZTa11Dm8snzDFXqzo/mC5ffOLi19jFUs6a7jgUvXzbznGxfYYZ17Nyna425zHpx/8pimsZp4
+oseb9q8khX/Tvvnhv1lWWf5v2nXLlTttHaWTz7m5TNNhr9OqpKXm87+wnL7Xr31xGq9n3LS/pqhf
+8PeqGzLzn75uG3DylY/eXP7xD5/zHTA72ldeX/nqY1foTdJx53/hxvKDP9qUCmkYdxbJ0C2aC0rR
+e11FkvOW08c0SUoFBO00+ThuobVOi9RKBWRKQZzMJsN6KVtJ5TLskULNxye9K/JeONlSD3dgta7I
+TV0Dgt1a8jKZuBIz8XkC2xVdVEGVbhJbxd+PELQzJMhJbxBve8ENgoxzw7y0sEqt1QXn3AMX5fDp
+R2N9DFdyLklr9CORUskLfdQo9R61Wj7/+p43tvL08Cy9vM0xe8I4KzGzJ4ZWwBnv0dOJGTeRBCFR
+Meblbeto3jd1xPCRkprOujbcmuBhzvftpl/z9KtvKS+dcuaS1ge+YcpFLV7ix+h8if3+eQ+Izzjj
+vcnaS6XJwbaEzJ44VnJedfN7TmfZCNV8x++erpTa5pzkLr1PmsvroGCfhOZp39v7+u4nb6ap5cQR
+6YtRF+U2QL6m0un5zRH/rPHj5Ovh72rc8ZPzm/OLSunHl0x0l94TP9bGblvHrHs7Xtv9MqddL5tM
+lU6ec8+sB+d/+JJ1X3s8eLwjl+F8TX3uUlmtMXM8HQzrjLflOBkrZmqBy6cdT1+4mWPHzyo9uPWV
+pLZSemX7P5dKX/oQX3fzpffYc79M7mLcxbhDAqtEyzllKZU71OUcQYVDaql3VyVbm0W70JSEGixq
+bh5EuNqkl6TLpMRx1kq+WvXpacg1Til9uEK1ktNKeDi4Wm1nhjaij3e4suR+69myEM4Sk1detB9K
+YHOTpJi3PVbhevWbYKSDPV4rtbkl/cimqseZXGQk18Phan29hHoPu9SgclLyHpdzWJLxIn/pLa0d
+PLWUi9bFycVsHzD7ga3u0XZKE6swdsJsKzEVmpQuJH08/Ul37WwViu6sptBUMv7ETsO+FU++vmdv
+kP7C5mOKNJRFyxW7dGop1+/am1QYFObLGRI/h1SJspqvPb7rldcsOU30LXKtRf1DNq8ZPfbcp3/4
+n9KWrp3NraTbuu6y3jizfriZr7sp/e7l136789W7bAqanD4y8UgI1sKV1eYkvQIPdPsuqH/RqRrT
+IO+VCttI3txkk6km1UuCxRlW0obSowiouMXpFi7GMls5b3NQdB1LjDSzSrZFeylCbcXiLZdrZROo
+pMaVHGR7l4q9rUPW5fQt2yrvCAi7DKjVxGEx3IPbVFmKoV+I/hPDcj5SkrFHTanxgexLetGSQfvn
+fnnN8FVW4uXYCXSRaGWBCr7Wp9BUXPmp37rr0MqOZ7//QKl14lhXxcvjSPWCa+04O9ZfO/eB5ffz
+Bfg163/Hjme/vy65dt7JM1RBV1EX67a+7Lep4/HrKzTz07kqUyGZoVkdXWtrTGGyhdLMs0CCj3zg
+FpytuQbId+PK9HkwuArf/HOa7ulElIOYcax6N/zcdNh5a7F5zTnLZt57d3IvsuOJZRV/7bzzJZqh
+EkFn6WIh//GS/852bLq7rTRrAr/g1HPc+ItLD95N19rWnjMdiSnkTCOoRir1UNgchwuyTPJuoqvR
+lKAGnyROehi3bm+nky0I2xvObPNdBBcTeXJxdiqS28LZqSVWVrksF9GROjkSVpKcM+mSQvk0dwRl
+FUYtSpyZHKFub0p1WuSCDXM5IR0JzqMualn2d2aDbnwUE2xmIUXV6tPVWrc5dD2S5DipK1iIXwq0
+UAcVyVC3fQKPudiUeF0oVAyF0tXsWP+pBfpggT0d985dV5r9iQ8mwtEg6+Yv1iv3He3XzCZF01uZ
+nuYP/hkppYuh9d02qvpdUetk9gPzpk+jC/C2ufeRWjS/94xy6brH9NHy+luX6G76/aSCT6HJZTlG
+XL7u7Nv1ruSm1VOvrbTeP/cUjZDKSqXl3BWklOcEj9s/JUeoY/VIeahd2bR65BqvozvWf4s2Yvm5
+4ZRT6zJFLtnXZFjx+ql25d6x+sNLKzPvmTvJRcn2tpx9U7l0/dnu6n7HI59eaL+IHsCda+pY/ZHr
+K1/94rTz6QK8tPRb7TsqpbHvn1X68Q+fkxuOfMeTco7Ug6GtJNXgx5deqyvd+fB1/7Ot9NUvyK1M
+R6X5Ax+bVfrnj133CMVwR5u/27xmCxdlRfnOxS7w18CdRXJC5eaCrui9YqnD5UEb3nf7LthSoYvO
+aSXOo1biSAzrT4skK9Jvgj/wXC2tRIEozq7JKVoCkji3tbpxgdJzc/s4nMkfCaLO1WIsDxqkahI3
+kTKqxiVF3TTeuqqHMt2lD3LSG8TTFsqemZngPFLpF/LhIlfzhzOxtcq8YlmFD5CiebhdIpQS7Vmn
+9+NGjBp5zNQlrfdu10clGuILhJYLTV+4ZcUZcyfy05gT5z1wy4a9dMWaxPA2NU/7e3lULTHDm876
+93vmt7htDR/mDG+67blNt79fnnRPH1cqncwPmq+betn6l1rm3TOHIvke5cTvT14eXpfHsE1pXbH8
+6Smyv2ctnXX/r/6B+9dNtKzl869t4Dujo5tGUPqjead/Ydo4OsJ21KSX66fa3+SMmTi3bfmGV69k
+rbV6LQXJdo8/SWYVpdLMm5f/xzly//GcJRf/0/N/RxM/aaVQPumK1/n5zLn6Wzsnfez0L57f7Dbn
+wfktcudxHKcFD29a/+fnLq3c9PPPnVwpjbvg5n9q/fGlJ92xaRw/qHlw/ikcc3bla3LpLf3renxS
+Cs2v3nTGJyaNHnfs6JZL27762OuXh98rf5rP/7v//MGsBz/RMub4sXyP8hc/mD3J1XEQZ+4AqsdV
+0caYOyHnUOScsmSLICeCWrWyuFpfxV9NIjtJQB6tUQEQLRP9YVJbS4Z3+7jQqSU/KBRVSs6lldNK
+LrmDRvABZJPXzEXpXCqokYuTTLaNW3OnDleUKvq4zmQ73SqTMMFiDWe5hatyufZGGTusqIuAJDiF
+10rt15L7WJ3idpWRSt4VWWjO1RbCZTlsUhKvFLgoeRKgHnGW//qLi7/85S91dspffOteSGZLC8vt
+Wn3saL9s4tzJGzK38wTt9iBhK9fjQ7PCc56671drk/uibtuqb2PViKzDvoIMiZNL6ZCOO489++kf
+Pf93fn4WVOc6yzpyATWQ2EYaJOx8+M8nXXLaY69dnvm7nzTWtw5J+UhRClx2BfXxWyo5WpaWWQ9Z
+arldXS4mVVFcm/PyNMjXiW440+Msn1sLiRVn0sp3xrmLC3WLItjFgYnXtRcn1VmNuNOhvLVq6Jks
+BpfITPpTly4YqXER5g3eOZkODlGnCyQr6SHYqXRTtqQuCQhJBzNFcRzlPkqqne28IEU5SrJ0JYHi
+5J9zueqMZ8QxR8+8+GKaUco45XodokZmpFKhe6la22Ii1YSPKEh1w/8pASXfMtMvLygocLFlSTuw
+FEakKjTRTx+uNDshqOcQb2uSDUgQX5ckF6Kbz3uQIQmJJ9k2QYsNpXgr+kgQr4zLYrvVctLtVZ9U
+0qjUnCslRhc0ZMNkiyrUqkvwnUXCeQvdNtmULNM2yBUN0kwqSWoocZF9fh85I6dcmKqHoCZsqEe6
+dEfML9jUzjTU4hjfkY0EW6lbQRKnEdKjbCTbEmwbSya34wq3nhDrSHuQZtpSlIeb60JJNbYtqUr1
+arcaRzqSLJ94JX494tKDxl7ZbQlitMa5OIDzoOSWBF96i1uPHC95oY1d4cCRPRwhvH1WzGF1vnnN
+FNslPTwJaSvfndyDt1pDDiN3JIlrswHqyVZkbSLtCixX1LyB5DbLp1xEHSm2Yl7oNFHwhQDpgrdA
+M27A3dJBTQ5uODuQPhO/C/G4YnGAK6a9DnEVdcrINsqqOcC0pApSEwbJPrltN7TEAqRxfBOPL/fD
+WDkm4hBTsfWyjLm6dBwXZC/EIW7B4qysGee6UoqX3GrUyw2kgpOrEaoZrge3cFUu1550V6sd6yBY
+cEEZN8P7HaylJhInkW7gqU9303oSUwpcyf/EJT8o6NL76i/d8KX9dOnNW67/2E87Eub9Gd2zOtCD
+oeVCpC4IyMdmPXZYEwKHlfKdGEGFfimGK6YbVu2mXgrW0KfYkLOB6TMt6zhMCmpwvG9oSDlZyPAM
+x2RQlSZVkQuoXZEs8rB6cGYLsXKhzmFRFCTN1Aw33/aFK/iEZEVIPM6wk1LqxdQKXuh0T+PCV77b
+easONlycW4PWu8znGuKQUmJKL6HpCZpncVW5duawDctRtB63twkWxVlQ5Czd3ll0xAKRE5cY6hRP
+EiB5E116z5x5yFlTppzzoQ91VbqS2qRQuAPdhHoqTnyK1E45h0tF85QayPpyuC3hAE7OY9fNmhxu
+zXzhm3GIT+PV0oaaSUlbEMF2SzG9H6mrbJ98Hw0lIbu6A4NuMOVW4EOttlj+n/covlAFHdX1QpGS
+ZPBbCipc7rz1oVvIbegjhu++OhTHQRwpSqVNiuEK6U8XtOS1sPhJL3kkjvMKB2k8O5JYLTk7tW5f
+DDQyCeCcZ4Bcln3VoqtOEThdMRucbpe2ckSqjVSU3wPvDzxhqO5S6iORuUNw5BGH33333fLUW4Yv
+L3T8CnJGcZkKPT+7qvZQV9fuFp1PvGGlLleIJUb3ojBZLiXF+YUuquL/vj9J7Kh0hh7ntExcQZEt
+iucmgVM86nB+l1yzwNXJqXGkta1LNuCAJVs/G5bzgnG5YsNPSUoF0LiVkaxWFA33yRZpatdWQ0Nt
+dLn2StoKUTeLZPLLQTq305KpkGRsSffSH1ua82WrhiYL10hnrBJM/8jgkh5OKUkm/YlHKhSr5hrK
+uYcwgGv5n9q6HdxFERSjK6CeJEZyZwiuW4E6tX6LqV7nVsNQlE9hl4lHckZy2TeOo4UEuI/51FSD
+ygpfel+/7IbOzk41hx91pEqq7Vo66wbJqg4O/lDUSyq2uGHOW6t/2QDONatFOqSOBv0ctwfBnqRH
+H1NTG4vIh/vzJZVnqGMtBSF1uzJnSB1rI3xUjdZc5aulQrTHkV91IRpjwXyGV1s1412pzsPAOtd6
+8EhvdtVtdRXJEZW8/Pbv33ln3z41m0YeM2vmTBbKpdcv27+fhfKYo4/6yU9+8vMnnuBgAAAYkixc
+cFnze/5AL8NHqVBetmDht/521b79+8k1YvhR11x73ZJrF0swAAAMOZYvX37eBReefsZknmeWS6Ob
+Rs68+OJioTzhhBO0DQAADB3Wrl371FNPkVCeNnmyTCjLY5pGzKw2oySh3L17tzQEAIChQltbmxdK
+MkkqR48aSZfe4UsxAAAAKPy8yz/zglACAECWzK/LQCgBACBPRX6x0rQSQgkAAFlYIfW3fkUqIZQA
+AFCAXnyrUkIoAQAgh84oZTpJQCgBACCPKCWLJRsQSgAAyOKmkgaEEgAA8gTPvEsl/sucv/nbVfvr
+/suctjb5z/YBAGAgs2DBgrzK+b/M+eM/OVUc5eNGj2ptnWVCqX/COLI+oaQVmAEAAAOQtWvXHgih
+rFYLAAD9n2o6lgjlqSqUpePGkFC24h4lAABkCW9QEimhzDzoAQAAQGBGCQAAxfi5I4QSAAAKIZ20
+C3AIJQAA5GCRdAlCCQAAUSCUAACQo+ySAKEEAIA8TiMlh1ACAECWcqlcLg+jj+olhBIAAIrQB94C
+CyVppiX1dZdRacxbN9ZMMFePiXbVi+sCAAw2KiaKfkZJtqbus0sIC/UQSpU2JHpLv6grK6Xx/VcL
+AAAAgVUxuPQO5pkHnV7USgAA6CFOKPtSJUnyFLOdx4w6rn81njC7qAclNLXgTUXqGS17j1Qy3vRO
+9QAAhiwilH2sknwtLajoeI/XICproZBoD/kAgspaULSWKAwo7ME7vQcAMDRJLr1JLftIMEloFDW9
+9FBBPVG0OaFmjR7q7zNKL3YFABhYlPk5jnuU44WyT+9PkuJ4vMerXj1oW8V7GuoBAAAawB5vmzSy
+UPapSoaotPnJYA2loyqviSHRHmr0CQAAdWNKqQYLpXeYr1dROVNU+7wnNCWWZU7RKsXHE2GTvEmo
+J49VF62UqLMHKwEAhhhy6d2rMpkXGvIoZjuPGa6JOhX1e8xbswfFm/mCoiahZe+RSsabWiC0HHoA
+AIOctComD3P68nEOAAAMJNyfKxqhUAb6ObjAZBAA0Bgqh04UQ6EEAAAg8K8GOZnMPMwBAABAsCRW
+aGkvCypftmDh365ctW9/JxnHHH3UNddeu+TaxSeccEL+vwZX2trarAQAAAOWBQsW5FWO9O2pp546
+74ILTzv9dPWMGdU0a9ZMEcpVgVBeExHKpqYmKwEAwECmD4USAAAGK9WEUh/m4BYlAAAkuHeZmzDa
+U29RyuSXhgAAYEijT3GG8QMdAr8eBAAAhcgEUhChVNM8AAAA+Arb6yJmlAAAkIVkssJX33aXkoVS
+LXGoegIAwJCmXGFx9ILIvx608tvf2S+/HjT8qCMXX3NNtV8Pwq+aAwAGE/nfOfe/HnTGGWeyXS6N
+ahox8+KLnVB2ilAeGRFK6sIMAAAYyCxdujQvdIlQnilCWQqEctW3v6O/cB6dUVIXq1evNhsAx5VX
+XomBAfL054Hx4osv1hDKM886U986SUJ5cTKjbEQoaQXmAqBUeuSRRzAwQJ7+PzBqCuVZ8n7e8qiR
+x5hQ0oxSLr3LRx91xOLFdQnliBEjzAuGPBgYoJB+PjD27t1bWyjL8iinaQQLJX49CAAAsmR+ASgU
+Svw/EAAAIPB8sqyQJb9H6ZEAAAAY4rBMUuZmjwfl0rt90ajpa14ICwcR2oZRi9rNiNFQMOgJB3eQ
+9IeRCQ4mNnd0s8deEcr8qOqtcUb9hPTF2J22cteuldPMKCLcl2gwqMYAHSS9tZFgoGFTSkMuvbPO
+fsXkFc/sMu6dtORUTOhAnswgwRgBvQCropNFmVGSZUl8vcwLa6bX9aM+mRhUC6T53L0Lv3erry3q
+OeklOVu8T+JkjtAuTdn2U4bAz0hzXsP875WeJoEWhw9mfLdpX9IJzte66cVB8tGFpS3bra6eERJ+
+p2G5VPp15tvPtwWDF34phioly2J46d0nT73bF526ZNK9/KP+mdnrPlf1LKARPX+LTQtqzQnoNHh6
+3b9IL0U9ty+aXxIXYZfIQc/PLB4vLhr6t5buIMf6K05Uh+H8FLpiy3w6ZU68Yj1ps05Y0pfc1TfY
+dUKaPh+nU1304iB5Yc2t31u4WL/XOkdIVd6f+fYbaQsGOOVKucyKWPDi3p7MJ+WnbgL9HFbaf/q9
+ySv+SgbViRfOLpnG5Wj/9pLSijtMtqatJI35aUxiqvXsZxNK2POJ06bpGib7daVJ/CdesdgrchE1
+Nth1kpraAKLvBknS8+foh5SJWJ0jpCHwhQ4VZCpp00lCL717fuUd3CRi6Oewxw/iU5c8ba4iJo1P
+SVeNEekj8z3Txfni58UZzDYyPdfJ+0+abKUq1L/BQOm7QWI9P7NicvqnW50jpE560hYMOMrDJKkq
+BjPKvvp98/D0yF7rBmSEpljd5MLqozphqNIzP5imk7DEV87q6Z6E/fr5p2srbF0bDOqjdwbJiVes
+T1+S1zlC6qcnbcFAgjSS1dFNHr1QypSyJ3PKYvie4pJvR3/+Spi7OdW+aH6ghgkvrJl+Kl186cVU
+pGeaDz79/K+pEIa90N5ee3QnHVbbBkddGwzqozcHiVyS6/O+OkcIF3Qayj+GpS6GbwsGPaaKLJRa
+7HWNVGTgzufLFaL6j2H6Sc1zAYniG/bJvfLk9tOp62Y/E0w3inr2TyU5VvuYtpIfzKjzp6Xas77J
+K076qUSG2zDtr1aUeBvSl1vVNxg0TI8HSYh+X/xt1TdC5Ha09Pq50uzgboASfvsFowsMVnjmKL9v
+rtfe/Pag21ff3tnZRcaRhx/+hasXD9W3B9FpcOtJz9S47gPF4O1BoJAB/fagD3/4XPUMP/roiy66
+SC+9+3ROCQAAAw69SWk3J92lN6QSAAAcetGduvSmuXFnV1eFL70P+8IX45fea9euNRcAAgYGKKQ/
+D4zzzz+/xqX3Rz7yYTJJJI8++sgZMy4yodxv9ygPi96jNAMAAAYytf9zMRZKmUsOPyoQSppRkuuI
+w+JCScFmAwDAgOXFmv+52HnnfUQ9R7NQzvAPc1I5AAAMZUgLfSLcwxy5a+mcAAAwtAkf5djDb1VI
+iCQAAAiJToow2m8JQSQBACCHKaW/RxnMMgEAYGiTuvDOXnoPFaV86PJy+fKHzADAQQNj6qrtZoAh
+DeukLhj/MKf3RbJ8Y5mSGcb2VVP1T82JA6xU4Tkw485K5c4ZWu4ejZ9RVXc9X5HvfECfwP3kSweg
+AVgSdU4pGiZCyQxjb++pZU4iCRq1E+65ZFtF2TZp69CZ05FWFO/6oD8mQ/hLBwMZUUVGVZGFssKp
+0uh7e4uk0CiseujyizpWbttwlf23NaXxV13l5nR0MhnJj3+ZCzxkcxE3Dyl0En7Okpo++G6nXn75
+1PJFd5U2LpqgzaQfjqzWYdB21arsrITXFvbG+PhMbMKUSz6a2/Uax6QqyZrC7e2n9KcvnYg1WbXV
+XACoKLIusjTapXf3KBTE0Fn5spffh9ru+uwyf8IE0ODlk0kmHD9rWTQhORU2LrqptJa9n73rIu8t
+cD50+YRFLT/j9tsuuWeBnQJBt9uWtS7eQA1KU9jOXnIXdBhu0trSPXeJM2H8VZnequ+CY/xHLykt
+mpDV0KrHpDqkPCXZVaJnNw8OBP3rS481KfquwdCFdMwnfZgTOhoko5VVVJLG49YOK2V46NZFpZVr
+7WSacSedCm3u9Jhi/hmtny11bDWNyTvpbJyycrGIBuvRPT8VZ9Dt+BkzCs5VR0GH4SaNv2rZZ6VQ
+nRq74GFxpdOTJjfJbKbqMamNPxT9nv71pUeb1PNdg6GC3Z8MH+Z0D6+DXhyrqiQxfmKLlfK0TEwN
+6W4IgVxeMRMWbTRXrtuGaLRtXbvAYimzmQl6KVjrmFRjxp2VZVtkZ/PT1n5Hv/vSe32cgMEOSZqo
+mhdK52iEUCtrqSQzYdKUgomWkDlJujFw5fLK8DfEunHueRpt28AujL9q7Uo7FNWOCfk3btlmBsNT
+M98nP7Knq9DSRdkr+f5Hf/vSe32cgMGLziedKso9SvV0i7wmFqkkwZc1d10UzIO2r1rFZbqa2rjI
+3TB66PKL7vpsa4O33qSHWzOnY+jc/tBDDZ0KqQ55k7RUlTp24aHLA1XbtmXjlEkTqFDtmNCV4ZTg
+Dh1fH27M9pkT0/5Iv/rSo03q+a7BUEE10uticukdqGdjhMpYRSUFmgltW9lxkV77lMsLSh+Vk4Pc
+fDtffHxbvfFHFHKTy/XrBGnGnX5lE9pKNHmYsXhlKXgAWougbbmt9WdF961SvcV3YcZivT8pXFT6
+mZvOVDkmdJEe7BI3cE9u/BNa/p2b/v80p9oOHpQvPdak2ncNgLzh/K677pQXnJcOPfSQRX/9xe69
+j5IuvWup5MBl+6qpE7YsGwCPmAEADVD7fZQz/nS6eg4//LDp0y+US2+aTSpa0y0Gp0qSTC7IX/YC
+AAY5JomEmCyUnZVKZ1dXp/6/OSC4vuXHoy3+shcAMFRgSZSkf4rDQvn2279/4823Ke3bt599Q54Z
+8lzZgEoCMPTYvefN3XspvfHOu++SyUL5zrv73n7nHUr7OzslBgAAhjRvvf3Wm2/9/q2339m3n1WR
+hZKmlpWuEk2eGv+DbwAAGITIH3l30T81WSjlj74hkQAAYFTSj7ZFKJ1KQiwBAICplFkry+GMUhhQ
+KsnPpev4zXGi/shqUA91/rGgj6y/Sa9QbXUHeDN6Dg4g6E+QVkpGH3eP0szeJPMH4Mz2VVPjI49G
+p6daMD+Xrv44OhzftSNBn5IXmgEqPbTZPftpCwYeXiQZE8q+UEkrGSJ/C+4xK4K9vGDbypL/i2AA
+ADiwJNLoH+YkWZ3kpDChqEp+N3HDsoZeLMbvVNho7w3kmYi+5ppnJH5iEvj1Epsnrb33MnPPNmsY
+VPOasr4ifP+FgVTrNsZvqvQdeI2kuUQmRyOFj+/37+vGAQT9GJFDvkspr8Cwe5TJK88boVArQ2ev
+/l2je8118h8LKOnXX+dePx7Q+MvMjaShf9VM4euy84T9F778fEare2vt9q2lKfY62e0/vack7xeq
+3rz4aNS3O/0CHEDQ/xH94oUKJZe6J2kZrexdldy+6qa7kv9qxr3mOkvhO7EL6fbLzOt8w3aeGq/y
+dkyYNEW65HP7kktK8uq0bVtKsts1mhcejX74vm7/rlzFv8dsoB1AfTEeGDo4JVMV00tv/l1zMRvA
+66AXx95TSTu7eMqRnT/2Ot1+wXXh67LzZPrPSbnJBJ3mLa1XTWzhM5lExLeKNc/S7d3pI8J35RLh
+e8wG0AGcMKnxl9GDAU1Gv9zDnCRrgFAre3Uu6c+uA/C8OnrmVKPwddl5Mv3nz8PxE1s2btm2bUtL
+6wyesnZsfWhrR/K+omjzDN3enQPPADqA46+6s69/YIN+h00fZeGEkj7duUtZoImNqGRw9/3gQOdV
+915wnWpYHQmLvcqbT+6bbuqQa7sZrS2LLlrEp7zVNPQm8G7vzoFnYB3Agz5QwQGHZUx+j1JmgO5h
+jopn/RIXECpjdZXcLo8Y3fPovh12vfsy82IKX5edp65XedPJvVHvqckdt+B+WF3NAwbQ+7pxAEF/
+huTR/VUOw284/9ryr7/z7rvkHDu6admyZUP3Deck5niZOQBDg9pvOD/5A/9dbyaOGzt67uzZbkap
+WQ8Y8CpJMomXmQMAlHLqvRgmlCKVA13pukPy28jyjB2zSQCAwHrIWim66ITSdHLIaaX8wZADKgkA
+UNJ6qE+95YG3ZgAAAPjam5aV8Kl3N37fHAAABi2iiMl9ShFKEU5IJQAAKCSQmhS59MaEEgAAQvxs
+UsQxeJgDtQQAgAD/G0L6MEcS5pUAAJAgMikLvfQ2qYRSAgAAUebH3SSIJJOslHbpzVqJxzkAACDo
+Rbf+ihChQsmG6CS0EgAAQlgVw4c5kEkAADDCqaMIpTigkgAAEJL9W28pQyoBAECxxzi6YKEkgbTn
+3gAAABJMLt09SugkAABUQe9RYj4JAABVCS+9oZUAAMC4O5RG5tIbWgkAAKaUXisToWSgkwAAwIga
+OqVUoSQXNBIAAEISVZR7lPp33nikAwAAgntkY1lwj5L10soAADC0KVf473Ls2puFUqxKOfn/IQAA
+YEijGunmlck9yjJmkwAAEOKnjnbpbVfdEEsAAMhhD3NYIqGSAACgpO9DilBCJwEAIIPepxTs0hsA
+AEA1IJQAABABQgkAAHmCC28IJQAA5HEyaVoJoQQAgGL8rBJCCQAAObxGChBKAACogtNKCCUAAESA
+UAIAQAQIJQAARIBQAgBABAglAABkkf9YLHnsDaEEAIACRCZNKyGUAAAQAUIJAAAFuDdP8qQSQgkA
+AFlUJf1NSgglAABEgFACAEAECCUAABSQ/HKQCmVoAwAAUFX0/5OYzCjldysBAAAYooleGHHpDQAA
+RZBMaoJQAgBAFCeUuPoGAIAqBDNKN8kEAAAQgktvAACIAKEEAIAIEEoAAIgAoQQAgAgQSgAAiACh
+BACACCqU+LUgAACoCmaUAAAQAUIJAAARvFDq3+XgGhwAALJgRgkAABEglAAAEAFCCQAAESCUAAAQ
+AUIJAAARIJQAABABQgkAABEglAAAEAFCCQAAESCUAAAQAUIJAAARIJQAABABQgkAABEglAAAEAFC
+CQAAESCUAAAQAUIJAAARIJQAABABQgkAABEglAAAEAFCCQAAESCUAAAQAUIJAAARIJQAABABQgkA
+ABEglAAAEAFCCQAAESCUAAAQAUIJAAARIJQAABABQgkAABEglAAAEAFCCQAAESCUAAAQAUIJAAAR
+IJQAABABQgkAABEglAAAEAFCCQAAESCUAAAQAUIJAAARIJQAABABQgkAABEglAAAEAFCCQAAESCU
+AAAQAUIJAAARIJQAABABQgkAABEglAAAEAFCCQAAESCUAAAQAUIJAAARIJQAABABQgkAABEglAAA
+EAFCCQAAESCUAAAQAUIJAAARIJQAABABQgkAABEglAAAEAFCCQAAESCUAAAQAUIJAAARIJQAABAB
+QgkAABEglAAAEAFCCQAAESCUAAAQAUIJAAARIJQAABABQgkAABEglAAAEAFCCQAAESCUAAAQAUIJ
+AAARIJQAABABQgkAABEglAAAEAFCCQAAESCUAAAQAUIJAAARIJQAABABQgkAABEglAAAEAFCCQAA
+ESCUAAAQAUIJAAARIJQAABABQgkAABEglAAAEAFCCQAAESCUAAAQAUIJAAARIJQAABABQgkAABEg
+lAAAEAFCCQAAESCUAAAQAUIJAAARIJQAABABQgkAABEglAAAEAFCCQAAESCUAAAQAUIJAAARIJQA
+ABABQgkAABEglAAAEAFCCQAAESCUAAAQAUIJAAA5KkGCUAIAQBQIJQAARIBQAgBABAglAABEgFAC
+AEAECCUAAESAUAIAQAQVSvfLQgAAAHJgRgkAABEglAAAEAFCCQAAEUKhxJ1KAAAoADNKAACIAKEE
+AIAIEEoAAIgAoQQAgAgQSgAAiAChBACACBBKAACIAKEEAIAIEEoAAIgAoQQAgAgQSgAAiAChBACA
+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
+AElFTkSuQmCC
+
+------MultipartBoundary--elYPo1OCyZSXsD4dmpgynxB0uDd3JsFuwmtyYeNufB----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://sw-wiki.w2k.feico.com/skins/FEI/fei_screen_size1_color_resized_trans.png
+
+iVBORw0KGgoAAAANSUhEUgAAAIcAAACHCAMAAAALObo4AAAABGdBTUEAALGPC/xhBQAAAwBQTFRF
+AAAAHxQBIBUBJRsBJhsLKB4OKh4QLSMMLSMSMCUOMSYXMSYZMigaOC4cPDIcOjEiPDMsQDcgRTww
+fgIKTEMuS0MzTkU8UEc6U0o6ZFxKaGFObmdXdW1cd3BjfHVmfHZofnlshgANjAMSgxEWlgUYmREe
+kwEnlgAslwkumAAumQsvnAEwmwwynBE0nhY5nxw8lCAnmikxowgdogEvpQkgrgkuowIyows1pQ85
+qwU1rwc4qQk0qwk5oRM7oRo9qxE7qRg+sgwpsQY2sQY4swk1tAk5uAY3uQc4uwo7vRAqsxI9uhI9
+oyA/pDY+pB1EsBZBtxpFvRZCuhlEpCJCoyhGpy1MqyVIqCpNqi9RqDFPqjRSrTtWtixTuDhYgnxs
+hH1yqVdbt0VPsURes0hSvkZTs1BZp15gtEZhuEdlu0hmuFZnulpyu2B2wgw9ywo+wxQtyBY4zCI8
+xQ5Ayg5BxBNCwhhExR1JyxFD0A9E0RNE0xhG1R1IzyZBzCFNwC5VxDVawzpeyzVcyDle0CNC1SVL
+0SlG1StM2CZN2ClO1CVR0ipW1zNQ0TZf1zhS2DNS2TVd2TxV2j5Yyj1g1zdgyEpYwFRf0Exe20Nc
+3Elex0ZnxVZiwlFuzllmw112z1Nz1E5i3ENh3U1i309q0lpn1Vtr3VJm21pu11l2wGd922Fz4Upk
+4Vdt4Vtx5GZ55nB/wmyCxXSJw36Dx3iLyHeLyXqOyX+R1GaA0GiC1nSM1HyQ232V5m+B5nWHiYV1
+kYyArqmfrqqgsa6jt7Kpvbqxx4aNzIWW1oWY3o2g1ZWm1Zmp3ZCk2J6rwL212aWv3KWy3Kq23Kq5
+3bK16oCO7IiZ5I2i4ZKl5p6v7J2s8Zao9Z+z7aGs5KOy46u66aK06Ki26a275bK79aG18bS957XA
+5LzE577I67XC7bjE8bnFw8C6yca+ysfAycjB0c7K38HC5cTL5snL68XN6cjP6crR6tPW79fc79rf
+9MfM9c3U8tHW9dLa9Nnd+Nzf893h+N3iAAAATFUGZgAAAQB0Uk5T////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////AFP3ByUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAAadEVYdFNvZnR3YXJlAFBhaW50
+Lk5FVCB2My41LjExR/NCNwAABrFJREFUeF7tmQl4E0UUx6FQizcKHnhhS3RdG1A5gqscNu3aAIJi
+BRREEe/WQGkLcYsISIwCUguiScUD1BokjSKioq4CKggqFBuVcihUK+CJikcFdX2zs5udTadhKQkf
+ft+8fF+b7szO++1/3ps3O22hHB7W4vDAUBiHeSKYHkyPeKnJ4oPFB4sP68WL5QvLF5YvLF+sK8Dy
+heWL9Whh9YXlC8sXli/WFWD5wvLFerSw+sLy5X+YL7+/MvyjWOw1Qxf/Yz3wm9nTnC9rh/N8zyd/
+IcfaM69nN/uI6mYOb/k2kqN+NM87HA6h/xvR59+3rL8gCA6H/fZ6y0M2qyPBsbgPnwkUQrYoTtmC
+B/tsco4o5iAQvs9Syvgfv0ex73DHb+O0afcRIxocG+wghiCIogtsKu4yAX3HJJmddzcGOTq1sbU+
+We33Y9vUIxo3noLHOKa12nSmMSLBoYqhYrjdGsckNxgicQqOiykcaa0odhIe/XhaW3vcpt13BpUD
+MGBKEIXb/RDuMam4uAiDZAt9TeFrGs/s0QLHkfgOKsdWhIEoijye4kewn+l3ezyeEpXEecg4egkq
+RnGxR5LmY46yUkkCKhWkfxw9WpOG4yM6L6Y2Tau4evTSMCRpovcZPJbf55soScUqSByO00yp8QPJ
+kdLBlFPf47a4HBAboIbHI3l9Zc/j/gvKy3xeDWRA03rcYMSb8Q3HacuzaW3xOJTXB7sgNqRS38zy
+qu347s0hf3nZgxMlmJrxyygDanGfWA5l61SQo9RbVh75W/e5LxIASUqlMXO20Z4rORyK8ukMyVsm
+/0m6bJBnz/Q+vJFGEV0HEqwH+GqQg5s1lxv1L5urInvpGPp6lHiOqL+NVaFQVRMqGFAJnxctLnUP
+X4UXhWtrw4vkXWYhdsTokmCO+jv6jtQqLHK0V/aHIpvq6jZFQvPlBsP1lsl95/1qIkkox+6XevMO
+QQx+iV00yLP8ci1Q1NXV1cp+vx4cXwRd2YLjsoV7CJIEcvyx5AIOCn52tqskqD57cFooUhu1SNW0
+sEoXLHG7RKj/fN6qpMRHHsejXRiUOLd7xr/gotInRwgL3/8Cwpg+pgg4QBCeO3dkFMSCHtRcoqyn
+POZwIg4Pys+n76kMy3KkpqZGrpHfCleOQxy7JI/OwfODYjnan2XY23qjtv9o39Foe0dvo3OgeYFa
+q3OMCwQCleGw/GI4vCAQ8BeiWqNxoHmhcLRKiVrLY2M4iLaUE+NwIDlgX6rWfFWPxwrLkQVCIf9s
++D2r8DmVA9VcEbaHVA5iI3RcLAfRplV9ar1txDF3rFc1H/rxgNc79lmNA/YgSeXgOKSHU9djbj/J
+ZP2eQBxQcS1xpMTTYz/zApKoAeIqQfNyS1YhbAZhFwYfsMKsx+HiDo86LaAHdG4Upyd0MCy659Ti
+lGzrGCc+OhsTkzsBcdzUNctdhMwNnyJ3VtdHVT10OTieu/ZA8jbqm1j+aPuxPQWdYWJgQRXEip2o
+7802W/ccF7hFltW9qy0fXd1Z4XLCy0Mmz3VZmJR1TFGqC+yQud0qPsTjb7/VBiQ9YJpyenS32c7J
+194oP5iCXuvs+WRJtLCOHci+cN115+etNp7yk4EZgCII8MM2cJ1xffVQ+/ANpLyJ33+sIauXorx8
+YXp6RkZ6+kXvm9wqa81/Jp4jZnzl51Gd2rXrNOq32OuHjGP1U9pG5KdRt+3GXj+vIObMDLL/+Eix
+WudMA68fKeYOfu0v07Vgics152u6MMnhqL/TIVwiipcPIJ7/zfG56HX/0opvaCRJ4Vh1hXYAkuuq
+2Ia9brkPv+sLjm7k9ieKlAyO6vOg7qpnIILovBe7ujpbzHGi4yAos7RzmGRwbIC1ElU8leR6zHEV
+QGgYnF0LW3J+LHCcTpvPeO+3wKHuzRCJQ+O4EqRQxQBrHker1LQ2aYadiqn2x6E6hNnJ1DgGAUSm
+qlOzOcxnRdq5lCUO5HUY5u6NwQ5Gj2ZxqHsA4OB0DvT9UHPYjWfnhmA9uugQQEfLlzb40OlGWiy2
+TUVNqfDBloq+aDvUo/Al6rmlcheUf/z0nL5YLB2ELqFrnJ3YdkTdrly+fMWKFctpGMq70BJres+V
+agN5H3muvX6INi8FRvXNR3CAMYyo/1S3B3nRfM7/ah48/OhqcszqERAi1zRZ6Q7SffT22P/PFTRe
+v5f0KUiUt6bHYf8nNGvD9GB6xMs6Fh8sPlh8WK9LLF9YvrB8YfliXQGWLyxfrEcLqy8sX1i+sHyx
+rgDLF5Yv1qOF1ReWLyxfWL5YV8Dc8z9KKu/n7SI8hQAAAABJRU5ErkJggg==
+
+------MultipartBoundary--elYPo1OCyZSXsD4dmpgynxB0uDd3JsFuwmtyYeNufB----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: http://sw-wiki.w2k.feico.com/resources/assets/poweredby_mediawiki_88x31.png
+
+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
+
+------MultipartBoundary--elYPo1OCyZSXsD4dmpgynxB0uDd3JsFuwmtyYeNufB------

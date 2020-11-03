@@ -1,0 +1,24 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	uuid(TEMPLATEGUID1),
+             
+	version(1.0),
+	helpstring("TadBrickTemplateBrickLib 1.0 Type Library")
+]
+library TadBrickTemplateBrickLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(TEMPLATEGUID2),
+
+		helpstring( "TadBrickTemplateBrick coclass")
+	]
+	coclass CoTadBrickTemplateBrick
+	{
+		[default] interface IUnknown;
+	};
+};

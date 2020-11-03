@@ -1,0 +1,6 @@
+HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-bbox
+    CommunicationTadXtEthernetBrick
+        CommunicationTadXtEthernetBrickMgr
+            Communication
+                SCU BoardTest (µHeater)
+                    LocalIPAddress = 198.211.143.65

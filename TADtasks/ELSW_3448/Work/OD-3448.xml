@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<OD>
+	<ObjectDictionaryRecord_eFloat64 name="MOFE_0_RefVTempCal" />
+	<ObjectDictionaryRecord_eFloat64 name="MOFE_0_MaxTempSensCal" />
+	<ObjectDictionaryRecord_eSwitch name="MOFE_0_TADSwitch" maxNumber="1" description="0 = channel A&#xD;&#xA;" comment="0 = channel A&#xD;&#xA;" />
+	
+	<ObjectDictionaryRecord_eADC_Lin name="MOFE_0_TMeasOut" unit="11" resolution="16" dblMin="0" dblMax="4.096" uiMin="0x000" uiMax="0xFFFF" HWInterface="1" slotAddress="2" boardAddress="1" deviceAddress="0x16" readWrite="1" SPIClock="1" multiplexSelect="1" driverNumber="0x36" />
+</OD>

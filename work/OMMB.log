@@ -1,0 +1,275 @@
+11:12:17 Session Information
+	Computername: CHVILA8-PC
+	Creation date: 10/15/20
+	Creation time: 11:12:17
+	Session file: CHVILA8-PC_201015-111217.TRF
+11:12:45 E-Optics.OMMB Tests
+	Runmode: Normal
+	Info		:	[Connecting to SCUs]:	Connected
+	Info		:	[1. ### Stan Board identification ###]:	
+	Info		:	[2. ############################]:	
+	Warning	:	[3. MasterVersion]:	Found FW/HW version 0, expected >=0x11. Unexpected board version ! Test results can be misleading
+	Info		:	[4. ]:	
+	Info		:	[5. ### Power and thermometer test ###  ]:	
+	Info		:	[6. ##################################]:	
+	Error	:	[7. BOOST_TAD]:	BOOST voltage is  -9.467 V. 	 [23.3, 25.3].
+	Error	:	[8. -5VREF_TAD]:	Master reference -5V voltage is  4.448 V. 	 [-5.1, -4.9].
+	Error	:	[9. AUXREF_TAD]:	Auxiliary 5V reference voltage is  4.506 V. 	 [4.9, 5.1].
+	>> Computer\HKEY_LOCAL_MACHINE\SOFTWARE\FEI\TADBrickBox\Configurations\HeliosG5FxBasic.tad\TAD-bbox\
+	TadXtSCUEOpticsBrick\TadXtSCUEOpticsBrickMgr\E-Optics\OMMB Tests\TestExecutor\AuxRef
+	Error	:	[10. MasterTmpR_TAD]:	Temp of R heatsink is  31.45 K. 	 [285, 315].
+	Error	:	[11. MasterTmpP_TAD]:	Temp of P heatsink is  817.5 K. 	 [298.1, 332.3].
+	Error	:	[12. AUXREFTmp_TAD]:	Temp of AUXREF is  4.142 C. 	 [0.55, 0.61].
+	Info		:	[13. MasterSupply]:	Overall POK bit OK
+	Info		:	[14. ]:	
+	Info		:	[15. ###  Logic Inputs Test  ###]:	
+	Info		:	[16. ###########################]:	
+	Info		:	[17. Water cable]:	Water cable is OK
+	Info		:	[18. Water intlk]:	Water intlk is OK
+	Info		:	[19. Scan cable]:	Scan cable is OK
+	Info		:	[20. VAC intlk]:	VAC intlk is OK
+	Info		:	[21. VAC cable]:	VAC cable is OK
+	Info		:	[22. Switchbox cable]:	Switchbox cable is OK
+	Info		:	[23. AZL cable]:	AZL cable is OK
+	Info		:	[24. Supply cable]:	Supply cable is OK
+	Info		:	[25. C2 cable]:	C2 cable is OK
+	Info		:	[26. Hr cable]:	Hr cable is OK
+	Info		:	[27. Slave cable]:	Slave cable is OK
+	Info		:	[28. ]:	
+	Info		:	[29. Setting 0 to condenser A coil fine current]:	Done
+	Info		:	[30. Setting 0 to Hr A coil fine current]:	Done
+	Info		:	[31. Setting 0 to Hr dynamic focus depth]:	Done
+	Info		:	[32. Setting Dynamic focus to external]:	Done
+	Info		:	[33. ]:	
+	Info		:	[34. ###  C2 source tests  #############]:	
+	Info		:	[35. ###################################]:	
+	Info		:	[36. ===  Checking C2ACoarse source: ===]:	
+	Info		:	[37. ]:	
+	Info		:	[39. Enabling Condenser A buck]:	Done
+	Info		:	[41. C2ABridge - adjusting positive polarity]:	Done
+	Info		:	[42. Setting C2APreset to 7.8181 V]:	Done
+	Info		:	[43. Setting C2ACoarse to minimum: 1.182]:	Done
+	Error	:	[45. C2ADac_TAD]:	C2ACoarseDAC:  -5.484 V. Issue: C2ADac (Condenser A DAC readback) is out of limits	 [-0.1, 0.1].
+	Error	:	[46. C2APresetDac_TAD]:	C2APresetDAC:  -4.44 V. Issue: C2APresetDac is out of limits	 [2.294, 2.494].
+	Error	:	[47. C2AFlwr_TAD]:	Preset:  12.79 V. Issue: C2AFlwr (Buck output readback) is out of limits	 [7.3181, 8.3181].
+	Error	:	[48. C2ADrive_TAD]:	Drive:  12.11 V. Issue: C2ADrive is out of limits	 [5.4, 6.4].
+	Error	:	[49. C2ARn_TAD]:	Rn drop:  4.211 V. Issue: C2ARn (Buck output readback) is out of limits	 [-0.6909, -0.4909].
+	Info		:	[50. Setting C2APreset to 9.2806 V]:	Done
+	Info		:	[51. Setting C2ACoarse to 1.5068 V]:	Done
+	Error	:	[53. C2ADac_TAD]:	C2ACoarseDAC:  0.5755 V. Issue: C2ADac (Condenser A DAC readback) is out of limits	 [2.4, 2.6].
+	Error	:	[54. C2APresetDac_TAD]:	C2APresetDAC:  1.38 V. Issue: C2APresetDac is out of limits	 [1.807, 2.007].
+	Error	:	[55. C2AFlwr_TAD]:	Preset:  0.9663 V. Issue: C2AFlwr (Buck output readback) is out of limits	 [8.7806, 9.7806].
+	Error	:	[56. C2ADrive_TAD]:	Drive:  9.546 V. Issue: C2ADrive is out of limits	 [6.9, 8].
+	Error	:	[57. C2ARn_TAD]:	Rn drop:  -1.033 V. Issue: C2ARn is out of limits	 [-0.8534, -0.6534].
+	Info		:	[58. Setting C2APreset to 10.7431 V]:	Done
+	Info		:	[59. Setting C2ACoarse to 1.8318]:	Done
+	Error	:	[61. C2ADac_TAD]:	C2ACoarseDAC:  -2.193 V. Issue: C2ADac (Condenser A DAC readback) is out of limits	 [4.9, 5.1].
+	Error	:	[62. C2APresetDac_TAD]:	C2APresetDAC:  -5.281 V. Issue: C2APresetDac is out of limits	 [1.319, 1.519].
+	Error	:	[63. C2AFlwr_TAD]:	Preset:  0.01591 V. Issue: C2AFlwr (Buck output readback) is out of limits	 [10.2431, 11.2431].
+	Error	:	[64. C2ADrive_TAD]:	Drive:  -16.16 V. Issue: C2ADrive is out of limits	 [8.3, 9.9].
+	Error	:	[65. C2ARn_TAD]:	Rn drop:  -0.7124 V. Issue: C2ARn is out of limits	 [-1.0159, -0.8159].
+	Info		:	[66. Setting C2ACoarse to 0]:	Done
+	Info		:	[67. Setting C2APreset to 0 V]:	Done
+	Info		:	[68. Disabling Condenser A buck]:	Done
+	Info		:	[69. ]:	
+	Info		:	[70. ===  Checking C2BCoarse source: ===]:	
+	Info		:	[71. ]:	
+	Info		:	[72. Enabling Condenser B buck]:	Done
+	Info		:	[74. C2BBridge - adjusting positive polarity]:	Done
+	Info		:	[75. Setting C2BPreset to 2.5 V]:	Done
+	Info		:	[76. Setting C2BCoarse to 0]:	Done
+	Error	:	[78. C2BDac_TAD]:	C2BCoarseDAC:  -2.746 V. Issue: C2BDac (Condenser B DAC readback) is out of limits	 [-0.1, 0.1].
+	Error	:	[79. C2BPresetDac_TAD]:	C2BPresetDac:  -0.3758 V. Issue: C2BPresetDac is out of limits	 [4.067, 4.267].
+	Error	:	[80. C2BFlwr_TAD]:	Preset:  -7.65 V. Issue: C2BFlwr (Buck output readback) is out of limits	 [2, 3].
+	Error	:	[81. C2BDrive_TAD]:	Drive:  -9.854 V. Issue: C2BDrive is out of limits	 [-0.5, 0.5].
+	Error	:	[82. C2BRn_TAD]:	Rn drop:  1.27 V. Issue: C2BRn is out of limits	 [-0.1, 0.1].
+	Info		:	[83. Setting C2BPreset to 5.3332 V]:	Done
+	Info		:	[84. Setting C2BCoarse to 0.6296 V]:	Done
+	Error	:	[86. C2BDac_TAD]:	C2BCoarseDAC:  -2.574 V. Issue: C2BDac (Condenser B DAC readback) is out of limits	 [2.4, 2.6].
+	Error	:	[87. C2BPresetDac_TAD]:	C2BPresetDac:  0.7667 V. Issue: C2BPresetDac is out of limits	 [3.122, 3.322].
+	Error	:	[88. C2BFlwr_TAD]:	Preset:  -8.409 V. Issue: C2BFlwr (Buck output readback) is out of limits	 [4.8332, 5.8332].
+	Error	:	[89. C2BDrive_TAD]:	Drive:  0.7126 V. Issue: C2BDrive is out of limits	 [2.3332, 3.3332].
+	Error	:	[90. C2BRn_TAD]:	Rn drop:  -4.486 V. Issue: C2BRn is out of limits	 [-0.4148, -0.2148].
+	Info		:	[91. Setting C2BPreset to 8.1665 V]:	Done
+	Info		:	[92. Setting C2BCoarse to 1.259]:	Done
+	Error	:	[94. C2BDac_TAD]:	C2BCoarseDAC:  3.232 V. Issue: C2BDac (Condenser B DAC readback) is out of limits	 [4.9, 5.1].
+	Error	:	[95. C2BPresetDac_TAD]:	C2BPresetDac:  5.097 V. Issue: C2BPresetDac is out of limits	 [2.178, 2.378].
+	Error	:	[96. C2BFlwr_TAD]:	Preset:  9.01 V. Issue: C2BFlwr (Buck output readback) is out of limits	 [7.6665, 8.6665].
+	Error	:	[97. C2BDrive_TAD]:	Drive:  -17.25 V. Issue: C2BDrive is out of limits	 [5.6, 6.6].
+	Error	:	[98. C2BRn_TAD]:	Rn drop:  1.692 V. Issue: C2BRn is out of limits	 [-0.7296, -0.5296].
+	Info		:	[99. Setting C2BCoarse to 0]:	Done
+	Info		:	[100. Setting C2BPreset to 0 V]:	Done
+	Info		:	[101. Disabling Condenser B buck]:	Done
+	Info		:	[102. ]:	
+	Info		:	[103. ###  Hr source tests  #############]:	
+	Info		:	[104. ###################################]:	
+	Info		:	[105. ===  Checking HrACoarse source: ===]:	
+	Info		:	[106. ]:	
+	Info		:	[107. Enabling Hr A buck]:	Done
+	Info		:	[109. HrABridge - adjusting positive polarity]:	Done
+	Info		:	[110. Setting HrAPreset to 8.6425 V]:	Done
+	Info		:	[111. Setting HrACoarse to minimum: 1.3648]:	Done
+	Error	:	[113. HrADac_TAD]:	HrADac:  -5.269 V. Issue: HrADac (Condenser A DAC readback) is out of limits	 [-0.1, 0.1].
+	Error	:	[114. HrAPresetDac_TAD]:	HrAPresetDac:  -0.9791 V. Issue: HrAPresetDac is out of limits	 [2.019, 2.219].
+	Error	:	[115. HrAFlwr_TAD]:	Preset:  6.409 V. Issue: HrAFlwr (Buck output readback) is out of limits	 [8.14, 9.14].
+	Error	:	[116. HrADrive_TAD]:	Drive:  -2.68 V. Issue: HrADrive is out of limits	 [6, 7.06].
+	Error	:	[117. HrARn_TAD]:	Rn drop:  -3.431 V. Issue: HrARn is out of limits	 [-0.7825, -0.5825].
+	Info		:	[118. Setting HrAPreset to 10.177 V]:	Done
+	Info		:	[119. Setting HrACoarse to 1.706 V]:	Done
+	Error	:	[121. HrADac_TAD]:	HrADac:  5.518 V. Issue: HrADac (Condenser A DAC readback) is out of limits	 [2.4, 2.6].
+	Error	:	[122. HrAPresetDac_TAD]:	HrAPresetDac:  -4.228 V. Issue: HrAPresetDac is out of limits	 [1.508, 1.708].
+	Error	:	[123. HrAFlwr_TAD]:	Preset:  -6.327 V. Issue: HrAFlwr (Buck output readback) is out of limits	 [9.68, 10.68].
+	Error	:	[124. HrADrive_TAD]:	Drive:  3.07 V. Issue: HrADrive is out of limits	 [7.63, 8.69].
+	Error	:	[125. HrARn_TAD]:	Rn drop:  1.998 V. Issue: HrARn is out of limits	 [-0.953, -0.753].
+	Info		:	[126. Setting HrAPreset to 11.716 V]:	Done
+	Info		:	[127. Setting HrACoarse to 2.048]:	Done
+	Error	:	[129. HrADac_TAD]:	HrADac:  4.796 V. Issue: HrADac (Condenser A DAC readback) is out of limits	 [4.9, 5.1].
+	Error	:	[130. HrAPresetDac_TAD]:	HrAPresetDac:  -5.198 V. Issue: HrAPresetDac is out of limits	 [0.995, 1.195].
+	Error	:	[131. HrAFlwr_TAD]:	Preset:  6.241 V. Issue: HrAFlwr (Buck output readback) is out of limits	 [11.22, 12.22].
+	Error	:	[132. HrADrive_TAD]:	Drive:  15.33 V. Issue: HrADrive is out of limits	 [9.27, 10.33].
+	Error	:	[133. HrARn_TAD]:	Rn drop:  1.423 V. Issue: HrARn is out of limits	 [-1.124, -0.924].
+	Info		:	[134. Setting HrACoarse to 0]:	Done
+	Info		:	[135. Setting HrAPreset to 0 V]:	Done
+	Info		:	[136. Disabling Hr A buck]:	Done
+	Info		:	[137. ]:	
+	Info		:	[138. ===  Checking HrBCoarse source: ===]:	
+	Info		:	[139. ]:	
+	Info		:	[140. Enabling Hr B buck]:	Done
+	Info		:	[142. HrBBridge - adjusting positive polarity]:	Done
+	Info		:	[143. Setting HrBPreset to 2.5 V]:	Done
+	Info		:	[144. Setting HrBCoarse to minimum: 0.0]:	Done
+	Error	:	[146. HrBDac_TAD]:	HrBDac:  -2.354 V. Issue: HrBDac (Condenser B DAC readback) is out of limits	 [-0.1, 0.1].
+	Error	:	[147. HrBPresetDac_TAD]:	HrBPresetDac:  5.119 V. Issue: HrBPresetDac is out of limits	 [4.067, 4.267].
+	Error	:	[148. HrBFlwr_TAD]:	Preset:  -15.22 V. Issue: HrBFlwr (Buck output readback) is out of limits	 [2, 3].
+	Error	:	[149. HrBDrive_TAD]:	Drive:  -4.008 V. Issue: HrBDrive is out of limits.	 [-0.5, 0.5].
+	Error	:	[150. HrBRn_TAD]:	Rn drop:  2.896 V. Issue: HrBRn is out of limits.	 [-0.1, 0.1].
+	Info		:	[151. Setting HrBPreset to 5.65 V]:	Done
+	Info		:	[152. Setting HrBCoarse to 0.7 V]:	Done
+	Error	:	[154. HrBDac_TAD]:	HrBDac:  0.6099 V. Issue: HrBDac (Condenser B DAC readback) is out of limits	 [2.4, 2.6].
+	Error	:	[155. HrBPresetDac_TAD]:	HrBPresetDac:  -4.082 V. Issue: HrBPresetDac is out of limits	 [3.017, 3.217].
+	Error	:	[156. HrBFlwr_TAD]:	Preset:  13.88 V. Issue: HrBFlwr (Buck output readback) is out of limits	 [5.15, 6.15].
+	Error	:	[157. HrBDrive_TAD]:	Drive:  14.99 V. Issue: HrBDrive is out of limits.	 [2.65, 3.65].
+	Error	:	[158. HrBRn_TAD]:	Rn drop:  4.934 V. Issue: HrBRn is out of limits.	 [-0.45, -0.25].
+	Info		:	[159. Setting HrBPreset to 8.8 V]:	Done
+	Info		:	[160. Setting HrBCoarse to 1.3998]:	Done
+	Error	:	[162. HrBDac_TAD]:	HrBDac:  -2.297 V. Issue: HrBDac (Condenser B DAC readback) is out of limits	 [4.9, 5.1].
+	Error	:	[163. HrBPresetDac_TAD]:	HrBPresetDac:  0.3671  V. Issue: HrBPresetDac is out of limits	 [1.967, 2.167].
+	Error	:	[164. HrBFlwr_TAD]:	Preset:  1.3 V. Issue: HrBFlwr (Buck output readback) is out of limits	 [8.3, 9.3].
+	Error	:	[165. HrBDrive_TAD]:	Drive:  2.758 V. Issue: HrBDrive is out of limits	 [5.8, 6.8].
+	Error	:	[166. HrBRn_TAD]:	Rn drop:  2.818 V. Issue: HrBRn is out of limits	 [-0.8, -0.6].
+	Info		:	[167. Setting HrBCoarse to 0]:	Done
+	Info		:	[168. Setting HrBPreset to 0 V]:	Done
+	Info		:	[169. Disabling Hr B buck]:	Done
+	Info		:	[170. ]:	
+	Info		:	[171. ### Test of current sensors ###  ]:	
+	Info		:	[172. ###############################  ]:	
+	Info		:	[175. WaterIntlk]:	Water intlk OK
+	Info		:	[176. Enabling Hr A buck]:	Done
+	Info		:	[177. Setting HrAPreset to 6.1 V, prevents shutdown]:	Done
+	Info		:	[179. Setting HrAPreset to 12.2 V]:	Done
+	Info		:	[180. HrABridge - adjusting positive polarity]:	Done
+	Info		:	[181. Setting HrACoarse to FS (2.048 V)]:	Done
+	Error	:	[183. MasterCur15V_TAD]:	+15V current protection:  3.258 A. Issue: MasterCur15C is out of limits	 [1.7, 2.1].
+	Info		:	[184. Setting HrACoarse to minimum (1.3648)]:	Done
+	Info		:	[185. HrABridge - switch off the polarity]:	Done
+	Info		:	[186. Disabling Hr A buck]:	Done
+	Info		:	[187. Setting HrAPreset to 0]:	Done
+	Info		:	[188. Master overheating]:	Master overheating is OK
+	Info		:	[189. Checking interlock register]:	
+	Info		:	[190. ]:	
+	Info		:	[191. ### C2 Fine tests ###  ]:	
+	Info		:	[192. #####################  ]:	
+	Error	:	[193. C2FineDac_TAD]:	C2 Fine DAC at 0:  1.53 A. Issue: C2FineDac is out of limits	 [-0.1, 0.1].
+	Info		:	[194. Setting condenser A coil fine current (C2Fine) to maximum (0.005)]:	Done
+	Error	:	[196. C2FineDac_TAD]:	C2 Fine DAC at FS:  4.781 A. Issue: C2FineDac is out of limits	 [4.9, 5.1].
+	Info		:	[197. Enabling Condenser A buck]:	Done
+	Info		:	[198. C2ABridge - adjusting positive polarity]:	Done
+	Info		:	[199. Setting C2APreset to 10.0 V]:	Done
+	Info		:	[201. C2ARn on FS: ]:	-2.74839
+	Info		:	[202. Setting condenser A coil fine current (C2Fine) to 0]:	Done
+	Info		:	[204. C2ARn on 0: ]:	-3.61412
+	Error	:	[205. ref drop for fine FS]:	delta: -1.73147 out of limits [0.00465, 0.00535]
+	Info		:	[206. Disabling Condenser A buck]:	Done
+	Info		:	[207. C2ABridge - adjusting polarity off]:	Done
+	Info		:	[208. Setting C2APreset to 0]:	Done
+	Info		:	[209. ]:	
+	Info		:	[210. ### Hr Fine tests ###  ]:	
+	Info		:	[211. #####################  ]:	
+	Error	:	[212. HrFineDac_TAD]:	Hr Fine DAC at 0:  -4.542 A. Issue: HrFineDac is out of limits	 [-0.1, 0.1].
+	Info		:	[213. Setting Hr A coil fine current (HrFine) to maximum (0.0052 A)]:	Done
+	Error	:	[215. HrFineDac_TAD]:	Hr Fine DAC at FS:  4.791 A. Issue: HrFineDac is out of limits	 [4.9, 5.1].
+	Info		:	[216. Enabling Hr A buck]:	Done
+	Info		:	[217. HrABridge - adjusting positive polarity]:	Done
+	Info		:	[218. Setting HrAPreset to 10.0 V]:	Done
+	Info		:	[220. HrARn on FS: ]:	5.67865
+	Info		:	[221. Setting Hr A coil fine current (HrFine) to 0]:	Done
+	Info		:	[223. HrARn on 0: ]:	0.207183
+	Error	:	[224. ref drop for fine FS]:	delta: -10.9429 out of limits [0.004464, 0.005136]
+	Info		:	[225. Disabling Hr A buck]:	Done
+	Info		:	[226. HrABridge - adjusting polarity off]:	Done
+	Info		:	[227. Setting HrAPreset to 0]:	Done
+	Info		:	[228. ]:	
+	Info		:	[229. ### AZLS interfaces tests ###  ]:	
+	Info		:	[230. #############################  ]:	
+	Info		:	[231. Setting Alpha Zoom Lens voltage to 0]:	Done
+	Info		:	[233. Setting AzlOn to 1]:	Done
+	Error	:	[235. AzlDac_TAD]:	AzlDac at 0:  2.517 V. Issue: AzlDac is out of limits	 [-0.1, 0.1].
+	Error	:	[236. AzlHt_TAD]:	AzlHt at 0:  -1255 V. Issue: AzlHt is out of limits	 [-100, 100].
+	Info		:	[237. Setting Alpha Zoom Lens voltage to FS (2300 V)]:	Done
+	Info		:	[239. Setting AzlOn to 1]:	Done
+	Error	:	[241. AzlDac_TAD]:	AzlDac at FS:  -2.135 V. Issue: AzlDac is out of limits	 [-5.1, -4.9].
+	Error	:	[242. AzlHt_TAD]:	AzlHt at FS:  -2490 V. Issue: AzlHt is out of limits	 [2100, 2500].
+	Info		:	[243. Setting Alpha Zoom Lens voltage to 0]:	Done
+	Info		:	[244. Setting AzlOn to 0]:	Done
+	Info		:	[245. ]:	
+	Info		:	[246. ### Scan and SAR ADC test ###  ]:	
+	Info		:	[247. #############################  ]:	
+	Info		:	[248. Setting SarSource to scan]:	Done
+	Info		:	[249. Adjusting dynamic focus to +REF]:	Done
+	Error	:	[250. NSARFS_TAD]:	Masterline:  -0.01637 V. Issue: Masterline is out of limits	 [0.172, 0.372].
+	Error	:	[251. NSARFS_TAD]:	SAR1 +REF ADC    =  -6 V. Issue: SAR1 is out of limits.	 limits [-5.2, -4.8]
+	Info		:	[252. Adjusting dynamic focus to -REF]:	Done
+	Error	:	[253. PSARFS_TAD]:	Masterline:  1.607 V. Issue: Masterline is out of limits	 [2.922, 3.122].
+	Error	:	[254. PSARFS_TAD]:	SAR1 -REF ADC    =  -6 V. Issue: SAR1 is out of limits.	 limits [4.8, 5.2]
+	Info		:	[255. Adjusting dynamic focus to +REF]:	Done
+	Error	:	[256. NSARFS_TAD]:	MasterFrame:  -5.215 V. Issue: MasterFrame is out of limits	 [0.172, 0.372].
+	Error	:	[257. NSARFS_TAD]:	SAR2 +REF ADC    =  -6 V. Issue: SAR2 is out of limits.	 limits [-5.2, -4.8]
+	Info		:	[258. Adjusting dynamic focus to -REF]:	Done
+	Error	:	[259. PSARFS_TAD]:	MasterFrame:  -0.9489 V. Issue: MasterFrame is out of limits	 [2.922, 3.122].
+	Error	:	[260. PSARFS_TAD]:	SAR2 -REF ADC    =  -6 V. Issue: SAR2 is out of limits	 limits [4.8, 5.2]
+	Info		:	[261. Setting SarSource to scan]:	Done
+	Info		:	[262. Adjusting dynamic focus to internal]:	Done
+	Info		:	[263. ]:	
+	Info		:	[264. ### Hr DFX test ###  ]:	
+	Info		:	[265. ###################  ]:	
+	Info		:	[266. Setting dynamic focus (HrDynFocPolarity) positive]:	Done
+	Info		:	[267. Adjusting dynamic focus to +REF]:	Done
+	Info		:	[268. Hr dynamic focus depth to zero]:	Done
+	Error	:	[269. HrDfxDac_TAD]:	Dfx DAC at 0 3.571 A. Issue: HrDfxDac is out of limits	 [-0.1, 0.1].
+	Info		:	[270. Hr dynamic focus depth to FS (0.0212)]:	Done
+	Error	:	[272. HrDfxDac_TAD]:	Dfx DAC at FS 1.755 A. Issue: HrDfxDac is out of limits	 [4.9, 5.1].
+	Info		:	[273. Setting dynamic focus (HrDynFocPolarity) negative]:	Done
+	Error	:	[274. HrDfxDac_TAD]:	Dfx DAC at -FS -5.694 A. Issue: HrDfxDac is out of limits	 [-5.1, -4.9].
+	Info		:	[276. Setting HrACoarse to minimum: 1.3648]:	Done
+	Info		:	[277. Hr dynamic focus depth to zero]:	Done
+	Info		:	[278. Setting HrAPreset to 9 V]:	Done
+	Info		:	[279. Enabling Hr A buck]:	Done
+	Info		:	[280. HrABridge - adjusting polarity positive]:	Done
+	Info		:	[282. HrARn on FS: ]:	-2.39028
+	Info		:	[283. Setting Hr dynamic focus depth (HrDynFocAmp) to FS]:	Done
+	Info		:	[285. HrARn on 0: ]:	-0.599969
+	Error	:	[286. ref drop for fine FS]:	delta: 3.58062 out of limits [0.0340001, 0.036]
+	Info		:	[287. Hr dynamic focus depth to zero]:	Done
+	Info		:	[288. Adjusting dynamic focus to internal]:	Done
+	Info		:	[289. Setting HrACoarse to minimum: 1.3648]:	Done
+	Info		:	[290. Setting HrAPreset to 0]:	Done
+	Info		:	[291. Disabling Hr A buck]:	Done
+	Info		:	[292. HrABridge - adjusting polarity off]:	Done
+	Info		:	[293. ]:	
+	Info		:	[294. ### Setting state machine of all lenses to OFF ###  ]:	
+	Info		:	[295. ###################  ]:	
+	Info		:	[296. C2Command - set to 1 (OFF)]:	Done
+	Info		:	[297. HrCommand - set to 1 (OFF)]:	Done
+	Info		:	[298. UhrCommand - set to 1 (OFF)]:	Done
+	Testresult: Error
+	Press F1 for more troubleshooting information

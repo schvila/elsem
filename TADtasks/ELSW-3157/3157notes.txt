@@ -1,0 +1,85 @@
+vzor
+
+Computer\HKEY_LOCAL_MACHINE\SOFTWARE\FEI\TADBrickBox\Configurations\ElsemFull.tad\TAD-bbox\AuxTadserverBrick\AuxTadserverBrickMgr\TadServer\TadXtTempStagesBrick
+TestGroupName: Temperature Stages
+muj nazev
+TadXtDesuTestBrick
+TestGroupName: Desu
+
+invoke coomand
+Computer\HKEY_LOCAL_MACHINE\SOFTWARE\FEI\TADBrickBox\Configurations\ElsemFull.tad\TAD-bbox\
+TadXtSCUEOpticsBrick\TadXtSCUEOpticsBrickMgr\E-Optics\OACW Tests\TestExecutor\ReadOacwAdcCommand
+ReadOacwAdcCommand
+KelvinADCWithinCelsiusLimitsChecker(ReadOacwAdcCommand, 0x8, LensRefHeatsinkTemperature, 30, 30, "TEMP_REF", "LensRefHeatsing temperature is ", " °C", "Issue: Error: LensRefHeatsing temperature is out the range")
+
+
+(ODSetter ADCCommand, Variable ReadOacwAdcCommandValue, Variable ADC, Variable ExpectedValue, Variable Tolerance, Variable DescriptionString, Variable ResultPrefix, Variable ResultSuffix, Variable ErrorMessage)
+
+e:\sb\tad_6.5.x_build\tad\tad\auxtadgroupbase\tadtestresultsimpl.cpp(348) : atlTraceGeneral - TAD Output logging: [Connecting to SCUs]:	Unknown subkey type: ValueSetter while processing subkey TurnOffCmd while processing test TurnOff
+
+
+GeneralADCWithinLimitsChecker(ReadOacwAdcCommand, 0x20, PsmRef2V5, 2.5, 0.02, "PSM_REF_2V5", "Reference 2.5V voltage is ", " V", "")
+
+(ODSetter ADCCommand[ReadOacwAdcCommand], 
+Variable ReadOacwAdcCommandValue[0x20], 
+Variable ADC[PsmRef2V5], 
+Variable ExpectedValue[2.5], 
+Variable Tolerance[0.02], 
+Variable DescriptionString["PSM_REF_2V5"], 
+Variable ResultPrefix["Reference 2.5V voltage is "], 
+Variable ResultSuffix[" V"], 
+Variable ErrorMessage[""])
+
+[\TadXtSCUEOpticsBrickMgr\E-Optics\OACW Tests\TestExecutor\ReadOacwAdcCommand]
+"ODPrimitivePath"="W_Optics/ReadOacwAdc"
+"ODPrimitiveType"="Command"
+"SetterExpression"="ReadOacwAdcCommandValue"
+"Type"="ValueSetter"
+
+
+eSpy OpticsW
+10/17/2020 06:27:14.989  ReadOacwAdc = 0x20
+
+moje Configurations
+
+Test:
+(ODSetter ADCCommand, Variable HvCommandValue, Variable DescriptionString, Variable SuccessMessage, Variable ErrorMessage)
+
+[\TestExecutor\HvGenCommand]
+"ODPrimitivePath"="DESU/HvGenCommand"
+"ODPrimitiveType"="Command"
+"SetterExpression"="HvCommandValue"
+"Type"="ValueSetter"
+
+Calling:
+SwitchOscilatorOff(HvGenCommand, 1, "Switch OFF", "Oscilator is OFF", "")
+
+[\OACW Tests\Tests\GeneralADCWithinLimitsChecker]
+"Description"="\"%1%\" << DescriptionString"
+"Expression_1"="HvCommandValue = HvCommandResult"
+"Message_1"="Info;\"%1%\" << SuccessMessage"
+"Message_2"="Error;\"%1%\" << ErrorMessage"
+"Signature"="(ODSetter ADCCommand, Variable HvCommandValue, Variable DescriptionString, Variable SuccessMessage, Variable ErrorMessage)"
+"Type"="ValueWriter"
+
+[\OACW Tests\Tests\GeneralADCWithinLimitsChecker\HvCommandResult]
+    "ODPrimitivePath"="W_Optics/HvGenState"
+"ODPrimitiveType"="State"
+"Type"="ODValueGetter"
+
+
+
+DESU/Adc4kV
+
+"GeneralADCWithinLimitsChecker(ReadOacwAdcCommand, 0x20, PsmRef2V5
+(ODSetter ADCCommand, Variable ReadOacwAdcCommandValue, Variable ADC
+Variable ADC
+PsmRef2V5 ke ADC
+                    TestExecutor
+                        PsmRef2V5
+                            Type = ODValueGetter
+                            ODPrimitivePath = W_Optics/PsmRef2V5
+                            ODPrimitiveType = ADC
+
+Signature = "(Variable DescriptionString)"
+

@@ -1,0 +1,123 @@
+Ohledne MOFE, to je deska na kterou je pripojen MppcEtd detektor
+
+
+desu:
+[HKEY_LOCAL_MACHINE\SOFTWARE\FEI\TADBrickBox\Configurations\ElsemFull.tad\TAD-bbox\AuxTadserverBrick\AuxTadserverBrickMgr\TadServer\TadXtDesuBrick]
+"OrderPriority"=dword:00000501
+"TestGroupName"="Desu"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\FEI\TADBrickBox\Configurations\ElsemFull.tad\TAD-bbox\TadXtDesuBrick]
+"ClassName"="FeiTadXtSCU.TadXtSCUBrick"
+"Type"="Brick"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\FEI\TADBrickBox\Configurations\ElsemFull.tad\TAD-bbox\TadXtDesuBrick\TadXtDesuBrickMgr]
+"Type"="xtSCUManager"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\FEI\TADBrickBox\Configurations\ElsemFull.tad\TAD-bbox\TadXtDesuBrick\TadXtDesuBrickMgr\Desu]
+"Type"="TadGroupFactory"
+MppcEtd
+TadXtDesuBrick -> TadXtMppcEtdBrick
+
+
+
+# MOFE calibration values read from MOFE
+0x2321 MOFE_0_Bias0Cal = 0
+0x2322 MOFE_0_BiasRangeThrLoCal = 25
+0x2323 MOFE_0_BiasRangeThrHiCal = 50
+0x2324 MOFE_0_MaxBiasOffsetCal = 30
+0x230E MOFE_0_BiasRange
+0x230F MOFE_0_Bias
+0x8054 MOFE_0_CtrlCheck/ADC
+eSpy:
+0x2321	Float64	MOFE_0_Bias0Cal	0
+0x2322	Float64	MOFE_0_BiasRangeThrLoCal	25
+0x2323	Float64	MOFE_0_BiasRangeThrHiCal	50
+0x2324	Float64	MOFE_0_MaxBiasOffsetCal	30
+0x2325	Float64	MOFE_0_MaxTempSensCal	110
+0x2326	Float64	MOFE_0_RefVTempCal	2.6
+0x2327	Float64	MOFE_0_OffsetCal	0
+
+
+**************************************************************************************************************
+** org
+range(MOFE_0_Bias0Cal,MPPC_ETD_0_VopCal,10)
+** my fake
+range(MOFE_0_Bias0Cal, MOFE_0_BiasRangeThrHiCal)
+**************************************************************************************************************
+To read:
+MOFE_0_MaxBiasOffsetCal
+??? Max_MOFE_0_Bias const 2.045
+
+0x8054 MOFE_0_CtrlCheck/ADC eSpy[-2.5]
+
+
+
+nb = Bias0 + step*TestNr
+NextRange = nb <= ThrLoCal ? 0 : nb <= ThrHiCal ? 1 : 2
+NextBias = (MaxBias/MaxOfset)*(nb-Bias0)
+true
+
+PrepareTest(Bias0Ext, Step, 0, RangeLoExt, RangeHiExt, MaxOfsetExt)
+Test(NextBias, NextRange)
+PrepareTest(Bias0Ext, Step, 1, RangeLoExt, RangeHiExt, MaxOfsetExt)
+Test(NextBias, NextRange)
+PrepareTest(Bias0Ext, Step, 2, RangeLoExt, RangeHiExt, MaxOfsetExt)
+Test(NextBias, NextRange)
+PrepareTest(Bias0Ext, Step, 3, RangeLoExt, RangeHiExt, MaxOfsetExt)
+Test(NextBias, NextRange)
+PrepareTest(Bias0Ext, Step, 4, RangeLoExt, RangeHiExt, MaxOfsetExt)
+Test(NextBias, NextRange)
+PrepareTest(Bias0Ext, Step, 5, RangeLoExt, RangeHiExt, MaxOfsetExt)
+Test(NextBias, NextRange)
+PrepareTest(Bias0Ext, Step, 6, RangeLoExt, RangeHiExt, MaxOfsetExt)
+Test(NextBias, NextRange)
+PrepareTest(Bias0Ext, Step, 7, RangeLoExt, RangeHiExt, MaxOfsetExt)
+Test(NextBias, NextRange)
+PrepareTest(Bias0Ext, Step, 8, RangeLoExt, RangeHiExt, MaxOfsetExt)
+Test(NextBias, NextRange)
+PrepareTest(Bias0Ext, Step, 9, RangeLoExt, RangeHiExt, MaxOfsetExt)
+Test(NextBias, NextRange)
+
+
+***************************************************************************
+PT 1000 connection
+*************************************************
+0x2325	Float64	MOFE_0_MaxTempSensCal	110
+0x2326	Float64	MOFE_0_RefVTempCal	2.6
+0x8053	AdcLinear	MOFE_0_TMeasOut	-5
+0x2310	DacLinear	MOFE_0_Temp	0
+
+
+nb = VopCal + step*TestNr
+NextRange = nb <= ThrLoCal ? 0 : nb <= ThrHiCal ? 1 : 2
+vin = NextRange < 1 ? nb-Bias0 : NextRange < 2 ? nb - ThrLoCal : nb - ThrHiCal
+NextBias = (MaxBias/MaxOfset)*(vin)
+true
+-------------------------------------------------------------------------------
+Upravy pro release "Bias flow"
+-------------------------------------------------------------------------------
+\InitBiasTest
+Expression_1 (VopCal > 50 && VopCal < 60) != true
+
+
+11/02/2020 12:01:46.353  MOFE_0_TADSwitch.Value = 0x1
+11/02/2020 12:01:46.377  MOFE_0_Bias = 0
+11/02/2020 12:01:46.379  MOFE_0_BiasRange.Value = 0x0
+11/02/2020 12:01:46.912  MOFE_0_Bias = 0.374924467841611
+11/02/2020 12:01:46.914  MOFE_0_BiasRange.Value = 0x0
+11/02/2020 12:01:47.432  MOFE_0_Bias = 0.749848935683223
+11/02/2020 12:01:47.434  MOFE_0_BiasRange.Value = 0x0
+11/02/2020 12:01:47.952  MOFE_0_Bias = 1.12474219882506
+11/02/2020 12:01:47.953  MOFE_0_BiasRange.Value = 0x0
+11/02/2020 12:01:48.490  MOFE_0_Bias = 1.49966666666667
+11/02/2020 12:01:48.492  MOFE_0_BiasRange.Value = 0x0
+11/02/2020 12:01:49.021  MOFE_0_Bias = 0.170408865491722
+11/02/2020 12:01:49.023  MOFE_0_BiasRange.Value = 0x1
+11/02/2020 12:01:49.540  MOFE_0_Bias = 0.545333333333333
+11/02/2020 12:01:49.543  MOFE_0_BiasRange.Value = 0x1
+11/02/2020 12:01:50.060  MOFE_0_Bias = 0.920257801174945
+11/02/2020 12:01:50.063  MOFE_0_BiasRange.Value = 0x1
+11/02/2020 12:01:50.588  MOFE_0_Bias = 1.29518226901656
+11/02/2020 12:01:50.590  MOFE_0_BiasRange.Value = 0x1
+11/02/2020 12:01:51.123  MOFE_0_Bias = 1.67007553215839
+11/02/2020 12:01:51.124  MOFE_0_BiasRange.Value = 0x1
