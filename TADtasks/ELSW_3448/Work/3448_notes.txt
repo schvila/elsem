@@ -121,3 +121,13 @@ Expression_1 (VopCal > 50 && VopCal < 60) != true
 11/02/2020 12:01:50.590  MOFE_0_BiasRange.Value = 0x1
 11/02/2020 12:01:51.123  MOFE_0_Bias = 1.67007553215839
 11/02/2020 12:01:51.124  MOFE_0_BiasRange.Value = 0x1
+
+--------------------------------------------------------------
+PT 1000 connection
+--------------------------------------------------------------
+offline eSpy:
+0x2326 float MOFE_0_RefVTempCal [2.6]
+0x2325 float MOFE_0_MaxTempSensCal [110]
+0x8053 ADC MOFE_0_TMeasOut [-5]
+0x2310 DAC MOFE_0_Temp [0], trying set to 1.0225
+
