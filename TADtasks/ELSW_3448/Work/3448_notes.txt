@@ -121,6 +121,28 @@ Expression_1 (VopCal > 50 && VopCal < 60) != true
 11/02/2020 12:01:50.590  MOFE_0_BiasRange.Value = 0x1
 11/02/2020 12:01:51.123  MOFE_0_Bias = 1.67007553215839
 11/02/2020 12:01:51.124  MOFE_0_BiasRange.Value = 0x1
+PrepareTest(Bias0Ext, Step, 1, RangeLoExt, RangeHiExt, MaxOfsetExt)
+Test(NextBias, NextRange)
+PrepareTest(Bias0Ext, Step, 2, RangeLoExt, RangeHiExt, MaxOfsetExt)
+Test(NextBias, NextRange)
+PrepareTest(Bias0Ext, Step, 3, RangeLoExt, RangeHiExt, MaxOfsetExt)
+Test(NextBias, NextRange)
+PrepareTest(Bias0Ext, Step, 4, RangeLoExt, RangeHiExt, MaxOfsetExt)
+Test(NextBias, NextRange)
+PrepareTest(Bias0Ext, Step, 5, RangeLoExt, RangeHiExt, MaxOfsetExt)
+Test(NextBias, NextRange)
+PrepareTest(Bias0Ext, Step, 6, RangeLoExt, RangeHiExt, MaxOfsetExt)
+Test(NextBias, NextRange)
+PrepareTest(Bias0Ext, Step, 7, RangeLoExt, RangeHiExt, MaxOfsetExt)
+Test(NextBias, NextRange)
+PrepareTest(Bias0Ext, Step, 8, RangeLoExt, RangeHiExt, MaxOfsetExt)
+Test(NextBias, NextRange)
+PrepareTest(Bias0Ext, Step, 9, RangeLoExt, RangeHiExt, MaxOfsetExt)
+Test(NextBias, NextRange)
+PrepareTest(Bias0Ext, Step, 10, RangeLoExt, RangeHiExt, MaxOfsetExt)
+Test(NextBias, NextRange)
+
+0x232A	Float64	MPPC_ETD_0_VopCal	9E+99
 
 --------------------------------------------------------------
 PT 1000 connection
@@ -131,3 +153,24 @@ offline eSpy:
 0x8053 ADC MOFE_0_TMeasOut [-5]
 0x2310 DAC MOFE_0_Temp [0], trying set to 1.0225
 
+
+"PrepareTest(Bias0Ext, Step, 1, RangeLoExt, RangeHiExt, MaxOfsetExt)" \
+"Test(NextBias, NextRange)" \
+"PrepareTest(Bias0Ext, Step, 2, RangeLoExt, RangeHiExt, MaxOfsetExt)" \
+"Test(NextBias, NextRange)" \
+"PrepareTest(Bias0Ext, Step, 3, RangeLoExt, RangeHiExt, MaxOfsetExt)" \
+"Test(NextBias, NextRange)" \
+"PrepareTest(Bias0Ext, Step, 4, RangeLoExt, RangeHiExt, MaxOfsetExt)" \
+"Test(NextBias, NextRange)" \
+"PrepareTest(Bias0Ext, Step, 5, RangeLoExt, RangeHiExt, MaxOfsetExt)" \
+"Test(NextBias, NextRange)" \
+"PrepareTest(Bias0Ext, Step, 6, RangeLoExt, RangeHiExt, MaxOfsetExt)" \
+"Test(NextBias, NextRange)" \
+"PrepareTest(Bias0Ext, Step, 7, RangeLoExt, RangeHiExt, MaxOfsetExt)" \
+"Test(NextBias, NextRange)" \
+"PrepareTest(Bias0Ext, Step, 8, RangeLoExt, RangeHiExt, MaxOfsetExt)" \
+"Test(NextBias, NextRange)" \
+"PrepareTest(Bias0Ext, Step, 9, RangeLoExt, RangeHiExt, MaxOfsetExt)" \
+"Test(NextBias, NextRange)" \
+"PrepareTest(Bias0Ext, Step, 10, RangeLoExt, RangeHiExt, MaxOfsetExt)" \
+"Test(NextBias, NextRange)"

@@ -1,0 +1,154 @@
+HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-bbox
+    TadXtMppcEtdBrick
+        TadXtMppcEtdBrickMgr
+            MppcEtd
+                Bias functionality flow
+                    Description =Bias functionality test
+                    DlgProgId = TADUIAUTOTESTDLG.TADUIAutoTestDlgCtrl.1
+                    HelpBaseId = REG_DWORD 0x40030400
+                    IsMonitorTest = false
+                    Labels = Description\\t Results
+                    OrderPriority = REG_DWORD 0x00000010
+                    Type = SCUTadTestManager
+                    ODPrimitiveProviders
+                        NewInfraDetectors
+                            Type = default
+                            AppName = NewInfraDetectors
+                            SCU_ID = Detectors
+                    TestExecutor
+                        Type = SequentialTestExecutor
+                        TestIndex_1 = "AppVersion"
+                        TestIndex_2 = "InitBiasTest(SwitchTadOn, VopCalGet, Bias0Get,BiasRangeThrHiCalGet, BiasRangeThrLoCalGet, MaxOfsetGet)"
+                        TestIndex_3 = REG_MULTI_SZ "PrepareTest(Bias0Ext, Step, 1, RangeLoExt, RangeHiExt, MaxOfsetExt)" \
+                            "Test(NextBias, NextRange)" \
+                            "PrepareTest(Bias0Ext, Step, 2, RangeLoExt, RangeHiExt, MaxOfsetExt)" \
+                            "Test(NextBias, NextRange)" \
+                            "PrepareTest(Bias0Ext, Step, 3, RangeLoExt, RangeHiExt, MaxOfsetExt)" \
+                            "Test(NextBias, NextRange)" \
+                            "PrepareTest(Bias0Ext, Step, 4, RangeLoExt, RangeHiExt, MaxOfsetExt)" \
+                            "Test(NextBias, NextRange)" \
+                            "PrepareTest(Bias0Ext, Step, 5, RangeLoExt, RangeHiExt, MaxOfsetExt)" \
+                            "Test(NextBias, NextRange)" \
+                            "PrepareTest(Bias0Ext, Step, 6, RangeLoExt, RangeHiExt, MaxOfsetExt)" \
+                            "Test(NextBias, NextRange)" \
+                            "PrepareTest(Bias0Ext, Step, 7, RangeLoExt, RangeHiExt, MaxOfsetExt)" \
+                            "Test(NextBias, NextRange)" \
+                            "PrepareTest(Bias0Ext, Step, 8, RangeLoExt, RangeHiExt, MaxOfsetExt)" \
+                            "Test(NextBias, NextRange)" \
+                            "PrepareTest(Bias0Ext, Step, 9, RangeLoExt, RangeHiExt, MaxOfsetExt)" \
+                            "Test(NextBias, NextRange)" \
+                            "PrepareTest(Bias0Ext, Step, 10, RangeLoExt, RangeHiExt, MaxOfsetExt)" \
+                            "Test(NextBias, NextRange)"
+                        Bias0Get
+                            ODPrimitivePath = NewInfraDetectors/MOFE_0_Bias0Cal
+                            ODPrimitiveType = Float
+                            Type = ODValueGetter
+                        Bias0Ext
+                            OwnerTestName = InitBiasTest
+                            Type = ExternalTestVariable
+                            VariableName = Bias0
+                        BiasRangeThrHiCalGet
+                            ODPrimitivePath = NewInfraDetectors/MOFE_0_BiasRangeThrHiCal
+                            ODPrimitiveType = Float
+                            Type = ODValueGetter
+                        RangeHiExt
+                            OwnerTestName = InitBiasTest
+                            Type = ExternalTestVariable
+                            VariableName = RangeHi
+                        BiasRangeThrLoCalGet
+                            ODPrimitivePath = NewInfraDetectors/MOFE_0_BiasRangeThrLoCal
+                            ODPrimitiveType = Float
+                            Type = ODValueGetter
+                        RangeLoExt
+                            OwnerTestName = InitBiasTest
+                            Type = ExternalTestVariable
+                            VariableName = RangeLo
+                        MaxOfsetGet
+                            ODPrimitivePath = NewInfraDetectors/MOFE_0_MaxBiasOffsetCal
+                            ODPrimitiveType = Float
+                            Type = ODValueGetter
+                        MaxOfsetExt
+                            OwnerTestName = InitBiasTest
+                            Type = ExternalTestVariable
+                            VariableName = OfsetExt
+                        Step
+                            OwnerTestName = InitBiasTest
+                            Type = ExternalTestVariable
+                            VariableName = BiasStep
+                        NextBias
+                            OwnerTestName = PrepareTest
+                            Type = ExternalTestVariable
+                            VariableName = NextBias
+                        NextRange
+                            OwnerTestName = PrepareTest
+                            Type = ExternalTestVariable
+                            VariableName = NextRange
+                        SwitchTadOn
+                            ODPrimitivePath = NewInfraDetectors/MOFE_0_TADSwitch
+                            ODPrimitiveType = NumberSwitch
+                            SetterExpression = 1
+                            Type = ValueSetter
+                        VopCalGet
+                            ODPrimitivePath = NewInfraDetectors/MPPC_ETD_0_VopCal
+                            ODPrimitiveType = Float
+                            Type = ODValueGetter
+                    Tests
+                        AppVersion
+                            Description="App version"
+                            Expression_1 = true
+                            Message_1 = Info;"Application version = %1$#x" << AppVersion
+                            Type = ValueReadout
+                            AppVersion
+                                Type = ODValueGetter
+                                ODPrimitivePath = NewInfraDetectors/AppVersion
+                                ODPrimitiveType =Version
+                        InitBiasTest
+                            Description = Init bias test
+                            Expression_1 = (VopCal > 50 && VopCal < 60) != false
+                            Message_1 = Error;"Bias volltage %1% not in range, or detector EEPROM cannot be read" << VopCal 
+                            Expression_2 = REG_MULTI_SZ "VopCalEmul = 55" \
+                            "BiasStep = (VopCalEmul - Bias0)/10" \
+                            "true"
+                            Message_2 = Info;"Bias test step: %1%" << BiasStep
+                            Signature = (ODSetter ADCCommand, Variable VopCal, Variable  Bias0, Variable RangeHi, Variable RangeLo, Variable OfsetExt)
+                            Type = ValueWriter
+                        PrepareTest
+                            Description = "Prepare test Nr %1%" << TestNr
+                            Expression_1 = REG_MULTI_SZ "nb = Bias0  + step*TestNr" \
+                            "NextRange = nb <= ThrLoCal ? 0 : nb <= ThrHiCal ? 1 : 2" \
+                            "vin = NextRange < 1 ? nb-Bias0 : NextRange < 2 ? nb - ThrLoCal : nb - ThrHiCal" \
+                            "NextBias = (MaxBias/MaxOfset)*(vin)" \
+                            "true"
+                            Message_1 = Info;"Input** bias: %1% LoCal: %2% HiCal: %3%  output**NextBias:  %4% NextRange: %5%" << Bias0 << ThrLoCal << ThrHiCal << NextBias << NextRange
+                            Signature = (Variable Bias0, Variable step, Variable TestNr, Variable ThrLoCal, Variable ThrHiCal, Variable MaxOfset)
+                            Type = ValueWriter
+                            MaxBias
+                                Type = Constant
+                                Value = 2.045
+                        Test
+                            Description = Bias functionality OFFLINE test
+                            Expression_1 = abs(CtrlCheck) > 0
+                            Message_1 = Info;"NextBias:  %1% NextRange: %2% CtrlCheck:%3%" << bias << range << CtrlCheck
+                            MinimalDelayinms = 500
+                            Signature = (Variable bias, Variable range)
+                            Type = ValueWriter
+                            SetBias
+                                ODPrimitivePath = NewInfraDetectors/MOFE_0_Bias
+                                ODPrimitiveType = DAC
+                                SetterExpression = bias
+                                Type = ValueSetter
+                            SetRange
+                                ODPrimitivePath = NewInfraDetectors/MOFE_0_BiasRange
+                                ODPrimitiveType = NumberSwitch
+                                SetterExpression = range
+                                Type = ValueSetter
+                            CtrlCheck
+                                ODPrimitivePath = NewInfraDetectors/MOFE_0_CtrlCheck
+                                ODPrimitiveType = ADC
+                                Type = ODValueGetter
+
+
+
+
+
+
