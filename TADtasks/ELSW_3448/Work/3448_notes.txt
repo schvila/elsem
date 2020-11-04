@@ -174,3 +174,24 @@ offline eSpy:
 "Test(NextBias, NextRange)" \
 "PrepareTest(Bias0Ext, Step, 10, RangeLoExt, RangeHiExt, MaxOfsetExt)" \
 "Test(NextBias, NextRange)"
+
+
+ValueSetterWithPause(AttenuatorX, 1, "Attenuator set to FS")
+AttenuatorX
+SetterExpression = SetterValue
+
+ValueSetterWithPause
+Signature = (ODSetter SetterDAC, Variable SetterValue, Variable DescriptionString)
+
+                        ValueSetterWithPause
+                            Type = ValueWriter
+                            Description = "%1%" << DescriptionString
+                            Message_1 = Info;"Done"
+                            Signature = "(ODSetter SetterDAC, Variable SetterValue, Variable DescriptionString)"
+                            MinimalDelayinms = 300
+                        AttenuatorX
+                            Type = ValueSetter
+                            ODPrimitivePath = W_Optics/AttenuatorX
+                            ODPrimitiveType = DAC
+                            SetterExpression = SetterValue
+
