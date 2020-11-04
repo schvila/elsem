@@ -1,0 +1,66 @@
+HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-bbox
+    TadXtMppcEtdBrick
+        TadXtMppcEtdBrickMgr
+            MppcEtd
+                PT 1000 connection
+                    Description = PT 1000 connection test
+                    DlgProgId = TADUIAUTOTESTDLG.TADUIAutoTestDlgCtrl.1
+                    HelpBaseId = REG_DWORD 0x40030400
+                    IsMonitorTest = false
+                    Labels = Description\\t Results
+                    OrderPriority = REG_DWORD 0x00000010
+                    Type = SCUTadTestManager
+                    ODPrimitiveProviders
+                        NewInfraDetectors
+                            Type = default
+                            AppName = NewInfraDetectors
+                            SCU_ID = Detectors
+                    TestExecutor
+                        Type = SequentialTestExecutor
+                        TestIndex_1 = AppVersion
+                        TestIndex_2 = ConnectionTest(RefVTempCalGet, MaxTempSensCalGet, 46)
+                        MaxTempSensCalGet
+                            ODPrimitivePath = NewInfraDetectors/MOFE_0_MaxTempSensCal
+                            ODPrimitiveType = Float
+                            Type = ODValueGetter
+                        RefVTempCalGet
+                            ODPrimitivePath = NewInfraDetectors/MOFE_0_RefVTempCal
+                            ODPrimitiveType = Float
+                            Type = ODValueGetter
+                    Tests
+                        AppVersion
+                            Description="App version"
+                            Expression_1 = true
+                            Message_1 = Info;"Application version = %1$#x" << AppVersion
+                            Type = ValueReadout
+                            AppVersion
+                                Type = ODValueGetter
+                                ODPrimitivePath = NewInfraDetectors/AppVersion
+                                ODPrimitiveType =Version
+                        ConnectionTest
+                                Description="OFFLINE Temperature test"
+                                Expression_1 = MyT <= 5
+                                Message_1 = Error;"Measured temperature is %1%. MPPC temperature is too low. Temperature resistor seems to be shorted. Replace MPPC ETD." << MyT
+                                Expression_2 = MyT >= 45
+                                Message_2 = Error;"Measured temperature is %1%. MPPC temperature is too high. Temperature resistor seems to be shorted. Replace MPPC ETD." << MyT
+                                Message_3 = iNFO;"Measured temperature is %1%. " << MyT
+                                Signature = (Variable VTempCal, Variable MaxTempSensCal, Variable MyT)
+                                Type = ValueWriter
+                                SetTemp
+                                    ODPrimitivePath = NewInfraDetectors/MOFE_0_Temp
+                                    ODPrimitiveType = DAC
+                                    SetterExpression = 1.025
+                                    Type = ValueSetter
+                                SwitchTadOff
+                                    ODPrimitivePath = NewInfraDetectors/MOFE_0_TADSwitch
+                                    ODPrimitiveType = NumberSwitch
+                                    SetterExpression = 0
+                                    Type = ValueSetter
+                                TMeasOut
+                                    ODPrimitivePath = NewInfraDetectors/MOFE_0_TMeasOut
+                                    ODPrimitiveType = ADC
+                                    Type = ODValueGetter
+
+
+
+
