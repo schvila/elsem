@@ -1,0 +1,16 @@
+HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-bbox
+    AuxTadserverBrick
+        AuxTadserverBrickMgr
+            TadServer
+                Type = TadServerElement
+                TadXtMppcEtdBrick
+                    OrderPriority = REG_DWORD 0x00000501
+                    TestGroupName = MppcEtd
+    TadXtMppcEtdBrick
+        ClassName = FeiTadXtSCU.TadXtSCUBrick
+        Type = Brick
+        TadXtMppcEtdBrickMgr
+            Type = xtSCUManager
+            MppcEtd
+                Type = TadGroupFactory
+
