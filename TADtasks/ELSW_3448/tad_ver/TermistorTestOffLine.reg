@@ -18,7 +18,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                     TestExecutor
                         Type = SequentialTestExecutor
                         TestIndex_1 = AppVersion
-                        TestIndex_2 = ConnectionTest(RefVTempCalGet, MaxTempSensCalGet, 1.680857)
+                        TestIndex_2 = ConnectionTest(RefVTempCalGet, MaxTempSensCalGet, 46)
                         MaxTempSensCalGet
                             ODPrimitivePath = NewInfraDetectors/MOFE_0_MaxTempSensCal
                             ODPrimitiveType = Float
@@ -38,29 +38,28 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                                 ODPrimitivePath = NewInfraDetectors/AppVersion
                                 ODPrimitiveType =Version
                         ConnectionTest
-                            Description="OFFLINE Temperature test"
-                            Expression_1 = REG_MULTI_SZ "Tdeg = 1000*(MyT-RefVTempCal/2)/(MaxTempSensCal/2)+25" \
-                            "Tdeg <= 5"
-                            Message_1 = Error;"Measured temperature is %1%. MPPC temperature is too low. Temperature resistor seems to be shorted. Replace MPPC ETD." << Tdeg
-                            Expression_2 = Tdeg >= 45
-                            Message_2 = Error;"Measured temperature is %1%. MPPC temperature is too high. Temperature resistor seems to be shorted. Replace MPPC ETD." << Tdeg
-                            Message_3 = iNFO;"Measured temperature is %1%. " << Tdeg
-                            Signature = (Variable RefVTempCal, Variable MaxTempSensCal, Variable MyT)
-                            Type = ValueWriter
-                            SetTemp
-                                ODPrimitivePath = NewInfraDetectors/MOFE_0_Temp
-                                ODPrimitiveType = DAC
-                                SetterExpression = 1.025
-                                Type = ValueSetter
-                            SwitchTadOff
-                                ODPrimitivePath = NewInfraDetectors/MOFE_0_TADSwitch
-                                ODPrimitiveType = NumberSwitch
-                                SetterExpression = 0
-                                Type = ValueSetter
-                            TMeasOut
-                                ODPrimitivePath = NewInfraDetectors/MOFE_0_TMeasOut
-                                ODPrimitiveType = ADC
-                                Type = ODValueGetter
+                                Description="OFFLINE Temperature test"
+                                Expression_1 = MyT <= 5
+                                Message_1 = Error;"Measured temperature is %1%. MPPC temperature is too low. Temperature resistor seems to be shorted. Replace MPPC ETD." << MyT
+                                Expression_2 = MyT >= 45
+                                Message_2 = Error;"Measured temperature is %1%. MPPC temperature is too high. Temperature resistor seems to be shorted. Replace MPPC ETD." << MyT
+                                Message_3 = iNFO;"Measured temperature is %1%. " << MyT
+                                Signature = (Variable VTempCal, Variable MaxTempSensCal, Variable MyT)
+                                Type = ValueWriter
+                                SetTemp
+                                    ODPrimitivePath = NewInfraDetectors/MOFE_0_Temp
+                                    ODPrimitiveType = DAC
+                                    SetterExpression = 1.025
+                                    Type = ValueSetter
+                                SwitchTadOff
+                                    ODPrimitivePath = NewInfraDetectors/MOFE_0_TADSwitch
+                                    ODPrimitiveType = NumberSwitch
+                                    SetterExpression = 0
+                                    Type = ValueSetter
+                                TMeasOut
+                                    ODPrimitivePath = NewInfraDetectors/MOFE_0_TMeasOut
+                                    ODPrimitiveType = ADC
+                                    Type = ODValueGetter
 
 
 
