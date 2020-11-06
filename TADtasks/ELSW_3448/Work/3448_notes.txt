@@ -195,3 +195,53 @@ Signature = (ODSetter SetterDAC, Variable SetterValue, Variable DescriptionStrin
                             ODPrimitiveType = DAC
                             SetterExpression = SetterValue
 
+PrepareTest(Bias0Ext, Step, 1, RangeLoExt, RangeHiExt, MaxOfsetExt)
+ResetBias
+ValueSetterWithPause(MOFE_0_BiasRange, NextRange, "Set Range")
+ValueSetterWithPause(MOFE_0_Bias, NextBias, "Set Bias")
+Test
+PrepareTest(Bias0Ext, Step, 2, RangeLoExt, RangeHiExt, MaxOfsetExt)
+ResetBias
+ValueSetterWithPause(MOFE_0_BiasRange, NextRange, "Set Range")
+ValueSetterWithPause(MOFE_0_Bias, NextBias, "Set Bias")
+Test
+PrepareTest(Bias0Ext, Step, 3, RangeLoExt, RangeHiExt, MaxOfsetExt)
+ResetBias
+ValueSetterWithPause(MOFE_0_BiasRange, NextRange, "Set Range")
+ValueSetterWithPause(MOFE_0_Bias, NextBias, "Set Bias")
+Test
+PrepareTest(Bias0Ext, Step, 4, RangeLoExt, RangeHiExt, MaxOfsetExt)
+ResetBias
+ValueSetterWithPause(MOFE_0_BiasRange, NextRange, "Set Range")
+ValueSetterWithPause(MOFE_0_Bias, NextBias, "Set Bias")
+Test
+PrepareTest(Bias0Ext, Step, 5, RangeLoExt, RangeHiExt, MaxOfsetExt)
+ResetBias
+ValueSetterWithPause(MOFE_0_BiasRange, NextRange, "Set Range")
+ValueSetterWithPause(MOFE_0_Bias, NextBias, "Set Bias")
+Test
+PrepareTest(Bias0Ext, Step, 6, RangeLoExt, RangeHiExt, MaxOfsetExt)
+ResetBias
+ValueSetterWithPause(MOFE_0_BiasRange, NextRange, "Set Range")
+ValueSetterWithPause(MOFE_0_Bias, NextBias, "Set Bias")
+Test
+PrepareTest(Bias0Ext, Step, 7, RangeLoExt, RangeHiExt, MaxOfsetExt)
+ResetBias
+ValueSetterWithPause(MOFE_0_BiasRange, NextRange, "Set Range")
+ValueSetterWithPause(MOFE_0_Bias, NextBias, "Set Bias")
+Test
+PrepareTest(Bias0Ext, Step, 8, RangeLoExt, RangeHiExt, MaxOfsetExt)
+ResetBias
+ValueSetterWithPause(MOFE_0_BiasRange, NextRange, "Set Range")
+ValueSetterWithPause(MOFE_0_Bias, NextBias, "Set Bias")
+Test
+PrepareTest(Bias0Ext, Step, 9, RangeLoExt, RangeHiExt, MaxOfsetExt)
+ResetBias
+ValueSetterWithPause(MOFE_0_BiasRange, NextRange, "Set Range")
+ValueSetterWithPause(MOFE_0_Bias, NextBias, "Set Bias")
+Test
+PrepareTest(Bias0Ext, Step, 10, RangeLoExt, RangeHiExt, MaxOfsetExt)
+ResetBias
+ValueSetterWithPause(MOFE_0_BiasRange, NextRange, "Set Range")
+ValueSetterWithPause(MOFE_0_Bias, NextBias, "Set Bias")
+Test
