@@ -38,8 +38,8 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                                 ODPrimitivePath = NewInfraDetectors/AppVersion
                                 ODPrimitiveType =Version
                         ConnectionTest
-                            Description="Temperature test"
-                            Expression_1 = REG_MULTI_SZ "Tdeg = 1000*(TMeasOut-RefVTempCal/2)/(MaxTempSensCal/2)+25" \
+                            Description="OFFLINE Temperature test"
+                            Expression_1 = REG_MULTI_SZ "Tdeg = 1000*(MyT-RefVTempCal/2)/(MaxTempSensCal/2)+25" \
                             "Tdeg <= 5"
                             Message_1 = Error;"Measured temperature is %1%. MPPC temperature is too low. Temperature resistor seems to be shorted. Replace MPPC ETD." << Tdeg
                             Expression_2 = Tdeg >= 45

@@ -1,0 +1,61 @@
+06:04:55 Session Information
+	Computername: CHVILA8-PC
+	Creation date: 11/06/20
+	Creation time: 06:04:55
+	Session file: CHVILA8-PC_201106-060455.TRF
+06:06:50 MppcEtd.Bias functionality flow
+	Runmode: Normal
+	Info		:	[Connecting to SCUs]:	Connected
+	Info		:	[1. App version]:	Application version = 0.4.7
+	Info		:	[2. Init bias test]:	Bias test step: 5.48
+	Info		:	[7. Bias functionality OFFLINE test]:	NextBias:  0.373551 NextRange: 0 CtrlCheck:-2.5
+	Info		:	[12. Bias functionality OFFLINE test]:	NextBias:  0.747103 NextRange: 0 CtrlCheck:-2.5
+	Info		:	[17. Bias functionality OFFLINE test]:	NextBias:  1.12065 NextRange: 0 CtrlCheck:-2.5
+	Info		:	[22. Bias functionality OFFLINE test]:	NextBias:  1.49421 NextRange: 0 CtrlCheck:-2.5
+	Info		:	[27. Bias functionality OFFLINE test]:	NextBias:  0.163606 NextRange: 1 CtrlCheck:-2.5
+	Info		:	[32. Bias functionality OFFLINE test]:	NextBias:  0.537158 NextRange: 1 CtrlCheck:-2.5
+	Info		:	[37. Bias functionality OFFLINE test]:	NextBias:  0.910709 NextRange: 1 CtrlCheck:-2.5
+	Info		:	[42. Bias functionality OFFLINE test]:	NextBias:  1.28426 NextRange: 1 CtrlCheck:-2.5
+	Info		:	[47. Bias functionality OFFLINE test]:	NextBias:  1.65781 NextRange: 1 CtrlCheck:-2.5
+	Info		:	[52. Bias functionality OFFLINE test]:	NextBias:  0.327212 NextRange: 2 CtrlCheck:-2.5
+	Testresult: OK
+
+
+11/06/2020 06:06:54.545  MOFE_0_BiasRange.Value = 0x0
+11/06/2020 06:06:54.861  MOFE_0_Bias = 0.373551461051347
+11/06/2020 06:06:55.703  MOFE_0_Bias = 0
+11/06/2020 06:06:55.705  MOFE_0_BiasRange.Value = 0x0
+11/06/2020 06:06:55.813  MOFE_0_BiasRange.Value = 0x0
+11/06/2020 06:06:56.130  MOFE_0_Bias = 0.747102922102693
+11/06/2020 06:06:56.975  MOFE_0_Bias = 0
+11/06/2020 06:06:56.978  MOFE_0_BiasRange.Value = 0x0
+11/06/2020 06:06:57.085  MOFE_0_BiasRange.Value = 0x0
+11/06/2020 06:06:57.405  MOFE_0_Bias = 1.12065438315404
+11/06/2020 06:06:58.274  MOFE_0_Bias = 0
+11/06/2020 06:06:58.276  MOFE_0_BiasRange.Value = 0x0
+11/06/2020 06:06:58.384  MOFE_0_BiasRange.Value = 0x0
+11/06/2020 06:06:58.703  MOFE_0_Bias = 1.49420584420539
+11/06/2020 06:06:59.549  MOFE_0_Bias = 0
+11/06/2020 06:06:59.550  MOFE_0_BiasRange.Value = 0x0
+11/06/2020 06:06:59.658  MOFE_0_BiasRange.Value = 0x1
+11/06/2020 06:06:59.976  MOFE_0_Bias = 0.163606240939956
+11/06/2020 06:07:00.835  MOFE_0_Bias = 0
+11/06/2020 06:07:00.837  MOFE_0_BiasRange.Value = 0x0
+11/06/2020 06:07:00.945  MOFE_0_BiasRange.Value = 0x1
+11/06/2020 06:07:01.263  MOFE_0_Bias = 0.537157701991302
+11/06/2020 06:07:02.135  MOFE_0_Bias = 0
+11/06/2020 06:07:02.137  MOFE_0_BiasRange.Value = 0x0
+11/06/2020 06:07:02.246  MOFE_0_BiasRange.Value = 0x1
+11/06/2020 06:07:02.564  MOFE_0_Bias = 0.910709163042649
+11/06/2020 06:07:03.412  MOFE_0_Bias = 0
+11/06/2020 06:07:03.416  MOFE_0_BiasRange.Value = 0x0
+11/06/2020 06:07:03.524  MOFE_0_BiasRange.Value = 0x1
+11/06/2020 06:07:03.842  MOFE_0_Bias = 1.284260624094
+11/06/2020 06:07:04.721  MOFE_0_Bias = 0
+11/06/2020 06:07:04.723  MOFE_0_BiasRange.Value = 0x0
+11/06/2020 06:07:04.832  MOFE_0_BiasRange.Value = 0x1
+11/06/2020 06:07:05.150  MOFE_0_Bias = 1.65781208514534
+11/06/2020 06:07:06.025  MOFE_0_Bias = 0
+11/06/2020 06:07:06.028  MOFE_0_BiasRange.Value = 0x0
+11/06/2020 06:07:06.136  MOFE_0_BiasRange.Value = 0x2
+11/06/2020 06:07:06.455  MOFE_0_Bias = 0.327212481879911
