@@ -1,0 +1,91 @@
+HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-bbox
+    AuxTadserverBrick
+        AuxTadserverBrickMgr
+            TadServer
+                Type = TadServerElement
+                TADxtSSFE2chBrick
+                    TestGroupName = DBS detector
+                    OrderPriority =  REG_DWORD 0x00000082
+    TADxtSSFE2chBrick
+        ClassName = FeiTadXtSCU.TadXtSCUBrick
+        Type = Brick
+        TADxtSSFE2chBrickMgr
+            Type = xtSCUManager
+            DBS detector
+                Type = TadGroupFactory
+
+; Definition of the tests within the Retractable DBS detector
+HKEY_LOCAL_MACHINE\SOFTWARE\FEI\Tadbrickbox\configurations\<tadconfig_name>\TAD-bbox
+    TADxtSSFE2chBrick
+        TADxtSSFE2chBrickMgr
+            DBS detector
+                Detector Test
+                    Description = Retractable DBS detector test
+                    DlgProgId = TADUIAUTOTESTDLG.TADUIAutoTestDlgCtrl.1
+                    HelpBaseId = REG_DWORD 0x40030400
+                    IsMonitorTest = false
+                    Labels = Description\\t Results
+                    OrderPriority = REG_DWORD 0x00000010
+                    Type = SCUTadTestManager
+                    ODPrimitiveProviders
+                        NewInfraDetectors
+                            Type = default
+                            AppName = NewInfraDetectors
+                            SCU_ID = Detectors
+                    TestExecutor
+                        Type = SequentialTestExecutor
+                        TestIndex_1 = "AppVersion"
+                        TestIndex_2 = "ValueSetterWithPause(SSFE_0_TADConfig, 5, "Prepare SSFE 3.3 V")"
+                        TestIndex_3 = "SourceTest3_3V"
+                        TestIndex_4 = "ValueSetterWithPause(SSFE_0_TADConfig, 6, "Prepare SSFE 6.8 V")"
+                        TestIndex_5 = "SourceTest6_8V"
+                        SSFE_0_TADConfig
+                            ODPrimitivePath = NewInfraDetectors/SSFE_0_TADConfig
+                            ODPrimitiveType = Configuration
+                            SetterExpression = SetterValue
+                            Type = ValueSetter
+
+                    Tests
+                        AppVersion
+                            Description="App version"
+                            Expression_1 = true
+                            Message_1 = Info;"Application version = %1$#x" << AppVersion
+                            Type = ValueReadout
+                            AppVersion
+                                Type = ODValueGetter
+                                ODPrimitivePath = NewInfraDetectors/AppVersion
+                                ODPrimitiveType =Version
+                        ValueSetterWithPause
+                            Type = ValueWriter
+                            Description = "%1% : %2%" << DescriptionString << SetterValue
+                            Message_1 = Info;"Done"
+                            Signature = "(ODSetter SetterCfg, Variable SetterValue, Variable DescriptionString)"
+                            IsTestHidden = false
+                            MinimalDelayinms = 500
+                        SourceTest3_3V
+                            Description = SSFE 3.3 V source check
+                            Expression_1 = REG_MULTI_SZ "V = 2*TRead" \
+                            "V >= 3.1 && V <= 3.5"
+                            Message_1 = Info;"Voltage test passed."
+                            Message_2 = Error;"Voltage test failed %1% TRead: %2%" << V << TRead
+                            MinimalDelayinms = 500
+                            Type = ValueReadout
+                            TRead
+                                ODPrimitivePath = NewInfraDetectors/SSFE_0_TADRead
+                                ODPrimitiveType = ADC
+                                Type = ODValueGetter
+                        SourceTest6_8V
+                            Description = SSFE 6.8 V source check
+                            Expression_1 = REG_MULTI_SZ "V = 2.613*TRead" \
+                            "V >= 6.37 && V <= 7.14"
+                            Message_1 = Info;"Voltage test passed."
+                            Message_2 = Error;"Voltage test failed %1% TRead: %2%" << V << TRead
+                            MinimalDelayinms = 500
+                            Type = ValueReadout
+                            TRead
+                                ODPrimitivePath = NewInfraDetectors/SSFE_0_TADRead
+                                ODPrimitiveType = ADC
+                                Type = ODValueGetter
+
+
+
