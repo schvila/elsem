@@ -18,47 +18,47 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                     TestExecutor
                         Type = SequentialTestExecutor
                         TestIndex_1 = "AppVersion"
-                        TestIndex_2 = "InitBiasTest(SwitchTadOn, VopCalGet, Bias0Get,BiasRangeThrHiCalGet, BiasRangeThrLoCalGet, MaxOfsetGet))"
+                        TestIndex_2 = "InitBiasTest(SwitchTadOn, 54.8, Bias0Get,BiasRangeThrHiCalGet, BiasRangeThrLoCalGet, MaxOfsetGet)"
                         TestIndex_3 = REG_MULTI_SZ "PrepareTest(Bias0Ext, Step, 1, RangeLoExt, RangeHiExt, MaxOfsetExt)" \
                             "ValueSetterWithPause(MOFE_0_BiasRange, NextRange, ""Set Range"")" \
                             "ValueSetterWithPause(MOFE_0_Bias, NextBias, ""Set Bias"")" \
-                            "Test(CtrlCheckGet)" \
+                            "Test" \
                             "PrepareTest(Bias0Ext, Step, 2, RangeLoExt, RangeHiExt, MaxOfsetExt)" \
                             "ValueSetterWithPause(MOFE_0_BiasRange, NextRange, ""Set Range"")" \
                             "ValueSetterWithPause(MOFE_0_Bias, NextBias, ""Set Bias"")" \
-                            "Test(CtrlCheckGet)" \
+                            "Test" \
                             "PrepareTest(Bias0Ext, Step, 3, RangeLoExt, RangeHiExt, MaxOfsetExt)" \
                             "ValueSetterWithPause(MOFE_0_BiasRange, NextRange, ""Set Range"")" \
                             "ValueSetterWithPause(MOFE_0_Bias, NextBias, ""Set Bias"")" \
-                            "Test(CtrlCheckGet)" \
+                            "Test" \
                             "PrepareTest(Bias0Ext, Step, 4, RangeLoExt, RangeHiExt, MaxOfsetExt)" \
                             "ValueSetterWithPause(MOFE_0_BiasRange, NextRange, ""Set Range"")" \
                             "ValueSetterWithPause(MOFE_0_Bias, NextBias, ""Set Bias"")" \
-                            "Test(CtrlCheckGet)" \
+                            "Test" \
                             "PrepareTest(Bias0Ext, Step, 5, RangeLoExt, RangeHiExt, MaxOfsetExt)" \
                             "ValueSetterWithPause(MOFE_0_BiasRange, NextRange, ""Set Range"")" \
                             "ValueSetterWithPause(MOFE_0_Bias, NextBias, ""Set Bias"")" \
-                            "Test(CtrlCheckGet)" \
+                            "Test" \
                             "PrepareTest(Bias0Ext, Step, 6, RangeLoExt, RangeHiExt, MaxOfsetExt)" \
                             "ValueSetterWithPause(MOFE_0_BiasRange, NextRange, ""Set Range"")" \
                             "ValueSetterWithPause(MOFE_0_Bias, NextBias, ""Set Bias"")" \
-                            "Test(CtrlCheckGet)" \
+                            "Test" \
                             "PrepareTest(Bias0Ext, Step, 7, RangeLoExt, RangeHiExt, MaxOfsetExt)" \
                             "ValueSetterWithPause(MOFE_0_BiasRange, NextRange, ""Set Range"")" \
                             "ValueSetterWithPause(MOFE_0_Bias, NextBias, ""Set Bias"")" \
-                            "Test(CtrlCheckGet)" \
+                            "Test" \
                             "PrepareTest(Bias0Ext, Step, 8, RangeLoExt, RangeHiExt, MaxOfsetExt)" \
                             "ValueSetterWithPause(MOFE_0_BiasRange, NextRange, ""Set Range"")" \
                             "ValueSetterWithPause(MOFE_0_Bias, NextBias, ""Set Bias"")" \
-                            "Test(CtrlCheckGet)" \
+                            "Test" \
                             "PrepareTest(Bias0Ext, Step, 9, RangeLoExt, RangeHiExt, MaxOfsetExt)" \
                             "ValueSetterWithPause(MOFE_0_BiasRange, NextRange, ""Set Range"")" \
                             "ValueSetterWithPause(MOFE_0_Bias, NextBias, ""Set Bias"")" \
-                            "Test(CtrlCheckGet)" \
+                            "Test" \
                             "PrepareTest(Bias0Ext, Step, 10, RangeLoExt, RangeHiExt, MaxOfsetExt)" \
                             "ValueSetterWithPause(MOFE_0_BiasRange, NextRange, ""Set Range"")" \
                             "ValueSetterWithPause(MOFE_0_Bias, NextBias, ""Set Bias"")" \
-                            "Test(CtrlCheckGet)" 
+                            "Test" 
                         Bias0Get
                             ODPrimitivePath = NewInfraDetectors/MOFE_0_Bias0Cal
                             ODPrimitiveType = Float
@@ -83,10 +83,6 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             OwnerTestName = InitBiasTest
                             Type = ExternalTestVariable
                             VariableName = RangeLo
-                        CtrlCheckGet
-                            ODPrimitivePath = NewInfraDetectors/MOFE_0_CtrlCheck
-                            ODPrimitiveType = ADC
-                            Type = ODValueGetter
                         MaxOfsetGet
                             ODPrimitivePath = NewInfraDetectors/MOFE_0_MaxBiasOffsetCal
                             ODPrimitiveType = Float
@@ -145,7 +141,6 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             "true"
                             Message_2 = Info;"Bias test step: %1%" << BiasStep
                             Signature = (ODSetter ADCCommand, Variable VopCal, Variable  Bias0, Variable RangeHi, Variable RangeLo, Variable OfsetExt)
-                            MinimalDelayinms = 300
                             Type = ValueWriter
                         PrepareTest
                             Description = "Prepare test Nr %1%" << TestNr
@@ -163,24 +158,30 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                                 Value = 2.045
                         ValueSetterWithPause
                             Type = ValueWriter
-                            Description = "%1% : %2%" << DescriptionString << SetterValue
+                            Description = "%1%" << DescriptionString
                             Message_1 = Info;"Done"
                             Signature = "(ODSetter SetterDAC, Variable SetterValue, Variable DescriptionString)"
                             IsTestHidden = true
                             MinimalDelayinms = 300
 
                         Test
-                            Description = Bias functionality test
-                            Expression_1 = (abs(CtrlCheck - Bias)/Bias) < 0.1
-                            Message_1 = Info;"Bias check passed"
-                            Message_2 = Error;"Bias check failed  CtrlCheck: %1% Bias: %2% " << CtrlCheck << Bias
+                            Description = Bias functionality OFFLINE test
+                            Expression_1 = abs(CtrlCheck) > 0
+                            Message_1 = Info;"NextBias:  %1% NextRange: %2% CtrlCheck:%3%" << Bias << Range << CtrlCheck
                             MinimalDelayinms = 500
-                            Signature = (Variable CtrlCheck)
-                            Type = ValueReadout
+                            Type = ValueWriter
+                            Range
+                                ODPrimitivePath = NewInfraDetectors/MOFE_0_BiasRange
+                                ODPrimitiveType = NumberSwitch
+                                Type = ODValueGetter
                             Bias
                                 ODPrimitivePath = NewInfraDetectors/MOFE_0_Bias
                                 ODPrimitiveType = DAC
                                 SetterExpression = bias
+                                Type = ODValueGetter
+                            CtrlCheck
+                                ODPrimitivePath = NewInfraDetectors/MOFE_0_CtrlCheck
+                                ODPrimitiveType = ADC
                                 Type = ODValueGetter
 
 
