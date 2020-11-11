@@ -65,7 +65,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\Tadbrickbox\configurations\<tadconfig_name>\TAD-
                         SourceTest3_3V
                             Description = SSFE 3.3 V source check
                             Expression_1 = REG_MULTI_SZ "V = 2*TRead" \
-                            "V >= 3.1 && V <= 3.5"
+                            "V >= 3.1  && V <= 3.5"
                             Message_1 = Info;"Voltage test passed."
                             Message_2 = Error;"Voltage test failed %1% TRead: %2%" << V << TRead
                             MinimalDelayinms = 500
