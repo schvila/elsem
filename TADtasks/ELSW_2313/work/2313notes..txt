@@ -1,0 +1,17 @@
+Run as admin
+RegIni264.exe c:\xt\server\XT\install\src\tad\Detectors\TadXtMppcEtdBrick.reg
+RegIni264.exe c:\xt\server\XT\install\src\tad\Detectors\MppcEtd\BiasFlowTest.reg
+RegIni264.exe C:\xt\server\XR\install\src\tad\Detectors\MppcEtd\Pt1000Test.reg
+
+
+<config_name>    : ElsemFull
+<tadconfig_name> : HeliosG5FxBasic.tad
+<ui_config_name> : ElsemFull
+<main_dir>       : C:\xt\server\bin
+<main_dir_exe>   : C:\xt\server\bin\Debug64
+<bbox_name>      : bbox
+
+Computer\HKEY_LOCAL_MACHINE\SOFTWARE\FEI\TADBrickBox\Configurations
+ActiveConfiguration = HeliosG5FxBasic.tad
+menim na
+ElsemFull.tad
