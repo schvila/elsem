@@ -67,7 +67,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\Tadbrickbox\configurations\<tadconfig_name>\TAD-
                             Description = "%1% : %2%" << DescriptionString << SetterValue
                             Message_1 = Info;"Done"
                             Signature = "(ODSetter SetterCfg, Variable SetterValue, Variable DescriptionString)"
-                            IsTestHidden = false
+                            IsTestHidden = true
                             MinimalDelayinms = 500
                         SourceTest3_3V
                             Description = SSFE 3.3 V source check

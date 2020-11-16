@@ -1,14 +1,13 @@
-09:07:19 Session Information
+09:08:18 Session Information
 	Computername: A4-TOOL
-	Creation date: 11/11/20
-	Creation time: 09:07:19
-	Session file: A4-TOOL_201111-090719.TRF
-09:07:45 DBS detector.Detector Test
+	Creation date: 11/16/20
+	Creation time: 09:08:18
+	Session file: A4-TOOL_201116-090818.TRF
+09:08:34 DBS detector.Detector Test
 	Runmode: Normal
 	Info		:	[Connecting to SCUs]:	Connected
 	Info		:	[1. App version]:	Application version = 0.4.8
-	Info		:	[2. Prepare SSFE 3.3 V : 5]:	Done
-	Info		:	[3. SSFE 3.3 V source check]:	Voltage: 3.32235 TRead: 1.66117
-	Info		:	[4. Prepare SSFE 6.8 V : 6]:	Done
-	Info		:	[5. SSFE 6.8 V source check]:	Voltage: 6.71382 TRead: 2.56939
+	Info		:	[3. SSFE 3.3 V source check]:	Voltage test passed.
+	Info		:	[5. SSFE 6.8 V source check]:	Voltage test passed.
+	Info		:	[8. Check whether the diode is connected]:	Diode test passed.
 	Testresult: OK
