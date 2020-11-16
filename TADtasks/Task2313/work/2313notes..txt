@@ -15,3 +15,5 @@ Computer\HKEY_LOCAL_MACHINE\SOFTWARE\FEI\TADBrickBox\Configurations
 ActiveConfiguration = HeliosG5FxBasic.tad
 menim na
 ElsemFull.tad
+
+TadGroup -> FeiMicroscope.tad

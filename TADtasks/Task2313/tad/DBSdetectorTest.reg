@@ -39,12 +39,19 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\Tadbrickbox\configurations\<tadconfig_name>\TAD-
                         TestIndex_3 = "SourceTest3_3V"
                         TestIndex_4 = "ValueSetterWithPause(SSFE_0_TADConfig, 6, "Prepare SSFE 6.8 V")"
                         TestIndex_5 = "SourceTest6_8V"
+                        TestIndex_6 = "ValueSetterWithPause(SSFE_0_Command, 1, "Set SSFE off")"
+                        TestIndex_7 = "ValueSetterWithPause(SSFE_0_Command, 2, "Set SSFE on")"
+                        TestIndex_8 = "CheckDiode"
                         SSFE_0_TADConfig
                             ODPrimitivePath = NewInfraDetectors/SSFE_0_TADConfig
                             ODPrimitiveType = Configuration
                             SetterExpression = SetterValue
                             Type = ValueSetter
-
+                        SSFE_0_Command
+                            ODPrimitivePath = NewInfraDetectors/SSFE_0_Command
+                            ODPrimitiveType = Command
+                            SetterExpression = SetterValue
+                            Type = ValueSetter
                     Tests
                         AppVersion
                             Description="App version"
@@ -85,6 +92,17 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\Tadbrickbox\configurations\<tadconfig_name>\TAD-
                             TRead
                                 ODPrimitivePath = NewInfraDetectors/SSFE_0_TADRead
                                 ODPrimitiveType = ADC
+                                Type = ODValueGetter
+                        CheckDiode
+                            Description = Check whether the diode is connected
+                            Expression_1 = DFCBslot0 !=0
+                            Message_1 = Info;"Diode test passed."
+                            Message_2 = Error;"DBS is not connected or issue with a bad DBS connection"
+                            MinimalDelayinms = 500
+                            Type = ValueReadout
+                            DFCBslot0
+                                ODPrimitivePath = NewInfraDetectors/SSFE_0_DetectorDFCBslot0
+                                ODPrimitiveType = State
                                 Type = ODValueGetter
 
 
