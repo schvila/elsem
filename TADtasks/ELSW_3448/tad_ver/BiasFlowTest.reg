@@ -18,7 +18,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                     TestExecutor
                         Type = SequentialTestExecutor
                         TestIndex_1 = "AppVersion"
-                        TestIndex_2 = "InitBiasTest(SwitchTadOn, VopCalGet, Bias0Get,BiasRangeThrHiCalGet, BiasRangeThrLoCalGet, MaxOfsetGet))"
+                        TestIndex_2 = "InitBiasTest(SwitchTadOn, VopCalGet, Bias0Get,BiasRangeThrHiCalGet, BiasRangeThrLoCalGet, MaxOfsetGet)"
                         TestIndex_3 = REG_MULTI_SZ "PrepareTest(Bias0Ext, Step, 1, RangeLoExt, RangeHiExt, MaxOfsetExt)" \
                             "ValueSetterWithPause(MOFE_0_BiasRange, NextRange, ""Set Range"")" \
                             "ValueSetterWithPause(MOFE_0_Bias, NextBias, ""Set Bias"")" \
