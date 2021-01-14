@@ -17,3 +17,5 @@ menim na
 ElsemFull.tad
 
 TadGroup -> FeiMicroscope.tad
+
+0x2016	AdcLinear	AdcStageCurrentMeas

@@ -83,3 +83,4 @@ PsmRef2V5 ke ADC
 
 Signature = "(Variable DescriptionString)"
 
+c:\work\RegTools\RegIni264.exe C:\_dv\elsem\TADtasks\ELSW-3157\desu\darkcurrent.reg
