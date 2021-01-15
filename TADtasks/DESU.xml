@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FW_Applications xmlns="mb_FWAppDesc.1.7.xsd">
+	<FirmwareApplication Name="DESU">
+
+		<ODObject Name="AppError" Mode="BitArray">
+			<Option Name="DESU_APP_COMUNICATION_ERROR" Value= "0x010000"/>
+			<Option Name="DESU_APP_SYSTEM_ERROR" Value= "0x020000"/>
+			<Option Name="DESU_APP_UNKNOWN_COMMAND" Value= "0x040000"/>
+			<Option Name="SAERR_DESU_DISCONNECTED" Value= "0x01000000"/>
+			<Option Name="SAERR_DESU_VER_MISMATCH" Value= "0x01000001"/>
+		</ODObject>
+
+		<ODObject Name="AppState">
+			<Option Name ="Unknown (0)" Value = "0x00" />
+			<Option Name ="Inactive (0x1)" Value = "0x01" />
+			<Option Name ="InitAndSelfTesting (0x2)" Value = "0x02" />
+			<Option Name ="PreparingForSafeReset (0x4)" Value = "0x04" />
+			<Option Name ="ReadyToShutdown (0x5)" Value = "0x05" />
+			<Option Name ="PreparingForSafeShutdown (0x6)" Value = "0x06" />
+			<Option Name ="ActiveMask (0x10)" Value = "0x10" />
+			<Option Name ="CriticalError (0x11)" Value = "0x11" />
+			<Option Name ="PreparingForSafeError (0x12)" Value = "0x12" />
+			<Option Name ="Operate (0x13)" Value = "0x13" />
+			<Option Name ="TAD (0x15)" Value = "0x15" />
+		</ODObject>
+
+		<ODObject Name="AppCommand">
+			<Option Name ="Cancel (0)" Value="0x00" />
+			<Option Name ="NoCommand (0xFE1CFE1C)" Value="0xFE1CFE1C" />
+			<Option Name ="TAD (1)" Value="0x01" />
+			<Option Name ="Reset (4)" Value="0x04" />
+			<Option Name ="ACMD_RESET_DESU_BOARD (10)" Value="0x0A" />
+		</ODObject>
+
+		<ODObject Name="HvGenState">
+			<Option Name ="OFF (0)" Value="0x00" />
+			<Option Name ="TURNING_ON (1)" Value="0x01" />
+			<Option Name ="ON (2)" Value="0x02" />
+			<Option Name ="TURNING_OFF (3)" Value="0x03" />
+		</ODObject>
+
+		<ODObject Name="HvGenCommand">
+			<Option Name ="NoCommand (0xFE1CFE1C)" Value="0xFE1CFE1C" />
+			<Option Name ="NoCommand (0xFF)" Value="0xFF" />
+			<Option Name ="HV_GEN_ON (1)" Value="0x01" />
+			<Option Name ="HV_GEN_OFF (0)" Value="0x00" />
+		</ODObject>
+
+		<ODObject Name="ProtectionState">
+			<Option Name ="DISABLED (0)" Value="0x00" />
+			<Option Name ="ENABLED (1)" Value="0x01" />
+		</ODObject>
+
+		<ODObject Name="ProtectionCommand">
+			<Option Name ="NoCommand (0xFE1CFE1C)" Value="0xFE1CFE1C" />
+			<Option Name ="NoCommand (0xFF)" Value="0xFF" />
+			<Option Name ="PROTECTION_ON  (1)" Value="0x01" />
+			<Option Name ="PROTECTION_OFF (0)" Value="0x00" />
+		</ODObject>
+
+		<ODObject Name="Sup90VState">
+			<Option Name ="OFF (0)" Value="0x00" />
+			<Option Name ="TURNING_90V_ON (1)" Value="0x01" />
+			<Option Name ="SUP_90V_ON (2)" Value="0x02" />
+			<Option Name ="TURNING_90V_OFF (3)" Value="0x03" />
+		</ODObject>
+
+		<ODObject Name="Sup90VCommand">
+			<Option Name ="NoCommand (0xFE1CFE1C)" Value="0xFE1CFE1C" />
+			<Option Name ="NoCommand (0xFF)" Value="0xFF" />
+			<Option Name ="SUP_90V_ON (1)" Value="0x01" />
+			<Option Name ="SUP_90V_OFF (0)" Value="0x00" />
+		</ODObject>
+
+		<ODObject Name="Sup800V250VState">
+			<Option Name ="OFF (0)" Value="0x00" />
+			<Option Name ="TURNING_800V_ON (1)" Value="0x01" />
+			<Option Name ="REG_800V_ON (2)" Value="0x02" />
+			<Option Name ="REGULATE (3)" Value="0x03" />
+			<Option Name ="TURNING_800V_OFF (4)" Value="0x04" />
+			<Option Name ="TURNING_250V_ON (5)" Value="0x05" />
+			<Option Name ="REG_250V_ON (6)" Value="0x06" />
+			<Option Name ="TURNING_250V_OFF (7)" Value="0x07" />
+			<Option Name ="TAD_ON (8)" Value="0x08" />
+			<Option Name ="TAD_REGULATE (9)" Value="0x09" />
+		</ODObject>
+
+		<ODObject Name="Sup800V250VCommand">
+			<Option Name ="NoCommand (0xFE1CFE1C)" Value="0xFE1CFE1C" />
+			<Option Name ="NoCommand (0x00)" Value="0x00" />
+			<Option Name ="NoCommand (0xFF)" Value="0xFF" />
+			<Option Name ="SUP_800V_ON (1)" Value="0x01" />
+			<Option Name ="SUP_REGULATE (2)" Value="0x02" />
+			<Option Name ="SUP_800V_OFF (3)" Value="0x03" />
+			<Option Name ="SUP_250V_ON (4)" Value="0x04" />
+			<Option Name ="SUP_250V_OFF (5)" Value="0x05" />
+			<Option Name ="SUP_TAD_ON (6)" Value="0x06" />
+			<Option Name ="SUP_TAD_REGULATE (7)" Value="0x07" />
+			<Option Name ="SUP_TAD_OFF (8)" Value="0x08" />
+		</ODObject>
+
+		<ODObject Name="Rel10kVState">
+			<Option Name ="OFF (0)" Value="0x00" />
+			<Option Name ="TURNING_ON (1)" Value="0x01" />
+			<Option Name ="ON (2)" Value="0x02" />
+			<Option Name ="TURNING_OFF (3)" Value="0x03" />
+		</ODObject>
+
+		<ODObject Name="Rel10kVCommand">
+			<Option Name ="NoCommand (0xFE1CFE1C)" Value="0xFE1CFE1C" />
+			<Option Name ="NoCommand (0xFF)" Value="0xFF" />
+			<Option Name ="REL_10KV_ON (1)" Value="0x01" />
+			<Option Name ="REL_10KV_OFF (0)" Value="0x00" />
+		</ODObject>
+
+		<ODObject Name="RelStageState">
+			<Option Name ="TA (0)" Value="0x00" />
+			<Option Name ="TURNING_BIAS_ON (1)" Value="0x01" />
+			<Option Name ="BIAS_ON (2)" Value="0x02" />
+			<Option Name ="TURNING_BIAS_OFF (3)" Value="0x03" />
+			<Option Name ="EXT_ON (5)" Value="0x05" />
+			<Option Name ="CM_ON (8)" Value="0x08" />
+			<Option Name ="BIAS_TAD_00 (10)" Value="0x0A" />
+			<Option Name ="BIAS_TAD_01 (11)" Value="0x0B" />
+			<Option Name ="BIAS_TAD_11 (12)" Value="0x0C" />
+		</ODObject>
+
+		<ODObject Name="RelStageCommand">
+			<Option Name ="NoCommand (0xFE1CFE1C)" Value="0xFE1CFE1C" />
+			<Option Name ="NoCommand (0x00)" Value="0x00" />
+			<Option Name ="NoCommand (0xFF)" Value="0xFF" />
+			<Option Name ="REL_BIAS_ON (1)" Value="0x01" />
+			<Option Name ="REL_BIAS_OFF (2)" Value="0x02" />
+			<Option Name ="REL_EXT_ON (3)" Value="0x03" />
+			<Option Name ="REL_EXT_OFF (4)" Value="0x04" />
+			<Option Name ="REL_CM_ON (5)" Value="0x05" />
+			<Option Name ="REL_CM_OFF (6)" Value="0x06" />
+			<Option Name ="REL_BIAS_TAD_ON (7)" Value="0x07" />
+			<Option Name ="REL_BIAS_TAD_OFF (8)" Value="0x08" />
+			<Option Name ="REL_BIAS_TAD_00 (9)" Value="0x09" />
+			<Option Name ="REL_BIAS_TAD_01 (10)" Value="0x0A" />
+			<Option Name ="REL_BIAS_TAD_11 (11)" Value="0x0B" />
+		</ODObject>
+	</FirmwareApplication>
+</FW_Applications>

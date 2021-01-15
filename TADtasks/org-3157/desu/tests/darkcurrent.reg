@@ -1,0 +1,95 @@
+HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-bbox
+    TadXtDesuBrick
+        TadXtDesuBrickMgr
+            Desu
+                DESU Dark Current Tests
+                    Description = DESU Dark Current Tests
+                    DlgProgId = TADUIAUTOTESTDLG.TADUIAutoTestDlgCtrl.1
+                    HelpBaseId = REG_DWORD 0x40030400
+                    IsMonitorTest = false
+                    Labels = Description\\t Results
+                    OrderPriority = REG_DWORD 0x00000010
+                    Type = SCUTadTestManager
+                    ODPrimitiveProviders
+                        DESU
+                            Type = default
+                            AppName = DESU
+                            SCU_ID = DESU
+                    TestExecutor
+                        Type = SequentialTestExecutor
+                        TestIndex_1 = "AppVersion"
+                        TestIndex_2 = "FirmwareVersion"
+                        TestIndex_3 = SwitchRelStageHiden(RelStageCommand, 0x02, "REL_BIAS_OFF", "REL_BIAS_OFF", "")
+                        TestIndex_4 = SwitchRelStageHiden(RelStageCommand, 0x04, "REL_EXT_OFF", "REL_EXT_OFF", "")
+                        TestIndex_5 = SwitchRelStage(RelStageCommand, 0x05, "Set Internal current meassurement", "EL_CM_ON", "")
+                        TestIndex_6 = "SampleCurrent"
+                        RelStageCommand
+                            ODPrimitivePath = DESU/RelStageCommand
+                            ODPrimitiveType = Command
+                            SetterExpression = RelStageCommandValue
+                            Type = ValueSetter
+                    Tests
+                        AppVersion
+                            Description="App version"
+                            Expression_1 = true
+                            Message_1 = Info;"Application version = %1$#x" << AppVersion
+                            Type = ValueReadout
+                            AppVersion
+                                Type = ODValueGetter
+                                ODPrimitivePath =DESU/AppVersion
+                                ODPrimitiveType =Version
+                        FirmwareVersion
+                            Description="Firmware version"
+                            Expression_1 = true
+                            Message_1 = Info;"FirmwareVersion version = %1$#x" << FirmwareVersion
+                            Type = ValueReadout
+                            FirmwareVersion
+                                Type = ODValueGetter
+                                ODPrimitivePath =DESU/FirmwareVersion
+                                ODPrimitiveType =Version
+                        SwitchRelStage
+                            Description = "%1%" << DescriptionString
+                            Expression_1 = RelStageCommandValue == RelStageCommandValue
+                            Message_1 = Info;"%1% original state: %2%" << SuccessMessage << HvCommandResult
+                            Message_2 = Error;"%1%" << ErrorMessage
+                            Signature ="(ODSetter ADCCommand, Variable RelStageCommandValue, Variable DescriptionString, Variable SuccessMessage, Variable ErrorMessage)"
+                            MinimalDelayinms = 500
+                            Type = ValueWriter
+                            HvCommandResult
+                                Type = ODValueGetter
+                                ODPrimitivePath = DESU/RelStageState
+                                ODPrimitiveType = State
+                        SwitchRelStageHiden
+                            IsTestHidden = true
+                            Description = "%1%" << DescriptionString
+                            Expression_1 = RelStageCommandValue == RelStageCommandValue
+                            Message_1 = Info;"%1% original state: %2%" << SuccessMessage << HvCommandResult
+                            Message_2 = Error;"%1%" << ErrorMessage
+                            Signature ="(ODSetter ADCCommand, Variable RelStageCommandValue, Variable DescriptionString, Variable SuccessMessage, Variable ErrorMessage)"
+                            MinimalDelayinms = 500
+                            Type = ValueWriter
+                            HvCommandResult
+                                Type = ODValueGetter
+                                ODPrimitivePath = DESU/RelStageState
+                                ODPrimitiveType = State
+                        SampleCurrent
+                            Description = "Sample current must be equal or under 5pA"
+                            Expression_1 = AdcStageCurrentMeas <= C5pA
+                            Message_1 = Info;"Sample current  = %1% in limit" << AdcStageCurrentMeas
+                            Message_2 = Error;"sample current  = %1% greater then 5pA" << AdcStageCurrentMeas
+                            Type = ValueReadout
+                            AdcStageCurrentMeas
+                                Type = ODValueGetter
+                                ODPrimitivePath = DESU/AdcStageCurrentMeas
+                                ODPrimitiveType = ADC
+                            C5pA
+                                Type = Constant
+                                Value = 5E-11
+
+
+
+
+
+
+
+

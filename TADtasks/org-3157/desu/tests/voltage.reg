@@ -20,54 +20,18 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                         TestIndex_1 = "AppVersion"
                         TestIndex_2 = "FirmwareVersion"
                         TestIndex_3 = "Hivac"
-                        TestIndex_4 = "SwitchOscilator(HvGenCommand, 0x01, "Switch ON", "Oscilator is ON", "")"
+                        TestIndex_4 = SwitchOscilator(HvGenCommand, 0x01, "Switch ON", "Oscilator is ON", "")
                         TestIndex_5 = REG_MULTI_SZ "Adc4kVtest" \
                             "Adc4kVtest" \
                             "Adc4kVtest"
-                        TestIndex_6 = "SupTadSwitch(Sup800250Command, 0x06)"
-                        TestIndex_7 = "ValueSetterWithPause(Regulate800V, 800, "Regulate 800V")"
-                        TestIndex_8 = "SupTadSwitch(Sup800250Command, 0x07)"
-                        TestIndex_9 = "TadVoltageTest(Adc800Val, 800, "Test 800V")"
-
-                        Sup800250Command
-                            ODPrimitivePath = DESU/Sup800V250VCommand
-                            ODPrimitiveType = Command
-                            SetterExpression =HvCommandValue
-                            Type = ValueSetter
                         HvGenCommand
                             ODPrimitivePath = DESU/HvGenCommand
                             ODPrimitiveType = Command
                             SetterExpression =HvCommandValue
                             Type = ValueSetter
-                        Regulate800V
-                            ODPrimitivePath = DESU/DACSup800VRegulate
-                            ODPrimitiveType = DAC
-                            SetterExpression = SetterValue
-                            Type = ValueSetter
-                        Adc800Val
-                            Type = ODValueGetter
-                            ODPrimitivePath = DESU/Adc800V
-                            ODPrimitiveType = ADC
-
                     Tests
-                        ValueSetterWithPause
-                            Type = ValueWriter
-                            Description = "%1% : %2%" << DescriptionString << SetterValue
-                            Message_1 = Info;"Done"
-                            Signature = "(ODSetter SetterDAC, Variable SetterValue, Variable DescriptionString)"
-                            IsTestHidden = true
-                            MinimalDelayinms = 300
-                        TadVoltageTest
-                            Description = "%1%" << DescriptionString
-                            Expression_1 = true
-                            Message_1 = Info;"Expected: %1% Current: %2%" << ExpectedV << MeasuredV
-                            Message_2 = Error;"Test Failed"
-                            MinimalDelayinms = 500
-                            Signature = (Variable MeasuredV, Variable ExpectedV, Variable DescriptionString)
-                            Type = ValueReadout
-
                         AppVersion
-                            Description="App version"
+                            Description="Application version"
                             Expression_1 = true
                             Message_1 = Info;"Application version = %1$#x" << AppVersion
                             Type = ValueReadout
@@ -76,9 +40,9 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                                 ODPrimitivePath =DESU/AppVersion
                                 ODPrimitiveType =Version
                         FirmwareVersion
-                            Description="FirmwareVersion version"
+                            Description="Firmware version"
                             Expression_1 = true
-                            Message_1 = Info;"FirmwareVersion version = %1$#x" << AppVersion
+                            Message_1 = Info;"FirmwareVersion version = %1$#x" << FirmwareVersion
                             Type = ValueReadout
                             FirmwareVersion
                                 Type = ODValueGetter
@@ -108,18 +72,11 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                                 Type = ODValueGetter
                                 ODPrimitivePath = DESU/HvGenState
                                 ODPrimitiveType = State
-                        SupTadSwitch
-                            Description = SupTadSwitch
-                            Type = ValueWriter
-                            Message_1 = Info;" "
-                            IsTestHidden = true
-                            Signature = "(ODSetter ADCCommand, Variable SetterValue)"
-
                         Adc4kVtest
-                            Description = Check internal -4000V if it�s in limits +- 3
+                            Description = Check internal -4000V if it is in limits +- 3%%
                             Expression_1 = Adc4kValue >= UpperLimit && Adc4kValue <= LowerLimit
-                            Message_1 = Info;"Internal Voltage  = %1% in limit" << Adc4kValue
-                            Message_2 = Error;"Internal Voltage  = %1% out of +- 3 limits" << Adc4kValue
+                            Message_1 = Info;"Internal Voltage   %1% is in 3%% limit" << Adc4kValue
+                            Message_2 = Error;"Internal Voltage  = %1% out of +- 3%% limits" << Adc4kValue
                             MinimalDelayinms = 1000
                             Type = ValueWriter
                             LowerLimit
@@ -131,7 +88,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             Adc4kValue
                                 Type = ODValueGetter
                                 ODPrimitivePath = DESU/Adc4kV
-                                ODPrimitiveType = ADC 
+                                ODPrimitiveType = ADC
 
 
 

@@ -1,0 +1,80 @@
+na zacatek vypsat (cervene?):
+"High voltages may be present on output connectors!"
+
+Pro Standu: kontroluj vsechny napeti: Check the voltages are in + - 3% limits
+
+  0. ProtectionCommand: Protection_OFF
+
+-4kV (output off and then on) - test different voltages (0V; -50V; -500V; -2kV; -4kV)
+  --> postup
+  1. Vypni output: RelStageState musi byt TA (0x0)
+         -> RelStageCommand (*REL_BIAS_OFF, pripadne REL_CM_OFF, REL_EXT_OFF)
+  2. Nastavim pozadovane napeti (napr. 0V), Dac4kV objekt
+  3. Zkontroluju Dac4kV
+  4. Zapnu RelStageCommand REL_BIAS_ON (timhle se zapina output)
+  5. Zkontroluju Dac4kV (pri zapnutem outputu)
+ -> osobne bych tohle opakoval pro vsechna napeti (0V; -50V; -500V; -2kV; -4kV)
+ -> mel bych tak 5+5 samostatnych testu
+
+10kV (output on) - test different voltages (0V; 500V; 2,5kV, 5kV; 7,5kV; 10kV)
+ --> postup
+  1. output on udelam takhle: Rel10kVCommand ON
+  2. nastavuju Dac4kV
+  3. Merim Adc10kV - Adc10kV pravdepodobne linearni prepocet z Dac4kV
+  
+800V (no output on) - test different voltages (0V; 50V; 200V; 400V; 800V)
+ - pujde, nepujde? vedel by Honza Rusinsky, je potreba vyzkouset na toolu
+ --> postup
+  1. Sup800V250VCommand - SUP_TAD_ON (0x6)
+  2. DACSup800VRegulate - (0V; 50V; 200V; 400V; 800V) postupne (vic testu?)
+  3. Sup800V250VCommand - SUP_TAD_REGULATE (0x7)
+  4. Adc800V
+  5. Sup800V250VCommand - SUP_TAD_OFF (0x6)
+ 
+800V with output on - test with voltage set to 550V
+ --> postup
+ - mb: muj nazor je, ze to nepujde zapnout, protoze jsme v HiVAC a fw povoluje zapnout pouze ve LoVac
+ -> mb overi na toolu, jestli je to pravda
+
+
+250V with output on - test with voltage set to 250V
+ --> postup
+  1. Sup800V250VCommand - SUP_250V_ON
+  2. Adc800V
+  3. Sup800V250VCommand - SUP_250V_OFF
+
+90V - test 0V/OFF and 90V/ON
+ --> postup
+  1. Sup90VCommand - SUP_90V_OFF (0)
+  2. Adc90V (ocekvam 0.0)
+  3. Sup90VCommand - SUP_90V_ON (1)
+  4. Adc90V
+  5. Sup90VCommand - SUP_90V_OFF (0)
+
++-9V - test 0V/OFF and +-9V (no load, voltage will be higher)
+ --> postup
+  1. SupLvdfeCommand - (0)
+  2. AdcFsupTest (ocekvam 0.0)
+  3. SupLvdfeCommand - (1)
+  4. AdcFsupTest --> Jarek ocekava, ze to bude vic nez 9V
+  5. SupLvdfeCommand - (0)
+
+Check in the TAD PowerOk register state and display PASS, FAIL at ech voltage, bits (0=power OK, >0 power fail) correspond to:
+--> dej do samostaneho testu, nehodi se primo k Output Volatages testum
+  1. Precti PowerOk
+  2. pokud je 0x0, tak pass
+  3. pokud ne, tak fail a vypis Hexa hodnotu, pripadne namapuj na string:
+HEXA - String
+==============
+0       3v3
+1       5v
+2       N7v25
+3       P7v25
+4       N7v25
+5       P7v25
+6       N12v
+7       P12v
+8       24v
+
+
+  x. ProtectionCommand: dat do puvodniho stavu? pujde?

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjectDictionaryDefinition generatedFileName="DESU_OD.h" generateSingleHeader="False" oldNamingConvention="False" xmlns="ObjectDictionaryDefinition.1.8.xsd">
+  <ObjectDictionaryTable tableIdentifier="GA" hiddenHWMappingColumns="False" showInfoPanel="False">
+    <ObjectDictionaryBlock index="1000" />
+    <ObjectDictionaryRecord_eVersion3_8 name="BaseODVersion" X="1" Y="10" Z="0" />
+    <ObjectDictionaryRecord_eVersion3_8 name="AppVersion" X="0" Y="0" Z="1" />
+    <ObjectDictionaryRecord_eError name="AppError" currentError="0" maxHistorySize="8" />
+    <ObjectDictionaryRecord_eState name="AppState" state="0" />
+    <ObjectDictionaryRecord_eCommand name="AppCommand" previousCommand="0" />
+    <ObjectDictionaryRecord_eString name="AppName" string="Generic Application" />
+    <ObjectDictionaryRecord_eNullDevice name="End of index=1000" />
+    <ObjectDictionaryBlock index="2000" />
+    <ObjectDictionaryRecord_eVersion3_8 name="FirmwareVersion" X="$BUILD_APP_VERSION_MAJOR" Y="$BUILD_APP_VERSION_MINOR" Z="$BUILD_APP_VERSION_PATCH" />
+    <ObjectDictionaryRecord_eConfiguration name="FWBuildNr" parameter="$BUILD_APP_VERSION_BUILD" />
+    <ObjectDictionaryRecord_eString name="FWLogicalName" string="DESU" />
+    <ObjectDictionaryRecord_eDataCO name="HWIDs" data="0x0" />
+    <ObjectDictionaryRecord_eApplication name="DESU" applID="1" supportedProtocols="FPIP" lifecycleComand="0" lifecycleStatus="0" lifecycleError="0" versionX="$BUILD_APP_VERSION_MAJOR" versionY="$BUILD_APP_VERSION_MINOR" versionZ="$BUILD_APP_VERSION_PATCH" />
+    <ObjectDictionaryRecord_eConfiguration name="InstanceID" parameter="0xFFFFFFFF" />
+    <ObjectDictionaryRecord_eNullDevice name="End of index=2000" />
+    <ObjectDictionaryBlock index="8000" />
+    <ObjectDictionaryRecord_eNullDevice name="End of index=8000" />
+  </ObjectDictionaryTable>
+  <ObjectDictionaryTable tableIdentifier="DESU" hiddenHWMappingColumns="True" showInfoPanel="False">
+    <ObjectDictionaryBlock index="1000" />
+    <ObjectDictionaryRecord_eVersion3_8 name="BaseODVersion" X="1" Y="10" Z="0" />
+    <ObjectDictionaryRecord_eVersion3_8 name="AppVersion" X="$BUILD_APP_VERSION_MAJOR" Y="$BUILD_APP_VERSION_MINOR" Z="$BUILD_APP_VERSION_PATCH" />
+    <ObjectDictionaryRecord_eError name="AppError" currentError="0" maxHistorySize="8" description="SAERR_DESU_DISCONNECTED = 0x01000000,            //!&lt; DESU board was disconnected (no power, no connection, etc.)&#xD;&#xA;        SAERR_DESU_VER_MISMATCH = 0x01000001             //!&lt; DESU board FW version does not match SCU app version" />
+    <ObjectDictionaryRecord_eState name="AppState" state="0" />
+    <ObjectDictionaryRecord_eCommand name="AppCommand" previousCommand="0" description="ACMD_RESET_DESU_BOARD = 10" />
+    <ObjectDictionaryRecord_eString name="AppName" string="DESU" />
+    <ObjectDictionaryRecord_eNullDevice name="End of index=1000" />
+    <ObjectDictionaryBlock index="2000" />
+    <ObjectDictionarySeparator index="!! " name="DESU (detector supplies) block diagram" description="[image:file:DESU_BLOCK_DIAGRAM.png]&#xD;&#xA;" />
+    <ObjectDictionarySeparator />
+    <ObjectDictionarySeparator index="!! " name="DESU power supply control" />
+    <ObjectDictionarySeparator index="!!! " name="DESU HV_GEN (High Voltage Generator) Control" description="[image:file:DESU_SUP_HV_GEN_STATEMACHINE.png]&#xD;&#xA;" />
+    <ObjectDictionaryRecord_eState name="HvGenState" state="0" description="0: OFF&#xD;&#xA;1: TURNING_ON&#xD;&#xA;2: ON&#xD;&#xA;3: TURNING_OFF " />
+    <ObjectDictionaryRecord_eCommand name="HvGenCommand" command="0xFE1CFE1C" description="1: HV_GEN_ON &#xD;&#xA;0: HV_GEN_OFF" />
+    <ObjectDictionaryRecord_eADC_Lin name="AdcHvGen" unit="11" resolution="12" dblMin="0" dblMax="25" uiMin="0" uiMax="4095" description="HV_GEN primary side voltage diag." />
+    <ObjectDictionaryRecord_eADC_Lin name="Adc4kV" unit="11" resolution="12" dblMin="0" dblMax="-5000" uiMin="0" uiMax="4095" description="4kV supply output voltage diag." HWInterface="0" slotAddress="0" boardAddress="0" readWrite="0" SPIClock="0" />
+    <ObjectDictionaryRecord_eDAC_Lin name="Dac4kV" unit="11" resolution="12" dblMin="0" dblMax="4000" uiMin="0" uiMax="4095" />
+    <ObjectDictionarySeparator index="!!! " name="DESU SUP_90V Control" description="[image:file:DESU_SUP_90V_STATEMACHINE.png]&#xD;&#xA;" />
+    <ObjectDictionaryRecord_eState name="Sup90VState" state="0" description="0: OFF&#xD;&#xA;1: TURNING_90V_ON&#xD;&#xA;2: SUP_90V_ON&#xD;&#xA;3: TURNING_90V_OFF " HWInterface="0" slotAddress="0" boardAddress="0" readWrite="0" SPIClock="0" />
+    <ObjectDictionaryRecord_eCommand name="Sup90VCommand" command="0xFE1CFE1C" description="1: SUP_90V_ON&#xD;&#xA;0: SUP_90V_OFF" HWInterface="0" slotAddress="0" boardAddress="0" readWrite="0" SPIClock="0" />
+    <ObjectDictionaryRecord_eState name="CblDet90V1" state="0" description="cable detect status for MPFE cable&#xD;&#xA;0: CABLE_NOT_PRESENT&#xD;&#xA;1: CABLE_PRESENT" HWInterface="0" slotAddress="0" boardAddress="0" readWrite="0" SPIClock="0" />
+    <ObjectDictionaryRecord_eState name="CblDet90V2" state="0" description="cable detect status for UMUK (MOFE) cable&#xD;&#xA;0: CABLE_NOT_PRESENT&#xD;&#xA;1: CABLE_PRESENT" HWInterface="0" slotAddress="0" boardAddress="0" readWrite="0" SPIClock="0" />
+    <ObjectDictionaryRecord_eADC_Lin name="Adc90V" unit="11" resolution="12" dblMin="0" dblMax="125" uiMin="0" uiMax="4095" description="90V supply output voltage diag." HWInterface="0" slotAddress="0" boardAddress="0" readWrite="0" SPIClock="0" />
+    <ObjectDictionarySeparator index="!!! " name="DESU SUP_LVDFE Control" />
+    <ObjectDictionaryRecord_eState name="SupLvdfeState" state="0" description="0: OFF&#xD;&#xA;1: TURNING_LVDFE_ON&#xD;&#xA;2: SUP_LVDFE_ON&#xD;&#xA;3: TURNING_LVDFE_OFF " HWInterface="0" slotAddress="0" boardAddress="0" readWrite="0" SPIClock="0" />
+    <ObjectDictionaryRecord_eCommand name="SupLvdfeCommand" command="0xFE1CFE1C" description="1: SUP_LVDFE_ON&#xD;&#xA;0: SUP_LVDFE_OFF" HWInterface="0" slotAddress="0" boardAddress="0" readWrite="0" SPIClock="0" />
+    <ObjectDictionaryRecord_eADC_Lin name="AdcFsupTest" unit="11" resolution="12" dblMin="0" dblMax="15" uiMin="0" uiMax="4095" description="LVDFE supply ground-side voltage diag." HWInterface="0" slotAddress="0" boardAddress="0" readWrite="0" SPIClock="0" />
+    <ObjectDictionarySeparator index="!!! " name="DESU SUP_800V/250V Control" description="[image:file:DESU_SUP_REG_STATEMACHINE.png]&#xD;&#xA;" />
+    <ObjectDictionaryRecord_eState name="Sup800V250VState" state="0" description="0: OFF&#xD;&#xA;1: TURNING_800V_ON&#xD;&#xA;2: REG_800V_ON&#xD;&#xA;3: REGULATE&#xD;&#xA;4: TURNING_800V_OFF&#xD;&#xA;5: TURNING_250V_ON&#xD;&#xA;6: REG_250V_ON&#xD;&#xA;7: TURNING_250V_OFF&#xD;&#xA;8: TAD_ON&#xD;&#xA;9: TAD_REGULATE&#xD;&#xA;10: REGULATE_TAD" HWInterface="0" slotAddress="0" boardAddress="0" readWrite="0" SPIClock="0" />
+    <ObjectDictionaryRecord_eCommand name="Sup800V250VCommand" command="0xFE1CFE1C" description="1: SUP_800V_ON&#xD;&#xA;2: SUP_REGULATE&#xD;&#xA;3: SUP_800V_OFF&#xD;&#xA;4: SUP_250V_ON&#xD;&#xA;5: SUP_250V_OFF&#xD;&#xA;6: SUP_TAD_ON&#xD;&#xA;7: SUP_TAD_REGULATE&#xD;&#xA;8: SUP_TAD_OFF&#xD;&#xA;9: SUP_REGULATE_TAD" HWInterface="0" slotAddress="0" boardAddress="0" readWrite="0" SPIClock="0" />
+    <ObjectDictionaryRecord_eDAC_Lin name="DACSup800VRegulate" DACRawInput="2048" unit="11" resolution="12" dblMin="0" dblMax="800" uiMin="0" uiMax="4095" description="required power supply output voltage in REGULATE state" />
+    <ObjectDictionaryRecord_eADC_Lin name="Adc800V" unit="11" resolution="12" dblMin="0" dblMax="1000" uiMin="0" uiMax="4095" description="800V/250V supply output voltage diag." HWInterface="0" slotAddress="0" boardAddress="0" readWrite="0" SPIClock="0" />
+    <ObjectDictionarySeparator index="!! " name="DESU relay control" />
+    <ObjectDictionarySeparator index="!!! " name="DESU REL_10KV Control" description="[image:file:DESU_REL_10KV_STATEMACHINE.png]&#xD;&#xA;" />
+    <ObjectDictionaryRecord_eState name="Rel10kVState" state="0" description="0: OFF&#xD;&#xA;1: TURNING_ON&#xD;&#xA;2: ON&#xD;&#xA;3: TURNING_OFF " HWInterface="0" slotAddress="0" boardAddress="0" readWrite="0" SPIClock="0" />
+    <ObjectDictionaryRecord_eCommand name="Rel10kVCommand" command="0xFE1CFE1C" description="1: REL_10KV_ON &#xD;&#xA;0: REL_10KV_OFF" HWInterface="0" slotAddress="0" boardAddress="0" readWrite="0" SPIClock="0" />
+    <ObjectDictionaryRecord_eADC_Lin name="Adc10kV" unit="11" resolution="12" dblMin="0" dblMax="12500" uiMin="0" uiMax="4095" description="10kV supply output voltage diag." HWInterface="0" slotAddress="0" boardAddress="0" readWrite="0" SPIClock="0" />
+    <ObjectDictionarySeparator index="!!! " name="DESU REL_STAGE Control" description="[image:file:DESU_REL_STAGE_STATEMACHINE.png]&#xD;&#xA;" />
+    <ObjectDictionaryRecord_eState name="RelStageState" state="0" description="0: TA (Touch alarm circuit connected)&#xD;&#xA;1: TURNING_BIAS_ON&#xD;&#xA;2: BIAS_ON (4kV power supply circuit connected)&#xD;&#xA;3: TURNING_BIAS_OFF&#xD;&#xA;&#xD;&#xA;5: EXT_ON (external measurement circuit connected)&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;8: CM_ON (current measurement circuit connected)&#xD;&#xA;&#xD;&#xA;10: BIAS_TAD_00 (MCU_4KV_REL signal L, MCU_4KV_REL2 signal L)&#xD;&#xA;11: BIAS_TAD_01 (MCU_4KV_REL signal L, MCU_4KV_REL2 signal H)&#xD;&#xA;12: BIAS_TAD_11 (MCU_4KV_REL signal H, MCU_4KV_REL2 signal H)&#xD;&#xA;" HWInterface="0" slotAddress="0" boardAddress="0" readWrite="0" SPIClock="0" />
+    <ObjectDictionaryRecord_eCommand name="RelStageCommand" command="0xFE1CFE1C" description="1: REL_BIAS_ON&#xD;&#xA;2: REL_BIAS_OFF&#xD;&#xA;3: REL_EXT_ON&#xD;&#xA;4: REL_EXT_OFF&#xD;&#xA;5: REL_CM_ON&#xD;&#xA;6: REL_CM_OFF&#xD;&#xA;7: REL_BIAS_TAD_ON&#xD;&#xA;8: REL_BIAS_TAD_OFF&#xD;&#xA;9: REL_BIAS_TAD_00&#xD;&#xA;10: REL_BIAS_TAD_01&#xD;&#xA;11:REL_BIAS_TAD_11" HWInterface="0" slotAddress="0" boardAddress="0" readWrite="0" SPIClock="0" />
+    <ObjectDictionaryRecord_eADC_Lin name="AdcStageCurrentMeas" unit="12" resolution="16" dblMin="0.00000005" dblMax="-0.0000002" uiMin="0" uiMax="65535" description="Stage current measurement ADC, samplerate 20sps" />
+    <ObjectDictionaryRecord_eADC_Lin name="AdcStageCurrentMeasAverage" unit="12" resolution="16" dblMin="0.00000005" dblMax="-0.0000002" uiMin="0" uiMax="65535" description="Stage current measurement ADC, updaterate 2 readings/s (10 samples average)" HWInterface="0" slotAddress="0" boardAddress="0" readWrite="0" SPIClock="0" />
+    <ObjectDictionaryRecord_eADC_Lin name="AdcStageCurrentMeasMovingAverage" unit="12" resolution="16" dblMin="0.00000005" dblMax="-0.0000002" uiMin="0" uiMax="65535" description="Stage current measurement ADC, updaterate 20 readings/s (10 samples moving average)" HWInterface="0" slotAddress="0" boardAddress="0" readWrite="0" SPIClock="0" />
+    <ObjectDictionaryRecord_eFloat64 name="StageCurrentOffset" parameter="-0.00000040025" />
+    <ObjectDictionaryRecord_eFloat64 name="StageCurrentMultiplier" parameter="0.12525" />
+    <ObjectDictionarySeparator index="!! " name="touch alarm" />
+    <ObjectDictionaryRecord_eState name="CblDetStage" state="0" description="cable detect status for stage cable&#xD;&#xA;0: CABLE_NOT_PRESENT&#xD;&#xA;1: CABLE_PRESENT" />
+    <ObjectDictionaryRecord_eState name="CblDetTaMotion" state="0" description="cable detect status for touch alarm cable into motion controller&#xD;&#xA;0: CABLE_NOT_PRESENT&#xD;&#xA;1: CABLE_PRESENT" HWInterface="0" slotAddress="0" boardAddress="0" readWrite="0" SPIClock="0" />
+    <ObjectDictionaryRecord_eState name="TaActive" state="0" description="touch alarm functionality status&#xD;&#xA;0: TA_INACTIVE&#xD;&#xA;1: TA_ACTIVE&#xD;&#xA;&#xD;&#xA;touchalarm is active in following 2 states:&#xD;&#xA;RelStageState = 0: TA &#xD;&#xA;OR&#xD;&#xA;(RelStageState = 2: BIAS_ON) AND (HvGenState=2:ON)" HWInterface="0" slotAddress="0" boardAddress="0" readWrite="0" SPIClock="0" />
+    <ObjectDictionaryRecord_eState name="TaDetected" state="0" description="touch alarm status&#xD;&#xA;0: TA_NOT_DETECTED&#xD;&#xA;&gt;0: TA_DETECTED" />
+    <ObjectDictionarySeparator name="overvoltage/undervoltage protection" />
+    <ObjectDictionaryRecord_eState name="ProtectionState" state="0" description="0: DISABLED&#xD;&#xA;1: ENABLED (10% nominal value limit)&#xD;&#xA;" HWInterface="0" slotAddress="0" boardAddress="0" readWrite="0" SPIClock="0" />
+    <ObjectDictionaryRecord_eCommand name="ProtectionCommand" command="0xFE1CFE1C" description="1: PROTECTION_ON &#xD;&#xA;0: PROTECTION_OFF" HWInterface="0" slotAddress="0" boardAddress="0" readWrite="0" SPIClock="0" />
+    <ObjectDictionaryRecord_eNullDevice name="End of index=2000" />
+    <ObjectDictionaryBlock index="8000" />
+    <ObjectDictionarySeparator name="TAD" />
+    <ObjectDictionaryRecord_eState name="BoardRevision" state="0" description="DESU HW revision (4bit)" />
+    <ObjectDictionaryRecord_eVersion3_8 name="FirmwareVersion" X="0" Y="0" Z="0" description="DESU FW version" />
+    <ObjectDictionaryRecord_eADC_Lin name="Adc5vrefTest" unit="11" resolution="12" dblMin="0" dblMax="6.25" uiMin="0" uiMax="4095" description="Test measurement of  +5V_REF voltage reference circuit" />
+    <ObjectDictionaryRecord_eADC_Lin name="Adc24vTest" unit="11" resolution="12" dblMin="0" dblMax="25" uiMin="0" uiMax="4095" description="Test measurement of  +24V supply voltage (main supply voltage input of DESU board)" HWInterface="0" slotAddress="0" boardAddress="0" readWrite="0" SPIClock="0" />
+    <ObjectDictionaryRecord_eState name="PowerOk" state="0" description="0=power OK, &gt;0 power fail&#xD;&#xA;bit&#xD;&#xA; 0 3v3&#xD;&#xA; 1 5v&#xD;&#xA; 2 N6v51&#xD;&#xA; 3 P6v51&#xD;&#xA; 4 N6v5&#xD;&#xA; 5 P6v5&#xD;&#xA; 6 N12v&#xD;&#xA; 7 P12v&#xD;&#xA; 8 24v" />
+    <ObjectDictionaryRecord_eState name="HvInterlock" state="0" />
+    <ObjectDictionaryRecord_eState name="LvInterlock" state="0" />
+    <ObjectDictionaryRecord_eState name="TaDetectedRaw" state="0" description="0=TA not detected, &gt;0 TA detected&#xD;&#xA;bit&#xD;&#xA;0 4KV_TA signal&#xD;&#xA;1 TA signal" />
+    <ObjectDictionaryRecord_eConfiguration name="NfueFirst" description="Non Fatal Unexpected Error&#xD;&#xA;NFUE_HVGEN_INTERLOCK 1 //missing interlock prior HVGEN turn on attemp  &#xD;&#xA;NFUE_REL_10KV_INTERLOCK 2 //missing interlock prior REL_10KV turn on attemp  &#xD;&#xA;&#xD;&#xA;NFUE_SUP90V_INTERLOCK 4 //missing interlock prior SUP90V turn on attemp or interlock lost during ON state  &#xD;&#xA;NFUE_STAGE_BIAS_INTERLOCK 5 //missing interlock prior STAGE bias turn on attemp or interlock lost during ON state&#xD;&#xA;&#xD;&#xA;NFUE_SUP_800V_INTERLOCK 7 //missing interlock prior SUP_800V/250V turn on attemp&#xD;&#xA;NFUE_PWR_FAIL 8 //powerchecker circuit signal detected  &#xD;&#xA;NFUE_STAGE_BIAS_OUTOFRANGE 9 //measured value on 4kV supply was out of range - all suplies turned off&#xD;&#xA;NFUE_REL_10KV_OUTOFRANGE 10 //measured value on 10kV supply was out of range - all suplies turned off&#xD;&#xA;NFUE_SUP_250V_OUTOFRANGE 11 //measured value on 250V supply was out of range - all suplies turned off&#xD;&#xA;NFUE_SUP_90V_OUTOFRANGE 12 //measured value on 90V supply was out of range - all suplies turned off&#xD;&#xA;NFUE_SUP_90V_CABLEDETECT 13 //missing cabledetect signal prior SUP90V turn on attemp or signal lost during ON state&#xD;&#xA;NFUE_STAGE_BIAS_CABLEDETECT 14 //missing cabledetect signal prior STAGE bias turn on attemp or signal lost during ON state&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;" />
+    <ObjectDictionaryRecord_eError name="NfueLast" currentError="0" maxHistorySize="8" />
+    <ObjectDictionaryRecord_eConfiguration name="NfueCount" />
+    <ObjectDictionaryRecord_eConfiguration name="NfueOdFirst" />
+    <ObjectDictionaryRecord_eError name="NfueOdLast" currentError="0" maxHistorySize="8" />
+    <ObjectDictionaryRecord_eConfiguration name="NfueOdCount" />
+    <ObjectDictionaryRecord_eConfiguration name="AliveCount" />
+    <ObjectDictionaryRecord_eDataRO name="UniqueID" maxSize="12" description="DESU UniqueID (96bit)" />
+    <ObjectDictionaryRecord_eString name="ErrorString" string="EmptyErrorStringEmptyErrorString" description="Human-readable error string" />
+    <ObjectDictionaryRecord_eNullDevice name="End of index=8000" />
+  </ObjectDictionaryTable>
+</ObjectDictionaryDefinition>
