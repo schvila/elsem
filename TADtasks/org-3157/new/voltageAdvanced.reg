@@ -25,13 +25,9 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             "Adc4kVtest" \
                             "Adc4kVtest"
                         TestIndex_6 = "SupTadSwitch(Sup800250Command, 0x06)"
-                        TestIndex_7 = REG_MULTI_SZ "ValueSetterWithPause(Regulate800V, 800, ""Regulate 800V"")" \
-                            "SupTadSwitch(Sup800250Command, 0x07)" \
-                            "TadVoltageTest(Adc800Val, 800, ""Test 800V"")"
-                        TestIndex_8 = REG_MULTI_SZ "ValueSetterWithPause(Regulate800V, 250, ""Regulate 250V"")" \
-                            "SupTadSwitch(Sup800250Command, 0x07)" \
-                            "TadVoltageTest(Adc800Val, 250, ""Test 250V"")"
-                        TestIndex_9 = "SupTadSwitch(Sup800250Command, 0x08)"
+                        TestIndex_7 = "ValueSetterWithPause(Regulate800V, 800, "Regulate 800V")"
+                        TestIndex_8 = "SupTadSwitch(Sup800250Command, 0x07)"
+                        TestIndex_9 = "TadVoltageTest(Adc800Val, 800, "Test 800V")"
                         HvGenCommand
                             ODPrimitivePath = DESU/HvGenCommand
                             ODPrimitiveType = Command
