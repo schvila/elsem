@@ -2,8 +2,8 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
     TadXtDesuBrick
         TadXtDesuBrickMgr
             Desu
-                DESU Voltage Tests
-                    Description = DESU Voltage Tests
+                 Output voltages Advanced
+                    Description = Output voltages Advanced
                     DlgProgId = TADUIAUTOTESTDLG.TADUIAutoTestDlgCtrl.1
                     HelpBaseId = REG_DWORD 0x40030400
                     IsMonitorTest = false
@@ -20,49 +20,67 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                         TestIndex_1 = "AppVersion"
                         TestIndex_2 = "FirmwareVersion"
                         TestIndex_3 = "Hivac"
-                        TestIndex_4 = SwitchOscilator(HvGenCommand, 0x01, "Switch ON", "Oscilator is ON", "")
-                        TestIndex_5 = REG_MULTI_SZ "Adc4kVtest" \
-                            "Adc4kVtest" \
-                            "Adc4kVtest"
-                        TestIndex_6 = "SupTadSwitch(Sup800250Command, 0x06)"
-                        TestIndex_7 = "ValueSetterWithPause(Regulate800V, 800, "Regulate 800V")"
-                        TestIndex_8 = "SupTadSwitch(Sup800250Command, 0x07)"
-                        TestIndex_9 = "TadVoltageTest(Adc800Val, 800, "Test 800V")"
-                        HvGenCommand
-                            ODPrimitivePath = DESU/HvGenCommand
+                        TestIndex_4 = ProtectionOFF(ProtectCMD, 0x0)
+                        TestIndex_5 = ShowInfo("-4kV tests", "===========")
+                        TestIndex_6 = REG_MULTI_SZ "ChangeOutput(OutputCMD, 0x06, ""Output OFF"")" \
+                            "ValueSetterWithPause(Set4kV, 0, """")" \
+                            "VoltageTest(Get4kV, 0, ""4kV"")" \
+                            "ValueSetterWithPause(Set4kV, 50, """")" \
+                            "VoltageTest(Get4kV, 50, ""4kV"")" \
+                            "ValueSetterWithPause(Set4kV, 500, """")" \
+                            "VoltageTest(Get4kV, 500, ""4kV"")" \
+                            "ValueSetterWithPause(Set4kV, 2000, """")" \
+                            "VoltageTest(Get4kV, 2000, ""4kV"")" \
+                            "ValueSetterWithPause(Set4kV, 4000, """")" \
+                            "VoltageTest(Get4kV, 4000, ""4kV"")"
+                        TestIndex_7 = REG_MULTI_SZ "ChangeOutput(OutputCMD, 0x01, ""Output ON"")" \
+                            "ValueSetterWithPause(Set4kV, 0, """")" \
+                            "VoltageTest(Get4kV, 0, ""4kV"")" \
+                            "ValueSetterWithPause(Set4kV, 50, """")" \
+                            "VoltageTest(Get4kV, 50, ""4kV"")" \
+                            "ValueSetterWithPause(Set4kV, 500, """")" \
+                            "VoltageTest(Get4kV, 500, ""4kV"")" \
+                            "ValueSetterWithPause(Set4kV, 2000, """")" \
+                            "VoltageTest(Get4kV, 2000, ""4kV"")" \
+                            "ValueSetterWithPause(Set4kV, 4000, """")" \
+                            "VoltageTest(Get4kV, 4000, ""4kV"")"
+                        ProtectCMD
+                            ODPrimitivePath = DESU/ProtectionCommand
                             ODPrimitiveType = Command
                             SetterExpression =HvCommandValue
                             Type = ValueSetter
-                        Sup800250Command
-                            ODPrimitivePath = DESU/Sup800V250VCommand
+                        OutputCMD
+                            ODPrimitivePath = DESU/RelStageCommand
                             ODPrimitiveType = Command
                             SetterExpression =HvCommandValue
                             Type = ValueSetter
-                        Regulate800V
-                            ODPrimitivePath = DESU/DACSup800VRegulate
+                        Set4kV
+                            ODPrimitivePath = DESU/Dac4kV
                             ODPrimitiveType = DAC
                             SetterExpression = SetterValue
                             Type = ValueSetter
-                        Adc800Val
+                        Get4kV
                             Type = ODValueGetter
-                            ODPrimitivePath = DESU/Adc800V
+                            ODPrimitivePath = DESU/Adc4kV
                             ODPrimitiveType = ADC
-
+                        
                     Tests
-                        SupTadSwitch
-                            Description = SupTadSwitch
+                        ProtectionOFF
+                            Description =HvGenSwitch
                             Type = ValueWriter
                             Message_1 = Info;" "
                             IsTestHidden = true
                             Signature = "(ODSetter ADCCommand, Variable HvCommandValue)"
-                        TadVoltageTest
+                        ChangeOutput
                             Description = "%1%" << DescriptionString
-                            Expression_1 = true
-                            Message_1 = Info;"Expected: %1% Current: %2%" << ExpectedV << MeasuredV
-                            Message_2 = Error;"Test Failed"
-                            MinimalDelayinms = 500
-                            Signature = (Variable MeasuredV, Variable ExpectedV, Variable DescriptionString)
+                            Type = ValueWriter
+                            Message_1 = Info;" "
+                            Signature = "(ODSetter ADCCommand, Variable HvCommandValue, Variable DescriptionString)"
+                        ShowInfo
+                            Description = "%1%" << DescriptionString
+                            Message_1 = Info;"%1%" << InfoString
                             Type = ValueReadout
+                            Signature = "(Variable DescriptionString, Variable InfoString)"
                         ValueSetterWithPause
                             Type = ValueWriter
                             Description = "%1% : %2%" << DescriptionString << SetterValue
@@ -70,6 +88,15 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             Signature = "(ODSetter SetterDAC, Variable SetterValue, Variable DescriptionString)"
                             IsTestHidden = true
                             MinimalDelayinms = 300
+                        VoltageTest
+                            Description = "%1% test %2%V" << DescriptionString << ExpectedV
+                            Expression_1 = true
+                            Message_1 = Info;"Expected: %1%,mesured %2%" << ExpectedV << MeasuredV
+                            Message_2 = Error;"Test Failed Expected %1%V measured %2%V" << ExpectedV << MeasuredV
+                            MinimalDelayinms = 500
+                            Signature = (Variable MeasuredV, Variable ExpectedV, Variable DescriptionString)
+                            Type = ValueReadout
+
                         AppVersion
                             Description="Application version"
                             Expression_1 = true
@@ -101,44 +128,3 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             HiVacExpected
                                 Type = Constant
                                 Value = 0x1
-                        SwitchOscilator
-                            Description ="%1%" << DescriptionString
-                            Expression_1 = HvCommandValue == HvCommandValue
-                            Message_1 = Info;"%1% original state: %2%" << SuccessMessage << HvCommandResult
-                            Message_2 = Error;"%1%" << ErrorMessage
-                            Signature = "(ODSetter ADCCommand, Variable HvCommandValue, Variable DescriptionString, Variable SuccessMessage, Variable ErrorMessage)"
-                            Type = ValueWriter
-                            HvCommandResult
-                                Type = ODValueGetter
-                                ODPrimitivePath = DESU/HvGenState
-                                ODPrimitiveType = State
-                        Adc4kVtest
-                            Description = Check internal -4000V if it is in limits +- 3%%
-                            Expression_1 = Adc4kValue >= UpperLimit && Adc4kValue <= LowerLimit
-                            Message_1 = Info;"Internal Voltage   %1% is in 3%% limit" << Adc4kValue
-                            Message_2 = Error;"Internal Voltage  = %1% out of +- 3%% limits" << Adc4kValue
-                            MinimalDelayinms = 1000
-                            Type = ValueWriter
-                            LowerLimit
-                                Type = Constant
-                                Value = -3880
-                            UpperLimit
-                                Type = Constant
-                                Value = -4120
-                            Adc4kValue
-                                Type = ODValueGetter
-                                ODPrimitivePath = DESU/Adc4kV
-                                ODPrimitiveType = ADC
-
-
-
-
-
-
-
-
-
-
-
-
-

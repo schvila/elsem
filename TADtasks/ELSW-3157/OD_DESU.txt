@@ -27,10 +27,16 @@
 0x2014	State	RelStageState
 0x2015	Command	RelStageCommand
 0x2016	AdcLinear	AdcStageCurrentMeas
-0x2017	State	CblDetStage
-0x2018	State	CblDetTaMotion
-0x2019	State	TaActive
-0x201A	State	TaDetected
+0x2017	AdcLinear	AdcStageCurrentMeasAverage
+0x2018	AdcLinear	AdcStageCurrentMeasMovingAverage
+0x2019	Float64	StageCurrentOffset
+0x201A	Float64	StageCurrentMultiplier
+0x201B	State	CblDetStage
+0x201C	State	CblDetTaMotion
+0x201D	State	TaActive
+0x201E	State	TaDetected
+0x201F	State	ProtectionState
+0x2020	Command	ProtectionCommand
 0x8000	State	BoardRevision
 0x8001	Version3_8	FirmwareVersion
 0x8002	AdcLinear	Adc5vrefTest
@@ -46,4 +52,5 @@
 0x800C	Error	NfueOdLast
 0x800D	Configuration	NfueOdCount
 0x800E	Configuration	AliveCount
-0x800F	String	ErrorString
+0x800F	Data	UniqueID
+0x8010	String	ErrorString

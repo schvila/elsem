@@ -24,14 +24,15 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                         TestIndex_5 = REG_MULTI_SZ "Adc4kVtest" \
                             "Adc4kVtest" \
                             "Adc4kVtest"
-                        TestIndex_6 = "SupTadSwitch(Sup800250Command, 0x06)"
-                        TestIndex_7 = REG_MULTI_SZ "ValueSetterWithPause(Regulate800V, 800, ""Regulate 800V"")" \
-                            "SupTadSwitch(Sup800250Command, 0x07)" \
-                            "TadVoltageTest(Adc800Val, 800, ""Test 800V"")"
+                        TestIndex_6 = "HvGenSwitch(HvGenCommand, 0x01)"
+                        TestIndex_7 = "SupTadSwitch(Sup800250Command, 0x06)"
                         TestIndex_8 = REG_MULTI_SZ "ValueSetterWithPause(Regulate800V, 250, ""Regulate 250V"")" \
                             "SupTadSwitch(Sup800250Command, 0x07)" \
                             "TadVoltageTest(Adc800Val, 250, ""Test 250V"")"
-                        TestIndex_9 = "SupTadSwitch(Sup800250Command, 0x08)"
+                        TestIndex_9 = REG_MULTI_SZ "ValueSetterWithPause(Regulate800V, 800, ""Regulate 800V"")" \
+                            "SupTadSwitch(Sup800250Command, 0x07)" \
+                            "TadVoltageTest(Adc800Val, 800, ""Test 800V"")"
+                        TestIndex_10 = "SupTadSwitch(Sup800250Command, 0x08)"
                         HvGenCommand
                             ODPrimitivePath = DESU/HvGenCommand
                             ODPrimitiveType = Command
@@ -53,6 +54,12 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             ODPrimitiveType = ADC
 
                     Tests
+                        HvGenSwitch
+                            Description =HvGenSwitch
+                            Type = ValueWriter
+                            Message_1 = Info;" "
+                            IsTestHidden = true
+                            Signature = "(ODSetter ADCCommand, Variable HvCommandValue)"
                         SupTadSwitch
                             Description = SupTadSwitch
                             Type = ValueWriter
@@ -61,9 +68,9 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             Signature = "(ODSetter ADCCommand, Variable HvCommandValue)"
                         TadVoltageTest
                             Description = "%1%" << DescriptionString
-                            Expression_1 = true
-                            Message_1 = Info;"Expected: %1% Current: %2%" << ExpectedV << MeasuredV
-                            Message_2 = Error;"Test Failed"
+                            Expression_1 = ExpectedV <= MeasuredV*1.03
+                            Message_1 = Info;"Measured: %1% in 3%% limit"  << MeasuredV
+                            Message_2 = Error;"Test Failed Expected %1%V measured %2%V" << ExpectedV << MeasuredV
                             MinimalDelayinms = 500
                             Signature = (Variable MeasuredV, Variable ExpectedV, Variable DescriptionString)
                             Type = ValueReadout
@@ -133,16 +140,3 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                                 Type = ODValueGetter
                                 ODPrimitivePath = DESU/Adc4kV
                                 ODPrimitiveType = ADC
-
-
-
-
-
-
-
-
-
-
-
-
-

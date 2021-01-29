@@ -85,7 +85,28 @@ Signature = "(Variable DescriptionString)"
 
 c:\work\RegTools\RegIni264.exe C:\_dv\elsem\TADtasks\ELSW-3157\desu\darkcurrent.reg
 c:\work\RegTools\RegIni264.exe C:\_dv\elsem\TADtasks\ELSW-3157\desu\voltage.reg
+c:\work\RegTools\RegIni264.exe C:\_dv\elsem\TADtasks\org-3157\new\justdelete.reg
+c:\work\RegTools\RegIni264.exe C:\_dv\elsem\TADtasks\org-3157\new\darkcurrent.reg
+c:\work\RegTools\RegIni264.exe C:\_dv\elsem\TADtasks\org-3157\new\voltage.reg
 org
+c:\work\RegTools\RegIni264.exe c:\xt\server\XT\install\src\tad\desu\desu_general.reg
 c:\work\RegTools\RegIni264.exe c:\xt\server\XT\install\src\tad\desu\tests\voltage.reg
+c:\work\RegTools\RegIni264.exe C:\_dv\elsem\TADtasks\org-3157\desu\tests\voltage.reg
+
 
 c:\work\RegTools\RegIni264.exe C:\_dv\elsem\TADtasks\org-3157\new\voltage.reg
+voltage test 800/250
+01/25/2021 09:39:05.840  HvGenCommand = HV_GEN_ON (1)
+01/25/2021 09:39:05.845  HvGenCommand = NoCommand (0xFE1CFE1C)
+01/25/2021 09:39:08.888  HvGenCommand = HV_GEN_ON (1)
+01/25/2021 09:39:08.890  HvGenCommand = NoCommand (0xFE1CFE1C)
+01/25/2021 09:39:08.897  Sup800V250VCommand = SUP_TAD_ON (6)
+01/25/2021 09:39:08.899  Sup800V250VCommand = NoCommand (0xFE1CFE1C)
+01/25/2021 09:39:08.902  DACSup800VRegulate = 800
+01/25/2021 09:39:09.215  Sup800V250VCommand = SUP_TAD_REGULATE (7)
+01/25/2021 09:39:09.218  Sup800V250VCommand = NoCommand (0xFE1CFE1C)
+01/25/2021 09:39:09.228  DACSup800VRegulate = 250.06105006105
+01/25/2021 09:39:09.544  Sup800V250VCommand = SUP_TAD_REGULATE (7)
+01/25/2021 09:39:09.546  Sup800V250VCommand = NoCommand (0xFE1CFE1C)
+01/25/2021 09:39:09.555  Sup800V250VCommand = SUP_TAD_OFF (8)
+01/25/2021 09:39:09.559  Sup800V250VCommand = NoCommand (0xFE1CFE1C)

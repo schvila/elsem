@@ -78,3 +78,8 @@ HEXA - String
 
 
   x. ProtectionCommand: dat do puvodniho stavu? pujde?
+
+   
+c:\work\RegTools\RegIni264.exe C:\_dv\elsem\TADtasks\ELSW-3935\voltageAdvanced.reg
+org
+c:\work\RegTools\RegIni264.exe c:\xt\server\XT\install\src\tad\desu\desu_general.reg
