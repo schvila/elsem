@@ -44,6 +44,43 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             "VoltageTest(Get4kV, 2000, ""4kV"")" \
                             "ValueSetterWithPause(Set4kV, 4000, """")" \
                             "VoltageTest(Get4kV, 4000, ""4kV"")"
+                        TestIndex_8 = "HvGenSwitch(HvGenCommand, 0x01)"
+                        TestIndex_9 = "SupTadSwitch(Sup800250Command, 0x06)"
+                        TestIndex_10 = REG_MULTI_SZ "ValueSetterWithPause(Regulate800V, 0, ""Regulate 0V"")" \
+                            "SupTadSwitch(Sup800250Command, 0x07)" \
+                            "TadVoltageTest(Adc800Val, 0, ""800V"")" \
+                            "ValueSetterWithPause(Regulate800V, 50, ""Regulate 50V"")" \
+                            "SupTadSwitch(Sup800250Command, 0x07)" \
+                            "TadVoltageTest(Adc800Val, 50, ""800V"")" \
+                            "ValueSetterWithPause(Regulate800V, 200, ""Regulate 200V"")" \
+                            "SupTadSwitch(Sup800250Command, 0x07)" \
+                            "TadVoltageTest(Adc800Val, 200, ""800V"")" \
+                            "ValueSetterWithPause(Regulate800V, 400, ""Regulate 400V"")" \
+                            "SupTadSwitch(Sup800250Command, 0x07)" \
+                            "TadVoltageTest(Adc800Val, 400, ""800V"")" \
+                            "ValueSetterWithPause(Regulate800V, 800, ""Regulate 800V"")" \
+                            "SupTadSwitch(Sup800250Command, 0x07)" \
+                            "TadVoltageTest(Adc800Val, 800, ""800V"")"                        
+                        TestIndex_11 = "SupTadSwitch(Sup800250Command, 0x08)"
+                        HvGenCommand
+                            ODPrimitivePath = DESU/HvGenCommand
+                            ODPrimitiveType = Command
+                            SetterExpression =HvCommandValue
+                            Type = ValueSetter
+                        Sup800250Command
+                            ODPrimitivePath = DESU/Sup800V250VCommand
+                            ODPrimitiveType = Command
+                            SetterExpression =HvCommandValue
+                            Type = ValueSetter
+                        Regulate800V
+                            ODPrimitivePath = DESU/DACSup800VRegulate
+                            ODPrimitiveType = DAC
+                            SetterExpression = SetterValue
+                            Type = ValueSetter
+                        Adc800Val
+                            Type = ODValueGetter
+                            ODPrimitivePath = DESU/Adc800V
+                            ODPrimitiveType = ADC
                         ProtectCMD
                             ODPrimitivePath = DESU/ProtectionCommand
                             ODPrimitiveType = Command
@@ -65,6 +102,37 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             ODPrimitiveType = ADC
                         
                     Tests
+                        HvGenSwitch
+                            Description =HvGenSwitch
+                            Type = ValueWriter
+                            Message_1 = Info;" "
+                            IsTestHidden = true
+                            Signature = "(ODSetter ADCCommand, Variable HvCommandValue)"
+                        SupTadSwitch
+                            Description = SupTadSwitch
+                            Type = ValueWriter
+                            Message_1 = Info;" "
+                            IsTestHidden = true
+                            Signature = "(ODSetter ADCCommand, Variable HvCommandValue)"
+                        ValueSetterWithPause
+                            Type = ValueWriter
+                            Description = "%1% : %2%" << DescriptionString << SetterValue
+                            Message_1 = Info;"Done"
+                            Signature = "(ODSetter SetterDAC, Variable SetterValue, Variable DescriptionString)"
+                            IsTestHidden = true
+                            MinimalDelayinms = 300
+                        TadVoltageTest
+                            Description = "%1%: (%2%V)" << DescriptionString << ExpectedV
+                            Expression_1 = REG_MULTI_SZ "MeasuredValPerc = MeasuredV*VPercent" \
+                            "true"
+                            Message_1 = Info;"Test %1%V measured VP %2%V" << ExpectedV << MeasuredValPerc
+                            Message_2 = Error;"Test Failed Expected %1%V measured %2%V" << ExpectedV << MeasuredV
+                            MinimalDelayinms = 500
+                            Signature = (Variable MeasuredV, Variable ExpectedV, Variable DescriptionString)
+                            Type = ValueReadout
+                            VPercent
+                                Type = Constant
+                                Value = 1.05
                         ProtectionOFF
                             Description =HvGenSwitch
                             Type = ValueWriter
@@ -83,13 +151,13 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             Signature = "(Variable DescriptionString, Variable InfoString)"
                         ValueSetterWithPause
                             Type = ValueWriter
-                            Description = "%1% : %2%" << DescriptionString << SetterValue
+                            Description = "%1%: (%2%V)" << DescriptionString << SetterValue
                             Message_1 = Info;"Done"
                             Signature = "(ODSetter SetterDAC, Variable SetterValue, Variable DescriptionString)"
                             IsTestHidden = true
                             MinimalDelayinms = 300
                         VoltageTest
-                            Description = "%1% test %2%V" << DescriptionString << ExpectedV
+                            Description = "%1%: (%2%V)" << DescriptionString << ExpectedV
                             Expression_1 = true
                             Message_1 = Info;"Expected: %1%,mesured %2%" << ExpectedV << MeasuredV
                             Message_2 = Error;"Test Failed Expected %1%V measured %2%V" << ExpectedV << MeasuredV
