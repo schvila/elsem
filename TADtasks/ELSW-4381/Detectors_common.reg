@@ -1,0 +1,223 @@
+HKEY_LOCAL_MACHINE\SOFTWARE\FEI\Tadbrickbox\configurations\<tadconfig_name>\TAD-bbox
+    AuxTadserverBrick
+        AuxTadserverBrickMgr
+            TadServer
+                TADxtDbDfBrick
+                TADxtDbDfBrick [delete]
+    TADxtDbDfBrick
+    TADxtDbDfBrick [delete]
+
+
+; Common part to define the TadDetection test group for the TadDetection brick
+HKEY_LOCAL_MACHINE\SOFTWARE\FEI\Tadbrickbox\configurations\<tadconfig_name>\TAD-bbox
+    AuxTadserverBrick
+        AuxTadserverBrickMgr
+            TadServer
+                TADxtDbDfBrick
+                    TestGroupName = Detection - New detectors
+                    OrderPriority = REG_DWORD 0x00000081
+
+
+; Definition of the tests within the Dabe/Dafe Brick
+HKEY_LOCAL_MACHINE\SOFTWARE\FEI\Tadbrickbox\configurations\<tadconfig_name>\TAD-bbox
+    TADxtDbDfBrick
+        ClassName = FeiTADxtDbDf.TADxtDbDfBrick
+        Type = Brick
+        Diagnostics
+            DataRecorder
+                BufferSize = REG_DWORD 0x00010000
+                SeverityMask = REG_DWORD 0xffffffff
+                CategoryMask = REG_DWORD 0xffffffff
+                MapName = TadXtimageengineMap
+                OutputFile = c:\Tad\Diagnostics\TadXtimageengine.bry
+                OutputFileText = c:\Tad\Diagnostics\TadXtimageengine.txt
+                Type = FeiWriterFilter
+            DebugTerm
+                Type = FeiDeveloperFilter
+                SeverityMask = REG_DWORD 0xfffffffe
+                CategoryMask = REG_DWORD 0x00ffffff
+            ServiceFactory
+                Type = FeiServiceFactoryFilter
+                SeverityMask = REG_DWORD 0xfffffffc
+                CategoryMask = REG_DWORD 0xffffffff
+        TADxtDbDfBrickMgr
+            Type = xtDbDfManager
+            Detection - New detectors
+                Type = TadGroupFactory
+                Board Presence Test
+                    Type = BoardPresenceTest
+                    DlgProgId = TADUIAUTOTESTDLG.TADUIAutoTestDlgCtrl.1
+                    HelpBaseId = REG_DWORD 0x00000000
+                    SCULogicalName = Detectors
+                    SCUAppName = NewInfraDetectors
+                DABE Functional Test
+                    Type = TadXtDbDfDABETest
+                    DlgProgId = TADUIAUTOTESTDLG.TADUIAutoTestDlgCtrl.1
+                    HelpBaseId = REG_DWORD 0x00000000
+                    SCULogicalName = Detectors
+                    SCUAppName = NewInfraDetectors
+                    TestRunsHighLevel = false
+                    TADConvertersCheck
+                        ChannelAExpectedValue = 1.62
+                        ChannelAMargin = 0.08
+                        ChannelBExpectedValue = 1.42
+                        ChannelBMargin = 0.08
+                    InternalVoltageCheck
+                        Ref2V5ExpectedValue = 2.5
+                        Ref2V5Margin = 0.1
+                        RefPSM2V5ExpectedValue = 2.5
+                        RefPSM2V5Margin = 0.1
+                        Febe0N6ExpectedRawValue = 1.15
+                        Febe0N6Margin = 0.05
+                        Febe0P6ExpectedRawValue = 2.3
+                        Febe0P6Margin = 0.1
+                        Febe1N6ExpectedRawValue = 1.15
+                        Febe1N6Margin = 0.05
+                        Febe1P6ExpectedRawValue = 2.3
+                        Febe1P6Margin = 0.1
+                    PreAmplifierCheck
+                        ChANormal_OffsetChangeLimit = 0.000001
+                        ChANormal_CalibrationMaxDifference = 0.1
+                        ChBNormal_OffsetChangeLimit = 0.000001
+                        ChBNormal_CalibrationMaxDifference = 0.1
+                        ChCNormal_OffsetChangeLimit = 0.000001
+                        ChCNormal_CalibrationMaxDifference = 0.1
+                        ChDNormal_OffsetChangeLimit = 0.000001
+                        ChDNormal_CalibrationMaxDifference = 0.1
+                        ChAInverse_OffsetChangeLimit = 0.000001
+                        ChAInverse_CalibrationMaxDifference = 0.1
+                        ChBInverse_OffsetChangeLimit = 0.000001
+                        ChBInverse_CalibrationMaxDifference = 0.1
+                        ChCInverse_OffsetChangeLimit = 0.000001
+                        ChCInverse_CalibrationMaxDifference = 0.1
+                        ChDInverse_OffsetChangeLimit = 0.000001
+                        ChDInverse_CalibrationMaxDifference = 0.1
+                    VariableGainCheck
+                        ChANormalPolarity
+                            NoOfTests = REG_DWORD 0x00000005
+                            RequestedValue1 = 0.0
+                            RequestedValue2 = 10.0
+                            RequestedValue3 = 20.0
+                            RequestedValue4 = 30.0
+                            RequestedValue5 = 40.0
+                        ChAInversePolarity
+                            NoOfTests = REG_DWORD 0x00000005
+                            RequestedValue1 = 0.0
+                            RequestedValue2 = 10.0
+                            RequestedValue3 = 20.0
+                            RequestedValue4 = 30.0
+                            RequestedValue5 = 40.0
+                        ChBNormalPolarity
+                            NoOfTests = REG_DWORD 0x00000005
+                            RequestedValue1 = 0.0
+                            RequestedValue2 = 10.0
+                            RequestedValue3 = 20.0
+                            RequestedValue4 = 30.0
+                            RequestedValue5 = 40.0
+                        ChBInversePolarity
+                            NoOfTests = REG_DWORD 0x00000005
+                            RequestedValue1 = 0.0
+                            RequestedValue2 = 10.0
+                            RequestedValue3 = 20.0
+                            RequestedValue4 = 30.0
+                            RequestedValue5 = 40.0
+                        ChCNormalPolarity
+                            NoOfTests = REG_DWORD 0x00000005
+                            RequestedValue1 = 0.0
+                            RequestedValue2 = 10.0
+                            RequestedValue3 = 20.0
+                            RequestedValue4 = 30.0
+                            RequestedValue5 = 40.0
+                        ChCInversePolarity
+                            NoOfTests = REG_DWORD 0x00000005
+                            RequestedValue1 = 0.0
+                            RequestedValue2 = 10.0
+                            RequestedValue3 = 20.0
+                            RequestedValue4 = 30.0
+                            RequestedValue5 = 40.0
+                        ChDNormalPolarity
+                            NoOfTests = REG_DWORD 0x00000005
+                            RequestedValue1 = 0.0
+                            RequestedValue2 = 10.0
+                            RequestedValue3 = 20.0
+                            RequestedValue4 = 30.0
+                            RequestedValue5 = 40.0
+                        ChDInversePolarity
+                            NoOfTests = REG_DWORD 0x00000005
+                            RequestedValue1 = 0.0
+                            RequestedValue2 = 10.0
+                            RequestedValue3 = 20.0
+                            RequestedValue4 = 30.0
+                            RequestedValue5 = 40.0
+                    DiffChannelCheck
+                        InputRefferenceOffMargin = 0.06
+                        InputRefferenceOffExpectedValue = 0.0
+                        InputRefferenceOnExpectedValue = 0.55
+                        InputRefferenceOnMargin = 0.18
+                        OutputDNormal_NoRefExpectedValue = 0.0
+                        OutputDNormal_NoRefMargin = 0.05
+                        OutputDNormal_RefAExpectedValue = 0.55
+                        OutputDNormal_RefAMargin = 0.18
+                        OutputDNormal_RefBExpectedValue = -0.55
+                        OutputDNormal_RefBMargin = 0.18
+                        OutputDNormal_RefABExpectedValue = 0.0
+                        OutputDNormal_RefABMargin = 0.05
+                        OutputDInverse_NoRefExpectedValue = 0.0
+                        OutputDInverse_NoRefMargin = 0.05
+                        OutputDInverse_RefAExpectedValue = -0.55
+                        OutputDInverse_RefAMargin = 0.18
+                        OutputDInverse_RefBExpectedValue = 0.55
+                        OutputDInverse_RefBMargin = 0.18
+                        OutputDInverse_RefABExpectedValue = 0.0
+                        OutputDInverse_RefABMargin = 0.05
+                        OutputBNormal_NoRefExpectedValue = 0.0
+                        OutputBNormal_NoRefMargin = 0.05
+                        OutputBNormal_RefAExpectedValue = 0.55
+                        OutputBNormal_RefAMargin = 0.18
+                        OutputBNormal_RefBExpectedValue = -0.55
+                        OutputBNormal_RefBMargin = 0.18
+                        OutputBNormal_RefABExpectedValue = 0.0
+                        OutputBNormal_RefABMargin = 0.05
+                        OutputBInverse_NoRefExpectedValue = 0.0
+                        OutputBInverse_NoRefMargin = 0.05
+                        OutputBInverse_RefAExpectedValue = -0.55
+                        OutputBInverse_RefAMargin = 0.18
+                        OutputBInverse_RefBExpectedValue = 0.55
+                        OutputBInverse_RefBMargin = 0.18
+                        OutputBInverse_RefABExpectedValue = 0.0
+                        OutputBInverse_RefABMargin = 0.05
+                DSPS Functional Test
+                    Type = TadXtDbDfDSPSTest
+                    DlgProgId = TADUIAUTOTESTDLG.TADUIAutoTestDlgCtrl.1
+                    HelpBaseId = REG_DWORD 0x00000000
+                    SCULogicalName = Detectors
+                    SCUAppName = NewInfraDetectors
+                    TestRunsHighLevel = false
+                    Is90VoltsTestNeeded = REG_DWORD 0
+                    InfoElementName = DSPS_0_Identification
+                    BoardVersionElementName = DSPS_0_BoardVersion
+                    InterlockElementName = DSPS_0_InterlockError
+                    InterlockExpectedValue = REG_DWORD 0x00000000
+                    CableElementName = DSPS_0_CableStatus
+                    CableMPFEMask = REG_DWORD 0x00000007
+                    CableMPFEExpectedValue = REG_DWORD 0x00000000
+                    CableSSFEMask = REG_DWORD 0x00000038
+                    CableSSFEMaskExpectedValue = REG_DWORD 0x00000038
+                    Positive6.5VoltElementName = DSPS_0_P6p5VoltMon
+                    Positive6.5VoltExpectedValue = 6.7
+                    Positive6.5VoltLimit = 0.5 
+                    Positive6.5CurrentElementName = DSPS_0_P6p5CurrMon
+                    Positive6.5CurrentLimitMin = 0.0
+                    Positive6.5CurrentLimitMax = 2.5 
+                    Negative6.5VoltElementName = DSPS_0_M6p5VoltMon
+                    Negative6.5VoltExpectedValue = -6.7 
+                    Negative6.5VoltLimit = 0.5 
+                    Negative6.5CurrentElementName = DSPS_0_M6p5CurrMon
+                    Negative6.5CurrentLimitMin = 0.0
+                    Negative6.5CurrentLimitMax = 2.5 
+                    Positive90VoltElementName = DSPS_0_P90VoltMon
+                    Positive90VoltExpectedValue = 90.0
+                    Positive90VoltLimit = 5.0
+                    Positive90CurrentElementName = DSPS_0_P90CurrMon
+                    Positive90CurrentLimitMin = 0.0
+                    Positive90CurrentLimitMax = 0.015

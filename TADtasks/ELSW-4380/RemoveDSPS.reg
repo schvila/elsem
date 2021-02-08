@@ -1,0 +1,8 @@
+
+; Remove DSPS test
+HKEY_LOCAL_MACHINE\SOFTWARE\FEI\Tadbrickbox\configurations\<tadconfig_name>\TAD-bbox
+    TADxtDbDfBrick
+        TADxtDbDfBrickMgr
+            Detection - New detectors
+                DSPS Functional Test
+                DSPS Functional Test [delete]
