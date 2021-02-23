@@ -2,7 +2,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
     TadXtDesuBrick
         TadXtDesuBrickMgr
             Desu
-                 Output voltages Advanced
+                 Advanced Voltage Tests
                     Description = Output voltages Advanced
                     DlgProgId = TADUIAUTOTESTDLG.TADUIAutoTestDlgCtrl.1
                     HelpBaseId = REG_DWORD 0x40030400
@@ -37,8 +37,10 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             "ValueSetterWithPause(Set4kV, 4000, """")" \
                             "VoltageTest(Get4kV, 4000, ""4kV"")"
                         TestIndex_8 = "HvGenSwitch(HvGenCommand, 0x01)"
-                        TestIndex_9 = "SupTadSwitch(Sup800250Command, 0x06)"
-                        TestIndex_10 = REG_MULTI_SZ "ValueSetterWithPause(Regulate800V, 0, ""Regulate 0V"")" \
+                        TestIndex_9 = "SupTadSwitch(Sup800250Command, 0x03)"
+                        TestIndex_10 = "SupTadSwitch(Sup800250Command, 0x05)"
+                        TestIndex_11 = "SupTadSwitch(Sup800250Command, 0x06)"
+                        TestIndex_12 = REG_MULTI_SZ "ValueSetterWithPause(Regulate800V, 0, ""Regulate 0V"")" \
                             "SupTadSwitch(Sup800250Command, 0x07)" \
                             "TadVoltageTest(Adc800Val, 0, ""800V"")" \
                             "ValueSetterWithPause(Regulate800V, 50, ""Regulate 50V"")" \
@@ -53,10 +55,10 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             "ValueSetterWithPause(Regulate800V, 800, ""Regulate 800V"")" \
                             "SupTadSwitch(Sup800250Command, 0x07)" \
                             "TadVoltageTest(Adc800Val, 800, ""800V"")"                        
-                        TestIndex_11 = "SupTadSwitch(Sup800250Command, 0x08)"
-                        TestIndex_12 = ShowInfo("10kV tests", "===========")
-                        TestIndex_13 = "Rel10Switch(Rel10kVCommand, 0x01)"
-                        TestIndex_14 = REG_MULTI_SZ "ValueSetterWithPause(Set4kV, 500, """")" \
+                        TestIndex_13 = "SupTadSwitch(Sup800250Command, 0x08)"
+                        TestIndex_14 = ShowInfo("10kV tests", "===========")
+                        TestIndex_15 = "Rel10Switch(Rel10kVCommand, 0x01)"
+                        TestIndex_16 = REG_MULTI_SZ "ValueSetterWithPause(Set4kV, 500, """")" \
                             "VoltageTest10kv(Get10kV, 500, ""10kV"")" \
                             "ValueSetterWithPause(Set4kV, 2000, """")" \
                             "VoltageTest10kv(Get10kV, 2500, ""10kV"")" \

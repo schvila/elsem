@@ -1,0 +1,1 @@
+c:\work\RegTools\RegIni264.exe C:\_dv\elsem\TADtasks\3157org2\desuNew\tests\voltage.reg
