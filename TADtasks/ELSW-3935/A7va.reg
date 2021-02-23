@@ -36,39 +36,8 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             "VoltageTest(Get4kV, 2000, ""4kV"")" \
                             "ValueSetterWithPause(Set4kV, 4000, """")" \
                             "VoltageTest(Get4kV, 4000, ""4kV"")"
-                        TestIndex_8 = "HvGenSwitch(HvGenCommand, 0x01)"
-                        TestIndex_9 = "SupTadSwitch(Sup800250Command, 0x06)"
-                        TestIndex_10 = REG_MULTI_SZ "ValueSetterWithPause(Regulate800V, 0, ""Regulate 0V"")" \
-                            "SupTadSwitch(Sup800250Command, 0x07)" \
-                            "TadVoltageTest(Adc800Val, 0, ""800V"")" \
-                            "ValueSetterWithPause(Regulate800V, 50, ""Regulate 50V"")" \
-                            "SupTadSwitch(Sup800250Command, 0x07)" \
-                            "TadVoltageTest(Adc800Val, 50, ""800V"")" \
-                            "ValueSetterWithPause(Regulate800V, 200, ""Regulate 200V"")" \
-                            "SupTadSwitch(Sup800250Command, 0x07)" \
-                            "TadVoltageTest(Adc800Val, 200, ""800V"")" \
-                            "ValueSetterWithPause(Regulate800V, 400, ""Regulate 400V"")" \
-                            "SupTadSwitch(Sup800250Command, 0x07)" \
-                            "TadVoltageTest(Adc800Val, 400, ""800V"")" \
-                            "ValueSetterWithPause(Regulate800V, 800, ""Regulate 800V"")" \
-                            "SupTadSwitch(Sup800250Command, 0x07)" \
-                            "TadVoltageTest(Adc800Val, 800, ""800V"")"                        
-                        TestIndex_11 = "SupTadSwitch(Sup800250Command, 0x08)"
-                        TestIndex_12 = ShowInfo("10kV tests", "===========")
-                        TestIndex_13 = "Rel10Switch(Rel10kVCommand, 0x01)"
-                        TestIndex_14 = REG_MULTI_SZ "ValueSetterWithPause(Set4kV, 500, """")" \
-                            "VoltageTest10kv(Get10kV, 500, ""10kV"")" \
-                            "ValueSetterWithPause(Set4kV, 2000, """")" \
-                            "VoltageTest10kv(Get10kV, 2500, ""10kV"")" \
-                            "ValueSetterWithPause(Set4kV, 4000, """")" \
-                            "VoltageTest(Get10kV, 4000, ""10kV"")"
                         HvGenCommand
                             ODPrimitivePath = DESU/HvGenCommand
-                            ODPrimitiveType = Command
-                            SetterExpression =HvCommandValue
-                            Type = ValueSetter
-                        Rel10kVCommand
-                            ODPrimitivePath = DESU/Rel10kVCommand
                             ODPrimitiveType = Command
                             SetterExpression =HvCommandValue
                             Type = ValueSetter
@@ -105,18 +74,8 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             Type = ODValueGetter
                             ODPrimitivePath = DESU/Adc4kV
                             ODPrimitiveType = ADC
-                        Get10kV
-                            Type = ODValueGetter
-                            ODPrimitivePath = DESU/Adc10kV
-                            ODPrimitiveType = ADC
                         
                     Tests
-                        Rel10Switch
-                            Description =Rel10Switch
-                            Type = ValueWriter
-                            Message_1 = Info;" "
-                            IsTestHidden = true
-                            Signature = "(ODSetter ADCCommand, Variable HvCommandValue)"
                         HvGenSwitch
                             Description =HvGenSwitch
                             Type = ValueWriter
@@ -141,13 +100,13 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             Expression_1 = REG_MULTI_SZ "ExpectPerc = ExpectedV*VPercent" \
                             "abs(ExpectedV-abs(MeasuredV)) <= ExpectPerc"
                             Message_1 = Info;"Test passed measured: %1%V" << MeasuredV
-                            Message_2 = Error;"Test Failed Expected %1%V measured %2%V limit %3%" << ExpectedV << MeasuredV << ExpectPerc
+                            Message_2 = Error;"Test Failed Expected %1%V measured %2%V" << ExpectedV << MeasuredV
                             MinimalDelayinms = 500
                             Signature = (Variable MeasuredV, Variable ExpectedV, Variable DescriptionString)
                             Type = ValueReadout
                             VPercent
                                 Type = Constant
-                                Value = 0.05
+                                Value = 1.05
                         ProtectionOFF
                             Description =HvGenSwitch
                             Type = ValueWriter
@@ -173,29 +132,13 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             MinimalDelayinms = 300
                         VoltageTest
                             Description = "%1%: (%2%V)" << DescriptionString << ExpectedV
-                            Expression_1 = REG_MULTI_SZ "ExpectPerc = ExpectedV*VPercent" \
-                            "abs(ExpectedV-abs(MeasuredV)) <= ExpectPerc"
+                            Expression_1 = true
                             Message_1 = Info;"Expected: %1%,mesured %2%" << ExpectedV << MeasuredV
-                            Message_2 = Error;"Test Failed Expected %1%V measured %2%V limit %3%" << ExpectedV << MeasuredV << ExpectPerc
+                            Message_2 = Error;"Test Failed Expected %1%V measured %2%V" << ExpectedV << MeasuredV
                             MinimalDelayinms = 500
                             Signature = (Variable MeasuredV, Variable ExpectedV, Variable DescriptionString)
                             Type = ValueReadout
-                            VPercent
-                                Type = Constant
-                                Value = 0.05
-                        VoltageTest10kv
-                            Description = "%1%: (%2%V)" << DescriptionString << ExpectedV
-                            Expression_1 = REG_MULTI_SZ "ExpectPerc = ExpectedV*VPercent" \
-                            "MeasureToV = abs(MeasuredV)/2.5" \
-                            "abs(ExpectedV-MeasureToV) <= ExpectPerc"
-                            Message_1 = Info;"Expected: %1%,mesured %2%" << ExpectedV << MeasuredV
-                            Message_2 = Error;"Test Failed Expected %1%V measured %2%V limit %3%" << ExpectedV << MeasuredV << ExpectPerc
-                            MinimalDelayinms = 500
-                            Signature = (Variable MeasuredV, Variable ExpectedV, Variable DescriptionString)
-                            Type = ValueReadout
-                            VPercent
-                                Type = Constant
-                                Value = 0.05
+
                         AppVersion
                             Description="Application version"
                             Expression_1 = true
