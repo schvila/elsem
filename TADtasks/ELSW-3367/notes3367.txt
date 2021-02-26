@@ -1,0 +1,18 @@
+*Done · Dark current measurement test (actual name ‘Dark Currents Test’) 
+ELSW-3157: DESU TAD 1.0VERIFY
+*Done · Internal voltage tests (desired/final name ‘Basic Voltage Test’) 
+ELSW-3157: DESU TAD 1.0VERIFY
+--ToDo · Internal IO voltage tests (desired/final name ‘IO Voltage Test’) 
+ELSW-4619: DESU TAD 1.0 - IO voltage testTO DO 
+*Done Internal and external voltage tests HiVac (desired/final name ‘HiVac Advanced Voltage Test’)
+ELSW-3935: DESU TAD 2.0 - Output voltages tests advancedVERIFY 
+· Internal and external voltage tests LoVac (desired/final name ‘LoVac Advanced Voltage Test’)
+--ToDo ELSW-4623: DESU TAD 1.0 - "LoVac Advanced voltage test" TO DO 
+ 
+renamed:
+c:\work\RegTools\RegIni264.exe C:\_dv\elsem\TADtasks\ELSW-3367\darkcurrent.reg
+c:\work\RegTools\RegIni264.exe C:\_dv\elsem\TADtasks\ELSW-3367\voltage.reg
+c:\work\RegTools\RegIni264.exe C:\_dv\elsem\TADtasks\ELSW-3367\voltageAdvanced.reg
+new:
+c:\work\RegTools\RegIni264.exe C:\_dv\elsem\TADtasks\ELSW-3367\voltageIO.reg
+c:\work\RegTools\RegIni264.exe C:\_dv\elsem\TADtasks\ELSW-3367\voltageLoVacAdv.reg

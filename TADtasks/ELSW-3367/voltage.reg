@@ -5,7 +5,9 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                 DESU Voltage Tests
                 DESU Voltage Tests [delete]
                 Voltage Tests
-                    Description = DESU Voltage Tests
+                Voltage Tests [delete]
+                Basic Voltage Tests
+                    Description = Basic Voltage Tests
                     DlgProgId = TADUIAUTOTESTDLG.TADUIAutoTestDlgCtrl.1
                     HelpBaseId = REG_DWORD 0x40030400
                     IsMonitorTest = false
@@ -33,10 +35,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                         TestIndex_10 = REG_MULTI_SZ "ValueSetterWithPause(Regulate800V, 250, ""Regulate 250V"")" \
                             "SupTadSwitch(Sup800250Command, 0x07)" \
                             "TadVoltageTest(Adc800Val, 250, ""Test 250V(no output)"")"
-                        TestIndex_11 = REG_MULTI_SZ "ValueSetterWithPause(Regulate800V, 800, ""Regulate 800V"")" \
-                            "SupTadSwitch(Sup800250Command, 0x07)" \
-                            "TadVoltageTest(Adc800Val, 800, ""Test 800V(no output)"")"
-                        TestIndex_12 = "SupTadSwitch(Sup800250Command, 0x08)"
+                        TestIndex_11 = "SupTadSwitch(Sup800250Command, 0x08)"
                         HvGenCommand
                             ODPrimitivePath = DESU/HvGenCommand
                             ODPrimitiveType = Command
@@ -81,7 +80,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             Type = ValueReadout
                             VPercent
                                 Type = Constant
-                                Value = 0.03
+                                Value = 0.05
                         ValueSetterWithPause
                             Type = ValueWriter
                             Description = "%1% : %2%" << DescriptionString << SetterValue

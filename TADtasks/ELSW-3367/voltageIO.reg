@@ -1,0 +1,113 @@
+HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-bbox
+    TadXtDesuBrick
+        TadXtDesuBrickMgr
+            Desu
+                IO voltage test
+                    Description = IO voltage test
+                    DlgProgId = TADUIAUTOTESTDLG.TADUIAutoTestDlgCtrl.1
+                    HelpBaseId = REG_DWORD 0x40030400
+                    IsMonitorTest = false
+                    Labels = Description\\t Results
+                    OrderPriority = REG_DWORD 0x00000040
+                    Type = SCUTadTestManager
+                    ODPrimitiveProviders
+                        DESU
+                            Type = default
+                            AppName = DESU
+                            SCU_ID = DESU
+                    TestExecutor
+                        Type = SequentialTestExecutor
+                        TestIndex_1 = "AppVersion"
+                        TestIndex_2 = "FirmwareVersion"
+                        TestIndex_3 = "Hivac"
+                        TestIndex_4 = "PowerOK"
+                        TestIndex_5 = "StoreLvdfeState"
+                        TestIndex_6 = SupLvdfe(SupLvdfeCommand, 1)
+                        TestIndex_7 = "CheckLvdFE"
+                        TestIndex_8 = SupLvdfe(SupLvdfeCommand, OrgLvdfeState)
+                        SupLvdfeCommand
+                            ODPrimitivePath = DESU/SupLvdfeCommand
+                            ODPrimitiveType = Command
+                            SetterExpression =HvCommandValue
+                            Type = ValueSetter
+                        OrgLvdfeState
+                            OwnerTestName = StoreLvdfeState
+                            Type = ExternalTestVariable
+                            VariableName = OrgLvdfeState
+
+                    Tests
+                        StoreLvdfeState
+                            Description ="StoreLvdfeState"
+                            Type = ValueWriter
+                            Expression_1 = REG_MULTI_SZ "OrgLvdfeState = SupLvdfeState" \
+                            "true"
+                            Message_1 = Info;"OrgLvdfeState: %1% " << OrgLvdfeState
+                            IsTestHidden = true
+                            SupLvdfeState
+                                Type = ODValueGetter
+                                ODPrimitivePath = DESU/SupLvdfeState
+                                ODPrimitiveType = State
+                        SupLvdfe
+                            Description =SupLvdfe
+                            Type = ValueWriter
+                            Message_1 = Info;" "
+                            IsTestHidden = true
+                            Signature = "(ODSetter ADCCommand, Variable HvCommandValue)"
+                        CheckLvdFE
+                            Description="Check LVD FE"
+                            Expression_1 = AdcVal >= 11.4 && AdcVal <= 12.6
+                            Message_1 = Info;"PASSED"
+                            Message_2 = Error;"FAILED measured: %1%V" << AdcVal
+                            Type = ValueReadout
+                            AdcVal
+                                Type = ODValueGetter
+                                ODPrimitivePath = DESU/AdcFsupTest
+                                ODPrimitiveType = ADC
+                        ValueSetterWithPause
+                            Type = ValueWriter
+                            Description = "%1% : %2%" << DescriptionString << SetterValue
+                            Message_1 = Info;"Done"
+                            Signature = "(ODSetter SetterDAC, Variable SetterValue, Variable DescriptionString)"
+                            IsTestHidden = true
+                            MinimalDelayinms = 300
+                        AppVersion
+                            Description="Application version"
+                            Expression_1 = true
+                            Message_1 = Info;"Application version = %1$#x" << AppVersion
+                            Type = ValueReadout
+                            AppVersion
+                                Type = ODValueGetter
+                                ODPrimitivePath =DESU/AppVersion
+                                ODPrimitiveType =Version
+                        PowerOK
+                            Description="TAD PowerOk"
+                            Expression_1 = PowerOKState == 0
+                            Message_1 = Info;"PASSED"
+                            Message_2 = Error;"FAILED PowerOK: %1%" << PowerOKState
+                            Type = ValueReadout
+                            PowerOKState
+                                Type = ODValueGetter
+                                ODPrimitivePath = DESU/PowerOk
+                                ODPrimitiveType = State
+                        FirmwareVersion
+                            Description="Firmware version"
+                            Expression_1 = true
+                            Message_1 = Info;"FirmwareVersion version = %1$#x" << FirmwareVersion
+                            Type = ValueReadout
+                            FirmwareVersion
+                                Type = ODValueGetter
+                                ODPrimitivePath =DESU/FirmwareVersion
+                                ODPrimitiveType =Version
+                        Hivac
+                            Description = "Test HiVac"
+                            Expression_1 = HvInterlock == HiVacExpected
+                            Message_1 = Info;"Pumped to HiVac"
+                            Message_2 =Error;"NO HiVac"
+                            Type = ValueReadout
+                            HvInterlock
+                                Type = ODValueGetter
+                                ODPrimitivePath = DESU/HvInterlock
+                                ODPrimitiveType = State
+                            HiVacExpected
+                                Type = Constant
+                                Value = 0x1

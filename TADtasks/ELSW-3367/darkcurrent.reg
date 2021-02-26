@@ -3,7 +3,9 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
         TadXtDesuBrickMgr
             Desu
                 Informative Dark Current Test
-                    Description = Informative Dark Current Test
+                Informative Dark Current Test [delete]
+                Dark Currents Test
+                    Description = Dark Currents Test
                     DlgProgId = TADUIAUTOTESTDLG.TADUIAutoTestDlgCtrl.1
                     HelpBaseId = REG_DWORD 0x40030400
                     IsMonitorTest = false

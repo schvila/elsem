@@ -3,7 +3,9 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
         TadXtDesuBrickMgr
             Desu
                  Advanced Voltage Tests
-                    Description = Output voltages Advanced
+                 Advanced Voltage Tests [delete]
+                 HiVac Advanced Voltage Test
+                    Description = HiVac Advanced Voltage Test
                     DlgProgId = TADUIAUTOTESTDLG.TADUIAutoTestDlgCtrl.1
                     HelpBaseId = REG_DWORD 0x40030400
                     IsMonitorTest = false
