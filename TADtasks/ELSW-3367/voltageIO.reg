@@ -52,6 +52,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             Type = ValueWriter
                             Message_1 = Info;" "
                             IsTestHidden = true
+							MinimalDelayinms = 2000
                             Signature = "(ODSetter ADCCommand, Variable HvCommandValue)"
                         CheckLvdFE
                             Description="Check LVD FE"
@@ -59,6 +60,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             Message_1 = Info;"PASSED"
                             Message_2 = Error;"FAILED measured: %1%V" << AdcVal
                             Type = ValueReadout
+							MinimalDelayinms = 1000
                             AdcVal
                                 Type = ODValueGetter
                                 ODPrimitivePath = DESU/AdcFsupTest

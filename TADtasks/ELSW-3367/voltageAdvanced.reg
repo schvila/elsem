@@ -22,7 +22,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                         TestIndex_1 = "AppVersion"
                         TestIndex_2 = "FirmwareVersion"
                         TestIndex_3 = "Hivac"
-                        TestIndex_4 = ProtectionOFF(ProtectCMD, 0x0)
+                        TestIndex_4 = ProtectionChange(ProtectCMD, 0x0)
                         TestIndex_5 = ShowInfo("-4kV tests", "===========")
                         TestIndex_6 = REG_MULTI_SZ "ChangeOutput(OutputCMD, 0x06, ""Output OFF"")" \
                             "ValueSetterWithPause(Set4kV, 500, """")" \
@@ -42,10 +42,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                         TestIndex_9 = "SupTadSwitch(Sup800250Command, 0x03)"
                         TestIndex_10 = "SupTadSwitch(Sup800250Command, 0x05)"
                         TestIndex_11 = "SupTadSwitch(Sup800250Command, 0x06)"
-                        TestIndex_12 = REG_MULTI_SZ "ValueSetterWithPause(Regulate800V, 0, ""Regulate 0V"")" \
-                            "SupTadSwitch(Sup800250Command, 0x07)" \
-                            "TadVoltageTest(Adc800Val, 0, ""800V"")" \
-                            "ValueSetterWithPause(Regulate800V, 50, ""Regulate 50V"")" \
+                        TestIndex_12 = REG_MULTI_SZ ""ValueSetterWithPause(Regulate800V, 50, ""Regulate 50V"")" \
                             "SupTadSwitch(Sup800250Command, 0x07)" \
                             "TadVoltageTest(Adc800Val, 50, ""800V"")" \
                             "ValueSetterWithPause(Regulate800V, 200, ""Regulate 200V"")" \
@@ -66,6 +63,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             "VoltageTest10kv(Get10kV, 2500, ""10kV"")" \
                             "ValueSetterWithPause(Set4kV, 4000, """")" \
                             "VoltageTest(Get10kV, 4000, ""10kV"")"
+						TestIndex_17 = ProtectionChange(ProtectCMD, 0x1)
                         HvGenCommand
                             ODPrimitivePath = DESU/HvGenCommand
                             ODPrimitiveType = Command
@@ -139,20 +137,20 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             Message_1 = Info;"Done"
                             Signature = "(ODSetter SetterDAC, Variable SetterValue, Variable DescriptionString)"
                             IsTestHidden = true
-                            MinimalDelayinms = 300
+                            MinimalDelayinms = 1000
                         TadVoltageTest
                             Description = "%1%: (%2%V)" << DescriptionString << ExpectedV
                             Expression_1 = REG_MULTI_SZ "ExpectPerc = ExpectedV*VPercent" \
                             "abs(ExpectedV-abs(MeasuredV)) <= ExpectPerc"
                             Message_1 = Info;"Test passed measured: %1%V" << MeasuredV
                             Message_2 = Error;"Test Failed Expected %1%V measured %2%V limit %3%" << ExpectedV << MeasuredV << ExpectPerc
-                            MinimalDelayinms = 500
+                            MinimalDelayinms = 5000
                             Signature = (Variable MeasuredV, Variable ExpectedV, Variable DescriptionString)
                             Type = ValueReadout
                             VPercent
                                 Type = Constant
                                 Value = 0.05
-                        ProtectionOFF
+                        ProtectionChange
                             Description =HvGenSwitch
                             Type = ValueWriter
                             Message_1 = Info;" "
@@ -168,20 +166,13 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             Message_1 = Info;"%1%" << InfoString
                             Type = ValueReadout
                             Signature = "(Variable DescriptionString, Variable InfoString)"
-                        ValueSetterWithPause
-                            Type = ValueWriter
-                            Description = "%1%: (%2%V)" << DescriptionString << SetterValue
-                            Message_1 = Info;"Done"
-                            Signature = "(ODSetter SetterDAC, Variable SetterValue, Variable DescriptionString)"
-                            IsTestHidden = true
-                            MinimalDelayinms = 300
                         VoltageTest
                             Description = "%1%: (%2%V)" << DescriptionString << ExpectedV
                             Expression_1 = REG_MULTI_SZ "ExpectPerc = ExpectedV*VPercent" \
                             "abs(ExpectedV-abs(MeasuredV)) <= ExpectPerc"
                             Message_1 = Info;"Expected: %1%,mesured %2%" << ExpectedV << MeasuredV
                             Message_2 = Error;"Test Failed Expected %1%V measured %2%V limit %3%" << ExpectedV << MeasuredV << ExpectPerc
-                            MinimalDelayinms = 500
+                            MinimalDelayinms = 8000
                             Signature = (Variable MeasuredV, Variable ExpectedV, Variable DescriptionString)
                             Type = ValueReadout
                             VPercent
@@ -194,7 +185,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             "abs(ExpectedV-MeasureToV) <= ExpectPerc"
                             Message_1 = Info;"Expected: %1%,mesured %2%" << ExpectedV << MeasuredV
                             Message_2 = Error;"Test Failed Expected %1%V measured %2%V limit %3%" << ExpectedV << MeasuredV << ExpectPerc
-                            MinimalDelayinms = 500
+                            MinimalDelayinms = 8000
                             Signature = (Variable MeasuredV, Variable ExpectedV, Variable DescriptionString)
                             Type = ValueReadout
                             VPercent
