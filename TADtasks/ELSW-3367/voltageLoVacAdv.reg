@@ -19,23 +19,33 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                         Type = SequentialTestExecutor
                         TestIndex_1 = "AppVersion"
                         TestIndex_2 = "FirmwareVersion"
+                        ; **Check Vacuum interlock state and LoVac interlock state
                         TestIndex_3 = "TestLoVac"
+                        ; **DESU 800V tests no output
                         TestIndex_6 = "HvGenSwitch(HvGenCommand, 0x01)"
+                        ; SUP_800V_OFF (3)
                         TestIndex_7 = "SupTadSwitch(Sup800250Command, 0x03)"
+                        ; SUP_250V_OFF (5)
                         TestIndex_8 = "SupTadSwitch(Sup800250Command, 0x05)"
+                        ; SUP_TAD_ON (6)
                         TestIndex_9 = "SupTadSwitch(Sup800250Command, 0x06)"
+                        ; 
                         TestIndex_10 = REG_MULTI_SZ "ValueSetterWithPause(Regulate800V, 400, ""Regulate 400V"")" \
                             "SupTadSwitch(Sup800250Command, 0x07)" \
-                            "TadVoltageTest(Adc800Val, 400, ""Test 400V(no output)"")"
+                            "TadVoltageTest(Adc800Val, 400, ""Test 400V(output OFF)"")"
                         TestIndex_11 = REG_MULTI_SZ "ValueSetterWithPause(Regulate800V, 800, ""Regulate 800V"")" \
                             "SupTadSwitch(Sup800250Command, 0x07)" \
-                            "TadVoltageTest(Adc800Val, 800, ""Test 800V(no output)"")"
+                            "TadVoltageTest(Adc800Val, 800, ""Test 800V(output OFF)"")"
                         TestIndex_12 = "HvGenSwitch(HvGenCommand, 0x01)"
+                        ; **Send DESU 400V to output and check again DESU 400V
+                        ; SUP_TAD_OFF (8)
                         TestIndex_13 = "SupTadSwitch(Sup800250Command, 0x08)"
+                        ; SUP_800V_ON (1)
                         TestIndex_14 = "SupTadSwitch(Sup800250Command, 0x01)"
 						TestIndex_15 = "ValueSetterWithPause(Regulate800V, 400, "Regulate 400V")"
+                        ; SUP_REGULATE (2)
 						TestIndex_16 = "SupTadSwitch(Sup800250Command, 0x02)"
-                        TestIndex_17 = "TadVoltageTest(Adc800Val, 400, "Test 400V(output on)")"
+                        TestIndex_17 = "TadVoltageTest(Adc800Val, 400, "Test 400V(output ON)")"
                         HvGenCommand
                             ODPrimitivePath = DESU/HvGenCommand
                             ODPrimitiveType = Command
