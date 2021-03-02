@@ -85,7 +85,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             Description = "%1%" << DescriptionString
                             Expression_1 = REG_MULTI_SZ "ExpectPerc = ExpectedV*VPercent" \
                             "abs(ExpectedV-abs(MeasuredV)) <= ExpectPerc"
-                            Message_1 = Info;"Test passed measured: %1%V in 3%% limit" << MeasuredV
+                            Message_1 = Info;"Test passed measured: %1$.2fV in 5%% limit" << MeasuredV
                             Message_2 = Error;"Test Failed Expected %1%V measured %2%V" << ExpectedV << MeasuredV
                             MinimalDelayinms = 1000
                             Signature = (Variable MeasuredV, Variable ExpectedV, Variable DescriptionString)

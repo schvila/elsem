@@ -26,53 +26,62 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                         TestIndex_3 = "Hivac"
                         TestIndex_4 = "StoreProtection"
                         TestIndex_5 = ProtectionChange(ProtectCMD, 0x0)
-                        TestIndex_6 = ShowInfo("-4kV tests", "===========")
-                        TestIndex_7 = REG_MULTI_SZ "ChangeOutput(OutputCMD, 0x06, ""Output OFF"")" \
+                        TestIndex_6 = "CommandSwitch(HvGenCommand, 0x0)"
+                        TestIndex_7 = ShowInfo("-4kV tests", "===========")
+                        TestIndex_8 = REG_MULTI_SZ "ChangeOutput(OutputCMD, 0x02, ""Output OFF"")" \
                             "ValueSetterWithPause(Set4kV, 500, """")" \
+                            "CommandSwitch(HvGenCommand, 0x1)" \
                             "VoltageTest(Get4kV, 500, ""4kV"")" \
                             "ValueSetterWithPause(Set4kV, 2000, """")" \
                             "VoltageTest(Get4kV, 2000, ""4kV"")" \
                             "ValueSetterWithPause(Set4kV, 4000, """")" \
                             "VoltageTest(Get4kV, 4000, ""4kV"")"
-                        TestIndex_8 = "CommandSwitch(HvGenCommand, 0x01)"
+                        TestIndex_9 = "CommandSwitch(HvGenCommand, 0x01)"
                         ; SUP_800V_OFF (3)
-                        TestIndex_9 = "SupTadSwitch(Sup800250Command, 0x03)"
+                        TestIndex_10 = "SupTadSwitch(Sup800250Command, 0x03)"
                         ; SUP_250V_OFF (5)
-                        TestIndex_10 = "SupTadSwitch(Sup800250Command, 0x05)"
+                        TestIndex_11 = "SupTadSwitch(Sup800250Command, 0x05)"
                         ; SUP_TAD_ON (6)
-                        TestIndex_11 = "SupTadSwitch(Sup800250Command, 0x06)"
+                        TestIndex_12 = "SupTadSwitch(Sup800250Command, 0x06)"
                         ; SUP_TAD_REGULATE (7)
-                        TestIndex_12 = REG_MULTI_SZ "ValueSetterWithPause(Regulate800V, 50, ""Regulate 50V"")" \
+                        TestIndex_13 = REG_MULTI_SZ "ValueSetterWithPause(Regulate800V, 50, ""Regulate 50V"")" \
                             "SupTadSwitch(Sup800250Command, 0x07)" \
                             "TadVoltageTest(Adc800Val, 50, ""250V"")" \
                             "ValueSetterWithPause(Regulate800V, 250, ""Regulate 250V"")" \
                             "SupTadSwitch(Sup800250Command, 0x07)" \
                             "TadVoltageTest(Adc800Val, 250, ""250V"")"
-                        TestIndex_13 = "SupTadSwitch(Sup800250Command, 0x08)"
-                        TestIndex_14 = REG_MULTI_SZ "ChangeOutput(OutputCMD, 0x01, ""Output ON"")" \
+                        TestIndex_14 = "SupTadSwitch(Sup800250Command, 0x08)"
+                        TestIndex_15 = REG_MULTI_SZ "ChangeOutput(OutputCMD, 0x01, ""Output ON"")" \
                             "ValueSetterWithPause(Set4kV, 500, """")" \
                             "VoltageTest(Get4kV, 500, ""4kV"")" \
                             "ValueSetterWithPause(Set4kV, 2000, """")" \
                             "VoltageTest(Get4kV, 2000, ""4kV"")" \
                             "ValueSetterWithPause(Set4kV, 4000, """")" \
                             "VoltageTest(Get4kV, 4000, ""4kV"")"
-                        TestIndex_15 = ShowInfo("10kV tests", "===========")
-                        TestIndex_16 = "Rel10Switch(Rel10kVCommand, 0x01)"
-                        TestIndex_17 = REG_MULTI_SZ "ValueSetterWithPause(Set4kV, 500, """")" \
+                        TestIndex_16 = ShowInfo("10kV tests", "===========")
+                        TestIndex_17 = "CommandSwitch(HvGenCommand, 0x00)"
+                        ; Honza R?
+                        TestIndex_18 = "Rel10Switch(Rel10kVCommand, 0x02)"
+                        TestIndex_19 = REG_MULTI_SZ "ValueSetterWithPause(Set4kV, 200, """")" \
+                            "CommandSwitch(HvGenCommand, 0x01)" \
+                            "ValueSetterWithPause(Set4kV, 200, """")" \
                             "VoltageTest10kv(Get10kV, 500, ""10kV"")" \
-                            "ValueSetterWithPause(Set4kV, 2000, """")" \
+                            "ValueSetterWithPause(Set4kV, 1000, """")" \
                             "VoltageTest10kv(Get10kV, 2500, ""10kV"")" \
-                            "ValueSetterWithPause(Set4kV, 4000, """")" \
-                            "VoltageTest(Get10kV, 4000, ""10kV"")"
-                        TestIndex_18 = "CommandSwitch(Sup90VCommand, 0)"
-                        TestIndex_19 = Test90V_OFF
-                        TestIndex_20 = "CommandSwitch(Sup90VCommand, 1)"
-                        TestIndex_21 = Test90V_ON
-                        TestIndex_22 = "CommandSwitch(SupLvdfeCommand, 0)"
-                        TestIndex_23 = Test9V_OFF
-                        TestIndex_24 = "CommandSwitch(SupLvdfeCommand, 1)"
-                        TestIndex_25 = Test9V_ON
-						TestIndex_26 = ProtectionChange(ProtectCMD, OrgProtection)
+                            "ValueSetterWithPause(Set4kV, 2000, """")" \
+                            "VoltageTest10kv(Get10kV, 5000, ""10kV"")"
+                        TestIndex_20 = "Rel10Switch(Rel10kVCommand, 0x00)"
+                        TestIndex_21 = "Rel10Switch(Rel10kVCommand, 0x01)"
+                        TestIndex_22 = "VoltageTest10kv(Get10kV, 10000, "10kV")"
+                        TestIndex_23 = "CommandSwitch(Sup90VCommand, 0)"
+                        TestIndex_24 = Test90V_OFF
+                        TestIndex_25 = "CommandSwitch(Sup90VCommand, 1)"
+                        TestIndex_26 = Test90V_ON
+                        TestIndex_27 = "SupTadSwitch(Sup800250Command, 0x04)"
+                        TestIndex_28 = REG_MULTI_SZ "ValueSetterWithPause(Regulate800V, 250, ""Regulate 250V"")" \
+                            "SupTadSwitch(Sup800250Command, 0x02)" \
+                            "TadVoltageTest(Adc800Val, 250, ""250V"")"
+                        TestIndex_29 = ProtectionChange(ProtectCMD, OrgProtection)
                         Sup90VCommand
                             ODPrimitivePath = DESU/Sup90VCommand
                             ODPrimitiveType = Command
@@ -152,18 +161,21 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             Type = ValueWriter
                             Message_1 = Info;" "
                             IsTestHidden = true
+                            MinimalDelayinms = 5000
                             Signature = "(ODSetter ADCCommand, Variable HvCommandValue)"
                         CommandSwitch
                             Description =CommandSwitch
                             Type = ValueWriter
                             Message_1 = Info;" "
                             IsTestHidden = true
+                            MinimalDelayinms = 5000
                             Signature = "(ODSetter ADCCommand, Variable HvCommandValue)"
                         SupTadSwitch
                             Description = SupTadSwitch
                             Type = ValueWriter
                             Message_1 = Info;" "
                             IsTestHidden = true
+                            MinimalDelayinms = 2000
                             Signature = "(ODSetter ADCCommand, Variable HvCommandValue)"
                         ValueSetterWithPause
                             Description = "%1% : %2%" << DescriptionString << SetterValue
@@ -171,10 +183,10 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             Signature = "(ODSetter SetterDAC, Variable SetterValue, Variable DescriptionString)"
                             Type = ValueWriter
                             IsTestHidden = true
-                            MinimalDelayinms = 1000
+                            MinimalDelayinms = 10000
                         Test9V_OFF
                             Description = "Test 9V OFF"
-                            Expression_1 = AdcVal == 0
+                            Expression_1 = AdcVal <= 2
                             Message_1 = Info;"PASSED"
                             Message_2 = Error;"FAILED measured: %1%V" << AdcVal
                             Type = ValueReadout
@@ -198,7 +210,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                                 ODPrimitiveType = ADC
                         Test90V_OFF
                             Description = "Test 90V OFF"
-                            Expression_1 = Adc90V == 0
+                            Expression_1 = Adc90V <= 5
                             Message_1 = Info;"PASSED"
                             Message_2 = Error;"FAILED measured: %1%V" << Adc90V
                             Type = ValueReadout
@@ -224,7 +236,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             Description = "%1%: (%2%V)" << DescriptionString << ExpectedV
                             Expression_1 = REG_MULTI_SZ "ExpectPerc = ExpectedV*VPercent" \
                             "abs(ExpectedV-abs(MeasuredV)) <= ExpectPerc"
-                            Message_1 = Info;"Test passed measured: %1%V" << MeasuredV
+                            Message_1 = Info;"Test passed measured: %1$.2fV" << MeasuredV
                             Message_2 = Error;"Test Failed Expected %1%V measured %2%V limit %3%" << ExpectedV << MeasuredV << ExpectPerc
                             MinimalDelayinms = 5000
                             Signature = (Variable MeasuredV, Variable ExpectedV, Variable DescriptionString)
@@ -241,6 +253,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                         ChangeOutput
                             Description = "%1%" << DescriptionString
                             Type = ValueWriter
+							MinimalDelayinms = 10000
                             Message_1 = Info;" "
                             Signature = "(ODSetter ADCCommand, Variable HvCommandValue, Variable DescriptionString)"
                         ShowInfo
@@ -252,7 +265,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             Description = "%1%: (%2%V)" << DescriptionString << ExpectedV
                             Expression_1 = REG_MULTI_SZ "ExpectPerc = ExpectedV*VPercent" \
                             "abs(ExpectedV-abs(MeasuredV)) <= ExpectPerc"
-                            Message_1 = Info;"Expected: %1%,mesured %2%" << ExpectedV << MeasuredV
+                            Message_1 = Info;"Expected: %1%,measured %2$.2f" << ExpectedV << MeasuredV
                             Message_2 = Error;"Test Failed Expected %1%V measured %2%V limit %3%" << ExpectedV << MeasuredV << ExpectPerc
                             MinimalDelayinms = 8000
                             Signature = (Variable MeasuredV, Variable ExpectedV, Variable DescriptionString)
@@ -263,9 +276,9 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                         VoltageTest10kv
                             Description = "%1%: (%2%V)" << DescriptionString << ExpectedV
                             Expression_1 = REG_MULTI_SZ "ExpectPerc = ExpectedV*VPercent" \
-                            "MeasureToV = abs(MeasuredV)/2.5" \
+                            "MeasureToV = abs(MeasuredV)" \
                             "abs(ExpectedV-MeasureToV) <= ExpectPerc"
-                            Message_1 = Info;"Expected: %1%,mesured %2%" << ExpectedV << MeasuredV
+                            Message_1 = Info;"Expected: %1%, measured %2$.2f" << ExpectedV << MeasuredV
                             Message_2 = Error;"Test Failed Expected %1%V measured %2%V limit %3%" << ExpectedV << MeasuredV << ExpectPerc
                             MinimalDelayinms = 8000
                             Signature = (Variable MeasuredV, Variable ExpectedV, Variable DescriptionString)

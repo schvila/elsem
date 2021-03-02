@@ -30,10 +30,12 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                         TestIndex_7 = "SupTadSwitch(Sup800250Command, 0x03)"
                         TestIndex_8 = "SupTadSwitch(Sup800250Command, 0x05)"
                         TestIndex_9 = "SupTadSwitch(Sup800250Command, 0x06)"
-                        TestIndex_10 = REG_MULTI_SZ "ValueSetterWithPause(Regulate800V, 250, ""Regulate 250V"")" \
+                        TestIndex_10 = "HvGenSwitch(HvGenCommand, 0x01)"
+                        TestIndex_11 = "HvGenSwitch(HvGenCommand, 0x01)"
+                        TestIndex_12 = REG_MULTI_SZ "ValueSetterWithPause(Regulate800V, 250, ""Regulate 250V"")" \
                             "SupTadSwitch(Sup800250Command, 0x07)" \
                             "TadVoltageTest(Adc800Val, 250, ""Test 250V(no output)"")"
-                        TestIndex_11 = "SupTadSwitch(Sup800250Command, 0x08)"
+                        TestIndex_13 = "SupTadSwitch(Sup800250Command, 0x08)"
                         HvGenCommand
                             ODPrimitivePath = DESU/HvGenCommand
                             ODPrimitiveType = Command
@@ -59,12 +61,13 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             Description =HvGenSwitch
                             Type = ValueWriter
                             Message_1 = Info;" "
+                            MinimalDelayinms = 1000
                             IsTestHidden = true
                             Signature = "(ODSetter ADCCommand, Variable HvCommandValue)"
                         SupTadSwitch
                             Description = SupTadSwitch
                             Type = ValueWriter
-							MinimalDelayinms = 500
+                            MinimalDelayinms = 500
                             Message_1 = Info;" "
                             IsTestHidden = true
                             Signature = "(ODSetter ADCCommand, Variable HvCommandValue)"
@@ -72,9 +75,9 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             Description = "%1%" << DescriptionString
                             Expression_1 = REG_MULTI_SZ "ExpectPerc = ExpectedV*VPercent" \
                             "abs(ExpectedV-abs(MeasuredV)) <= ExpectPerc"
-                            Message_1 = Info;"Test passed measured: %1%V in 5%% limit" << MeasuredV
+                            Message_1 = Info;"Test passed measured: %1$.2f V in 5%% limit" << MeasuredV
                             Message_2 = Error;"Test Failed Expected %1%V measured %2%V" << ExpectedV << MeasuredV
-                            MinimalDelayinms = 500
+                            MinimalDelayinms = 1000
                             Signature = (Variable MeasuredV, Variable ExpectedV, Variable DescriptionString)
                             Type = ValueReadout
                             VPercent
@@ -86,7 +89,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             Message_1 = Info;"Done"
                             Signature = "(ODSetter SetterDAC, Variable SetterValue, Variable DescriptionString)"
                             IsTestHidden = true
-                            MinimalDelayinms = 300
+                            MinimalDelayinms = 10000
                         AppVersion
                             Description="Application version"
                             Expression_1 = true
@@ -124,6 +127,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                             Message_1 = Info;"%1% original state: %2%" << SuccessMessage << HvCommandResult
                             Message_2 = Error;"%1%" << ErrorMessage
                             Signature = "(ODSetter ADCCommand, Variable HvCommandValue, Variable DescriptionString, Variable SuccessMessage, Variable ErrorMessage)"
+                            MinimalDelayinms = 5000
                             Type = ValueWriter
                             HvCommandResult
                                 Type = ODValueGetter
@@ -132,9 +136,9 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                         Adc4kVtest
                             Description = Check internal -4000V if it is in limits +- 5%%
                             Expression_1 = Adc4kValue >= UpperLimit && Adc4kValue <= LowerLimit
-                            Message_1 = Info;"Internal Voltage   %1% is in 5%% limit" << Adc4kValue
+                            Message_1 = Info;"Internal Voltage   %1$.2f is in 5%% limit" << Adc4kValue
                             Message_2 = Error;"Internal Voltage  = %1% out of +- 5%% limits" << Adc4kValue
-                            MinimalDelayinms = 1000
+                            MinimalDelayinms = 10000
                             Type = ValueWriter
                             LowerLimit
                                 Type = Constant

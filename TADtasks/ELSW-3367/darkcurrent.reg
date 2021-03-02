@@ -2,10 +2,10 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
     TadXtDesuBrick
         TadXtDesuBrickMgr
             Desu
+                Dark Current Test
+                Dark Current Test [delete]
                 Informative Dark Current Test
-                Informative Dark Current Test [delete]
-                Dark Currents Test
-                    Description = Dark Currents Test
+                    Description = Informative Dark Current Test
                     DlgProgId = TADUIAUTOTESTDLG.TADUIAutoTestDlgCtrl.1
                     HelpBaseId = REG_DWORD 0x40030400
                     IsMonitorTest = false
@@ -76,9 +76,10 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                                 ODPrimitiveType = State
                         SampleCurrent
                             Description = "Desu Measured value"
-                            Expression_1 = REG_MULTI_SZ "MeasuredVal = ((Measured - Offset)*Multiplier)*1000000000" \
+                            ;"MeasuredVal = ((MeasAverage - Offset)*Multiplier)*1000000000000"
+                            Expression_1 = REG_MULTI_SZ "MeasuredVal = ((MeasAverage - Offset)*Multiplier)*1000000000000" \
                             "true"
-                            Message_1 = Info;"Measured value:  %1%nA " << MeasuredVal
+                            Message_1 = Info;"Measured value:  %1%pA " << MeasuredVal
                             Type = ValueReadout
                             Multiplier
                                 Type = ODValueGetter
@@ -92,12 +93,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-
                                 Type = ODValueGetter
                                 ODPrimitivePath = DESU/AdcStageCurrentMeas
                                 ODPrimitiveType = ADC
-                            
-
-
-
-
-
-
-
-
+                            MeasAverage
+                                Type = ODValueGetter
+                                ODPrimitivePath = DESU/AdcStageCurrentMeasAverage
+                                ODPrimitiveType = ADC

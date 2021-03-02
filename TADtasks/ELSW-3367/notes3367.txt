@@ -10,3 +10,8 @@ c:\work\RegTools\RegIni264.exe C:\_dv\elsem\TADtasks\ELSW-3367\voltageAdvanced.r
 new:
 c:\work\RegTools\RegIni264.exe C:\_dv\elsem\TADtasks\ELSW-3367\voltageIO.reg
 c:\work\RegTools\RegIni264.exe C:\_dv\elsem\TADtasks\ELSW-3367\voltageLoVacAdv.reg
+
+HiVac:
+IO voltage test
+HiVac Advanced Voltage Test
+Basic Voltage Tests
