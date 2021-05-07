@@ -1,0 +1,23 @@
+samples
+//c:\xt\server\XT\install\src\tad\vacuum2\vsc\Vacuum_status.reg
+
+//c:\work\RegTools\RegIni264.exe C:\_dv\elsem\TADtasks\ELSW-3157\desu\darkcurrent.reg
+/*
+HKEY_LOCAL_MACHINE\SOFTWARE\FEI\tadbrickbox\Configurations\<tadconfig_name>\TAD-bbox
+    AuxTadserverBrick
+        AuxTadserverBrickMgr
+            TadServer
+                Type = TadServerElement
+                TadXtDesuBrick
+                    OrderPriority = REG_DWORD 0x00000050
+                    TestGroupName = Desu
+    TadXtDesuBrick
+        ClassName = FeiTadXtSCU.TadXtSCUBrick
+        Type = Brick
+        TadXtDesuBrickMgr
+            Type = xtSCUManager
+            Desu
+                Type = TadGroupFactory
+
+*/
+
